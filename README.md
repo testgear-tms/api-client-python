@@ -1,5 +1,5 @@
 # TestGear TMS API client for Python
-![TestGear](https://raw.githubusercontent.com/testgear-tms/api-client-python/master/images/banner.png)
+![TestGear](https://raw.githubusercontent.com/testgear-tms/api-client-python/main/images/banner.png)
 
 # Getting Started
 
