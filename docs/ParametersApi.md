@@ -35,9 +35,9 @@ Create multiple parameters
 import time
 import testgear_api_client
 from testgear_api_client.api import parameters_api
-from testgear_api_client.model.parameter_post_model import ParameterPostModel
 from testgear_api_client.model.parameter_model import ParameterModel
 from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.parameter_post_model import ParameterPostModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -102,7 +102,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Success |  -  |
+**201** | Created |  -  |
 **400** | &lt;br&gt;- Parameter model is not valid |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -149,7 +149,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     api_instance = parameters_api.ParametersApi(api_client)
     parameter_put_model = [
         ParameterPutModel(
-            id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+            id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
             value="value_example",
             name="name_example",
         ),
@@ -189,10 +189,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Success |  -  |
-**422** | Client Error |  -  |
-**400** | &lt;br&gt;- Parameter model is not valid |  -  |
 **403** | Invalid user permissions |  -  |
+**422** | Client Error |  -  |
+**204** | No Content |  -  |
+**400** | &lt;br&gt;- Parameter model is not valid |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -211,8 +211,8 @@ Get parameters as group
 import time
 import testgear_api_client
 from testgear_api_client.api import parameters_api
-from testgear_api_client.model.problem_details import ProblemDetails
 from testgear_api_client.model.parameter_group_model import ParameterGroupModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -535,9 +535,9 @@ Create parameter
 import time
 import testgear_api_client
 from testgear_api_client.api import parameters_api
-from testgear_api_client.model.parameter_post_model import ParameterPostModel
 from testgear_api_client.model.parameter_model import ParameterModel
 from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.parameter_post_model import ParameterPostModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -601,7 +601,7 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **400** | Bad Request |  -  |
-**201** | Success |  -  |
+**201** | Created |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -679,9 +679,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**422** | Parameter is in use in iterations |  -  |
-**204** | Success |  -  |
 **400** | Provided name either is empty or contains only white spaces |  -  |
+**422** | Parameter is in use in iterations |  -  |
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -758,9 +758,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Success |  -  |
-**403** | Invalid user permissions |  -  |
 **422** | Parameter is in use in iterations |  -  |
+**403** | Invalid user permissions |  -  |
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -838,9 +838,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
 **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
 **422** | Parameter is in use in iterations |  -  |
+**200** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -859,8 +859,8 @@ Get all parameters
 import time
 import testgear_api_client
 from testgear_api_client.api import parameters_api
-from testgear_api_client.model.problem_details import ProblemDetails
 from testgear_api_client.model.parameter_model import ParameterModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -930,8 +930,8 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**201** | Created |  -  |
 **403** | Invalid user permissions |  -  |
-**201** | Success |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -950,8 +950,8 @@ Get parameter by ID
 import time
 import testgear_api_client
 from testgear_api_client.api import parameters_api
-from testgear_api_client.model.problem_details import ProblemDetails
 from testgear_api_client.model.parameter_model import ParameterModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1130,7 +1130,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     parameter_put_model = ParameterPutModel(
-        id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+        id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
         value="value_example",
         name="name_example",
     ) # ParameterPutModel |  (optional)
@@ -1169,8 +1169,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | No Content |  -  |
 **400** | &lt;br&gt;- ID is not valid  &lt;br&gt;- DTO is not valid |  -  |
-**204** | Success |  -  |
 **404** | Parameter with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

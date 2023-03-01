@@ -23,7 +23,6 @@ from testgear_api_client.api.notifications_api import NotificationsApi
 from testgear_api_client.api.parameters_api import ParametersApi
 from testgear_api_client.api.projects_api import ProjectsApi
 from testgear_api_client.api.sections_api import SectionsApi
-from testgear_api_client.api.step_comments_api import StepCommentsApi
 from testgear_api_client.api.tags_api import TagsApi
 from testgear_api_client.api.test_plans_api import TestPlansApi
 from testgear_api_client.api.test_points_api import TestPointsApi

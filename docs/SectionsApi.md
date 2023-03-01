@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**delete_section**](SectionsApi.md#delete_section) | **DELETE** /api/v2/sections/{id} | Delete section
 [**get_section_by_id**](SectionsApi.md#get_section_by_id) | **GET** /api/v2/sections/{id} | Get section
 [**get_work_items_by_section_id**](SectionsApi.md#get_work_items_by_section_id) | **GET** /api/v2/sections/{id}/workItems | Get section work items
-[**move**](SectionsApi.md#move) | **POST** /api/v2/sections/move | Move section
+[**move**](SectionsApi.md#move) | **POST** /api/v2/sections/move | Move section with all work items into another section
 [**rename**](SectionsApi.md#rename) | **POST** /api/v2/sections/rename | Rename section
 [**update_section**](SectionsApi.md#update_section) | **PUT** /api/v2/sections | Update section
 
@@ -28,10 +28,10 @@ Create section
 import time
 import testgear_api_client
 from testgear_api_client.api import sections_api
-from testgear_api_client.model.problem_details import ProblemDetails
 from testgear_api_client.model.section_with_steps_model import SectionWithStepsModel
-from testgear_api_client.model.section_post_model import SectionPostModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.section_post_model import SectionPostModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -55,27 +55,27 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
     section_post_model = SectionPostModel(
-        name="31337224-8fed-438c-8ab2-aa59e58ce1cd",
-        project_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
-        parent_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+        name="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
+        project_id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
+        parent_id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
         precondition_steps=[
             StepPutModel(
-                id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+                id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
                 action="User press the button",
                 expected="System makes a beeeep sound",
                 test_data="Some variables values",
                 comments="Comment on what to look for",
-                work_item_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+                work_item_id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
             ),
         ],
         postcondition_steps=[
             StepPutModel(
-                id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+                id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
                 action="User press the button",
                 expected="System makes a beeeep sound",
                 test_data="Some variables values",
                 comments="Comment on what to look for",
-                work_item_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+                work_item_id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
             ),
         ],
     ) # SectionPostModel |  (optional)
@@ -115,12 +115,12 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Success |  -  |
 **400** | Cannot create section without parent ID |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test library is required |  -  |
-**404** | Parent section with provided ID was not found |  -  |
 **409** | Section with the same name already exists in the parent section |  -  |
+**201** | Created |  -  |
+**404** | Parent section with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -199,10 +199,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** | Unauthorized |  -  |
-**403** | Delete permission for test library is required |  -  |
-**204** | Success |  -  |
 **409** | Conflict |  -  |
+**204** | No Content |  -  |
 **400** | Bad Request |  -  |
+**403** | Delete permission for test library is required |  -  |
 **404** | Section with provided ID was not found |  -  |
 **422** | Cannot delete root section |  -  |
 
@@ -223,8 +223,8 @@ Get section
 import time
 import testgear_api_client
 from testgear_api_client.api import sections_api
-from testgear_api_client.model.problem_details import ProblemDetails
 from testgear_api_client.model.section_with_steps_model import SectionWithStepsModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -296,10 +296,10 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** | Read permission for test library is required |  -  |
+**404** | Section with provided ID was not found |  -  |
+**401** | Unauthorized |  -  |
 **200** | Success |  -  |
 **400** | Bad Request |  -  |
-**401** | Unauthorized |  -  |
-**404** | Section with provided ID was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -318,8 +318,8 @@ Get section work items
 import time
 import testgear_api_client
 from testgear_api_client.api import sections_api
-from testgear_api_client.model.problem_details import ProblemDetails
 from testgear_api_client.model.work_item_short_model import WorkItemShortModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -406,20 +406,18 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
-**401** | Unauthorized |  -  |
 **403** | Read permission for test library is required |  -  |
 **404** | Section with provided ID was not found |  -  |
+**401** | Unauthorized |  -  |
+**200** | Success |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | &lt;br&gt;- &#x60;orderBy&#x60; statement must have one &#x60;.&#x60; and no &#x60;,&#x60; symbols  &lt;br&gt;- &#x60;orderBy&#x60; statement has invalid length  &lt;br&gt;- &#x60;orderBy&#x60; statement must have UUID as attribute key  &lt;br&gt;- Search field was not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **move**
 > move()
 
-Move section
-
-<br>Can be moved inside another section. It is possible to indicate a project  <br>Use case  <br>User sets section identifier, old parent identifier, parent identifier and  next section identifier (listed in request example)  <br>User runs method execution  <br>System search section by the identifier  <br>System unlink section from the old parent and links to the new one  <br>System updates section rank using the next section identifier  <br>System returns no content response
+Move section with all work items into another section
 
 ### Example
 
@@ -429,9 +427,8 @@ Move section
 import time
 import testgear_api_client
 from testgear_api_client.api import sections_api
-from testgear_api_client.model.problem_details import ProblemDetails
 from testgear_api_client.model.section_move_model import SectionMoveModel
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -456,15 +453,15 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     api_instance = sections_api.SectionsApi(api_client)
     section_move_model = SectionMoveModel(
         id="id_example",
-        old_parent_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
-        parent_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
-        next_section_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+        old_parent_id="old_parent_id_example",
+        parent_id="parent_id_example",
+        next_section_id="next_section_id_example",
     ) # SectionMoveModel |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        # Move section
+        # Move section with all work items into another section
         api_instance.move(section_move_model=section_move_model)
     except testgear_api_client.ApiException as e:
         print("Exception when calling SectionsApi->move: %s\n" % e)
@@ -495,13 +492,8 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | &lt;br&gt;- Section with provided ID was not found  &lt;br&gt;- Parent section with provided ID was not found |  -  |
-**409** | Section was modified |  -  |
-**204** | Success |  -  |
-**400** | Action leads to section loop |  -  |
-**401** | Unauthorized |  -  |
 **403** | Update permission for test library is required |  -  |
-**422** | Cannot move root section |  -  |
+**204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -545,7 +537,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
     section_rename_model = SectionRenameModel(
-        id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+        id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
         name="New root section",
     ) # SectionRenameModel |  (optional)
 
@@ -583,11 +575,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**404** | Section with provided ID was not found |  -  |
 **409** | Section with the same name already exists in the parent section |  -  |
+**204** | No Content |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for test library is required |  -  |
-**204** | Success |  -  |
+**404** | Section with provided ID was not found |  -  |
 **422** | Root section cannot be renamed |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -634,27 +626,27 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     api_instance = sections_api.SectionsApi(api_client)
     section_put_model = SectionPutModel(
         id="id_example",
-        name="31337224-8fed-438c-8ab2-aa59e58ce1cd",
-        project_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
-        parent_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+        name="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
+        project_id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
+        parent_id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
         precondition_steps=[
             StepPutModel(
-                id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+                id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
                 action="User press the button",
                 expected="System makes a beeeep sound",
                 test_data="Some variables values",
                 comments="Comment on what to look for",
-                work_item_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+                work_item_id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
             ),
         ],
         postcondition_steps=[
             StepPutModel(
-                id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+                id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
                 action="User press the button",
                 expected="System makes a beeeep sound",
                 test_data="Some variables values",
                 comments="Comment on what to look for",
-                work_item_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+                work_item_id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
             ),
         ],
     ) # SectionPutModel |  (optional)
@@ -693,13 +685,13 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
-**204** | Success |  -  |
-**409** | Section with the same name already exists in the parent section |  -  |
-**400** | &lt;br&gt;- ID is invalid  &lt;br&gt;- Root section cannot be create |  -  |
-**422** | &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed |  -  |
-**403** | Update permission for test library is required |  -  |
 **404** | &lt;br&gt;- Section cannot be found  &lt;br&gt;- Parent section cannot be found  &lt;br&gt;- Project cannot be found |  -  |
+**422** | &lt;br&gt;- Root section cannot be edited  &lt;br&gt;- Parent ID cannot be changed  &lt;br&gt;- Project ID cannot be changed |  -  |
+**204** | No Content |  -  |
+**400** | &lt;br&gt;- ID is invalid  &lt;br&gt;- Root section cannot be create |  -  |
+**401** | Unauthorized |  -  |
+**403** | Update permission for test library is required |  -  |
+**409** | Section with the same name already exists in the parent section |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
