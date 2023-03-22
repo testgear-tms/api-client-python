@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **api_v2_configurations_create_by_parameters_post**
-> [str] api_v2_configurations_create_by_parameters_post()
+> api_v2_configurations_create_by_parameters_post()
 
 Create Configurations by parameters
 
@@ -27,8 +27,8 @@ import time
 import testgear_api_client
 from testgear_api_client.api import configurations_api
 from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from testgear_api_client.model.configuration_by_parameters_model import ConfigurationByParametersModel
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -52,7 +52,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     configuration_by_parameters_model = ConfigurationByParametersModel(
-        project_id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+        project_id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
         parameter_ids=[
             "parameter_ids_example",
         ],
@@ -62,8 +62,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create Configurations by parameters
-        api_response = api_instance.api_v2_configurations_create_by_parameters_post(configuration_by_parameters_model=configuration_by_parameters_model)
-        pprint(api_response)
+        api_instance.api_v2_configurations_create_by_parameters_post(configuration_by_parameters_model=configuration_by_parameters_model)
     except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_create_by_parameters_post: %s\n" % e)
 ```
@@ -77,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**[str]**
+void (empty response body)
 
 ### Authorization
 
@@ -93,9 +92,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Successful operation |  -  |
-**404** | &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found |  -  |
 **400** | &lt;br&gt;Project identifier is empty  &lt;br&gt;List of parameters identifiers is empty |  -  |
+**404** | &lt;br&gt;Project by identifier not found  &lt;br&gt;Parameters by identifies not found |  -  |
+**201** | Created |  -  |
+**200** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -211,10 +211,10 @@ Create Configuration
 import time
 import testgear_api_client
 from testgear_api_client.api import configurations_api
+from testgear_api_client.model.configuration_post_model import ConfigurationPostModel
 from testgear_api_client.model.problem_details import ProblemDetails
 from testgear_api_client.model.configuration_model import ConfigurationModel
 from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
-from testgear_api_client.model.configuration_post_model import ConfigurationPostModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -241,6 +241,9 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         description="Default configuration",
         is_active=True,
         capabilities={
+            "key": "key_example",
+        },
+        parameters={
             "key": "key_example",
         },
         project_id="project_id_example",
@@ -283,12 +286,12 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Update permission for configuration required |  -  |
 **201** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
-**409** | Configuration with the same name already exists! |  -  |
-**400** | &lt;br&gt;Capabilities are invalid  &lt;br&gt;- Capability keys must be unique  &lt;br&gt;- Capability keys must not be empty  &lt;br&gt;- Capability values must not be empty |  -  |
+**403** | Update permission for configuration required |  -  |
 **404** | Can&#39;t find project |  -  |
+**409** | Configuration with the same name already exists! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -368,9 +371,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
-**404** | Can&#39;t find configuration with id |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for configuration required |  -  |
+**404** | Can&#39;t find configuration with id |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -415,10 +418,13 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     configuration_put_model = ConfigurationPutModel(
-        id="31337224-8fed-438c-8ab2-aa59e58ce1cd",
+        id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
         description="Default configuration",
         is_active=True,
         capabilities={
+            "key": "key_example",
+        },
+        parameters={
             "key": "key_example",
         },
         project_id="project_id_example",
@@ -462,7 +468,7 @@ void (empty response body)
 |-------------|-------------|------------------|
 **422** | Can&#39;t change projectId |  -  |
 **204** | Successful operation |  -  |
-**400** | &lt;br&gt;- Capabilities are invalid  &lt;br&gt;- Capability keys must be unique  &lt;br&gt;- Capability keys must not be empty  &lt;br&gt;- Capability values must not be empty |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** |  |  -  |
 **404** | Can&#39;t find a Configuration with id |  -  |

@@ -31,7 +31,9 @@ from testgear_api_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from testgear_api_client.model.attachment_put_model import AttachmentPutModel
+    from testgear_api_client.model.available_test_result_outcome import AvailableTestResultOutcome
     globals()['AttachmentPutModel'] = AttachmentPutModel
+    globals()['AvailableTestResultOutcome'] = AvailableTestResultOutcome
 
 
 class AttachmentPutModelAutoTestStepResultsModel(ModelNormal):
@@ -89,7 +91,7 @@ class AttachmentPutModelAutoTestStepResultsModel(ModelNormal):
             'started_on': (datetime, none_type,),  # noqa: E501
             'completed_on': (datetime, none_type,),  # noqa: E501
             'duration': (int, none_type,),  # noqa: E501
-            'outcome': (str, none_type,),  # noqa: E501
+            'outcome': (AvailableTestResultOutcome,),  # noqa: E501
             'step_results': ([AttachmentPutModelAutoTestStepResultsModel], none_type,),  # noqa: E501
             'attachments': ([AttachmentPutModel], none_type,),  # noqa: E501
             'parameters': ({str: (str,)}, none_type,),  # noqa: E501
@@ -159,8 +161,8 @@ class AttachmentPutModelAutoTestStepResultsModel(ModelNormal):
             info (str, none_type): Extended description of the step result.. [optional]  # noqa: E501
             started_on (datetime, none_type): Step start date.. [optional]  # noqa: E501
             completed_on (datetime, none_type): Step end date.. [optional]  # noqa: E501
-            duration (int, none_type): Expected or actual duration of the test run execution in seconds.. [optional]  # noqa: E501
-            outcome (str, none_type): Specifies the result of the autotest execution.. [optional]  # noqa: E501
+            duration (int, none_type): Expected or actual duration of the test run execution in milliseconds.. [optional]  # noqa: E501
+            outcome (AvailableTestResultOutcome): [optional]  # noqa: E501
             step_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): Nested step results. The maximum nesting level is 15.. [optional]  # noqa: E501
             attachments ([AttachmentPutModel], none_type): /// <summary>  Specifies an attachment GUID. Multiple values can be sent.  </summary>. [optional]  # noqa: E501
             parameters ({str: (str,)}, none_type): \"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.. [optional]  # noqa: E501
@@ -254,8 +256,8 @@ class AttachmentPutModelAutoTestStepResultsModel(ModelNormal):
             info (str, none_type): Extended description of the step result.. [optional]  # noqa: E501
             started_on (datetime, none_type): Step start date.. [optional]  # noqa: E501
             completed_on (datetime, none_type): Step end date.. [optional]  # noqa: E501
-            duration (int, none_type): Expected or actual duration of the test run execution in seconds.. [optional]  # noqa: E501
-            outcome (str, none_type): Specifies the result of the autotest execution.. [optional]  # noqa: E501
+            duration (int, none_type): Expected or actual duration of the test run execution in milliseconds.. [optional]  # noqa: E501
+            outcome (AvailableTestResultOutcome): [optional]  # noqa: E501
             step_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): Nested step results. The maximum nesting level is 15.. [optional]  # noqa: E501
             attachments ([AttachmentPutModel], none_type): /// <summary>  Specifies an attachment GUID. Multiple values can be sent.  </summary>. [optional]  # noqa: E501
             parameters ({str: (str,)}, none_type): \"<b>parameter</b>\": \"<b>value</b>\" pair with arbitrary custom parameters. Multiple parameters can be sent.. [optional]  # noqa: E501
