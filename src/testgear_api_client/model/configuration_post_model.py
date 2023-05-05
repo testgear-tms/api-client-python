@@ -82,8 +82,8 @@ class ConfigurationPostModel(ModelNormal):
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'is_active': (bool,),  # noqa: E501
-            'capabilities': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'capabilities': ({str: (str,)}, none_type,),  # noqa: E501
+            'parameters': ({str: (str,)}, none_type,),  # noqa: E501
             'is_default': (bool,),  # noqa: E501
         }
 
@@ -149,8 +149,8 @@ class ConfigurationPostModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
             is_active (bool): [optional]  # noqa: E501
-            capabilities ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            capabilities ({str: (str,)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
         """
 
@@ -245,8 +245,8 @@ class ConfigurationPostModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): [optional]  # noqa: E501
             is_active (bool): [optional]  # noqa: E501
-            capabilities ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            capabilities ({str: (str,)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
             is_default (bool): [optional]  # noqa: E501
         """
 

@@ -107,7 +107,7 @@ class TestResultHistoryReportModel(ModelNormal):
             'work_item_version_number': (int, none_type,),  # noqa: E501
             'launch_source': (str, none_type,),  # noqa: E501
             'failure_class_ids': ([str], none_type,),  # noqa: E501
-            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'parameters': ({str: (str,)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -210,7 +210,7 @@ class TestResultHistoryReportModel(ModelNormal):
             work_item_version_number (int, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
             failure_class_ids ([str], none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -321,7 +321,7 @@ class TestResultHistoryReportModel(ModelNormal):
             work_item_version_number (int, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
             failure_class_ids ([str], none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

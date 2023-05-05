@@ -13,8 +13,11 @@ Method | HTTP request | Description
 [**api_v2_test_plans_id_export_test_result_history_xlsx_post**](TestPlansApi.md#api_v2_test_plans_id_export_test_result_history_xlsx_post) | **POST** /api/v2/testPlans/{id}/export/testResultHistory/xlsx | Export TestResults history from TestPlan in xls format
 [**api_v2_test_plans_id_history_get**](TestPlansApi.md#api_v2_test_plans_id_history_get) | **GET** /api/v2/testPlans/{id}/history | Get TestPlan history
 [**api_v2_test_plans_id_links_get**](TestPlansApi.md#api_v2_test_plans_id_links_get) | **GET** /api/v2/testPlans/{id}/links | Get Links of TestPlan
+[**api_v2_test_plans_id_patch**](TestPlansApi.md#api_v2_test_plans_id_patch) | **PATCH** /api/v2/testPlans/{id} | Patch test plan
 [**api_v2_test_plans_id_test_points_last_results_get**](TestPlansApi.md#api_v2_test_plans_id_test_points_last_results_get) | **GET** /api/v2/testPlans/{id}/testPoints/lastResults | Get TestPoints with last result from TestPlan
 [**api_v2_test_plans_id_test_points_reset_post**](TestPlansApi.md#api_v2_test_plans_id_test_points_reset_post) | **POST** /api/v2/testPlans/{id}/testPoints/reset | Reset TestPoints status of TestPlan
+[**api_v2_test_plans_id_test_points_tester_delete**](TestPlansApi.md#api_v2_test_plans_id_test_points_tester_delete) | **DELETE** /api/v2/testPlans/{id}/testPoints/tester | Unassign users from multiple test points
+[**api_v2_test_plans_id_test_points_tester_user_id_post**](TestPlansApi.md#api_v2_test_plans_id_test_points_tester_user_id_post) | **POST** /api/v2/testPlans/{id}/testPoints/tester/{userId} | Assign user as a tester to multiple test points
 [**api_v2_test_plans_id_test_runs_get**](TestPlansApi.md#api_v2_test_plans_id_test_runs_get) | **GET** /api/v2/testPlans/{id}/testRuns | Get TestRuns of TestPlan
 [**api_v2_test_plans_id_test_runs_search_post**](TestPlansApi.md#api_v2_test_plans_id_test_runs_search_post) | **POST** /api/v2/testPlans/{id}/testRuns/search | Search TestRuns of TestPlan
 [**api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get**](TestPlansApi.md#api_v2_test_plans_id_test_runs_test_results_last_modified_modified_date_get) | **GET** /api/v2/testPlans/{id}/testRuns/testResults/lastModified/modifiedDate | Get last modification date of test plan&#39;s test results
@@ -203,11 +206,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan is required |  -  |
 **404** | Test suite with provided ID was not found |  -  |
 **422** | Shared steps cannot be added to test suite |  -  |
-**204** | Successful operation |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -297,12 +300,12 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
 **204** | Successful operation |  -  |
+**400** | &lt;br&gt;TestPlan is locked  &lt;br&gt;Some of configurations do not exist in the project, or they are not active |  -  |
+**401** | Unauthorized |  -  |
 **403** | Update permission for TestPlan required |  -  |
 **404** | &lt;br&gt;Can&#39;t find a TestPlan with id  &lt;br&gt;Some of workItems do not exist |  -  |
 **422** | Can&#39;t put a SharedStep in the TestSuite |  -  |
-**400** | &lt;br&gt;TestPlan is locked  &lt;br&gt;Some of configurations do not exist in the project, or they are not active |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -382,9 +385,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Can&#39;t find a Project with id |  -  |
 **200** | Successful operation |  -  |
 **400** | Bad Request |  -  |
+**404** | Can&#39;t find a Project with id |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -556,11 +559,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for test plan required |  -  |
-**400** | Bad Request |  -  |
 **200** | Successful operation |  -  |
-**404** | TestPlan not found |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Read permission for test plan required |  -  |
+**404** | TestPlan not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -772,11 +775,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
-**404** | TestPlan not found |  -  |
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
+**404** | TestPlan not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -875,10 +878,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**400** | Bad Request |  -  |
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**403** | Read permission for test plan required |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
+**403** | Read permission for test plan required |  -  |
 **404** | TestPlan not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -979,6 +982,102 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **api_v2_test_plans_id_patch**
+> api_v2_test_plans_id_patch(id)
+
+Patch test plan
+
+See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 6902: JavaScript Object Notation (JSON) Patch</a> for details
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testgear_api_client
+from testgear_api_client.api import test_plans_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.operation import Operation
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testgear_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testgear_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = test_plans_api.TestPlansApi(api_client)
+    id = "id_example" # str | Unique ID of the test plan
+    operation = [
+        Operation(
+            value=None,
+            path="path_example",
+            op="op_example",
+            _from="_from_example",
+        ),
+    ] # [Operation] |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Patch test plan
+        api_instance.api_v2_test_plans_id_patch(id)
+    except testgear_api_client.ApiException as e:
+        print("Exception when calling TestPlansApi->api_v2_test_plans_id_patch: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Patch test plan
+        api_instance.api_v2_test_plans_id_patch(id, operation=operation)
+    except testgear_api_client.ApiException as e:
+        print("Exception when calling TestPlansApi->api_v2_test_plans_id_patch: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Unique ID of the test plan |
+ **operation** | [**[Operation]**](Operation.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**403** | Update permission for test plan is required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **api_v2_test_plans_id_test_points_last_results_get**
 > [TestPointWithLastResultModel] api_v2_test_plans_id_test_points_last_results_get(id)
 
@@ -1076,11 +1175,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
 **404** | TestPlan not found |  -  |
-**200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**400** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1174,6 +1273,316 @@ void (empty response body)
 **400** | Bad Request |  -  |
 **422** | Client Error |  -  |
 **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **api_v2_test_plans_id_test_points_tester_delete**
+> [str] api_v2_test_plans_id_test_points_tester_delete(id)
+
+Unassign users from multiple test points
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testgear_api_client
+from testgear_api_client.api import test_plans_api
+from testgear_api_client.model.test_point_select_model import TestPointSelectModel
+from testgear_api_client.model.problem_details import ProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testgear_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testgear_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = test_plans_api.TestPlansApi(api_client)
+    id = "id_example" # str | Unique or global ID of the test plan
+    test_point_select_model = TestPointSelectModel(
+        filter=TestPointFilterModel(
+            test_plan_ids=[
+                "test_plan_ids_example",
+            ],
+            test_suite_ids=[
+                "test_suite_ids_example",
+            ],
+            work_item_global_ids=[
+                1,
+            ],
+            statuses=[
+                TestPointStatus("InProgress"),
+            ],
+            priorities=[
+                WorkItemPriorityModel("Lowest"),
+            ],
+            is_automated=True,
+            name="name_example",
+            configuration_ids=[
+                "configuration_ids_example",
+            ],
+            tester_ids=[
+                "tester_ids_example",
+            ],
+            duration=Int64RangeSelectorModel(
+                _from=1,
+                to=1,
+            ),
+            section_ids=[
+                "section_ids_example",
+            ],
+            created_date=DateTimeRangeSelectorModel(
+                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            ),
+            created_by_ids=[
+                "created_by_ids_example",
+            ],
+            modified_date=DateTimeRangeSelectorModel(
+                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            ),
+            modified_by_ids=[
+                "modified_by_ids_example",
+            ],
+            tags=[
+                "tags_example",
+            ],
+            attributes={
+                "key": [
+                    "key_example",
+                ],
+            },
+        ),
+        extraction_model=TestPointsExtractionModel(
+            ids=GuidExtractionModel(
+                include=[
+                    "include_example",
+                ],
+                exclude=[
+                    "exclude_example",
+                ],
+            ),
+        ),
+    ) # TestPointSelectModel |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Unassign users from multiple test points
+        api_response = api_instance.api_v2_test_plans_id_test_points_tester_delete(id)
+        pprint(api_response)
+    except testgear_api_client.ApiException as e:
+        print("Exception when calling TestPlansApi->api_v2_test_plans_id_test_points_tester_delete: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Unassign users from multiple test points
+        api_response = api_instance.api_v2_test_plans_id_test_points_tester_delete(id, test_point_select_model=test_point_select_model)
+        pprint(api_response)
+    except testgear_api_client.ApiException as e:
+        print("Exception when calling TestPlansApi->api_v2_test_plans_id_test_points_tester_delete: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Unique or global ID of the test plan |
+ **test_point_select_model** | [**TestPointSelectModel**](TestPointSelectModel.md)|  | [optional]
+
+### Return type
+
+**[str]**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | Update permission for test plans is required |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **api_v2_test_plans_id_test_points_tester_user_id_post**
+> [str] api_v2_test_plans_id_test_points_tester_user_id_post(id, user_id)
+
+Assign user as a tester to multiple test points
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testgear_api_client
+from testgear_api_client.api import test_plans_api
+from testgear_api_client.model.test_point_select_model import TestPointSelectModel
+from testgear_api_client.model.problem_details import ProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testgear_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testgear_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = test_plans_api.TestPlansApi(api_client)
+    id = "id_example" # str | Unique or global ID of the test plan
+    user_id = "userId_example" # str | Unique ID of the user
+    test_point_select_model = TestPointSelectModel(
+        filter=TestPointFilterModel(
+            test_plan_ids=[
+                "test_plan_ids_example",
+            ],
+            test_suite_ids=[
+                "test_suite_ids_example",
+            ],
+            work_item_global_ids=[
+                1,
+            ],
+            statuses=[
+                TestPointStatus("InProgress"),
+            ],
+            priorities=[
+                WorkItemPriorityModel("Lowest"),
+            ],
+            is_automated=True,
+            name="name_example",
+            configuration_ids=[
+                "configuration_ids_example",
+            ],
+            tester_ids=[
+                "tester_ids_example",
+            ],
+            duration=Int64RangeSelectorModel(
+                _from=1,
+                to=1,
+            ),
+            section_ids=[
+                "section_ids_example",
+            ],
+            created_date=DateTimeRangeSelectorModel(
+                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            ),
+            created_by_ids=[
+                "created_by_ids_example",
+            ],
+            modified_date=DateTimeRangeSelectorModel(
+                _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                to=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            ),
+            modified_by_ids=[
+                "modified_by_ids_example",
+            ],
+            tags=[
+                "tags_example",
+            ],
+            attributes={
+                "key": [
+                    "key_example",
+                ],
+            },
+        ),
+        extraction_model=TestPointsExtractionModel(
+            ids=GuidExtractionModel(
+                include=[
+                    "include_example",
+                ],
+                exclude=[
+                    "exclude_example",
+                ],
+            ),
+        ),
+    ) # TestPointSelectModel |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Assign user as a tester to multiple test points
+        api_response = api_instance.api_v2_test_plans_id_test_points_tester_user_id_post(id, user_id)
+        pprint(api_response)
+    except testgear_api_client.ApiException as e:
+        print("Exception when calling TestPlansApi->api_v2_test_plans_id_test_points_tester_user_id_post: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Assign user as a tester to multiple test points
+        api_response = api_instance.api_v2_test_plans_id_test_points_tester_user_id_post(id, user_id, test_point_select_model=test_point_select_model)
+        pprint(api_response)
+    except testgear_api_client.ApiException as e:
+        print("Exception when calling TestPlansApi->api_v2_test_plans_id_test_points_tester_user_id_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| Unique or global ID of the test plan |
+ **user_id** | **str**| Unique ID of the user |
+ **test_point_select_model** | [**TestPointSelectModel**](TestPointSelectModel.md)|  | [optional]
+
+### Return type
+
+**[str]**
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | Update permission for test plans is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1280,8 +1689,8 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful operation |  * Pagination-Skip - Skipped amount of items <br>  * Pagination-Take - Taken items <br>  * Pagination-Pages - Expected number of pages <br>  * Pagination-Total-Items - Total count of items <br>  |
-**403** | Read permission for test plan is required |  -  |
 **401** | Unauthorized |  -  |
+**403** | Read permission for test plan is required |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1559,11 +1968,11 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | TestPlan not found |  -  |
 **200** | Successful operation |  -  |
+**400** | Bad Request |  -  |
 **401** | Unauthorized |  -  |
 **403** | Read permission for test plan required |  -  |
-**400** | Bad Request |  -  |
+**404** | TestPlan not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1647,9 +2056,9 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**404** | Project not found |  -  |
 **200** | Successful operation |  -  |
 **403** | Read permission for project required |  -  |
+**404** | Project not found |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1811,10 +2220,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Successful operation |  -  |
+**400** | &lt;br&gt;Change status from New to Completed forbidden  &lt;br&gt;Change status from Completed to Completed forbidden |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
-**400** | &lt;br&gt;Change status from New to Completed forbidden  &lt;br&gt;Change status from Completed to Completed forbidden |  -  |
-**204** | Successful operation |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1867,11 +2276,11 @@ with testgear_api_client.ApiClient(configuration) as api_client:
             ),
         ],
         name="Base test plan",
-        start_date=dateutil_parser('2023-02-28T08:43:24.7445823Z'),
-        end_date=dateutil_parser('2023-02-28T08:43:24.7445823Z'),
+        start_date=dateutil_parser('2023-05-05T09:24:32.4594352Z'),
+        end_date=dateutil_parser('2023-05-05T09:24:32.4594352Z'),
         description="This is a base test plan",
         build="v.3.0.0-b94f3055",
-        project_id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
+        project_id="a8b10924-5055-46a9-87ac-f54e8e4946ab",
         product_name="Billing service",
         has_automatic_duration_timer=True,
         attributes={
@@ -1914,11 +2323,11 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**409** | TestPlan with the same name already exists! |  -  |
-**401** | Unauthorized |  -  |
 **201** | Successful operation |  -  |
-**403** | Update permission for test plan required |  -  |
 **400** | &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10! |  -  |
+**401** | Unauthorized |  -  |
+**403** | Update permission for test plan required |  -  |
+**409** | TestPlan with the same name already exists! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1995,10 +2404,10 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
 **204** | Successful operation |  -  |
-**404** | Can&#39;t find a TestPlan with id! |  -  |
+**401** | Unauthorized |  -  |
 **403** | Delete permission for test plan required |  -  |
+**404** | Can&#39;t find a TestPlan with id! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2079,8 +2488,8 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
-**404** | Can&#39;t find a Project with id |  -  |
 **403** | Read permission for test plan required |  -  |
+**404** | Can&#39;t find a Project with id |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2159,10 +2568,10 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**403** | Read permission for test plan required |  -  |
-**401** | Unauthorized |  -  |
-**404** | Can&#39;t find a TestRun with id! |  -  |
 **200** | Successful operation |  -  |
+**401** | Unauthorized |  -  |
+**403** | Read permission for test plan required |  -  |
+**404** | Can&#39;t find a TestRun with id! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -2400,9 +2809,9 @@ void (empty response body)
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**204** | Successful operation |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
-**204** | Successful operation |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2447,7 +2856,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_plans_api.TestPlansApi(api_client)
     test_plan_put_model = TestPlanPutModel(
-        id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
+        id="a8b10924-5055-46a9-87ac-f54e8e4946ab",
         locked_by_id="locked_by_id_example",
         tags=[
             TagShortModel(
@@ -2455,11 +2864,11 @@ with testgear_api_client.ApiClient(configuration) as api_client:
             ),
         ],
         name="Base test plan",
-        start_date=dateutil_parser('2023-02-28T08:43:24.7445823Z'),
-        end_date=dateutil_parser('2023-02-28T08:43:24.7445823Z'),
+        start_date=dateutil_parser('2023-05-05T09:24:32.4594352Z'),
+        end_date=dateutil_parser('2023-05-05T09:24:32.4594352Z'),
         description="This is a base test plan",
         build="v.3.0.0-b94f3055",
-        project_id="ab0f4e0e-441c-40a0-8c59-4e5cd37bcc16",
+        project_id="a8b10924-5055-46a9-87ac-f54e8e4946ab",
         product_name="Billing service",
         has_automatic_duration_timer=True,
         attributes={
@@ -2503,10 +2912,10 @@ void (empty response body)
 |-------------|-------------|------------------|
 **204** | Successful operation |  -  |
 **400** | &lt;br&gt;Field is required  &lt;br&gt;Tags must be no more than 10!  &lt;br&gt;StartDate can&#39;t be more than EndDate! |  -  |
-**409** | TestPlan with the same name already exists! |  -  |
 **401** | Unauthorized |  -  |
 **403** | Update permission for test plan required |  -  |
 **404** | Can&#39;t find a TestPlan with id! |  -  |
+**409** | TestPlan with the same name already exists! |  -  |
 **422** | Can&#39;t change ProjectId |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

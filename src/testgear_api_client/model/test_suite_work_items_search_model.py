@@ -117,7 +117,7 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             'modified_date': (DateTimeRangeSelectorModel,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
-            'attributes': ({str: ([str], none_type)}, none_type,),  # noqa: E501
+            'attributes': ({str: ([str],)}, none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
             'tag_names': ([str], none_type,),  # noqa: E501
             'entity_types': ([str], none_type,),  # noqa: E501
@@ -198,7 +198,7 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             modified_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Collection of identifiers of users who created work item. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
-            attributes ({str: ([str], none_type)}, none_type): Custom attributes of work item. [optional]  # noqa: E501
+            attributes ({str: ([str],)}, none_type): Custom attributes of work item. [optional]  # noqa: E501
             is_deleted (bool, none_type): Is result must consist of only actual/deleted work items. [optional]  # noqa: E501
             tag_names ([str], none_type): Collection of tags. [optional]  # noqa: E501
             entity_types ([str], none_type): Collection of types of work item  <br>Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501
@@ -298,7 +298,7 @@ class TestSuiteWorkItemsSearchModel(ModelNormal):
             modified_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Collection of identifiers of users who created work item. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
-            attributes ({str: ([str], none_type)}, none_type): Custom attributes of work item. [optional]  # noqa: E501
+            attributes ({str: ([str],)}, none_type): Custom attributes of work item. [optional]  # noqa: E501
             is_deleted (bool, none_type): Is result must consist of only actual/deleted work items. [optional]  # noqa: E501
             tag_names ([str], none_type): Collection of tags. [optional]  # noqa: E501
             entity_types ([str], none_type): Collection of types of work item  <br>Allowed values: `TestCases`, `CheckLists`, `SharedSteps`. [optional]  # noqa: E501

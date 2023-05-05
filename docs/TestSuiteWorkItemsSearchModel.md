@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **modified_date** | [**DateTimeRangeSelectorModel**](DateTimeRangeSelectorModel.md) |  | [optional] 
 **created_by_ids** | **[str], none_type** | Collection of identifiers of users who created work item | [optional] 
 **modified_by_ids** | **[str], none_type** | Collection of identifiers of users who applied last modification to work item | [optional] 
-**attributes** | **{str: ([str], none_type)}, none_type** | Custom attributes of work item | [optional] 
+**attributes** | **{str: ([str],)}, none_type** | Custom attributes of work item | [optional] 
 **is_deleted** | **bool, none_type** | Is result must consist of only actual/deleted work items | [optional] 
 **tag_names** | **[str], none_type** | Collection of tags | [optional] 
 **entity_types** | **[str], none_type** | Collection of types of work item  &lt;br&gt;Allowed values: &#x60;TestCases&#x60;, &#x60;CheckLists&#x60;, &#x60;SharedSteps&#x60; | [optional] 

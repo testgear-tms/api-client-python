@@ -16,6 +16,7 @@
 # Import APIs into API package:
 from testgear_api_client.api.attachments_api import AttachmentsApi
 from testgear_api_client.api.auto_tests_api import AutoTestsApi
+from testgear_api_client.api.background_jobs_api import BackgroundJobsApi
 from testgear_api_client.api.configurations_api import ConfigurationsApi
 from testgear_api_client.api.custom_attribute_templates_api import CustomAttributeTemplatesApi
 from testgear_api_client.api.custom_attributes_api import CustomAttributesApi
