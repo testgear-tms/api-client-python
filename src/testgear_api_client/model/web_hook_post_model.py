@@ -96,8 +96,8 @@ class WebHookPostModel(ModelNormal):
             'name': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'should_send_body': (bool,),  # noqa: E501
-            'headers': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'query_parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'headers': ({str: (str,)}, none_type,),  # noqa: E501
+            'query_parameters': ({str: (str,)}, none_type,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'should_send_custom_body': (bool,),  # noqa: E501
             'custom_body': (str, none_type,),  # noqa: E501
@@ -177,8 +177,8 @@ class WebHookPostModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Description of the webhook. [optional]  # noqa: E501
             should_send_body (bool): Indicates if the webhook sends body. [optional]  # noqa: E501
-            headers ({str: (str, none_type)}, none_type): Collection of the webhook headers. [optional]  # noqa: E501
-            query_parameters ({str: (str, none_type)}, none_type): Collection of the webhook query parameters. [optional]  # noqa: E501
+            headers ({str: (str,)}, none_type): Collection of the webhook headers. [optional]  # noqa: E501
+            query_parameters ({str: (str,)}, none_type): Collection of the webhook query parameters. [optional]  # noqa: E501
             is_enabled (bool): Indicates if the webhook is active. [optional]  # noqa: E501
             should_send_custom_body (bool): Indicates if the webhook sends custom body. [optional]  # noqa: E501
             custom_body (str, none_type): Custom body of the webhook. [optional]  # noqa: E501
@@ -283,8 +283,8 @@ class WebHookPostModel(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             description (str, none_type): Description of the webhook. [optional]  # noqa: E501
             should_send_body (bool): Indicates if the webhook sends body. [optional]  # noqa: E501
-            headers ({str: (str, none_type)}, none_type): Collection of the webhook headers. [optional]  # noqa: E501
-            query_parameters ({str: (str, none_type)}, none_type): Collection of the webhook query parameters. [optional]  # noqa: E501
+            headers ({str: (str,)}, none_type): Collection of the webhook headers. [optional]  # noqa: E501
+            query_parameters ({str: (str,)}, none_type): Collection of the webhook query parameters. [optional]  # noqa: E501
             is_enabled (bool): Indicates if the webhook is active. [optional]  # noqa: E501
             should_send_custom_body (bool): Indicates if the webhook sends custom body. [optional]  # noqa: E501
             custom_body (str, none_type): Custom body of the webhook. [optional]  # noqa: E501

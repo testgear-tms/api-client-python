@@ -209,6 +209,9 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
     test_point_filter_model = TestPointFilterModel(
+        test_plan_ids=[
+            "test_plan_ids_example",
+        ],
         test_suite_ids=[
             "test_suite_ids_example",
         ],
@@ -349,6 +352,9 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
     test_point_filter_model = TestPointFilterModel(
+        test_plan_ids=[
+            "test_plan_ids_example",
+        ],
         test_suite_ids=[
             "test_suite_ids_example",
         ],

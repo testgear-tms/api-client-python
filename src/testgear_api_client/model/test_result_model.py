@@ -111,8 +111,8 @@ class TestResultModel(ModelNormal):
             'teardown_results': ([AttachmentModelAutoTestStepResultsModel], none_type,),  # noqa: E501
             'work_item_version_id': (str,),  # noqa: E501
             'work_item_version_number': (int, none_type,),  # noqa: E501
-            'parameters': ({str: (str, none_type)}, none_type,),  # noqa: E501
-            'properties': ({str: (str, none_type)}, none_type,),  # noqa: E501
+            'parameters': ({str: (str,)}, none_type,),  # noqa: E501
+            'properties': ({str: (str,)}, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
@@ -228,8 +228,8 @@ class TestResultModel(ModelNormal):
             teardown_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             work_item_version_id (str): [optional]  # noqa: E501
             work_item_version_number (int, none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
             created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
@@ -346,8 +346,8 @@ class TestResultModel(ModelNormal):
             teardown_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             work_item_version_id (str): [optional]  # noqa: E501
             work_item_version_number (int, none_type): [optional]  # noqa: E501
-            parameters ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
-            properties ({str: (str, none_type)}, none_type): [optional]  # noqa: E501
+            parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
+            properties ({str: (str,)}, none_type): [optional]  # noqa: E501
             id (str): [optional]  # noqa: E501
             created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
