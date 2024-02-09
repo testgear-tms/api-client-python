@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,16 +26,18 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.autotest_result_outcome import AutotestResultOutcome
-    from testgear_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
-    from testgear_api_client.model.int64_range_selector_model import Int64RangeSelectorModel
+    from testit_api_client.model.autotest_filter_model_created_date import AutotestFilterModelCreatedDate
+    from testit_api_client.model.autotest_filter_model_modified_date import AutotestFilterModelModifiedDate
+    from testit_api_client.model.autotest_filter_model_stability_percentage import AutotestFilterModelStabilityPercentage
+    from testit_api_client.model.autotest_result_outcome import AutotestResultOutcome
+    globals()['AutotestFilterModelCreatedDate'] = AutotestFilterModelCreatedDate
+    globals()['AutotestFilterModelModifiedDate'] = AutotestFilterModelModifiedDate
+    globals()['AutotestFilterModelStabilityPercentage'] = AutotestFilterModelStabilityPercentage
     globals()['AutotestResultOutcome'] = AutotestResultOutcome
-    globals()['DateTimeRangeSelectorModel'] = DateTimeRangeSelectorModel
-    globals()['Int64RangeSelectorModel'] = Int64RangeSelectorModel
 
 
 class AutotestFilterModel(ModelNormal):
@@ -104,10 +106,10 @@ class AutotestFilterModel(ModelNormal):
             'name': (str, none_type,),  # noqa: E501
             'is_flaky': (bool, none_type,),  # noqa: E501
             'must_be_approved': (bool, none_type,),  # noqa: E501
-            'stability_percentage': (Int64RangeSelectorModel,),  # noqa: E501
-            'created_date': (DateTimeRangeSelectorModel,),  # noqa: E501
+            'stability_percentage': (AutotestFilterModelStabilityPercentage,),  # noqa: E501
+            'created_date': (AutotestFilterModelCreatedDate,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
-            'modified_date': (DateTimeRangeSelectorModel,),  # noqa: E501
+            'modified_date': (AutotestFilterModelModifiedDate,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
@@ -115,6 +117,7 @@ class AutotestFilterModel(ModelNormal):
             'class_name': (str, none_type,),  # noqa: E501
             'is_empty_class_name': (bool, none_type,),  # noqa: E501
             'last_test_result_outcome': (AutotestResultOutcome,),  # noqa: E501
+            'external_key': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -140,6 +143,7 @@ class AutotestFilterModel(ModelNormal):
         'class_name': 'className',  # noqa: E501
         'is_empty_class_name': 'isEmptyClassName',  # noqa: E501
         'last_test_result_outcome': 'lastTestResultOutcome',  # noqa: E501
+        'external_key': 'externalKey',  # noqa: E501
     }
 
     read_only_vars = {
@@ -189,10 +193,10 @@ class AutotestFilterModel(ModelNormal):
             name (str, none_type): Specifies an autotest name to search for. [optional]  # noqa: E501
             is_flaky (bool, none_type): Specifies an autotest flaky status to search for. [optional]  # noqa: E501
             must_be_approved (bool, none_type): Specifies an autotest unapproved changes status to search for. [optional]  # noqa: E501
-            stability_percentage (Int64RangeSelectorModel): [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            stability_percentage (AutotestFilterModelStabilityPercentage): [optional]  # noqa: E501
+            created_date (AutotestFilterModelCreatedDate): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Specifies an autotest creator IDs to search for. [optional]  # noqa: E501
-            modified_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            modified_date (AutotestFilterModelModifiedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies an autotest last editor IDs to search for. [optional]  # noqa: E501
             is_deleted (bool, none_type): Specifies an autotest deleted status to search for. [optional]  # noqa: E501
             namespace (str, none_type): Specifies an autotest namespace to search for. [optional]  # noqa: E501
@@ -200,6 +204,7 @@ class AutotestFilterModel(ModelNormal):
             class_name (str, none_type): Specifies an autotest class name to search for. [optional]  # noqa: E501
             is_empty_class_name (bool, none_type): Specifies an autotest class name presence status to search for. [optional]  # noqa: E501
             last_test_result_outcome (AutotestResultOutcome): [optional]  # noqa: E501
+            external_key (str, none_type): Specifies an autotest external key to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -291,10 +296,10 @@ class AutotestFilterModel(ModelNormal):
             name (str, none_type): Specifies an autotest name to search for. [optional]  # noqa: E501
             is_flaky (bool, none_type): Specifies an autotest flaky status to search for. [optional]  # noqa: E501
             must_be_approved (bool, none_type): Specifies an autotest unapproved changes status to search for. [optional]  # noqa: E501
-            stability_percentage (Int64RangeSelectorModel): [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            stability_percentage (AutotestFilterModelStabilityPercentage): [optional]  # noqa: E501
+            created_date (AutotestFilterModelCreatedDate): [optional]  # noqa: E501
             created_by_ids ([str], none_type): Specifies an autotest creator IDs to search for. [optional]  # noqa: E501
-            modified_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
+            modified_date (AutotestFilterModelModifiedDate): [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Specifies an autotest last editor IDs to search for. [optional]  # noqa: E501
             is_deleted (bool, none_type): Specifies an autotest deleted status to search for. [optional]  # noqa: E501
             namespace (str, none_type): Specifies an autotest namespace to search for. [optional]  # noqa: E501
@@ -302,6 +307,7 @@ class AutotestFilterModel(ModelNormal):
             class_name (str, none_type): Specifies an autotest class name to search for. [optional]  # noqa: E501
             is_empty_class_name (bool, none_type): Specifies an autotest class name presence status to search for. [optional]  # noqa: E501
             last_test_result_outcome (AutotestResultOutcome): [optional]  # noqa: E501
+            external_key (str, none_type): Specifies an autotest external key to search for. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

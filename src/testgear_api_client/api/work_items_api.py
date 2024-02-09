@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testit_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,25 +21,25 @@ from testgear_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testgear_api_client.model.auto_test_model import AutoTestModel
-from testgear_api_client.model.iteration_model import IterationModel
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.shared_step_reference_model import SharedStepReferenceModel
-from testgear_api_client.model.shared_step_reference_section_model import SharedStepReferenceSectionModel
-from testgear_api_client.model.shared_step_reference_sections_query_filter_model import SharedStepReferenceSectionsQueryFilterModel
-from testgear_api_client.model.shared_step_references_query_filter_model import SharedStepReferencesQueryFilterModel
-from testgear_api_client.model.test_result_chronology_model import TestResultChronologyModel
-from testgear_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
-from testgear_api_client.model.work_item_change_model import WorkItemChangeModel
-from testgear_api_client.model.work_item_like_model import WorkItemLikeModel
-from testgear_api_client.model.work_item_model import WorkItemModel
-from testgear_api_client.model.work_item_move_post_model import WorkItemMovePostModel
-from testgear_api_client.model.work_item_post_model import WorkItemPostModel
-from testgear_api_client.model.work_item_put_model import WorkItemPutModel
-from testgear_api_client.model.work_item_select_model import WorkItemSelectModel
-from testgear_api_client.model.work_item_short_model import WorkItemShortModel
-from testgear_api_client.model.work_item_version_model import WorkItemVersionModel
+from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+from testit_api_client.model.api_v2_work_items_move_post_request import ApiV2WorkItemsMovePostRequest
+from testit_api_client.model.api_v2_work_items_shared_step_id_references_sections_post_request import ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
+from testit_api_client.model.api_v2_work_items_shared_step_id_references_work_items_post_request import ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
+from testit_api_client.model.auto_test_model import AutoTestModel
+from testit_api_client.model.create_work_item_request import CreateWorkItemRequest
+from testit_api_client.model.iteration_model import IterationModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.shared_step_reference_model import SharedStepReferenceModel
+from testit_api_client.model.shared_step_reference_section_model import SharedStepReferenceSectionModel
+from testit_api_client.model.test_result_chronology_model import TestResultChronologyModel
+from testit_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
+from testit_api_client.model.update_work_item_request import UpdateWorkItemRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.work_item_change_model import WorkItemChangeModel
+from testit_api_client.model.work_item_like_model import WorkItemLikeModel
+from testit_api_client.model.work_item_model import WorkItemModel
+from testit_api_client.model.work_item_short_model import WorkItemShortModel
+from testit_api_client.model.work_item_version_model import WorkItemVersionModel
 
 
 class WorkItemsApi(object):
@@ -638,7 +638,7 @@ class WorkItemsApi(object):
             },
             params_map={
                 'all': [
-                    'work_item_move_post_model',
+                    'api_v2_work_items_move_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -654,13 +654,13 @@ class WorkItemsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'work_item_move_post_model':
-                        (WorkItemMovePostModel,),
+                    'api_v2_work_items_move_post_request':
+                        (ApiV2WorkItemsMovePostRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'work_item_move_post_model': 'body',
+                    'api_v2_work_items_move_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -693,7 +693,7 @@ class WorkItemsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'work_item_select_model',
+                    'api_v2_projects_project_id_work_items_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -719,8 +719,8 @@ class WorkItemsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'work_item_select_model':
-                        (WorkItemSelectModel,),
+                    'api_v2_projects_project_id_work_items_search_post_request':
+                        (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -735,7 +735,7 @@ class WorkItemsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'work_item_select_model': 'body',
+                    'api_v2_projects_project_id_work_items_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -769,7 +769,7 @@ class WorkItemsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'shared_step_reference_sections_query_filter_model',
+                    'api_v2_work_items_shared_step_id_references_sections_post_request',
                 ],
                 'required': [
                     'shared_step_id',
@@ -799,8 +799,8 @@ class WorkItemsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'shared_step_reference_sections_query_filter_model':
-                        (SharedStepReferenceSectionsQueryFilterModel,),
+                    'api_v2_work_items_shared_step_id_references_sections_post_request':
+                        (ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest,),
                 },
                 'attribute_map': {
                     'shared_step_id': 'sharedStepId',
@@ -817,7 +817,7 @@ class WorkItemsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'shared_step_reference_sections_query_filter_model': 'body',
+                    'api_v2_work_items_shared_step_id_references_sections_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -851,7 +851,7 @@ class WorkItemsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'shared_step_references_query_filter_model',
+                    'api_v2_work_items_shared_step_id_references_work_items_post_request',
                 ],
                 'required': [
                     'shared_step_id',
@@ -881,8 +881,8 @@ class WorkItemsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'shared_step_references_query_filter_model':
-                        (SharedStepReferencesQueryFilterModel,),
+                    'api_v2_work_items_shared_step_id_references_work_items_post_request':
+                        (ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest,),
                 },
                 'attribute_map': {
                     'shared_step_id': 'sharedStepId',
@@ -899,7 +899,7 @@ class WorkItemsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'shared_step_references_query_filter_model': 'body',
+                    'api_v2_work_items_shared_step_id_references_work_items_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -978,7 +978,7 @@ class WorkItemsApi(object):
             },
             params_map={
                 'all': [
-                    'work_item_post_model',
+                    'create_work_item_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -994,13 +994,13 @@ class WorkItemsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'work_item_post_model':
-                        (WorkItemPostModel,),
+                    'create_work_item_request':
+                        (CreateWorkItemRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'work_item_post_model': 'body',
+                    'create_work_item_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1517,7 +1517,7 @@ class WorkItemsApi(object):
             },
             params_map={
                 'all': [
-                    'work_item_put_model',
+                    'update_work_item_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -1533,13 +1533,13 @@ class WorkItemsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'work_item_put_model':
-                        (WorkItemPutModel,),
+                    'update_work_item_request':
+                        (UpdateWorkItemRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'work_item_put_model': 'body',
+                    'update_work_item_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1729,7 +1729,7 @@ class WorkItemsApi(object):
     ):
         """Get change history of WorkItem  # noqa: E501
 
-        <br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System return change history of WorkItem  # noqa: E501
+        <br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System return change history of WorkItem  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2247,7 +2247,7 @@ class WorkItemsApi(object):
     ):
         """Set WorkItem as actual  # noqa: E501
 
-        <br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System set WorkItem as actual  # noqa: E501
+        <br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System set WorkItem as actual  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2341,7 +2341,7 @@ class WorkItemsApi(object):
 
 
         Keyword Args:
-            work_item_move_post_model (WorkItemMovePostModel): [optional]
+            api_v2_work_items_move_post_request (ApiV2WorkItemsMovePostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2424,7 +2424,7 @@ class WorkItemsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            work_item_select_model (WorkItemSelectModel): [optional]
+            api_v2_projects_project_id_work_items_search_post_request (ApiV2ProjectsProjectIdWorkItemsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2511,7 +2511,7 @@ class WorkItemsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            shared_step_reference_sections_query_filter_model (SharedStepReferenceSectionsQueryFilterModel): [optional]
+            api_v2_work_items_shared_step_id_references_sections_post_request (ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2582,7 +2582,7 @@ class WorkItemsApi(object):
         shared_step_id,
         **kwargs
     ):
-        """Get SharedStep references in workitems  # noqa: E501
+        """Get SharedStep references in work items  # noqa: E501
 
         <br>Use case  <br>User sets SharedStep identifier  <br>User runs method execution  <br>System return SharedStep references  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -2600,7 +2600,7 @@ class WorkItemsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            shared_step_references_query_filter_model (SharedStepReferencesQueryFilterModel): [optional]
+            api_v2_work_items_shared_step_id_references_work_items_post_request (ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2755,7 +2755,7 @@ class WorkItemsApi(object):
     ):
         """Create Test Case, Checklist or Shared Step  # noqa: E501
 
-        <br>Use case  <br>User sets workitem properties (listed in request parameters)  <br>User runs method execution  <br>System creates workitem by identifier  <br>System returns workitem model (listed in response parameters)  # noqa: E501
+        <br>Use case  <br>User sets work item properties (listed in request parameters)  <br>User runs method execution  <br>System creates work item by identifier  <br>System returns work item model (listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2764,7 +2764,7 @@ class WorkItemsApi(object):
 
 
         Keyword Args:
-            work_item_post_model (WorkItemPostModel): [optional]
+            create_work_item_request (CreateWorkItemRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -2835,7 +2835,7 @@ class WorkItemsApi(object):
     ):
         """Delete all links AutoTests from WorkItem by Id or GlobalId  # noqa: E501
 
-        <br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System search workitem by identifier  <br>System search and delete all autotests, related to found workitem  <br>System returns no content response  # noqa: E501
+        <br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System search work item by identifier  <br>System search and delete all autotests, related to found work item  <br>System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -2918,7 +2918,7 @@ class WorkItemsApi(object):
     ):
         """Delete Test Case, Checklist or Shared Step by Id or GlobalId  # noqa: E501
 
-        <br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System deletes workitem  <br>System returns no content response  # noqa: E501
+        <br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System deletes work item  <br>System returns no content response  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3001,7 +3001,7 @@ class WorkItemsApi(object):
     ):
         """Get all AutoTests linked to WorkItem by Id or GlobalId  # noqa: E501
 
-        <br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System search workitem by identifier  <br>System search all autotests, related to found workitem  <br>System returns list of found autotests  # noqa: E501
+        <br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System search work item by identifier  <br>System search all autotests, related to found work item  <br>System returns list of found autotests  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3082,7 +3082,7 @@ class WorkItemsApi(object):
         id,
         **kwargs
     ):
-        """Get iterations by workitem Id or GlobalId  # noqa: E501
+        """Get iterations by work item Id or GlobalId  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -3168,7 +3168,7 @@ class WorkItemsApi(object):
     ):
         """Get Test Case, Checklist or Shared Step by Id or GlobalId  # noqa: E501
 
-        <br>Use case  <br>User sets workitem identifier  <br>[Optional] User sets workitem version identifier  <br>[Optional] User sets workitem version number  <br>User runs method execution  <br>System search workitem by identifier  <br>[Optional] if User sets workitem version identifier, system search workitem version by identifier.  <br>[Optional] if user sets workitem version number, system search workitem version by number  <br>Otherwise, system search last workitem version  <br>System returns workitem   # noqa: E501
+        <br>Use case  <br>User sets work item identifier  <br>[Optional] User sets work item version identifier  <br>[Optional] User sets work item version number  <br>User runs method execution  <br>System search work item by identifier  <br>[Optional] if User sets work item version identifier, system search work item version by identifier.  <br>[Optional] if user sets work item version number, system search work item version by number  <br>Otherwise, system search last work item version  <br>System returns work item   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3253,7 +3253,7 @@ class WorkItemsApi(object):
     ):
         """Get WorkItem chronology by Id or GlobalId  # noqa: E501
 
-        <br>Use case  <br>User sets workitem identifier  <br>User runs method execution  <br>System search workitem by identifier  <br>System search test results of all autotests, related to found workitem  <br>System sort results by CompletedOn ascending, then by CreatedDate ascending  <br>System returns sorted collection of test results  # noqa: E501
+        <br>Use case  <br>User sets work item identifier  <br>User runs method execution  <br>System search work item by identifier  <br>System search test results of all autotests, related to found work item  <br>System sort results by CompletedOn ascending, then by CreatedDate ascending  <br>System returns sorted collection of test results  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3336,7 +3336,7 @@ class WorkItemsApi(object):
     ):
         """Get WorkItem versions  # noqa: E501
 
-        <br>Use case  <br>User sets workitem identifier  <br>[Optional] User sets workitem version identifier  <br>User runs method execution  <br>System search workitem by identifier  <br>                      [Optional] If User set workitem version identifier, System search workitem version by version identifier                      Otherwise, system search all version of workitem                    <br>System returns array of workitem version models (listed in response example)  # noqa: E501
+        <br>Use case  <br>User sets work item identifier  <br>[Optional] User sets work item version identifier  <br>User runs method execution  <br>System search work item by identifier  <br>                      [Optional] If User set work item version identifier, System search work item version by version identifier                      Otherwise, system search all version of work item                    <br>System returns array of work item version models (listed in response example)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3584,7 +3584,7 @@ class WorkItemsApi(object):
     ):
         """Update Test Case, Checklist or Shared Step  # noqa: E501
 
-        <br>Use case  <br>User sets workitem properties (listed in request parameters)  <br>User runs method execution  <br>System updates workitem by identifier  <br>System returns updated workitem model (listed in response parameters)  # noqa: E501
+        <br>Use case  <br>User sets work item properties (listed in request parameters)  <br>User runs method execution  <br>System updates work item by identifier  <br>System returns updated work item model (listed in response parameters)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -3593,7 +3593,7 @@ class WorkItemsApi(object):
 
 
         Keyword Args:
-            work_item_put_model (WorkItemPutModel): [optional]
+            update_work_item_request (UpdateWorkItemRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

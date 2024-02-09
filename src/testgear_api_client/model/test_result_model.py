@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,17 +26,18 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.attachment_model import AttachmentModel
-    from testgear_api_client.model.attachment_model_auto_test_step_results_model import AttachmentModelAutoTestStepResultsModel
-    from testgear_api_client.model.auto_test_model import AutoTestModel
-    from testgear_api_client.model.link_model import LinkModel
-    from testgear_api_client.model.step_comment_model import StepCommentModel
-    from testgear_api_client.model.step_result_model import StepResultModel
-    from testgear_api_client.model.test_point_put_model import TestPointPutModel
+    from testit_api_client.model.attachment_model import AttachmentModel
+    from testit_api_client.model.attachment_model_auto_test_step_results_model import AttachmentModelAutoTestStepResultsModel
+    from testit_api_client.model.auto_test_model import AutoTestModel
+    from testit_api_client.model.link_model import LinkModel
+    from testit_api_client.model.step_comment_model import StepCommentModel
+    from testit_api_client.model.step_result_model import StepResultModel
+    from testit_api_client.model.test_point_put_model import TestPointPutModel
+    from testit_api_client.model.test_result_outcome import TestResultOutcome
     globals()['AttachmentModel'] = AttachmentModel
     globals()['AttachmentModelAutoTestStepResultsModel'] = AttachmentModelAutoTestStepResultsModel
     globals()['AutoTestModel'] = AutoTestModel
@@ -44,6 +45,7 @@ def lazy_import():
     globals()['StepCommentModel'] = StepCommentModel
     globals()['StepResultModel'] = StepResultModel
     globals()['TestPointPutModel'] = TestPointPutModel
+    globals()['TestResultOutcome'] = TestResultOutcome
 
 
 class TestResultModel(ModelNormal):
@@ -92,8 +94,15 @@ class TestResultModel(ModelNormal):
         """
         lazy_import()
         return {
-            'auto_test_id': (str, none_type,),  # noqa: E501
             'configuration_id': (str,),  # noqa: E501
+            'test_point_id': (str,),  # noqa: E501
+            'test_run_id': (str,),  # noqa: E501
+            'work_item_version_id': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
+            'created_by_id': (str,),  # noqa: E501
+            'failure_class_ids': ([str],),  # noqa: E501
+            'auto_test_id': (str, none_type,),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
             'completed_on': (datetime, none_type,),  # noqa: E501
             'duration_in_ms': (int, none_type,),  # noqa: E501
@@ -102,25 +111,18 @@ class TestResultModel(ModelNormal):
             'message': (str, none_type,),  # noqa: E501
             'run_by_user_id': (str, none_type,),  # noqa: E501
             'stopped_by_user_id': (str, none_type,),  # noqa: E501
-            'test_point_id': (str,),  # noqa: E501
-            'test_run_id': (str,),  # noqa: E501
-            'test_point': (TestPointPutModel,),  # noqa: E501
+            'test_point': (TestPointPutModel, none_type,),  # noqa: E501
             'auto_test': (AutoTestModel,),  # noqa: E501
             'auto_test_step_results': ([AttachmentModelAutoTestStepResultsModel], none_type,),  # noqa: E501
             'setup_results': ([AttachmentModelAutoTestStepResultsModel], none_type,),  # noqa: E501
             'teardown_results': ([AttachmentModelAutoTestStepResultsModel], none_type,),  # noqa: E501
-            'work_item_version_id': (str,),  # noqa: E501
             'work_item_version_number': (int, none_type,),  # noqa: E501
             'parameters': ({str: (str,)}, none_type,),  # noqa: E501
             'properties': ({str: (str,)}, none_type,),  # noqa: E501
-            'id': (str,),  # noqa: E501
-            'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
-            'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'step_comments': ([StepCommentModel], none_type,),  # noqa: E501
-            'failure_class_ids': ([str], none_type,),  # noqa: E501
-            'outcome': (str, none_type,),  # noqa: E501
+            'outcome': (TestResultOutcome,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
             'step_results': ([StepResultModel], none_type,),  # noqa: E501
@@ -133,8 +135,15 @@ class TestResultModel(ModelNormal):
 
 
     attribute_map = {
-        'auto_test_id': 'autoTestId',  # noqa: E501
         'configuration_id': 'configurationId',  # noqa: E501
+        'test_point_id': 'testPointId',  # noqa: E501
+        'test_run_id': 'testRunId',  # noqa: E501
+        'work_item_version_id': 'workItemVersionId',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
+        'failure_class_ids': 'failureClassIds',  # noqa: E501
+        'auto_test_id': 'autoTestId',  # noqa: E501
         'started_on': 'startedOn',  # noqa: E501
         'completed_on': 'completedOn',  # noqa: E501
         'duration_in_ms': 'durationInMs',  # noqa: E501
@@ -143,24 +152,17 @@ class TestResultModel(ModelNormal):
         'message': 'message',  # noqa: E501
         'run_by_user_id': 'runByUserId',  # noqa: E501
         'stopped_by_user_id': 'stoppedByUserId',  # noqa: E501
-        'test_point_id': 'testPointId',  # noqa: E501
-        'test_run_id': 'testRunId',  # noqa: E501
         'test_point': 'testPoint',  # noqa: E501
         'auto_test': 'autoTest',  # noqa: E501
         'auto_test_step_results': 'autoTestStepResults',  # noqa: E501
         'setup_results': 'setupResults',  # noqa: E501
         'teardown_results': 'teardownResults',  # noqa: E501
-        'work_item_version_id': 'workItemVersionId',  # noqa: E501
         'work_item_version_number': 'workItemVersionNumber',  # noqa: E501
         'parameters': 'parameters',  # noqa: E501
         'properties': 'properties',  # noqa: E501
-        'id': 'id',  # noqa: E501
-        'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
-        'created_by_id': 'createdById',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'step_comments': 'stepComments',  # noqa: E501
-        'failure_class_ids': 'failureClassIds',  # noqa: E501
         'outcome': 'outcome',  # noqa: E501
         'comment': 'comment',  # noqa: E501
         'links': 'links',  # noqa: E501
@@ -175,8 +177,18 @@ class TestResultModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, configuration_id, test_point_id, test_run_id, work_item_version_id, id, created_date, created_by_id, failure_class_ids, *args, **kwargs):  # noqa: E501
         """TestResultModel - a model defined in OpenAPI
+
+        Args:
+            configuration_id (str):
+            test_point_id (str):
+            test_run_id (str):
+            work_item_version_id (str):
+            id (str):
+            created_date (datetime):
+            created_by_id (str):
+            failure_class_ids ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -210,7 +222,6 @@ class TestResultModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             auto_test_id (str, none_type): [optional]  # noqa: E501
-            configuration_id (str): [optional]  # noqa: E501
             started_on (datetime, none_type): [optional]  # noqa: E501
             completed_on (datetime, none_type): [optional]  # noqa: E501
             duration_in_ms (int, none_type): [optional]  # noqa: E501
@@ -219,25 +230,18 @@ class TestResultModel(ModelNormal):
             message (str, none_type): [optional]  # noqa: E501
             run_by_user_id (str, none_type): [optional]  # noqa: E501
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
-            test_point_id (str): [optional]  # noqa: E501
-            test_run_id (str): [optional]  # noqa: E501
             test_point (TestPointPutModel): [optional]  # noqa: E501
             auto_test (AutoTestModel): [optional]  # noqa: E501
             auto_test_step_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             setup_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             teardown_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
-            work_item_version_id (str): [optional]  # noqa: E501
             work_item_version_number (int, none_type): [optional]  # noqa: E501
             parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
             properties ({str: (str,)}, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             step_comments ([StepCommentModel], none_type): [optional]  # noqa: E501
-            failure_class_ids ([str], none_type): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            outcome (TestResultOutcome): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             step_results ([StepResultModel], none_type): [optional]  # noqa: E501
@@ -273,6 +277,14 @@ class TestResultModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.configuration_id = configuration_id
+        self.test_point_id = test_point_id
+        self.test_run_id = test_run_id
+        self.work_item_version_id = work_item_version_id
+        self.id = id
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.failure_class_ids = failure_class_ids
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -293,8 +305,18 @@ class TestResultModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, configuration_id, test_point_id, test_run_id, work_item_version_id, id, created_date, created_by_id, failure_class_ids, *args, **kwargs):  # noqa: E501
         """TestResultModel - a model defined in OpenAPI
+
+        Args:
+            configuration_id (str):
+            test_point_id (str):
+            test_run_id (str):
+            work_item_version_id (str):
+            id (str):
+            created_date (datetime):
+            created_by_id (str):
+            failure_class_ids ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -328,7 +350,6 @@ class TestResultModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             auto_test_id (str, none_type): [optional]  # noqa: E501
-            configuration_id (str): [optional]  # noqa: E501
             started_on (datetime, none_type): [optional]  # noqa: E501
             completed_on (datetime, none_type): [optional]  # noqa: E501
             duration_in_ms (int, none_type): [optional]  # noqa: E501
@@ -337,25 +358,18 @@ class TestResultModel(ModelNormal):
             message (str, none_type): [optional]  # noqa: E501
             run_by_user_id (str, none_type): [optional]  # noqa: E501
             stopped_by_user_id (str, none_type): [optional]  # noqa: E501
-            test_point_id (str): [optional]  # noqa: E501
-            test_run_id (str): [optional]  # noqa: E501
             test_point (TestPointPutModel): [optional]  # noqa: E501
             auto_test (AutoTestModel): [optional]  # noqa: E501
             auto_test_step_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             setup_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
             teardown_results ([AttachmentModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
-            work_item_version_id (str): [optional]  # noqa: E501
             work_item_version_number (int, none_type): [optional]  # noqa: E501
             parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
             properties ({str: (str,)}, none_type): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             step_comments ([StepCommentModel], none_type): [optional]  # noqa: E501
-            failure_class_ids ([str], none_type): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            outcome (TestResultOutcome): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             step_results ([StepResultModel], none_type): [optional]  # noqa: E501
@@ -389,6 +403,14 @@ class TestResultModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.configuration_id = configuration_id
+        self.test_point_id = test_point_id
+        self.test_run_id = test_run_id
+        self.work_item_version_id = work_item_version_id
+        self.id = id
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.failure_class_ids = failure_class_ids
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

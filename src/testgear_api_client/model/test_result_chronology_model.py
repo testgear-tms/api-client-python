@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,7 +26,7 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 
@@ -75,8 +75,8 @@ class TestResultChronologyModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'outcome': (str, none_type,),  # noqa: E501
             'count': (int,),  # noqa: E501
+            'outcome': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -85,8 +85,8 @@ class TestResultChronologyModel(ModelNormal):
 
 
     attribute_map = {
-        'outcome': 'outcome',  # noqa: E501
         'count': 'count',  # noqa: E501
+        'outcome': 'outcome',  # noqa: E501
     }
 
     read_only_vars = {
@@ -96,8 +96,11 @@ class TestResultChronologyModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, count, *args, **kwargs):  # noqa: E501
         """TestResultChronologyModel - a model defined in OpenAPI
+
+        Args:
+            count (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -131,7 +134,6 @@ class TestResultChronologyModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             outcome (str, none_type): [optional]  # noqa: E501
-            count (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -163,6 +165,7 @@ class TestResultChronologyModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.count = count
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -183,8 +186,11 @@ class TestResultChronologyModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, count, *args, **kwargs):  # noqa: E501
         """TestResultChronologyModel - a model defined in OpenAPI
+
+        Args:
+            count (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -218,7 +224,6 @@ class TestResultChronologyModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             outcome (str, none_type): [optional]  # noqa: E501
-            count (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -248,6 +253,7 @@ class TestResultChronologyModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.count = count
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

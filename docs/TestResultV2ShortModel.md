@@ -4,9 +4,11 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] 
-**configuration_id** | **str** |  | [optional] 
-**work_item_version_id** | **str** |  | [optional] 
+**id** | **str** |  | 
+**configuration_id** | **str** |  | 
+**work_item_version_id** | **str** |  | 
+**test_run_id** | **str** |  | 
+**outcome** | **str** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped | 
 **auto_test_id** | **str, none_type** |  | [optional] 
 **message** | **str, none_type** |  | [optional] 
 **traces** | **str, none_type** |  | [optional] 
@@ -15,9 +17,7 @@ Name | Type | Description | Notes
 **run_by_user_id** | **str, none_type** |  | [optional] 
 **stopped_by_user_id** | **str, none_type** |  | [optional] 
 **test_point_id** | **str, none_type** |  | [optional] 
-**test_point** | [**TestPointShortModel**](TestPointShortModel.md) |  | [optional] 
-**test_run_id** | **str** |  | [optional] 
-**outcome** | **str, none_type** | Property can contain one of these values: Passed, Failed, InProgress, Blocked, Skipped | [optional] 
+**test_point** | [**TestPointRelatedToTestResult**](TestPointRelatedToTestResult.md) |  | [optional] 
 **comment** | **str, none_type** |  | [optional] 
 **links** | [**[LinkModel], none_type**](LinkModel.md) |  | [optional] 
 **attachments** | [**[AttachmentModel], none_type**](AttachmentModel.md) |  | [optional] 

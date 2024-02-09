@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testit_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,10 +21,10 @@ from testgear_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testgear_api_client.model.attachment_model import AttachmentModel
-from testgear_api_client.model.image_resize_type import ImageResizeType
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.attachment_model import AttachmentModel
+from testit_api_client.model.image_resize_type import ImageResizeType
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
 class AttachmentsApi(object):

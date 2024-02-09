@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,13 +26,13 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.attachment_model import AttachmentModel
-    from testgear_api_client.model.auto_test_short_model import AutoTestShortModel
-    from testgear_api_client.model.test_point_put_model import TestPointPutModel
+    from testit_api_client.model.attachment_model import AttachmentModel
+    from testit_api_client.model.auto_test_short_model import AutoTestShortModel
+    from testit_api_client.model.test_point_put_model import TestPointPutModel
     globals()['AttachmentModel'] = AttachmentModel
     globals()['AutoTestShortModel'] = AutoTestShortModel
     globals()['TestPointPutModel'] = TestPointPutModel
@@ -85,9 +85,9 @@ class TestResultShortModel(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'outcome': (str, none_type,),  # noqa: E501
+            'outcome': (str,),  # noqa: E501
+            'failure_type': (str,),  # noqa: E501
             'traces': (str, none_type,),  # noqa: E501
-            'failure_type': (str, none_type,),  # noqa: E501
             'message': (str, none_type,),  # noqa: E501
             'test_point': (TestPointPutModel,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
@@ -103,8 +103,8 @@ class TestResultShortModel(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'outcome': 'outcome',  # noqa: E501
-        'traces': 'traces',  # noqa: E501
         'failure_type': 'failureType',  # noqa: E501
+        'traces': 'traces',  # noqa: E501
         'message': 'message',  # noqa: E501
         'test_point': 'testPoint',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
@@ -119,8 +119,13 @@ class TestResultShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, outcome, failure_type, *args, **kwargs):  # noqa: E501
         """TestResultShortModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            outcome (str):
+            failure_type (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -153,10 +158,7 @@ class TestResultShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
             traces (str, none_type): [optional]  # noqa: E501
-            failure_type (str, none_type): [optional]  # noqa: E501
             message (str, none_type): [optional]  # noqa: E501
             test_point (TestPointPutModel): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
@@ -193,6 +195,9 @@ class TestResultShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.outcome = outcome
+        self.failure_type = failure_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -213,8 +218,13 @@ class TestResultShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, outcome, failure_type, *args, **kwargs):  # noqa: E501
         """TestResultShortModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            outcome (str):
+            failure_type (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -247,10 +257,7 @@ class TestResultShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
             traces (str, none_type): [optional]  # noqa: E501
-            failure_type (str, none_type): [optional]  # noqa: E501
             message (str, none_type): [optional]  # noqa: E501
             test_point (TestPointPutModel): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
@@ -285,6 +292,9 @@ class TestResultShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.outcome = outcome
+        self.failure_type = failure_type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

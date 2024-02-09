@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,8 +26,14 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
+
+def lazy_import():
+    from testit_api_client.model.configuration_select_model_extraction_model import ConfigurationSelectModelExtractionModel
+    from testit_api_client.model.configuration_select_model_filter import ConfigurationSelectModelFilter
+    globals()['ConfigurationSelectModelExtractionModel'] = ConfigurationSelectModelExtractionModel
+    globals()['ConfigurationSelectModelFilter'] = ConfigurationSelectModelFilter
 
 
 class ConfigurationSelectModel(ModelNormal):
@@ -58,14 +64,6 @@ class ConfigurationSelectModel(ModelNormal):
     }
 
     validations = {
-        ('project_ids',): {
-        },
-        ('name',): {
-            'max_length': 255,
-            'min_length': 0,
-        },
-        ('global_ids',): {
-        },
     }
 
     additional_properties_type = None
@@ -82,11 +80,10 @@ class ConfigurationSelectModel(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
-            'project_ids': ([str], none_type,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
-            'is_deleted': (bool, none_type,),  # noqa: E501
-            'global_ids': ([int], none_type,),  # noqa: E501
+            'filter': (ConfigurationSelectModelFilter,),  # noqa: E501
+            'extraction_model': (ConfigurationSelectModelExtractionModel,),  # noqa: E501
         }
 
     @cached_property
@@ -95,10 +92,8 @@ class ConfigurationSelectModel(ModelNormal):
 
 
     attribute_map = {
-        'project_ids': 'projectIds',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'is_deleted': 'isDeleted',  # noqa: E501
-        'global_ids': 'globalIds',  # noqa: E501
+        'filter': 'filter',  # noqa: E501
+        'extraction_model': 'extractionModel',  # noqa: E501
     }
 
     read_only_vars = {
@@ -142,10 +137,8 @@ class ConfigurationSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            project_ids ([str], none_type): Collection of identifiers of projects from which configurations will be taken. [optional]  # noqa: E501
-            name (str, none_type): Filter to search by name (case-insensitive, partial match). [optional]  # noqa: E501
-            is_deleted (bool, none_type): Is configurations deleted or existing. [optional]  # noqa: E501
-            global_ids ([int], none_type): Collection of global (integer) identifiers to filter configurations. [optional]  # noqa: E501
+            filter (ConfigurationSelectModelFilter): [optional]  # noqa: E501
+            extraction_model (ConfigurationSelectModelExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -231,10 +224,8 @@ class ConfigurationSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            project_ids ([str], none_type): Collection of identifiers of projects from which configurations will be taken. [optional]  # noqa: E501
-            name (str, none_type): Filter to search by name (case-insensitive, partial match). [optional]  # noqa: E501
-            is_deleted (bool, none_type): Is configurations deleted or existing. [optional]  # noqa: E501
-            global_ids ([int], none_type): Collection of global (integer) identifiers to filter configurations. [optional]  # noqa: E501
+            filter (ConfigurationSelectModelFilter): [optional]  # noqa: E501
+            extraction_model (ConfigurationSelectModelExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -1,4 +1,4 @@
-# testgear_api_client.CustomAttributesApi
+# testit_api_client.CustomAttributesApi
 
 All URIs are relative to *http://localhost*
 
@@ -22,13 +22,13 @@ Delete global attribute
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import custom_attributes_api
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import custom_attributes_api
+from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -44,7 +44,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_attributes_api.CustomAttributesApi(api_client)
     id = "id_example" # str | Unique ID of attribute
@@ -53,7 +53,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete global attribute
         api_instance.api_v2_custom_attributes_global_id_delete(id)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_global_id_delete: %s\n" % e)
 ```
 
@@ -98,15 +98,15 @@ Edit global attribute
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import custom_attributes_api
-from testgear_api_client.model.custom_attribute_model import CustomAttributeModel
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.global_custom_attribute_update_model import GlobalCustomAttributeUpdateModel
+import testit_api_client
+from testit_api_client.api import custom_attributes_api
+from testit_api_client.model.api_v2_custom_attributes_global_id_put_request import ApiV2CustomAttributesGlobalIdPutRequest
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.custom_attribute_model import CustomAttributeModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -122,39 +122,27 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_attributes_api.CustomAttributesApi(api_client)
     id = "id_example" # str | Unique ID of attribute
-    global_custom_attribute_update_model = GlobalCustomAttributeUpdateModel(
-        name="name_example",
-        options=[
-            CustomAttributeOptionModel(
-                id="id_example",
-                is_deleted=True,
-                value="value_example",
-                is_default=True,
-            ),
-        ],
-        is_enabled=True,
-        is_required=True,
-    ) # GlobalCustomAttributeUpdateModel |  (optional)
+    api_v2_custom_attributes_global_id_put_request = ApiV2CustomAttributesGlobalIdPutRequest(None) # ApiV2CustomAttributesGlobalIdPutRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Edit global attribute
         api_response = api_instance.api_v2_custom_attributes_global_id_put(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_global_id_put: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Edit global attribute
-        api_response = api_instance.api_v2_custom_attributes_global_id_put(id, global_custom_attribute_update_model=global_custom_attribute_update_model)
+        api_response = api_instance.api_v2_custom_attributes_global_id_put(id, api_v2_custom_attributes_global_id_put_request=api_v2_custom_attributes_global_id_put_request)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_global_id_put: %s\n" % e)
 ```
 
@@ -164,7 +152,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Unique ID of attribute |
- **global_custom_attribute_update_model** | [**GlobalCustomAttributeUpdateModel**](GlobalCustomAttributeUpdateModel.md)|  | [optional]
+ **api_v2_custom_attributes_global_id_put_request** | [**ApiV2CustomAttributesGlobalIdPutRequest**](ApiV2CustomAttributesGlobalIdPutRequest.md)|  | [optional]
 
 ### Return type
 
@@ -200,15 +188,15 @@ Create global attribute
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import custom_attributes_api
-from testgear_api_client.model.custom_attribute_model import CustomAttributeModel
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.global_custom_attribute_post_model import GlobalCustomAttributePostModel
+import testit_api_client
+from testit_api_client.api import custom_attributes_api
+from testit_api_client.model.api_v2_custom_attributes_global_post_request import ApiV2CustomAttributesGlobalPostRequest
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.custom_attribute_model import CustomAttributeModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -224,29 +212,18 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_attributes_api.CustomAttributesApi(api_client)
-    global_custom_attribute_post_model = GlobalCustomAttributePostModel(
-        name="name_example",
-        is_enabled=True,
-        is_required=True,
-        options=[
-            CustomAttributeOptionPostModel(
-                value="value_example",
-                is_default=True,
-            ),
-        ],
-        type=CustomAttributeTypesEnum("string"),
-    ) # GlobalCustomAttributePostModel |  (optional)
+    api_v2_custom_attributes_global_post_request = ApiV2CustomAttributesGlobalPostRequest(None) # ApiV2CustomAttributesGlobalPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create global attribute
-        api_response = api_instance.api_v2_custom_attributes_global_post(global_custom_attribute_post_model=global_custom_attribute_post_model)
+        api_response = api_instance.api_v2_custom_attributes_global_post(api_v2_custom_attributes_global_post_request=api_v2_custom_attributes_global_post_request)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_global_post: %s\n" % e)
 ```
 
@@ -255,7 +232,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **global_custom_attribute_post_model** | [**GlobalCustomAttributePostModel**](GlobalCustomAttributePostModel.md)|  | [optional]
+ **api_v2_custom_attributes_global_post_request** | [**ApiV2CustomAttributesGlobalPostRequest**](ApiV2CustomAttributesGlobalPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -291,13 +268,13 @@ Get attribute
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import custom_attributes_api
-from testgear_api_client.model.custom_attribute_model import CustomAttributeModel
+import testit_api_client
+from testit_api_client.api import custom_attributes_api
+from testit_api_client.model.custom_attribute_model import CustomAttributeModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -313,7 +290,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_attributes_api.CustomAttributesApi(api_client)
     id = "id_example" # str | Unique ID of attribute
@@ -323,7 +300,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get attribute
         api_response = api_instance.api_v2_custom_attributes_id_get(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_id_get: %s\n" % e)
 ```
 
@@ -367,14 +344,14 @@ Search for attributes
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import custom_attributes_api
-from testgear_api_client.model.custom_attribute_model import CustomAttributeModel
-from testgear_api_client.model.custom_attribute_search_query_model import CustomAttributeSearchQueryModel
+import testit_api_client
+from testit_api_client.api import custom_attributes_api
+from testit_api_client.model.custom_attribute_model import CustomAttributeModel
+from testit_api_client.model.api_v2_custom_attributes_search_post_request import ApiV2CustomAttributesSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -390,7 +367,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_attributes_api.CustomAttributesApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -398,28 +375,15 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    custom_attribute_search_query_model = CustomAttributeSearchQueryModel(
-        name="name_example",
-        project_ids=[
-            "project_ids_example",
-        ],
-        custom_attribute_ids=[
-            "custom_attribute_ids_example",
-        ],
-        custom_attribute_types=[
-            CustomAttributeTypesEnum("string"),
-        ],
-        is_global=True,
-        is_deleted=True,
-    ) # CustomAttributeSearchQueryModel |  (optional)
+    api_v2_custom_attributes_search_post_request = ApiV2CustomAttributesSearchPostRequest(None) # ApiV2CustomAttributesSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for attributes
-        api_response = api_instance.api_v2_custom_attributes_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, custom_attribute_search_query_model=custom_attribute_search_query_model)
+        api_response = api_instance.api_v2_custom_attributes_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_custom_attributes_search_post_request=api_v2_custom_attributes_search_post_request)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling CustomAttributesApi->api_v2_custom_attributes_search_post: %s\n" % e)
 ```
 
@@ -433,7 +397,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **custom_attribute_search_query_model** | [**CustomAttributeSearchQueryModel**](CustomAttributeSearchQueryModel.md)|  | [optional]
+ **api_v2_custom_attributes_search_post_request** | [**ApiV2CustomAttributesSearchPostRequest**](ApiV2CustomAttributesSearchPostRequest.md)|  | [optional]
 
 ### Return type
 

@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testit_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,11 +21,11 @@ from testgear_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.test_point_filter_model import TestPointFilterModel
-from testgear_api_client.model.test_point_short_get_model import TestPointShortGetModel
-from testgear_api_client.model.test_run_model import TestRunModel
-from testgear_api_client.model.work_item_model import WorkItemModel
+from testit_api_client.model.api_v2_test_points_search_post_request import ApiV2TestPointsSearchPostRequest
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.test_point_short_get_model import TestPointShortGetModel
+from testit_api_client.model.test_run_model import TestRunModel
+from testit_api_client.model.work_item_model import WorkItemModel
 
 
 class TestPointsApi(object):
@@ -159,7 +159,7 @@ class TestPointsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'test_point_filter_model',
+                    'api_v2_test_points_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -185,8 +185,8 @@ class TestPointsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'test_point_filter_model':
-                        (TestPointFilterModel,),
+                    'api_v2_test_points_search_post_request':
+                        (ApiV2TestPointsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -201,7 +201,7 @@ class TestPointsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'test_point_filter_model': 'body',
+                    'api_v2_test_points_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -234,7 +234,7 @@ class TestPointsApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'test_point_filter_model',
+                    'api_v2_test_points_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -260,8 +260,8 @@ class TestPointsApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'test_point_filter_model':
-                        (TestPointFilterModel,),
+                    'api_v2_test_points_search_post_request':
+                        (ApiV2TestPointsSearchPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -276,7 +276,7 @@ class TestPointsApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'test_point_filter_model': 'body',
+                    'api_v2_test_points_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -475,7 +475,7 @@ class TestPointsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            test_point_filter_model (TestPointFilterModel): [optional]
+            api_v2_test_points_search_post_request (ApiV2TestPointsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -558,7 +558,7 @@ class TestPointsApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            test_point_filter_model (TestPointFilterModel): [optional]
+            api_v2_test_points_search_post_request (ApiV2TestPointsSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,12 +26,12 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.tag_short_model import TagShortModel
-    from testgear_api_client.model.test_plan_status_model import TestPlanStatusModel
+    from testit_api_client.model.tag_short_model import TagShortModel
+    from testit_api_client.model.test_plan_status_model import TestPlanStatusModel
     globals()['TagShortModel'] = TagShortModel
     globals()['TestPlanStatusModel'] = TestPlanStatusModel
 
@@ -99,17 +99,18 @@ class TestPlanModel(ModelNormal):
         lazy_import()
         return {
             'status': (TestPlanStatusModel,),  # noqa: E501
+            'created_by_id': (str,),  # noqa: E501
+            'global_id': (int,),  # noqa: E501
+            'is_deleted': (bool,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
+            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
             'completed_on': (datetime, none_type,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
-            'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
-            'global_id': (int,),  # noqa: E501
-            'is_deleted': (bool,),  # noqa: E501
             'locked_date': (datetime, none_type,),  # noqa: E501
             'locked_by_id': (str, none_type,),  # noqa: E501
             'tags': ([TagShortModel], none_type,),  # noqa: E501
@@ -119,7 +120,6 @@ class TestPlanModel(ModelNormal):
             'build': (str, none_type,),  # noqa: E501
             'product_name': (str, none_type,),  # noqa: E501
             'has_automatic_duration_timer': (bool, none_type,),  # noqa: E501
-            'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -129,17 +129,18 @@ class TestPlanModel(ModelNormal):
 
     attribute_map = {
         'status': 'status',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
+        'global_id': 'globalId',  # noqa: E501
+        'is_deleted': 'isDeleted',  # noqa: E501
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
+        'attributes': 'attributes',  # noqa: E501
         'started_on': 'startedOn',  # noqa: E501
         'completed_on': 'completedOn',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
-        'created_by_id': 'createdById',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
-        'global_id': 'globalId',  # noqa: E501
-        'is_deleted': 'isDeleted',  # noqa: E501
         'locked_date': 'lockedDate',  # noqa: E501
         'locked_by_id': 'lockedById',  # noqa: E501
         'tags': 'tags',  # noqa: E501
@@ -149,7 +150,6 @@ class TestPlanModel(ModelNormal):
         'build': 'build',  # noqa: E501
         'product_name': 'productName',  # noqa: E501
         'has_automatic_duration_timer': 'hasAutomaticDurationTimer',  # noqa: E501
-        'attributes': 'attributes',  # noqa: E501
     }
 
     read_only_vars = {
@@ -159,14 +159,18 @@ class TestPlanModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, status, id, name, project_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, status, created_by_id, global_id, is_deleted, id, name, project_id, attributes, *args, **kwargs):  # noqa: E501
         """TestPlanModel - a model defined in OpenAPI
 
         Args:
             status (TestPlanStatusModel):
+            created_by_id (str):
+            global_id (int): Used for search Test plan
+            is_deleted (bool):
             id (str):
             name (str):
             project_id (str):
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -203,10 +207,7 @@ class TestPlanModel(ModelNormal):
             completed_on (datetime, none_type): set when test plan status is completed (status changed to: Completed). [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            global_id (int): Used for search Test plan. [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
             locked_date (datetime, none_type): [optional]  # noqa: E501
             locked_by_id (str, none_type): [optional]  # noqa: E501
             tags ([TagShortModel], none_type): [optional]  # noqa: E501
@@ -216,7 +217,6 @@ class TestPlanModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -249,9 +249,13 @@ class TestPlanModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.status = status
+        self.created_by_id = created_by_id
+        self.global_id = global_id
+        self.is_deleted = is_deleted
         self.id = id
         self.name = name
         self.project_id = project_id
+        self.attributes = attributes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -272,14 +276,18 @@ class TestPlanModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, status, id, name, project_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, status, created_by_id, global_id, is_deleted, id, name, project_id, attributes, *args, **kwargs):  # noqa: E501
         """TestPlanModel - a model defined in OpenAPI
 
         Args:
             status (TestPlanStatusModel):
+            created_by_id (str):
+            global_id (int): Used for search Test plan
+            is_deleted (bool):
             id (str):
             name (str):
             project_id (str):
+            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -316,10 +324,7 @@ class TestPlanModel(ModelNormal):
             completed_on (datetime, none_type): set when test plan status is completed (status changed to: Completed). [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            global_id (int): Used for search Test plan. [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
             locked_date (datetime, none_type): [optional]  # noqa: E501
             locked_by_id (str, none_type): [optional]  # noqa: E501
             tags ([TagShortModel], none_type): [optional]  # noqa: E501
@@ -329,7 +334,6 @@ class TestPlanModel(ModelNormal):
             build (str, none_type): [optional]  # noqa: E501
             product_name (str, none_type): [optional]  # noqa: E501
             has_automatic_duration_timer (bool, none_type): [optional]  # noqa: E501
-            attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -360,9 +364,13 @@ class TestPlanModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.status = status
+        self.created_by_id = created_by_id
+        self.global_id = global_id
+        self.is_deleted = is_deleted
         self.id = id
         self.name = name
         self.project_id = project_id
+        self.attributes = attributes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

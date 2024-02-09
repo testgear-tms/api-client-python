@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,7 +26,7 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 
@@ -76,14 +76,14 @@ class SharedStepReferenceSectionModel(ModelNormal):
         """
         return {
             'id': (str,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'has_this_shared_step_as_precondition': (bool,),  # noqa: E501
             'has_this_shared_step_as_postcondition': (bool,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
+            'is_deleted': (bool,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
-            'is_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -97,10 +97,10 @@ class SharedStepReferenceSectionModel(ModelNormal):
         'has_this_shared_step_as_precondition': 'hasThisSharedStepAsPrecondition',  # noqa: E501
         'has_this_shared_step_as_postcondition': 'hasThisSharedStepAsPostcondition',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
+        'is_deleted': 'isDeleted',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
-        'is_deleted': 'isDeleted',  # noqa: E501
     }
 
     read_only_vars = {
@@ -110,8 +110,16 @@ class SharedStepReferenceSectionModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, has_this_shared_step_as_precondition, has_this_shared_step_as_postcondition, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
         """SharedStepReferenceSectionModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            name (str):
+            has_this_shared_step_as_precondition (bool):
+            has_this_shared_step_as_postcondition (bool):
+            created_by_id (str):
+            is_deleted (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -144,15 +152,9 @@ class SharedStepReferenceSectionModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            has_this_shared_step_as_precondition (bool): [optional]  # noqa: E501
-            has_this_shared_step_as_postcondition (bool): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -184,6 +186,12 @@ class SharedStepReferenceSectionModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.name = name
+        self.has_this_shared_step_as_precondition = has_this_shared_step_as_precondition
+        self.has_this_shared_step_as_postcondition = has_this_shared_step_as_postcondition
+        self.created_by_id = created_by_id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -204,8 +212,16 @@ class SharedStepReferenceSectionModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, has_this_shared_step_as_precondition, has_this_shared_step_as_postcondition, created_by_id, is_deleted, *args, **kwargs):  # noqa: E501
         """SharedStepReferenceSectionModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            name (str):
+            has_this_shared_step_as_precondition (bool):
+            has_this_shared_step_as_postcondition (bool):
+            created_by_id (str):
+            is_deleted (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -238,15 +254,9 @@ class SharedStepReferenceSectionModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            has_this_shared_step_as_precondition (bool): [optional]  # noqa: E501
-            has_this_shared_step_as_postcondition (bool): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -276,6 +286,12 @@ class SharedStepReferenceSectionModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.name = name
+        self.has_this_shared_step_as_precondition = has_this_shared_step_as_precondition
+        self.has_this_shared_step_as_postcondition = has_this_shared_step_as_postcondition
+        self.created_by_id = created_by_id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

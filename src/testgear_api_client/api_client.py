@@ -20,10 +20,10 @@ from urllib.parse import quote
 from urllib3.fields import RequestField
 
 
-from testgear_api_client import rest
-from testgear_api_client.configuration import Configuration
-from testgear_api_client.exceptions import ApiTypeError, ApiValueError, ApiException
-from testgear_api_client.model_utils import (
+from testit_api_client import rest
+from testit_api_client.configuration import Configuration
+from testit_api_client.exceptions import ApiTypeError, ApiValueError, ApiException
+from testit_api_client.model_utils import (
     ModelNormal,
     ModelSimple,
     ModelComposed,
@@ -76,7 +76,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/3.1.0/python'
+        self.user_agent = 'OpenAPI-Generator/3.2.0/python'
 
     def __enter__(self):
         return self
@@ -286,8 +286,10 @@ class ApiClient(object):
             return obj.isoformat()
         elif isinstance(obj, ModelSimple):
             return cls.sanitize_for_serialization(obj.value)
-        elif isinstance(obj, (list, tuple)):
+        elif isinstance(obj, list):
             return [cls.sanitize_for_serialization(item) for item in obj]
+        elif isinstance(obj, tuple):
+            return tuple(cls.sanitize_for_serialization(item) for item in obj)
         if isinstance(obj, dict):
             return {key: cls.sanitize_for_serialization(val) for key, val in obj.items()}
         raise ApiValueError(

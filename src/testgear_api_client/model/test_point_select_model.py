@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,12 +26,12 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.test_point_filter_model import TestPointFilterModel
-    from testgear_api_client.model.test_points_extraction_model import TestPointsExtractionModel
+    from testit_api_client.model.test_point_filter_model import TestPointFilterModel
+    from testit_api_client.model.test_points_extraction_model import TestPointsExtractionModel
     globals()['TestPointFilterModel'] = TestPointFilterModel
     globals()['TestPointsExtractionModel'] = TestPointsExtractionModel
 

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | 
 **project_id** | **str** |  | 
+**attachments** | [**[AttachmentPutModel]**](AttachmentPutModel.md) |  | 
 **parent_id** | **str, none_type** |  | [optional] 
 **precondition_steps** | [**[StepPutModel], none_type**](StepPutModel.md) |  | [optional] 
 **postcondition_steps** | [**[StepPutModel], none_type**](StepPutModel.md) |  | [optional] 

@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,13 +26,13 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.auto_test_step_model import AutoTestStepModel
-    from testgear_api_client.model.label_post_model import LabelPostModel
-    from testgear_api_client.model.link_post_model import LinkPostModel
+    from testit_api_client.model.auto_test_step_model import AutoTestStepModel
+    from testit_api_client.model.label_post_model import LabelPostModel
+    from testit_api_client.model.link_post_model import LinkPostModel
     globals()['AutoTestStepModel'] = AutoTestStepModel
     globals()['LabelPostModel'] = LabelPostModel
     globals()['LinkPostModel'] = LinkPostModel
@@ -107,6 +107,7 @@ class AutoTestPostModel(ModelNormal):
             'description': (str, none_type,),  # noqa: E501
             'labels': ([LabelPostModel], none_type,),  # noqa: E501
             'is_flaky': (bool, none_type,),  # noqa: E501
+            'external_key': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -130,6 +131,7 @@ class AutoTestPostModel(ModelNormal):
         'description': 'description',  # noqa: E501
         'labels': 'labels',  # noqa: E501
         'is_flaky': 'isFlaky',  # noqa: E501
+        'external_key': 'externalKey',  # noqa: E501
     }
 
     read_only_vars = {
@@ -190,6 +192,7 @@ class AutoTestPostModel(ModelNormal):
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
             labels ([LabelPostModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
+            external_key (str, none_type): External key of the autotest. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -295,6 +298,7 @@ class AutoTestPostModel(ModelNormal):
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
             labels ([LabelPostModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
+            external_key (str, none_type): External key of the autotest. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

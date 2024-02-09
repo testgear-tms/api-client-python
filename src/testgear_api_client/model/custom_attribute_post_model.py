@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,12 +26,12 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.custom_attribute_option_post_model import CustomAttributeOptionPostModel
-    from testgear_api_client.model.custom_attribute_types_enum import CustomAttributeTypesEnum
+    from testit_api_client.model.custom_attribute_option_post_model import CustomAttributeOptionPostModel
+    from testit_api_client.model.custom_attribute_types_enum import CustomAttributeTypesEnum
     globals()['CustomAttributeOptionPostModel'] = CustomAttributeOptionPostModel
     globals()['CustomAttributeTypesEnum'] = CustomAttributeTypesEnum
 
@@ -88,10 +88,10 @@ class CustomAttributePostModel(ModelNormal):
         return {
             'type': (CustomAttributeTypesEnum,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'options': ([CustomAttributeOptionPostModel], none_type,),  # noqa: E501
             'is_enabled': (bool,),  # noqa: E501
             'is_required': (bool,),  # noqa: E501
             'is_global': (bool,),  # noqa: E501
+            'options': ([CustomAttributeOptionPostModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -102,10 +102,10 @@ class CustomAttributePostModel(ModelNormal):
     attribute_map = {
         'type': 'type',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'options': 'options',  # noqa: E501
         'is_enabled': 'isEnabled',  # noqa: E501
         'is_required': 'isRequired',  # noqa: E501
         'is_global': 'isGlobal',  # noqa: E501
+        'options': 'options',  # noqa: E501
     }
 
     read_only_vars = {
@@ -115,12 +115,15 @@ class CustomAttributePostModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, type, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, type, name, is_enabled, is_required, is_global, *args, **kwargs):  # noqa: E501
         """CustomAttributePostModel - a model defined in OpenAPI
 
         Args:
             type (CustomAttributeTypesEnum):
             name (str): Name of the attribute
+            is_enabled (bool): Indicates if the attribute is enabled
+            is_required (bool): Indicates if the attribute value is mandatory to specify
+            is_global (bool): Indicates if the attribute is available across all projects
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -154,9 +157,6 @@ class CustomAttributePostModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             options ([CustomAttributeOptionPostModel], none_type): Collection of attribute options  <br />  Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
-            is_enabled (bool): Indicates if the attribute is enabled. [optional]  # noqa: E501
-            is_required (bool): Indicates if the attribute value is mandatory to specify. [optional]  # noqa: E501
-            is_global (bool): Indicates if the attribute is available across all projects. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -190,6 +190,9 @@ class CustomAttributePostModel(ModelNormal):
 
         self.type = type
         self.name = name
+        self.is_enabled = is_enabled
+        self.is_required = is_required
+        self.is_global = is_global
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -210,12 +213,15 @@ class CustomAttributePostModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, type, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, type, name, is_enabled, is_required, is_global, *args, **kwargs):  # noqa: E501
         """CustomAttributePostModel - a model defined in OpenAPI
 
         Args:
             type (CustomAttributeTypesEnum):
             name (str): Name of the attribute
+            is_enabled (bool): Indicates if the attribute is enabled
+            is_required (bool): Indicates if the attribute value is mandatory to specify
+            is_global (bool): Indicates if the attribute is available across all projects
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -249,9 +255,6 @@ class CustomAttributePostModel(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             options ([CustomAttributeOptionPostModel], none_type): Collection of attribute options  <br />  Available for attributes of type `options` and `multiple options` only. [optional]  # noqa: E501
-            is_enabled (bool): Indicates if the attribute is enabled. [optional]  # noqa: E501
-            is_required (bool): Indicates if the attribute value is mandatory to specify. [optional]  # noqa: E501
-            is_global (bool): Indicates if the attribute is available across all projects. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -283,6 +286,9 @@ class CustomAttributePostModel(ModelNormal):
 
         self.type = type
         self.name = name
+        self.is_enabled = is_enabled
+        self.is_required = is_required
+        self.is_global = is_global
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

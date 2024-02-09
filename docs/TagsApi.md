@@ -1,4 +1,4 @@
-# testgear_api_client.TagsApi
+# testit_api_client.TagsApi
 
 All URIs are relative to *http://localhost*
 
@@ -21,14 +21,14 @@ Get all Tags
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import tags_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.tag_short_model import TagShortModel
+import testit_api_client
+from testit_api_client.api import tags_api
+from testit_api_client.model.tag_short_model import TagShortModel
+from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -44,7 +44,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = tags_api.TagsApi(api_client)
 
@@ -53,7 +53,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get all Tags
         api_response = api_instance.api_v2_tags_get()
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TagsApi->api_v2_tags_get: %s\n" % e)
 ```
 
@@ -97,15 +97,15 @@ Get all Tags that are used in TestPlans
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import tags_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
-from testgear_api_client.model.tag_short_model import TagShortModel
+import testit_api_client
+from testit_api_client.api import tags_api
+from testit_api_client.model.tag_short_model import TagShortModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -121,7 +121,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = tags_api.TagsApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -136,7 +136,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get all Tags that are used in TestPlans
         api_response = api_instance.api_v2_tags_test_plans_tags_get(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TagsApi->api_v2_tags_test_plans_tags_get: %s\n" % e)
 ```
 

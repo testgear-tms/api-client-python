@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,13 +26,13 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.auto_test_step_model import AutoTestStepModel
-    from testgear_api_client.model.label_short_model import LabelShortModel
-    from testgear_api_client.model.link_model import LinkModel
+    from testit_api_client.model.auto_test_step_model import AutoTestStepModel
+    from testit_api_client.model.label_short_model import LabelShortModel
+    from testit_api_client.model.link_model import LinkModel
     globals()['AutoTestStepModel'] = AutoTestStepModel
     globals()['LabelShortModel'] = LabelShortModel
     globals()['LinkModel'] = LinkModel
@@ -84,23 +84,23 @@ class AutoTestModelV2GetModel(ModelNormal):
         """
         lazy_import()
         return {
-            'external_id': (str, none_type,),  # noqa: E501
-            'links': ([LinkModel], none_type,),  # noqa: E501
+            'external_id': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'global_id': (int,),  # noqa: E501
+            'created_by_id': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'is_deleted': (bool,),  # noqa: E501
+            'links': ([LinkModel], none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
             'classname': (str, none_type,),  # noqa: E501
             'steps': ([AutoTestStepModel], none_type,),  # noqa: E501
             'setup': ([AutoTestStepModel], none_type,),  # noqa: E501
             'teardown': ([AutoTestStepModel], none_type,),  # noqa: E501
-            'global_id': (int,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
-            'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'labels': ([LabelShortModel], none_type,),  # noqa: E501
-            'id': (str,),  # noqa: E501
-            'is_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -110,22 +110,22 @@ class AutoTestModelV2GetModel(ModelNormal):
 
     attribute_map = {
         'external_id': 'externalId',  # noqa: E501
-        'links': 'links',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
         'name': 'name',  # noqa: E501
+        'global_id': 'globalId',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'is_deleted': 'isDeleted',  # noqa: E501
+        'links': 'links',  # noqa: E501
         'namespace': 'namespace',  # noqa: E501
         'classname': 'classname',  # noqa: E501
         'steps': 'steps',  # noqa: E501
         'setup': 'setup',  # noqa: E501
         'teardown': 'teardown',  # noqa: E501
-        'global_id': 'globalId',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
-        'created_by_id': 'createdById',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'labels': 'labels',  # noqa: E501
-        'id': 'id',  # noqa: E501
-        'is_deleted': 'isDeleted',  # noqa: E501
     }
 
     read_only_vars = {
@@ -135,8 +135,17 @@ class AutoTestModelV2GetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, external_id, project_id, name, global_id, created_by_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """AutoTestModelV2GetModel - a model defined in OpenAPI
+
+        Args:
+            external_id (str): This property is used to set autotest identifier from client system
+            project_id (str): This property is used to link autotest with project
+            name (str):
+            global_id (int):
+            created_by_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -169,23 +178,16 @@ class AutoTestModelV2GetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            external_id (str, none_type): This property is used to set autotest identifier from client system. [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            project_id (str): This property is used to link autotest with project. [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
             namespace (str, none_type): [optional]  # noqa: E501
             classname (str, none_type): [optional]  # noqa: E501
             steps ([AutoTestStepModel], none_type): [optional]  # noqa: E501
             setup ([AutoTestStepModel], none_type): [optional]  # noqa: E501
             teardown ([AutoTestStepModel], none_type): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             labels ([LabelShortModel], none_type): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,6 +219,13 @@ class AutoTestModelV2GetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.external_id = external_id
+        self.project_id = project_id
+        self.name = name
+        self.global_id = global_id
+        self.created_by_id = created_by_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -237,8 +246,17 @@ class AutoTestModelV2GetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, external_id, project_id, name, global_id, created_by_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """AutoTestModelV2GetModel - a model defined in OpenAPI
+
+        Args:
+            external_id (str): This property is used to set autotest identifier from client system
+            project_id (str): This property is used to link autotest with project
+            name (str):
+            global_id (int):
+            created_by_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -271,23 +289,16 @@ class AutoTestModelV2GetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            external_id (str, none_type): This property is used to set autotest identifier from client system. [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
-            project_id (str): This property is used to link autotest with project. [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
             namespace (str, none_type): [optional]  # noqa: E501
             classname (str, none_type): [optional]  # noqa: E501
             steps ([AutoTestStepModel], none_type): [optional]  # noqa: E501
             setup ([AutoTestStepModel], none_type): [optional]  # noqa: E501
             teardown ([AutoTestStepModel], none_type): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             labels ([LabelShortModel], none_type): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -317,6 +328,13 @@ class AutoTestModelV2GetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.external_id = external_id
+        self.project_id = project_id
+        self.name = name
+        self.global_id = global_id
+        self.created_by_id = created_by_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

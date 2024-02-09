@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,17 +26,21 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
-    from testgear_api_client.model.int32_range_selector_model import Int32RangeSelectorModel
-    from testgear_api_client.model.work_item_entity_types import WorkItemEntityTypes
-    from testgear_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testgear_api_client.model.work_item_states import WorkItemStates
-    globals()['DateTimeRangeSelectorModel'] = DateTimeRangeSelectorModel
-    globals()['Int32RangeSelectorModel'] = Int32RangeSelectorModel
+    from testit_api_client.model.test_point_filter_model_work_item_created_date import TestPointFilterModelWorkItemCreatedDate
+    from testit_api_client.model.test_point_filter_model_work_item_modified_date import TestPointFilterModelWorkItemModifiedDate
+    from testit_api_client.model.test_suite_work_items_search_model_duration import TestSuiteWorkItemsSearchModelDuration
+    from testit_api_client.model.test_suite_work_items_search_model_median_duration import TestSuiteWorkItemsSearchModelMedianDuration
+    from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
+    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
+    from testit_api_client.model.work_item_states import WorkItemStates
+    globals()['TestPointFilterModelWorkItemCreatedDate'] = TestPointFilterModelWorkItemCreatedDate
+    globals()['TestPointFilterModelWorkItemModifiedDate'] = TestPointFilterModelWorkItemModifiedDate
+    globals()['TestSuiteWorkItemsSearchModelDuration'] = TestSuiteWorkItemsSearchModelDuration
+    globals()['TestSuiteWorkItemsSearchModelMedianDuration'] = TestSuiteWorkItemsSearchModelMedianDuration
     globals()['WorkItemEntityTypes'] = WorkItemEntityTypes
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
     globals()['WorkItemStates'] = WorkItemStates
@@ -70,6 +74,8 @@ class WorkItemSearchQueryModel(ModelNormal):
     }
 
     validations = {
+        ('project_ids',): {
+        },
         ('name',): {
             'max_length': 255,
             'min_length': 0,
@@ -77,8 +83,6 @@ class WorkItemSearchQueryModel(ModelNormal):
         ('ids',): {
         },
         ('global_ids',): {
-        },
-        ('project_ids',): {
         },
         ('section_ids',): {
         },
@@ -114,21 +118,22 @@ class WorkItemSearchQueryModel(ModelNormal):
         """
         lazy_import()
         return {
+            'project_ids': ([str], none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'ids': ([str], none_type,),  # noqa: E501
             'global_ids': ([int], none_type,),  # noqa: E501
             'attributes': ({str: ([str], none_type)}, none_type,),  # noqa: E501
             'is_deleted': (bool, none_type,),  # noqa: E501
-            'project_ids': ([str], none_type,),  # noqa: E501
             'section_ids': ([str], none_type,),  # noqa: E501
             'created_by_ids': ([str], none_type,),  # noqa: E501
             'modified_by_ids': ([str], none_type,),  # noqa: E501
             'states': ([WorkItemStates], none_type,),  # noqa: E501
             'priorities': ([WorkItemPriorityModel], none_type,),  # noqa: E501
             'types': ([WorkItemEntityTypes], none_type,),  # noqa: E501
-            'created_date': (DateTimeRangeSelectorModel,),  # noqa: E501
-            'modified_date': (DateTimeRangeSelectorModel,),  # noqa: E501
-            'duration': (Int32RangeSelectorModel,),  # noqa: E501
+            'created_date': (TestPointFilterModelWorkItemCreatedDate,),  # noqa: E501
+            'modified_date': (TestPointFilterModelWorkItemModifiedDate,),  # noqa: E501
+            'duration': (TestSuiteWorkItemsSearchModelDuration,),  # noqa: E501
+            'median_duration': (TestSuiteWorkItemsSearchModelMedianDuration,),  # noqa: E501
             'is_automated': (bool, none_type,),  # noqa: E501
             'tags': ([str], none_type,),  # noqa: E501
             'auto_test_ids': ([str], none_type,),  # noqa: E501
@@ -140,12 +145,12 @@ class WorkItemSearchQueryModel(ModelNormal):
 
 
     attribute_map = {
+        'project_ids': 'projectIds',  # noqa: E501
         'name': 'name',  # noqa: E501
         'ids': 'ids',  # noqa: E501
         'global_ids': 'globalIds',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
-        'project_ids': 'projectIds',  # noqa: E501
         'section_ids': 'sectionIds',  # noqa: E501
         'created_by_ids': 'createdByIds',  # noqa: E501
         'modified_by_ids': 'modifiedByIds',  # noqa: E501
@@ -155,6 +160,7 @@ class WorkItemSearchQueryModel(ModelNormal):
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'duration': 'duration',  # noqa: E501
+        'median_duration': 'medianDuration',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'auto_test_ids': 'autoTestIds',  # noqa: E501
@@ -201,21 +207,22 @@ class WorkItemSearchQueryModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             name (str, none_type): Name of work item. [optional]  # noqa: E501
             ids ([str], none_type): Specifies a work item unique IDs to search for. [optional]  # noqa: E501
             global_ids ([int], none_type): Collection of global (integer) identifiers. [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): Custom attributes of work item. [optional]  # noqa: E501
             is_deleted (bool, none_type): Is result must consist of only actual/deleted work items. [optional]  # noqa: E501
-            project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             section_ids ([str], none_type): Collection of section identifiers. [optional]  # noqa: E501
             created_by_ids ([str], none_type): Collection of identifiers of users who created work item. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
             types ([WorkItemEntityTypes], none_type): Collection of types of work item. [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
-            modified_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
-            duration (Int32RangeSelectorModel): [optional]  # noqa: E501
+            created_date (TestPointFilterModelWorkItemCreatedDate): [optional]  # noqa: E501
+            modified_date (TestPointFilterModelWorkItemModifiedDate): [optional]  # noqa: E501
+            duration (TestSuiteWorkItemsSearchModelDuration): [optional]  # noqa: E501
+            median_duration (TestSuiteWorkItemsSearchModelMedianDuration): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501
@@ -304,21 +311,22 @@ class WorkItemSearchQueryModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             name (str, none_type): Name of work item. [optional]  # noqa: E501
             ids ([str], none_type): Specifies a work item unique IDs to search for. [optional]  # noqa: E501
             global_ids ([int], none_type): Collection of global (integer) identifiers. [optional]  # noqa: E501
             attributes ({str: ([str], none_type)}, none_type): Custom attributes of work item. [optional]  # noqa: E501
             is_deleted (bool, none_type): Is result must consist of only actual/deleted work items. [optional]  # noqa: E501
-            project_ids ([str], none_type): Collection of project identifiers. [optional]  # noqa: E501
             section_ids ([str], none_type): Collection of section identifiers. [optional]  # noqa: E501
             created_by_ids ([str], none_type): Collection of identifiers of users who created work item. [optional]  # noqa: E501
             modified_by_ids ([str], none_type): Collection of identifiers of users who applied last modification to work item. [optional]  # noqa: E501
             states ([WorkItemStates], none_type): Collection of states of work item. [optional]  # noqa: E501
             priorities ([WorkItemPriorityModel], none_type): Collection of priorities of work item. [optional]  # noqa: E501
             types ([WorkItemEntityTypes], none_type): Collection of types of work item. [optional]  # noqa: E501
-            created_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
-            modified_date (DateTimeRangeSelectorModel): [optional]  # noqa: E501
-            duration (Int32RangeSelectorModel): [optional]  # noqa: E501
+            created_date (TestPointFilterModelWorkItemCreatedDate): [optional]  # noqa: E501
+            modified_date (TestPointFilterModelWorkItemModifiedDate): [optional]  # noqa: E501
+            duration (TestSuiteWorkItemsSearchModelDuration): [optional]  # noqa: E501
+            median_duration (TestSuiteWorkItemsSearchModelMedianDuration): [optional]  # noqa: E501
             is_automated (bool, none_type): Is result must consist of only manual/automated work items. [optional]  # noqa: E501
             tags ([str], none_type): Collection of tags. [optional]  # noqa: E501
             auto_test_ids ([str], none_type): Collection of identifiers of linked autotests. [optional]  # noqa: E501

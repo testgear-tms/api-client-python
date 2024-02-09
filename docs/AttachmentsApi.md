@@ -1,4 +1,4 @@
-# testgear_api_client.AttachmentsApi
+# testit_api_client.AttachmentsApi
 
 All URIs are relative to *http://localhost*
 
@@ -21,13 +21,13 @@ Delete attachment file
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import attachments_api
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import attachments_api
+from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -43,7 +43,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
     id = "id_example" # str | 
@@ -52,7 +52,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete attachment file
         api_instance.api_v2_attachments_id_delete(id)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling AttachmentsApi->api_v2_attachments_id_delete: %s\n" % e)
 ```
 
@@ -97,13 +97,13 @@ Download attachment file
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import attachments_api
-from testgear_api_client.model.image_resize_type import ImageResizeType
+import testit_api_client
+from testit_api_client.api import attachments_api
+from testit_api_client.model.image_resize_type import ImageResizeType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -119,13 +119,13 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
     id = "id_example" # str | 
     width = 1 # int | Width of the result image (optional)
     height = 1 # int | Height of the result image (optional)
-    resize_type = ImageResizeType("Crop") # ImageResizeType | Type of resizing to apply to the result image (optional)
+    resize_type = None # ImageResizeType | Type of resizing to apply to the result image (optional)
     background_color = "#62ECB0" # str | Color of the background if the `resizeType` is `AddBackgroundStripes` (optional)
     preview = True # bool | If image must be converted to a preview (lower quality, no animation) (optional)
 
@@ -134,7 +134,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Download attachment file
         api_response = api_instance.api_v2_attachments_id_get(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling AttachmentsApi->api_v2_attachments_id_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -143,7 +143,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Download attachment file
         api_response = api_instance.api_v2_attachments_id_get(id, width=width, height=height, resize_type=resize_type, background_color=background_color, preview=preview)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling AttachmentsApi->api_v2_attachments_id_get: %s\n" % e)
 ```
 
@@ -192,12 +192,12 @@ Get size of attachments storage in bytes
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import attachments_api
+import testit_api_client
+from testit_api_client.api import attachments_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -213,7 +213,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
 
@@ -222,7 +222,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get size of attachments storage in bytes
         api_response = api_instance.api_v2_attachments_occupied_file_storage_size_get()
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling AttachmentsApi->api_v2_attachments_occupied_file_storage_size_get: %s\n" % e)
 ```
 
@@ -265,15 +265,15 @@ File size is restricted to 50 MB (52 428 800 bytes)
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import attachments_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.attachment_model import AttachmentModel
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import attachments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.attachment_model import AttachmentModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -289,7 +289,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = attachments_api.AttachmentsApi(api_client)
     file = open('/path/to/file', 'rb') # file_type |  (optional)
@@ -300,7 +300,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Upload new attachment file
         api_response = api_instance.api_v2_attachments_post(file=file)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling AttachmentsApi->api_v2_attachments_post: %s\n" % e)
 ```
 

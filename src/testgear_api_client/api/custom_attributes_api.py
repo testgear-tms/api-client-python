@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testit_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,11 +21,11 @@ from testgear_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testgear_api_client.model.custom_attribute_model import CustomAttributeModel
-from testgear_api_client.model.custom_attribute_search_query_model import CustomAttributeSearchQueryModel
-from testgear_api_client.model.global_custom_attribute_post_model import GlobalCustomAttributePostModel
-from testgear_api_client.model.global_custom_attribute_update_model import GlobalCustomAttributeUpdateModel
-from testgear_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_custom_attributes_global_id_put_request import ApiV2CustomAttributesGlobalIdPutRequest
+from testit_api_client.model.api_v2_custom_attributes_global_post_request import ApiV2CustomAttributesGlobalPostRequest
+from testit_api_client.model.api_v2_custom_attributes_search_post_request import ApiV2CustomAttributesSearchPostRequest
+from testit_api_client.model.custom_attribute_model import CustomAttributeModel
+from testit_api_client.model.problem_details import ProblemDetails
 
 
 class CustomAttributesApi(object):
@@ -104,7 +104,7 @@ class CustomAttributesApi(object):
             params_map={
                 'all': [
                     'id',
-                    'global_custom_attribute_update_model',
+                    'api_v2_custom_attributes_global_id_put_request',
                 ],
                 'required': [
                     'id',
@@ -124,15 +124,15 @@ class CustomAttributesApi(object):
                 'openapi_types': {
                     'id':
                         (str,),
-                    'global_custom_attribute_update_model':
-                        (GlobalCustomAttributeUpdateModel,),
+                    'api_v2_custom_attributes_global_id_put_request':
+                        (ApiV2CustomAttributesGlobalIdPutRequest,),
                 },
                 'attribute_map': {
                     'id': 'id',
                 },
                 'location_map': {
                     'id': 'path',
-                    'global_custom_attribute_update_model': 'body',
+                    'api_v2_custom_attributes_global_id_put_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -160,7 +160,7 @@ class CustomAttributesApi(object):
             },
             params_map={
                 'all': [
-                    'global_custom_attribute_post_model',
+                    'api_v2_custom_attributes_global_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -176,13 +176,13 @@ class CustomAttributesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'global_custom_attribute_post_model':
-                        (GlobalCustomAttributePostModel,),
+                    'api_v2_custom_attributes_global_post_request':
+                        (ApiV2CustomAttributesGlobalPostRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'global_custom_attribute_post_model': 'body',
+                    'api_v2_custom_attributes_global_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -266,7 +266,7 @@ class CustomAttributesApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'custom_attribute_search_query_model',
+                    'api_v2_custom_attributes_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -292,8 +292,8 @@ class CustomAttributesApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'custom_attribute_search_query_model':
-                        (CustomAttributeSearchQueryModel,),
+                    'api_v2_custom_attributes_search_post_request':
+                        (ApiV2CustomAttributesSearchPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -308,7 +308,7 @@ class CustomAttributesApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'custom_attribute_search_query_model': 'body',
+                    'api_v2_custom_attributes_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -423,7 +423,7 @@ class CustomAttributesApi(object):
             id (str): Unique ID of attribute
 
         Keyword Args:
-            global_custom_attribute_update_model (GlobalCustomAttributeUpdateModel): [optional]
+            api_v2_custom_attributes_global_id_put_request (ApiV2CustomAttributesGlobalIdPutRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -503,7 +503,7 @@ class CustomAttributesApi(object):
 
 
         Keyword Args:
-            global_custom_attribute_post_model (GlobalCustomAttributePostModel): [optional]
+            api_v2_custom_attributes_global_post_request (ApiV2CustomAttributesGlobalPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -668,7 +668,7 @@ class CustomAttributesApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            custom_attribute_search_query_model (CustomAttributeSearchQueryModel): [optional]
+            api_v2_custom_attributes_search_post_request (ApiV2CustomAttributesSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

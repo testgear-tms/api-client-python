@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,11 +26,11 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.attachment_put_model import AttachmentPutModel
+    from testit_api_client.model.attachment_put_model import AttachmentPutModel
     globals()['AttachmentPutModel'] = AttachmentPutModel
 
 
@@ -80,11 +80,11 @@ class TestResultStepCommentPutModel(ModelNormal):
         """
         lazy_import()
         return {
-            'step_id': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'text': (str, none_type,),  # noqa: E501
+            'text': (str,),  # noqa: E501
+            'step_id': (str,),  # noqa: E501
+            'attachments': ([AttachmentPutModel],),  # noqa: E501
             'parent_step_id': (str, none_type,),  # noqa: E501
-            'attachments': ([AttachmentPutModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -93,11 +93,11 @@ class TestResultStepCommentPutModel(ModelNormal):
 
 
     attribute_map = {
-        'step_id': 'stepId',  # noqa: E501
         'id': 'id',  # noqa: E501
         'text': 'text',  # noqa: E501
-        'parent_step_id': 'parentStepId',  # noqa: E501
+        'step_id': 'stepId',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
+        'parent_step_id': 'parentStepId',  # noqa: E501
     }
 
     read_only_vars = {
@@ -107,11 +107,14 @@ class TestResultStepCommentPutModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, step_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, text, step_id, attachments, *args, **kwargs):  # noqa: E501
         """TestResultStepCommentPutModel - a model defined in OpenAPI
 
         Args:
+            id (str):
+            text (str):
             step_id (str):
+            attachments ([AttachmentPutModel]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -144,10 +147,7 @@ class TestResultStepCommentPutModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            text (str, none_type): [optional]  # noqa: E501
             parent_step_id (str, none_type): [optional]  # noqa: E501
-            attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -179,7 +179,10 @@ class TestResultStepCommentPutModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.text = text
         self.step_id = step_id
+        self.attachments = attachments
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -200,11 +203,14 @@ class TestResultStepCommentPutModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, step_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, text, step_id, attachments, *args, **kwargs):  # noqa: E501
         """TestResultStepCommentPutModel - a model defined in OpenAPI
 
         Args:
+            id (str):
+            text (str):
             step_id (str):
+            attachments ([AttachmentPutModel]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -237,10 +243,7 @@ class TestResultStepCommentPutModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            text (str, none_type): [optional]  # noqa: E501
             parent_step_id (str, none_type): [optional]  # noqa: E501
-            attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -270,7 +273,10 @@ class TestResultStepCommentPutModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.text = text
         self.step_id = step_id
+        self.attachments = attachments
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,11 +26,13 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.step_put_model import StepPutModel
+    from testit_api_client.model.attachment_put_model import AttachmentPutModel
+    from testit_api_client.model.step_put_model import StepPutModel
+    globals()['AttachmentPutModel'] = AttachmentPutModel
     globals()['StepPutModel'] = StepPutModel
 
 
@@ -86,6 +88,7 @@ class SectionPostModel(ModelNormal):
         return {
             'name': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
+            'attachments': ([AttachmentPutModel],),  # noqa: E501
             'parent_id': (str, none_type,),  # noqa: E501
             'precondition_steps': ([StepPutModel], none_type,),  # noqa: E501
             'postcondition_steps': ([StepPutModel], none_type,),  # noqa: E501
@@ -99,6 +102,7 @@ class SectionPostModel(ModelNormal):
     attribute_map = {
         'name': 'name',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
+        'attachments': 'attachments',  # noqa: E501
         'parent_id': 'parentId',  # noqa: E501
         'precondition_steps': 'preconditionSteps',  # noqa: E501
         'postcondition_steps': 'postconditionSteps',  # noqa: E501
@@ -111,12 +115,13 @@ class SectionPostModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, project_id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, project_id, attachments, *args, **kwargs):  # noqa: E501
         """SectionPostModel - a model defined in OpenAPI
 
         Args:
             name (str):
             project_id (str):
+            attachments ([AttachmentPutModel]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -185,6 +190,7 @@ class SectionPostModel(ModelNormal):
 
         self.name = name
         self.project_id = project_id
+        self.attachments = attachments
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -205,12 +211,13 @@ class SectionPostModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, project_id, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, project_id, attachments, *args, **kwargs):  # noqa: E501
         """SectionPostModel - a model defined in OpenAPI
 
         Args:
             name (str):
             project_id (str):
+            attachments ([AttachmentPutModel]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -277,6 +284,7 @@ class SectionPostModel(ModelNormal):
 
         self.name = name
         self.project_id = project_id
+        self.attachments = attachments
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

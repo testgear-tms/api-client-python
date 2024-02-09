@@ -1,4 +1,4 @@
-# testgear_api_client.TestRunsApi
+# testit_api_client.TestRunsApi
 
 All URIs are relative to *http://localhost*
 
@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**api_v2_test_runs_id_test_results_bulk_put**](TestRunsApi.md#api_v2_test_runs_id_test_results_bulk_put) | **PUT** /api/v2/testRuns/{id}/testResults/bulk | Partial edit of multiple test results in the test run
 [**api_v2_test_runs_id_test_results_last_modified_modification_date_get**](TestRunsApi.md#api_v2_test_runs_id_test_results_last_modified_modification_date_get) | **GET** /api/v2/testRuns/{id}/testResults/lastModified/modificationDate | Get modification date of last test result of the test run
 [**api_v2_test_runs_search_post**](TestRunsApi.md#api_v2_test_runs_search_post) | **POST** /api/v2/testRuns/search | Search for test runs
+[**api_v2_test_runs_update_multiple_post**](TestRunsApi.md#api_v2_test_runs_update_multiple_post) | **POST** /api/v2/testRuns/updateMultiple | Update multiple test runs
 [**complete_test_run**](TestRunsApi.md#complete_test_run) | **POST** /api/v2/testRuns/{id}/complete | Complete TestRun
 [**create_and_fill_by_auto_tests**](TestRunsApi.md#create_and_fill_by_auto_tests) | **POST** /api/v2/testRuns/byAutoTests | Create test runs based on autotests and configurations
 [**create_and_fill_by_configurations**](TestRunsApi.md#create_and_fill_by_configurations) | **POST** /api/v2/testRuns/byConfigurations | Create test runs picking the needed test points
@@ -32,15 +33,15 @@ Search for the test run test results and build statistics
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.test_results_local_filter_model import TestResultsLocalFilterModel
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.test_results_statistics_get_model import TestResultsStatisticsGetModel
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_test_runs_id_statistics_filter_post_request import ApiV2TestRunsIdStatisticsFilterPostRequest
+from testit_api_client.model.test_results_statistics_get_model import TestResultsStatisticsGetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -56,39 +57,27 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
     id = "id_example" # str | Test run unique ID
-    test_results_local_filter_model = TestResultsLocalFilterModel(
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        outcomes=[
-            TestResultOutcome("InProgress"),
-        ],
-        failure_categories=[
-            FailureCategoryModel("InfrastructureDefect"),
-        ],
-        namespace="namespace_example",
-        class_name="class_name_example",
-    ) # TestResultsLocalFilterModel |  (optional)
+    api_v2_test_runs_id_statistics_filter_post_request = ApiV2TestRunsIdStatisticsFilterPostRequest(None) # ApiV2TestRunsIdStatisticsFilterPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Search for the test run test results and build statistics
         api_response = api_instance.api_v2_test_runs_id_statistics_filter_post(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_id_statistics_filter_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for the test run test results and build statistics
-        api_response = api_instance.api_v2_test_runs_id_statistics_filter_post(id, test_results_local_filter_model=test_results_local_filter_model)
+        api_response = api_instance.api_v2_test_runs_id_statistics_filter_post(id, api_v2_test_runs_id_statistics_filter_post_request=api_v2_test_runs_id_statistics_filter_post_request)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_id_statistics_filter_post: %s\n" % e)
 ```
 
@@ -98,7 +87,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test run unique ID |
- **test_results_local_filter_model** | [**TestResultsLocalFilterModel**](TestResultsLocalFilterModel.md)|  | [optional]
+ **api_v2_test_runs_id_statistics_filter_post_request** | [**ApiV2TestRunsIdStatisticsFilterPostRequest**](ApiV2TestRunsIdStatisticsFilterPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -134,14 +123,14 @@ Get test results from the test run grouped by test points
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.test_point_result_model import TestPointResultModel
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.test_point_result_model import TestPointResultModel
+from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -157,7 +146,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
     id = "id_example" # str | Test run unique ID
@@ -167,7 +156,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get test results from the test run grouped by test points
         api_response = api_instance.api_v2_test_runs_id_test_points_results_get(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_id_test_points_results_get: %s\n" % e)
 ```
 
@@ -212,14 +201,14 @@ Partial edit of multiple test results in the test run
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.test_run_test_results_partial_bulk_set_model import TestRunTestResultsPartialBulkSetModel
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.api_v2_test_runs_id_test_results_bulk_put_request import ApiV2TestRunsIdTestResultsBulkPutRequest
+from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -235,65 +224,25 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
     id = "id_example" # str | Test run unique ID
-    test_run_test_results_partial_bulk_set_model = TestRunTestResultsPartialBulkSetModel(
-        selector=TestRunTestResultsSelectModel(
-            filter=TestResultsLocalFilterModel(
-                configuration_ids=[
-                    "configuration_ids_example",
-                ],
-                outcomes=[
-                    TestResultOutcome("InProgress"),
-                ],
-                failure_categories=[
-                    FailureCategoryModel("InfrastructureDefect"),
-                ],
-                namespace="namespace_example",
-                class_name="class_name_example",
-            ),
-            test_result_ids_extraction_model=GuidExtractionModel(
-                include=[
-                    "include_example",
-                ],
-                exclude=[
-                    "exclude_example",
-                ],
-            ),
-        ),
-        result_reason_ids=[
-            "result_reason_ids_example",
-        ],
-        links=[
-            LinkPostModel(
-                title="title_example",
-                url="url_example",
-                description="description_example",
-                type=LinkType("Related"),
-                has_info=True,
-            ),
-        ],
-        comment="comment_example",
-        attachment_ids=[
-            "attachment_ids_example",
-        ],
-    ) # TestRunTestResultsPartialBulkSetModel |  (optional)
+    api_v2_test_runs_id_test_results_bulk_put_request = ApiV2TestRunsIdTestResultsBulkPutRequest(None) # ApiV2TestRunsIdTestResultsBulkPutRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Partial edit of multiple test results in the test run
         api_instance.api_v2_test_runs_id_test_results_bulk_put(id)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_id_test_results_bulk_put: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Partial edit of multiple test results in the test run
-        api_instance.api_v2_test_runs_id_test_results_bulk_put(id, test_run_test_results_partial_bulk_set_model=test_run_test_results_partial_bulk_set_model)
-    except testgear_api_client.ApiException as e:
+        api_instance.api_v2_test_runs_id_test_results_bulk_put(id, api_v2_test_runs_id_test_results_bulk_put_request=api_v2_test_runs_id_test_results_bulk_put_request)
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_id_test_results_bulk_put: %s\n" % e)
 ```
 
@@ -303,7 +252,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test run unique ID |
- **test_run_test_results_partial_bulk_set_model** | [**TestRunTestResultsPartialBulkSetModel**](TestRunTestResultsPartialBulkSetModel.md)|  | [optional]
+ **api_v2_test_runs_id_test_results_bulk_put_request** | [**ApiV2TestRunsIdTestResultsBulkPutRequest**](ApiV2TestRunsIdTestResultsBulkPutRequest.md)|  | [optional]
 
 ### Return type
 
@@ -339,13 +288,13 @@ Get modification date of last test result of the test run
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -361,7 +310,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
     id = "id_example" # str | Test run unique ID
@@ -371,7 +320,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get modification date of last test result of the test run
         api_response = api_instance.api_v2_test_runs_id_test_results_last_modified_modification_date_get(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_id_test_results_last_modified_modification_date_get: %s\n" % e)
 ```
 
@@ -416,15 +365,15 @@ Search for test runs
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.test_run_short_get_model import TestRunShortGetModel
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.test_run_filter_model import TestRunFilterModel
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.test_run_short_get_model import TestRunShortGetModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_test_runs_search_post_request import ApiV2TestRunsSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -440,7 +389,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -448,30 +397,15 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    test_run_filter_model = TestRunFilterModel(
-        project_ids=[
-            "project_ids_example",
-        ],
-        states=[
-            TestRunState("NotStarted"),
-        ],
-        created_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-        modified_by_ids=[
-            "modified_by_ids_example",
-        ],
-        is_deleted=True,
-    ) # TestRunFilterModel |  (optional)
+    api_v2_test_runs_search_post_request = ApiV2TestRunsSearchPostRequest(None) # ApiV2TestRunsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for test runs
-        api_response = api_instance.api_v2_test_runs_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_run_filter_model=test_run_filter_model)
+        api_response = api_instance.api_v2_test_runs_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_test_runs_search_post_request=api_v2_test_runs_search_post_request)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->api_v2_test_runs_search_post: %s\n" % e)
 ```
 
@@ -485,7 +419,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **test_run_filter_model** | [**TestRunFilterModel**](TestRunFilterModel.md)|  | [optional]
+ **api_v2_test_runs_search_post_request** | [**ApiV2TestRunsSearchPostRequest**](ApiV2TestRunsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -510,12 +444,10 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **complete_test_run**
-> complete_test_run(id)
+# **api_v2_test_runs_update_multiple_post**
+> api_v2_test_runs_update_multiple_post()
 
-Complete TestRun
-
-<br>Use case  <br>User sets test run identifier  <br>User runs method execution  <br>System completes test run  <br>System returns no content response
+Update multiple test runs
 
 ### Example
 
@@ -523,14 +455,13 @@ Complete TestRun
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.api_v2_test_runs_update_multiple_post_request import ApiV2TestRunsUpdateMultiplePostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -546,7 +477,86 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = test_runs_api.TestRunsApi(api_client)
+    api_v2_test_runs_update_multiple_post_request = ApiV2TestRunsUpdateMultiplePostRequest(None) # ApiV2TestRunsUpdateMultiplePostRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update multiple test runs
+        api_instance.api_v2_test_runs_update_multiple_post(api_v2_test_runs_update_multiple_post_request=api_v2_test_runs_update_multiple_post_request)
+    except testit_api_client.ApiException as e:
+        print("Exception when calling TestRunsApi->api_v2_test_runs_update_multiple_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **api_v2_test_runs_update_multiple_post_request** | [**ApiV2TestRunsUpdateMultiplePostRequest**](ApiV2TestRunsUpdateMultiplePostRequest.md)|  | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **complete_test_run**
+> complete_test_run(id)
+
+Complete TestRun
+
+<br>Use case  <br>User sets test run identifier  <br>User runs method execution  <br>System completes test run  <br>System returns no content response
+
+### Example
+
+* Api Key Authentication (Bearer or PrivateToken):
+
+```python
+import time
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = testit_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: Bearer or PrivateToken
+configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test Run internal identifier (GUID format)
@@ -555,7 +565,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     try:
         # Complete TestRun
         api_instance.complete_test_run(id)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->complete_test_run: %s\n" % e)
 ```
 
@@ -605,16 +615,16 @@ This method creates a test run based on an autotest and a configuration.  The di
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.test_run_v2_get_model import TestRunV2GetModel
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.test_run_fill_by_auto_tests_post_model import TestRunFillByAutoTestsPostModel
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.create_and_fill_by_auto_tests_request import CreateAndFillByAutoTestsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -630,29 +640,18 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    test_run_fill_by_auto_tests_post_model = TestRunFillByAutoTestsPostModel(
-        project_id="project_id_example",
-        name="name_example",
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        auto_test_external_ids=[
-            "auto_test_external_ids_example",
-        ],
-        description="description_example",
-        launch_source="launch_source_example",
-    ) # TestRunFillByAutoTestsPostModel |  (optional)
+    create_and_fill_by_auto_tests_request = CreateAndFillByAutoTestsRequest(None) # CreateAndFillByAutoTestsRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create test runs based on autotests and configurations
-        api_response = api_instance.create_and_fill_by_auto_tests(test_run_fill_by_auto_tests_post_model=test_run_fill_by_auto_tests_post_model)
+        api_response = api_instance.create_and_fill_by_auto_tests(create_and_fill_by_auto_tests_request=create_and_fill_by_auto_tests_request)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->create_and_fill_by_auto_tests: %s\n" % e)
 ```
 
@@ -661,7 +660,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_fill_by_auto_tests_post_model** | [**TestRunFillByAutoTestsPostModel**](TestRunFillByAutoTestsPostModel.md)|  | [optional]
+ **create_and_fill_by_auto_tests_request** | [**CreateAndFillByAutoTestsRequest**](CreateAndFillByAutoTestsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -702,16 +701,16 @@ This method creates a test run based on a combination of a configuration and a w
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.test_run_v2_get_model import TestRunV2GetModel
-from testgear_api_client.model.test_run_fill_by_configurations_post_model import TestRunFillByConfigurationsPostModel
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.create_and_fill_by_configurations_request import CreateAndFillByConfigurationsRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -727,32 +726,18 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    test_run_fill_by_configurations_post_model = TestRunFillByConfigurationsPostModel(
-        test_point_selectors=[
-            TestPointSelector(
-                configuration_id="configuration_id_example",
-                work_item_ids=[
-                    "work_item_ids_example",
-                ],
-            ),
-        ],
-        project_id="project_id_example",
-        test_plan_id="test_plan_id_example",
-        name="name_example",
-        description="description_example",
-        launch_source="launch_source_example",
-    ) # TestRunFillByConfigurationsPostModel |  (optional)
+    create_and_fill_by_configurations_request = CreateAndFillByConfigurationsRequest(None) # CreateAndFillByConfigurationsRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create test runs picking the needed test points
-        api_response = api_instance.create_and_fill_by_configurations(test_run_fill_by_configurations_post_model=test_run_fill_by_configurations_post_model)
+        api_response = api_instance.create_and_fill_by_configurations(create_and_fill_by_configurations_request=create_and_fill_by_configurations_request)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->create_and_fill_by_configurations: %s\n" % e)
 ```
 
@@ -761,7 +746,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_fill_by_configurations_post_model** | [**TestRunFillByConfigurationsPostModel**](TestRunFillByConfigurationsPostModel.md)|  | [optional]
+ **create_and_fill_by_configurations_request** | [**CreateAndFillByConfigurationsRequest**](CreateAndFillByConfigurationsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -802,16 +787,16 @@ This method creates a test run based on a combination of configuration and work 
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.test_run_v2_get_model import TestRunV2GetModel
-from testgear_api_client.model.test_run_fill_by_work_items_post_model import TestRunFillByWorkItemsPostModel
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.create_and_fill_by_work_items_request import CreateAndFillByWorkItemsRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -827,30 +812,18 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    test_run_fill_by_work_items_post_model = TestRunFillByWorkItemsPostModel(
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        work_item_ids=[
-            "work_item_ids_example",
-        ],
-        project_id="project_id_example",
-        test_plan_id="test_plan_id_example",
-        name="name_example",
-        description="description_example",
-        launch_source="launch_source_example",
-    ) # TestRunFillByWorkItemsPostModel |  (optional)
+    create_and_fill_by_work_items_request = CreateAndFillByWorkItemsRequest(None) # CreateAndFillByWorkItemsRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create test run based on configurations and work items
-        api_response = api_instance.create_and_fill_by_work_items(test_run_fill_by_work_items_post_model=test_run_fill_by_work_items_post_model)
+        api_response = api_instance.create_and_fill_by_work_items(create_and_fill_by_work_items_request=create_and_fill_by_work_items_request)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->create_and_fill_by_work_items: %s\n" % e)
 ```
 
@@ -859,7 +832,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_fill_by_work_items_post_model** | [**TestRunFillByWorkItemsPostModel**](TestRunFillByWorkItemsPostModel.md)|  | [optional]
+ **create_and_fill_by_work_items_request** | [**CreateAndFillByWorkItemsRequest**](CreateAndFillByWorkItemsRequest.md)|  | [optional]
 
 ### Return type
 
@@ -900,16 +873,16 @@ Create empty TestRun
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.test_run_v2_get_model import TestRunV2GetModel
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.test_run_v2_post_short_model import TestRunV2PostShortModel
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.create_empty_request import CreateEmptyRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -925,23 +898,18 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    test_run_v2_post_short_model = TestRunV2PostShortModel(
-        project_id="a8b10924-5055-46a9-87ac-f54e8e4946ab",
-        name="First run",
-        description="description_example",
-        launch_source="By user via API",
-    ) # TestRunV2PostShortModel |  (optional)
+    create_empty_request = CreateEmptyRequest(None) # CreateEmptyRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create empty TestRun
-        api_response = api_instance.create_empty(test_run_v2_post_short_model=test_run_v2_post_short_model)
+        api_response = api_instance.create_empty(create_empty_request=create_empty_request)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->create_empty: %s\n" % e)
 ```
 
@@ -950,7 +918,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_v2_post_short_model** | [**TestRunV2PostShortModel**](TestRunV2PostShortModel.md)|  | [optional]
+ **create_empty_request** | [**CreateEmptyRequest**](CreateEmptyRequest.md)|  | [optional]
 
 ### Return type
 
@@ -991,14 +959,14 @@ Get TestRun by Id
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.test_run_v2_get_model import TestRunV2GetModel
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
+from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1014,7 +982,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test Run internal identifier (GUID format)
@@ -1024,7 +992,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get TestRun by Id
         api_response = api_instance.get_test_run_by_id(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->get_test_run_by_id: %s\n" % e)
 ```
 
@@ -1073,15 +1041,15 @@ This method sends test results to the test management system.
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.auto_test_results_for_test_run_model import AutoTestResultsForTestRunModel
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.auto_test_results_for_test_run_model import AutoTestResultsForTestRunModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1097,7 +1065,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
     id = "id_example" # str | Test Run internal identifier (GUID format)
@@ -1109,7 +1077,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
                     title="title_example",
                     url="url_example",
                     description="description_example",
-                    type=LinkType("Related"),
+                    type=None,
                     has_info=True,
                 ),
             ],
@@ -1117,7 +1085,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
                 FailureCategoryModel("InfrastructureDefect"),
             ],
             auto_test_external_id="auto_test_external_id_example",
-            outcome=AvailableTestResultOutcome("Passed"),
+            outcome=None,
             message="message_example",
             traces="traces_example",
             started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
@@ -1142,7 +1110,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
                     started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
                     completed_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
                     duration=0,
-                    outcome=AvailableTestResultOutcome("Passed"),
+                    outcome=None,
                     step_results=[
                         AttachmentPutModelAutoTestStepResultsModel(),
                     ],
@@ -1164,7 +1132,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
                     started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
                     completed_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
                     duration=0,
-                    outcome=AvailableTestResultOutcome("Passed"),
+                    outcome=None,
                     step_results=[
                         AttachmentPutModelAutoTestStepResultsModel(),
                     ],
@@ -1186,7 +1154,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
                     started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
                     completed_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
                     duration=0,
-                    outcome=AvailableTestResultOutcome("Passed"),
+                    outcome=None,
                     step_results=[
                         AttachmentPutModelAutoTestStepResultsModel(),
                     ],
@@ -1208,7 +1176,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Send test results to the test runs in the system
         api_response = api_instance.set_auto_test_results_for_test_run(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->set_auto_test_results_for_test_run: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1217,7 +1185,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Send test results to the test runs in the system
         api_response = api_instance.set_auto_test_results_for_test_run(id, auto_test_results_for_test_run_model=auto_test_results_for_test_run_model)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->set_auto_test_results_for_test_run: %s\n" % e)
 ```
 
@@ -1269,14 +1237,14 @@ Start TestRun
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1292,7 +1260,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test Run internal identifier (GUID format)
@@ -1301,7 +1269,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     try:
         # Start TestRun
         api_instance.start_test_run(id)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->start_test_run: %s\n" % e)
 ```
 
@@ -1351,14 +1319,14 @@ Stop TestRun
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1374,7 +1342,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test Run internal identifier (GUID format)
@@ -1383,7 +1351,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     try:
         # Stop TestRun
         api_instance.stop_test_run(id)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->stop_test_run: %s\n" % e)
 ```
 
@@ -1433,15 +1401,15 @@ Update empty TestRun
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_runs_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.test_run_v2_put_model import TestRunV2PutModel
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_runs_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.update_empty_request import UpdateEmptyRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1457,22 +1425,17 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_runs_api.TestRunsApi(api_client)
-    test_run_v2_put_model = TestRunV2PutModel(
-        id="a8b10924-5055-46a9-87ac-f54e8e4946ab",
-        name="First run",
-        description="description_example",
-        launch_source="By user via API",
-    ) # TestRunV2PutModel |  (optional)
+    update_empty_request = UpdateEmptyRequest(None) # UpdateEmptyRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Update empty TestRun
-        api_instance.update_empty(test_run_v2_put_model=test_run_v2_put_model)
-    except testgear_api_client.ApiException as e:
+        api_instance.update_empty(update_empty_request=update_empty_request)
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestRunsApi->update_empty: %s\n" % e)
 ```
 
@@ -1481,7 +1444,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_run_v2_put_model** | [**TestRunV2PutModel**](TestRunV2PutModel.md)|  | [optional]
+ **update_empty_request** | [**UpdateEmptyRequest**](UpdateEmptyRequest.md)|  | [optional]
 
 ### Return type
 

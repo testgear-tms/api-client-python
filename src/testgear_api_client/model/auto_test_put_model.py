@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,13 +26,13 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.auto_test_step_model import AutoTestStepModel
-    from testgear_api_client.model.label_post_model import LabelPostModel
-    from testgear_api_client.model.link_put_model import LinkPutModel
+    from testit_api_client.model.auto_test_step_model import AutoTestStepModel
+    from testit_api_client.model.label_post_model import LabelPostModel
+    from testit_api_client.model.link_put_model import LinkPutModel
     globals()['AutoTestStepModel'] = AutoTestStepModel
     globals()['LabelPostModel'] = LabelPostModel
     globals()['LinkPutModel'] = LinkPutModel
@@ -95,7 +95,7 @@ class AutoTestPutModel(ModelNormal):
             'external_id': (str,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type,),  # noqa: E501
             'work_item_ids_for_link_with_auto_test': ([str], none_type,),  # noqa: E501
             'links': ([LinkPutModel], none_type,),  # noqa: E501
             'namespace': (str, none_type,),  # noqa: E501
@@ -107,6 +107,7 @@ class AutoTestPutModel(ModelNormal):
             'description': (str, none_type,),  # noqa: E501
             'labels': ([LabelPostModel], none_type,),  # noqa: E501
             'is_flaky': (bool, none_type,),  # noqa: E501
+            'external_key': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -130,6 +131,7 @@ class AutoTestPutModel(ModelNormal):
         'description': 'description',  # noqa: E501
         'labels': 'labels',  # noqa: E501
         'is_flaky': 'isFlaky',  # noqa: E501
+        'external_key': 'externalKey',  # noqa: E501
     }
 
     read_only_vars = {
@@ -178,7 +180,7 @@ class AutoTestPutModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Used for search autotest. If value equals Guid mask filled with zeros, search will be executed using ExternalId. [optional]  # noqa: E501
+            id (str, none_type): Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId. [optional]  # noqa: E501
             work_item_ids_for_link_with_auto_test ([str], none_type): [optional]  # noqa: E501
             links ([LinkPutModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
             namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
@@ -190,6 +192,7 @@ class AutoTestPutModel(ModelNormal):
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
             labels ([LabelPostModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
+            external_key (str, none_type): External key of the autotest. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -283,7 +286,7 @@ class AutoTestPutModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): Used for search autotest. If value equals Guid mask filled with zeros, search will be executed using ExternalId. [optional]  # noqa: E501
+            id (str, none_type): Used for search autotest. If value is null or equals Guid mask filled with zeros, search will be executed using ExternalId. [optional]  # noqa: E501
             work_item_ids_for_link_with_auto_test ([str], none_type): [optional]  # noqa: E501
             links ([LinkPutModel], none_type): Collection of the autotest links. [optional]  # noqa: E501
             namespace (str, none_type): Name of the autotest namespace. [optional]  # noqa: E501
@@ -295,6 +298,7 @@ class AutoTestPutModel(ModelNormal):
             description (str, none_type): Description of the autotest in autotest's card. [optional]  # noqa: E501
             labels ([LabelPostModel], none_type): Collection of the autotest labels. [optional]  # noqa: E501
             is_flaky (bool, none_type): Indicates if the autotest is marked as flaky. [optional]  # noqa: E501
+            external_key (str, none_type): External key of the autotest. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,8 +26,14 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
+
+def lazy_import():
+    from testit_api_client.model.attachment_put_model import AttachmentPutModel
+    from testit_api_client.model.link_post_model import LinkPostModel
+    globals()['AttachmentPutModel'] = AttachmentPutModel
+    globals()['LinkPostModel'] = LinkPostModel
 
 
 class TestRunV2PostShortModel(ModelNormal):
@@ -74,11 +80,14 @@ class TestRunV2PostShortModel(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
             'project_id': (str,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
             'launch_source': (str, none_type,),  # noqa: E501
+            'attachments': ([AttachmentPutModel], none_type,),  # noqa: E501
+            'links': ([LinkPostModel], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -91,6 +100,8 @@ class TestRunV2PostShortModel(ModelNormal):
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
         'launch_source': 'launchSource',  # noqa: E501
+        'attachments': 'attachments',  # noqa: E501
+        'links': 'links',  # noqa: E501
     }
 
     read_only_vars = {
@@ -140,6 +151,8 @@ class TestRunV2PostShortModel(ModelNormal):
             name (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
+            attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
+            links ([LinkPostModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,6 +245,8 @@ class TestRunV2PostShortModel(ModelNormal):
             name (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
+            attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
+            links ([LinkPostModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

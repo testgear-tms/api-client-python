@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,7 +26,7 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 
@@ -81,7 +81,7 @@ class ValidationProblemDetails(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'errors': ({str: ([str],)}, none_type,),  # noqa: E501
+            'errors': ({str: ([str],)},),  # noqa: E501
             'type': (str, none_type,),  # noqa: E501
             'title': (str, none_type,),  # noqa: E501
             'status': (int, none_type,),  # noqa: E501
@@ -110,8 +110,11 @@ class ValidationProblemDetails(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, errors, *args, **kwargs):  # noqa: E501
         """ValidationProblemDetails - a model defined in OpenAPI
+
+        Args:
+            errors ({str: ([str],)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -144,7 +147,6 @@ class ValidationProblemDetails(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            errors ({str: ([str],)}, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             title (str, none_type): [optional]  # noqa: E501
             status (int, none_type): [optional]  # noqa: E501
@@ -181,6 +183,7 @@ class ValidationProblemDetails(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.errors = errors
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -201,8 +204,11 @@ class ValidationProblemDetails(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, errors, *args, **kwargs):  # noqa: E501
         """ValidationProblemDetails - a model defined in OpenAPI
+
+        Args:
+            errors ({str: ([str],)}):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -235,7 +241,6 @@ class ValidationProblemDetails(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            errors ({str: ([str],)}, none_type): [optional]  # noqa: E501
             type (str, none_type): [optional]  # noqa: E501
             title (str, none_type): [optional]  # noqa: E501
             status (int, none_type): [optional]  # noqa: E501
@@ -270,6 +275,7 @@ class ValidationProblemDetails(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.errors = errors
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

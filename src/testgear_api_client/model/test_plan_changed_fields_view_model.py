@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,28 +26,30 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.boolean_nullable_test_plan_changed_field_view_model import BooleanNullableTestPlanChangedFieldViewModel
-    from testgear_api_client.model.boolean_test_plan_changed_field_view_model import BooleanTestPlanChangedFieldViewModel
-    from testgear_api_client.model.custom_attribute_change_model import CustomAttributeChangeModel
-    from testgear_api_client.model.period_view_model_test_plan_changed_field_view_model import PeriodViewModelTestPlanChangedFieldViewModel
-    from testgear_api_client.model.string_array_test_plan_changed_field_view_model import StringArrayTestPlanChangedFieldViewModel
-    from testgear_api_client.model.string_test_plan_changed_field_view_model import StringTestPlanChangedFieldViewModel
-    from testgear_api_client.model.test_point_change_view_model_test_plan_changed_field_view_model import TestPointChangeViewModelTestPlanChangedFieldViewModel
-    from testgear_api_client.model.test_result_change_view_model_test_plan_changed_field_view_model import TestResultChangeViewModelTestPlanChangedFieldViewModel
-    from testgear_api_client.model.test_suite_change_view_model_test_plan_changed_field_view_model import TestSuiteChangeViewModelTestPlanChangedFieldViewModel
-    globals()['BooleanNullableTestPlanChangedFieldViewModel'] = BooleanNullableTestPlanChangedFieldViewModel
-    globals()['BooleanTestPlanChangedFieldViewModel'] = BooleanTestPlanChangedFieldViewModel
+    from testit_api_client.model.boolean_changed_field_view_model import BooleanChangedFieldViewModel
+    from testit_api_client.model.boolean_nullable_changed_field_view_model import BooleanNullableChangedFieldViewModel
+    from testit_api_client.model.custom_attribute_change_model import CustomAttributeChangeModel
+    from testit_api_client.model.period_view_model_changed_field_view_model import PeriodViewModelChangedFieldViewModel
+    from testit_api_client.model.string_array_changed_field_view_model import StringArrayChangedFieldViewModel
+    from testit_api_client.model.string_changed_field_view_model import StringChangedFieldViewModel
+    from testit_api_client.model.string_changed_field_with_diffs_view_model import StringChangedFieldWithDiffsViewModel
+    from testit_api_client.model.test_point_change_view_model_changed_field_view_model import TestPointChangeViewModelChangedFieldViewModel
+    from testit_api_client.model.test_result_change_view_model_changed_field_view_model import TestResultChangeViewModelChangedFieldViewModel
+    from testit_api_client.model.test_suite_change_view_model_changed_field_view_model import TestSuiteChangeViewModelChangedFieldViewModel
+    globals()['BooleanChangedFieldViewModel'] = BooleanChangedFieldViewModel
+    globals()['BooleanNullableChangedFieldViewModel'] = BooleanNullableChangedFieldViewModel
     globals()['CustomAttributeChangeModel'] = CustomAttributeChangeModel
-    globals()['PeriodViewModelTestPlanChangedFieldViewModel'] = PeriodViewModelTestPlanChangedFieldViewModel
-    globals()['StringArrayTestPlanChangedFieldViewModel'] = StringArrayTestPlanChangedFieldViewModel
-    globals()['StringTestPlanChangedFieldViewModel'] = StringTestPlanChangedFieldViewModel
-    globals()['TestPointChangeViewModelTestPlanChangedFieldViewModel'] = TestPointChangeViewModelTestPlanChangedFieldViewModel
-    globals()['TestResultChangeViewModelTestPlanChangedFieldViewModel'] = TestResultChangeViewModelTestPlanChangedFieldViewModel
-    globals()['TestSuiteChangeViewModelTestPlanChangedFieldViewModel'] = TestSuiteChangeViewModelTestPlanChangedFieldViewModel
+    globals()['PeriodViewModelChangedFieldViewModel'] = PeriodViewModelChangedFieldViewModel
+    globals()['StringArrayChangedFieldViewModel'] = StringArrayChangedFieldViewModel
+    globals()['StringChangedFieldViewModel'] = StringChangedFieldViewModel
+    globals()['StringChangedFieldWithDiffsViewModel'] = StringChangedFieldWithDiffsViewModel
+    globals()['TestPointChangeViewModelChangedFieldViewModel'] = TestPointChangeViewModelChangedFieldViewModel
+    globals()['TestResultChangeViewModelChangedFieldViewModel'] = TestResultChangeViewModelChangedFieldViewModel
+    globals()['TestSuiteChangeViewModelChangedFieldViewModel'] = TestSuiteChangeViewModelChangedFieldViewModel
 
 
 class TestPlanChangedFieldsViewModel(ModelNormal):
@@ -96,18 +98,18 @@ class TestPlanChangedFieldsViewModel(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (StringTestPlanChangedFieldViewModel,),  # noqa: E501
-            'description': (StringTestPlanChangedFieldViewModel,),  # noqa: E501
-            'product_name': (StringTestPlanChangedFieldViewModel,),  # noqa: E501
-            'build': (StringTestPlanChangedFieldViewModel,),  # noqa: E501
-            'period': (PeriodViewModelTestPlanChangedFieldViewModel,),  # noqa: E501
-            'status': (StringTestPlanChangedFieldViewModel,),  # noqa: E501
-            'tags': (StringArrayTestPlanChangedFieldViewModel,),  # noqa: E501
-            'test_suite': (TestSuiteChangeViewModelTestPlanChangedFieldViewModel,),  # noqa: E501
-            'test_points': (TestPointChangeViewModelTestPlanChangedFieldViewModel,),  # noqa: E501
-            'test_results': (TestResultChangeViewModelTestPlanChangedFieldViewModel,),  # noqa: E501
-            'locking': (BooleanTestPlanChangedFieldViewModel,),  # noqa: E501
-            'has_automatic_duration_timer': (BooleanNullableTestPlanChangedFieldViewModel,),  # noqa: E501
+            'name': (StringChangedFieldWithDiffsViewModel,),  # noqa: E501
+            'description': (StringChangedFieldWithDiffsViewModel,),  # noqa: E501
+            'product_name': (StringChangedFieldViewModel,),  # noqa: E501
+            'build': (StringChangedFieldViewModel,),  # noqa: E501
+            'period': (PeriodViewModelChangedFieldViewModel,),  # noqa: E501
+            'status': (StringChangedFieldViewModel,),  # noqa: E501
+            'tags': (StringArrayChangedFieldViewModel,),  # noqa: E501
+            'test_suite': (TestSuiteChangeViewModelChangedFieldViewModel,),  # noqa: E501
+            'test_points': (TestPointChangeViewModelChangedFieldViewModel,),  # noqa: E501
+            'test_results': (TestResultChangeViewModelChangedFieldViewModel,),  # noqa: E501
+            'locking': (BooleanChangedFieldViewModel,),  # noqa: E501
+            'has_automatic_duration_timer': (BooleanNullableChangedFieldViewModel,),  # noqa: E501
             'attributes': ({str: (CustomAttributeChangeModel,)}, none_type,),  # noqa: E501
         }
 
@@ -173,18 +175,18 @@ class TestPlanChangedFieldsViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            description (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            product_name (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            build (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            period (PeriodViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            status (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            tags (StringArrayTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            test_suite (TestSuiteChangeViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            test_points (TestPointChangeViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            test_results (TestResultChangeViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            locking (BooleanTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            has_automatic_duration_timer (BooleanNullableTestPlanChangedFieldViewModel): [optional]  # noqa: E501
+            name (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            description (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            product_name (StringChangedFieldViewModel): [optional]  # noqa: E501
+            build (StringChangedFieldViewModel): [optional]  # noqa: E501
+            period (PeriodViewModelChangedFieldViewModel): [optional]  # noqa: E501
+            status (StringChangedFieldViewModel): [optional]  # noqa: E501
+            tags (StringArrayChangedFieldViewModel): [optional]  # noqa: E501
+            test_suite (TestSuiteChangeViewModelChangedFieldViewModel): [optional]  # noqa: E501
+            test_points (TestPointChangeViewModelChangedFieldViewModel): [optional]  # noqa: E501
+            test_results (TestResultChangeViewModelChangedFieldViewModel): [optional]  # noqa: E501
+            locking (BooleanChangedFieldViewModel): [optional]  # noqa: E501
+            has_automatic_duration_timer (BooleanNullableChangedFieldViewModel): [optional]  # noqa: E501
             attributes ({str: (CustomAttributeChangeModel,)}, none_type): [optional]  # noqa: E501
         """
 
@@ -271,18 +273,18 @@ class TestPlanChangedFieldsViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            name (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            description (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            product_name (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            build (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            period (PeriodViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            status (StringTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            tags (StringArrayTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            test_suite (TestSuiteChangeViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            test_points (TestPointChangeViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            test_results (TestResultChangeViewModelTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            locking (BooleanTestPlanChangedFieldViewModel): [optional]  # noqa: E501
-            has_automatic_duration_timer (BooleanNullableTestPlanChangedFieldViewModel): [optional]  # noqa: E501
+            name (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            description (StringChangedFieldWithDiffsViewModel): [optional]  # noqa: E501
+            product_name (StringChangedFieldViewModel): [optional]  # noqa: E501
+            build (StringChangedFieldViewModel): [optional]  # noqa: E501
+            period (PeriodViewModelChangedFieldViewModel): [optional]  # noqa: E501
+            status (StringChangedFieldViewModel): [optional]  # noqa: E501
+            tags (StringArrayChangedFieldViewModel): [optional]  # noqa: E501
+            test_suite (TestSuiteChangeViewModelChangedFieldViewModel): [optional]  # noqa: E501
+            test_points (TestPointChangeViewModelChangedFieldViewModel): [optional]  # noqa: E501
+            test_results (TestResultChangeViewModelChangedFieldViewModel): [optional]  # noqa: E501
+            locking (BooleanChangedFieldViewModel): [optional]  # noqa: E501
+            has_automatic_duration_timer (BooleanNullableChangedFieldViewModel): [optional]  # noqa: E501
             attributes ({str: (CustomAttributeChangeModel,)}, none_type): [optional]  # noqa: E501
         """
 

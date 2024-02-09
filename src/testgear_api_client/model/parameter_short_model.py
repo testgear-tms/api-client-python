@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,7 +26,7 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 
@@ -59,7 +59,7 @@ class ParameterShortModel(ModelNormal):
 
     validations = {
         ('value',): {
-            'max_length': 255,
+            'max_length': 1500,
             'min_length': 0,
         },
         ('name',): {
@@ -83,10 +83,10 @@ class ParameterShortModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'value': (str,),  # noqa: E501
-            'name': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'parameter_key_id': (str,),  # noqa: E501
+            'value': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -95,10 +95,10 @@ class ParameterShortModel(ModelNormal):
 
 
     attribute_map = {
-        'value': 'value',  # noqa: E501
-        'name': 'name',  # noqa: E501
         'id': 'id',  # noqa: E501
         'parameter_key_id': 'parameterKeyId',  # noqa: E501
+        'value': 'value',  # noqa: E501
+        'name': 'name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -108,12 +108,14 @@ class ParameterShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, value, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, parameter_key_id, value, name, *args, **kwargs):  # noqa: E501
         """ParameterShortModel - a model defined in OpenAPI
 
         Args:
-            value (str):
-            name (str):
+            id (str):
+            parameter_key_id (str):
+            value (str): Value of the parameter
+            name (str): Key of the parameter
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -146,8 +148,6 @@ class ParameterShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            parameter_key_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -179,6 +179,8 @@ class ParameterShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.parameter_key_id = parameter_key_id
         self.value = value
         self.name = name
         for var_name, var_value in kwargs.items():
@@ -201,12 +203,14 @@ class ParameterShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, value, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, parameter_key_id, value, name, *args, **kwargs):  # noqa: E501
         """ParameterShortModel - a model defined in OpenAPI
 
         Args:
-            value (str):
-            name (str):
+            id (str):
+            parameter_key_id (str):
+            value (str): Value of the parameter
+            name (str): Key of the parameter
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -239,8 +243,6 @@ class ParameterShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            parameter_key_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -270,6 +272,8 @@ class ParameterShortModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.parameter_key_id = parameter_key_id
         self.value = value
         self.name = name
         for var_name, var_value in kwargs.items():

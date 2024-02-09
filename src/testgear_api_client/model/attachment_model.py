@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,7 +26,7 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 
@@ -58,15 +58,6 @@ class AttachmentModel(ModelNormal):
     }
 
     validations = {
-        ('file_id',): {
-            'min_length': 1,
-        },
-        ('type',): {
-            'min_length': 1,
-        },
-        ('name',): {
-            'min_length': 1,
-        },
     }
 
     additional_properties_type = None
@@ -87,11 +78,12 @@ class AttachmentModel(ModelNormal):
             'file_id': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'size': (float,),  # noqa: E501
-            'name': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'is_temp': (bool,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
         }
 
@@ -104,11 +96,12 @@ class AttachmentModel(ModelNormal):
         'file_id': 'fileId',  # noqa: E501
         'type': 'type',  # noqa: E501
         'size': 'size',  # noqa: E501
-        'name': 'name',  # noqa: E501
-        'id': 'id',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
-        'modified_date': 'modifiedDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
+        'name': 'name',  # noqa: E501
+        'is_temp': 'isTemp',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
     }
 
@@ -119,15 +112,18 @@ class AttachmentModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, file_id, type, size, name, id, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, file_id, type, size, created_date, created_by_id, name, is_temp, id, *args, **kwargs):  # noqa: E501
         """AttachmentModel - a model defined in OpenAPI
 
         Args:
-            file_id (str):
-            type (str):
-            size (float):
-            name (str):
-            id (str): Specifies the GUID of the attachment.
+            file_id (str): Unique ID of the attachment file
+            type (str): MIME type of the attachment
+            size (float): Size in bytes of the attachment file
+            created_date (datetime): Creation date of the attachment
+            created_by_id (str): Unique ID of the attachment creator
+            name (str): Name of the attachment file
+            is_temp (bool): Indicates whether the attachment is temporary (may be automatically deleted)
+            id (str): Unique ID of the attachment
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -160,10 +156,8 @@ class AttachmentModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            created_date (datetime): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
+            modified_date (datetime, none_type): Last modification date of the attachment. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique ID of the attachment last editor. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -198,7 +192,10 @@ class AttachmentModel(ModelNormal):
         self.file_id = file_id
         self.type = type
         self.size = size
+        self.created_date = created_date
+        self.created_by_id = created_by_id
         self.name = name
+        self.is_temp = is_temp
         self.id = id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -220,15 +217,18 @@ class AttachmentModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, file_id, type, size, name, id, *args, **kwargs):  # noqa: E501
+    def __init__(self, file_id, type, size, created_date, created_by_id, name, is_temp, id, *args, **kwargs):  # noqa: E501
         """AttachmentModel - a model defined in OpenAPI
 
         Args:
-            file_id (str):
-            type (str):
-            size (float):
-            name (str):
-            id (str): Specifies the GUID of the attachment.
+            file_id (str): Unique ID of the attachment file
+            type (str): MIME type of the attachment
+            size (float): Size in bytes of the attachment file
+            created_date (datetime): Creation date of the attachment
+            created_by_id (str): Unique ID of the attachment creator
+            name (str): Name of the attachment file
+            is_temp (bool): Indicates whether the attachment is temporary (may be automatically deleted)
+            id (str): Unique ID of the attachment
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -261,10 +261,8 @@ class AttachmentModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            created_date (datetime): [optional]  # noqa: E501
-            modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            modified_by_id (str, none_type): [optional]  # noqa: E501
+            modified_date (datetime, none_type): Last modification date of the attachment. [optional]  # noqa: E501
+            modified_by_id (str, none_type): Unique ID of the attachment last editor. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -297,7 +295,10 @@ class AttachmentModel(ModelNormal):
         self.file_id = file_id
         self.type = type
         self.size = size
+        self.created_date = created_date
+        self.created_by_id = created_by_id
         self.name = name
+        self.is_temp = is_temp
         self.id = id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
