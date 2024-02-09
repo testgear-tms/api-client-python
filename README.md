@@ -10,6 +10,7 @@
 | 3.5       | 2.0        |
 | 4.0       | 3.0        |
 | 4.2       | 3.1        |
+| 4.5       | 3.2        |
 
 ## Installation & Usage
 ### pip install
@@ -83,13 +84,23 @@ Class | Method | HTTP request | Description
 *AutoTestsApi* | [**link_auto_test_to_work_item**](docs/AutoTestsApi.md#link_auto_test_to_work_item) | **POST** /api/v2/autoTests/{id}/workItems | Link autotest with work items
 *AutoTestsApi* | [**update_auto_test**](docs/AutoTestsApi.md#update_auto_test) | **PUT** /api/v2/autoTests | Update autotest
 *AutoTestsApi* | [**update_multiple**](docs/AutoTestsApi.md#update_multiple) | **PUT** /api/v2/autoTests/bulk | Update multiple autotests
-*BackgroundJobsApi* | [**api_v2_background_jobs_get**](docs/BackgroundJobsApi.md#api_v2_background_jobs_get) | **GET** /api/v2/backgroundJobs | Get current user background jobs
-*ConfigurationsApi* | [**api_v2_configurations_create_by_parameters_post**](docs/ConfigurationsApi.md#api_v2_configurations_create_by_parameters_post) | **POST** /api/v2/configurations/createByParameters | Create Configurations by parameters
+*BackgroundJobsApi* | [**api_v2_background_jobs_get**](docs/BackgroundJobsApi.md#api_v2_background_jobs_get) | **GET** /api/v2/backgroundJobs | 
+*BackgroundJobsApi* | [**api_v2_background_jobs_id_cancel_post**](docs/BackgroundJobsApi.md#api_v2_background_jobs_id_cancel_post) | **POST** /api/v2/backgroundJobs/{id}/cancel | Cancel current user background job
+*BackgroundJobsApi* | [**api_v2_background_jobs_id_get**](docs/BackgroundJobsApi.md#api_v2_background_jobs_id_get) | **GET** /api/v2/backgroundJobs/{id} | Get background job by ID
+*BackgroundJobsApi* | [**api_v2_background_jobs_id_status_get**](docs/BackgroundJobsApi.md#api_v2_background_jobs_id_status_get) | **GET** /api/v2/backgroundJobs/{id}/status | Get background job status by job ID
+*BackgroundJobsApi* | [**api_v2_background_jobs_search_post**](docs/BackgroundJobsApi.md#api_v2_background_jobs_search_post) | **POST** /api/v2/backgroundJobs/search | Search for user background jobs
+*ConfigurationsApi* | [**api_v2_configurations_create_by_parameters_post**](docs/ConfigurationsApi.md#api_v2_configurations_create_by_parameters_post) | **POST** /api/v2/configurations/createByParameters | Create configurations by parameters
+*ConfigurationsApi* | [**api_v2_configurations_delete_bulk_post**](docs/ConfigurationsApi.md#api_v2_configurations_delete_bulk_post) | **POST** /api/v2/configurations/delete/bulk | Delete multiple configurations
+*ConfigurationsApi* | [**api_v2_configurations_id_delete**](docs/ConfigurationsApi.md#api_v2_configurations_id_delete) | **DELETE** /api/v2/configurations/{id} | Delete configuration
 *ConfigurationsApi* | [**api_v2_configurations_id_patch**](docs/ConfigurationsApi.md#api_v2_configurations_id_patch) | **PATCH** /api/v2/configurations/{id} | Patch configuration
+*ConfigurationsApi* | [**api_v2_configurations_id_purge_post**](docs/ConfigurationsApi.md#api_v2_configurations_id_purge_post) | **POST** /api/v2/configurations/{id}/purge | Permanently delete configuration from archive
+*ConfigurationsApi* | [**api_v2_configurations_id_restore_post**](docs/ConfigurationsApi.md#api_v2_configurations_id_restore_post) | **POST** /api/v2/configurations/{id}/restore | Restore configuration from the archive
+*ConfigurationsApi* | [**api_v2_configurations_purge_bulk_post**](docs/ConfigurationsApi.md#api_v2_configurations_purge_bulk_post) | **POST** /api/v2/configurations/purge/bulk | Permanently delete multiple archived configurations
+*ConfigurationsApi* | [**api_v2_configurations_put**](docs/ConfigurationsApi.md#api_v2_configurations_put) | **PUT** /api/v2/configurations | Edit configuration
+*ConfigurationsApi* | [**api_v2_configurations_restore_bulk_post**](docs/ConfigurationsApi.md#api_v2_configurations_restore_bulk_post) | **POST** /api/v2/configurations/restore/bulk | Restore multiple configurations from the archive
 *ConfigurationsApi* | [**api_v2_configurations_search_post**](docs/ConfigurationsApi.md#api_v2_configurations_search_post) | **POST** /api/v2/configurations/search | Search for configurations
 *ConfigurationsApi* | [**create_configuration**](docs/ConfigurationsApi.md#create_configuration) | **POST** /api/v2/configurations | Create Configuration
 *ConfigurationsApi* | [**get_configuration_by_id**](docs/ConfigurationsApi.md#get_configuration_by_id) | **GET** /api/v2/configurations/{id} | Get configuration by internal or global ID
-*ConfigurationsApi* | [**update_configuration**](docs/ConfigurationsApi.md#update_configuration) | **PUT** /api/v2/configurations | Update Configuration
 *CustomAttributeTemplatesApi* | [**api_v2_custom_attributes_templates_id_custom_attributes_exclude_post**](docs/CustomAttributeTemplatesApi.md#api_v2_custom_attributes_templates_id_custom_attributes_exclude_post) | **POST** /api/v2/customAttributes/templates/{id}/customAttributes/exclude | Exclude CustomAttributes from CustomAttributeTemplate
 *CustomAttributeTemplatesApi* | [**api_v2_custom_attributes_templates_id_custom_attributes_include_post**](docs/CustomAttributeTemplatesApi.md#api_v2_custom_attributes_templates_id_custom_attributes_include_post) | **POST** /api/v2/customAttributes/templates/{id}/customAttributes/include | Include CustomAttributes to CustomAttributeTemplate
 *CustomAttributeTemplatesApi* | [**api_v2_custom_attributes_templates_id_delete**](docs/CustomAttributeTemplatesApi.md#api_v2_custom_attributes_templates_id_delete) | **DELETE** /api/v2/customAttributes/templates/{id} | Delete CustomAttributeTemplate
@@ -114,6 +125,7 @@ Class | Method | HTTP request | Description
 *ParametersApi* | [**api_v2_parameters_key_name_name_exists_get**](docs/ParametersApi.md#api_v2_parameters_key_name_name_exists_get) | **GET** /api/v2/parameters/key/name/{name}/exists | Check existence parameter key in system
 *ParametersApi* | [**api_v2_parameters_key_values_get**](docs/ParametersApi.md#api_v2_parameters_key_values_get) | **GET** /api/v2/parameters/{key}/values | Get all parameter key values
 *ParametersApi* | [**api_v2_parameters_keys_get**](docs/ParametersApi.md#api_v2_parameters_keys_get) | **GET** /api/v2/parameters/keys | Get all parameter keys
+*ParametersApi* | [**api_v2_parameters_search_groups_post**](docs/ParametersApi.md#api_v2_parameters_search_groups_post) | **POST** /api/v2/parameters/search/groups | Search for parameters as group
 *ParametersApi* | [**api_v2_parameters_search_post**](docs/ParametersApi.md#api_v2_parameters_search_post) | **POST** /api/v2/parameters/search | Search for parameters
 *ParametersApi* | [**create_parameter**](docs/ParametersApi.md#create_parameter) | **POST** /api/v2/parameters | Create parameter
 *ParametersApi* | [**delete_by_name**](docs/ParametersApi.md#delete_by_name) | **DELETE** /api/v2/parameters/name/{name} | Delete parameter by name
@@ -121,64 +133,72 @@ Class | Method | HTTP request | Description
 *ParametersApi* | [**delete_parameter**](docs/ParametersApi.md#delete_parameter) | **DELETE** /api/v2/parameters/{id} | Delete parameter
 *ParametersApi* | [**get_all_parameters**](docs/ParametersApi.md#get_all_parameters) | **GET** /api/v2/parameters | Get all parameters
 *ParametersApi* | [**get_parameter_by_id**](docs/ParametersApi.md#get_parameter_by_id) | **GET** /api/v2/parameters/{id} | Get parameter by ID
-*ParametersApi* | [**obsolete_delete_by_name**](docs/ParametersApi.md#obsolete_delete_by_name) | **POST** /api/v2/parameters/deleteByName | 
 *ParametersApi* | [**update_parameter**](docs/ParametersApi.md#update_parameter) | **PUT** /api/v2/parameters | Update parameter
+*ProjectAttributeTemplatesApi* | [**api_v2_projects_project_id_attributes_templates_search_post**](docs/ProjectAttributeTemplatesApi.md#api_v2_projects_project_id_attributes_templates_search_post) | **POST** /api/v2/projects/{projectId}/attributes/templates/search | Search for custom attributes templates
+*ProjectAttributeTemplatesApi* | [**api_v2_projects_project_id_attributes_templates_template_id_delete**](docs/ProjectAttributeTemplatesApi.md#api_v2_projects_project_id_attributes_templates_template_id_delete) | **DELETE** /api/v2/projects/{projectId}/attributes/templates/{templateId} | Delete CustomAttributeTemplate from Project
+*ProjectAttributeTemplatesApi* | [**api_v2_projects_project_id_attributes_templates_template_id_post**](docs/ProjectAttributeTemplatesApi.md#api_v2_projects_project_id_attributes_templates_template_id_post) | **POST** /api/v2/projects/{projectId}/attributes/templates/{templateId} | Add CustomAttributeTemplate to Project
+*ProjectAttributesApi* | [**create_projects_attribute**](docs/ProjectAttributesApi.md#create_projects_attribute) | **POST** /api/v2/projects/{projectId}/attributes | Create project attribute
+*ProjectAttributesApi* | [**delete_projects_attribute**](docs/ProjectAttributesApi.md#delete_projects_attribute) | **DELETE** /api/v2/projects/{projectId}/attributes/{attributeId} | Delete project attribute
+*ProjectAttributesApi* | [**get_attribute_by_project_id**](docs/ProjectAttributesApi.md#get_attribute_by_project_id) | **GET** /api/v2/projects/{projectId}/attributes/{attributeId} | Get project attribute
+*ProjectAttributesApi* | [**get_attributes_by_project_id**](docs/ProjectAttributesApi.md#get_attributes_by_project_id) | **GET** /api/v2/projects/{projectId}/attributes | Get project attributes
+*ProjectAttributesApi* | [**search_attributes_in_project**](docs/ProjectAttributesApi.md#search_attributes_in_project) | **POST** /api/v2/projects/{projectId}/attributes/search | Search for attributes used in the project
+*ProjectAttributesApi* | [**update_projects_attribute**](docs/ProjectAttributesApi.md#update_projects_attribute) | **PUT** /api/v2/projects/{projectId}/attributes | Edit attribute of the project
+*ProjectConfigurationsApi* | [**get_configurations_by_project_id**](docs/ProjectConfigurationsApi.md#get_configurations_by_project_id) | **GET** /api/v2/projects/{projectId}/configurations | Get project configurations
+*ProjectExportApi* | [**export**](docs/ProjectExportApi.md#export) | **POST** /api/v2/projects/{projectId}/export | Export project as JSON file
+*ProjectExportApi* | [**export_project_json**](docs/ProjectExportApi.md#export_project_json) | **POST** /api/v2/projects/{projectId}/export/json | Export project as JSON file in background job
+*ProjectExportApi* | [**export_project_with_test_plans_json**](docs/ProjectExportApi.md#export_project_with_test_plans_json) | **POST** /api/v2/projects/{projectId}/export/testPlans/json | Export project as JSON file with test plans in background job
+*ProjectExportApi* | [**export_project_with_test_plans_zip**](docs/ProjectExportApi.md#export_project_with_test_plans_zip) | **POST** /api/v2/projects/{projectId}/export/testPlans/zip | Export project as Zip file with test plans in background job
+*ProjectExportApi* | [**export_project_zip**](docs/ProjectExportApi.md#export_project_zip) | **POST** /api/v2/projects/{projectId}/export/zip | Export project as Zip file in background job
+*ProjectImportApi* | [**background_import_to_existing_project**](docs/ProjectImportApi.md#background_import_to_existing_project) | **POST** /api/v2/projects/{projectId}/import/json | Import project from JSON file into existing project in background job
+*ProjectImportApi* | [**background_import_zip_to_existing_project**](docs/ProjectImportApi.md#background_import_zip_to_existing_project) | **POST** /api/v2/projects/{projectId}/import/zip | Import project from Zip file into existing project in background job
+*ProjectImportApi* | [**import_to_existing_project**](docs/ProjectImportApi.md#import_to_existing_project) | **POST** /api/v2/projects/{projectId}/import | Import project from JSON file into existing project
+*ProjectSectionsApi* | [**get_sections_by_project_id**](docs/ProjectSectionsApi.md#get_sections_by_project_id) | **GET** /api/v2/projects/{projectId}/sections | Get project sections
+*ProjectTestPlanAttributesApi* | [**create_custom_attribute_test_plan_project_relations**](docs/ProjectTestPlanAttributesApi.md#create_custom_attribute_test_plan_project_relations) | **POST** /api/v2/projects/{projectId}/testPlans/attributes | Add attributes to project&#39;s test plans
+*ProjectTestPlanAttributesApi* | [**delete_custom_attribute_test_plan_project_relations**](docs/ProjectTestPlanAttributesApi.md#delete_custom_attribute_test_plan_project_relations) | **DELETE** /api/v2/projects/{projectId}/testPlans/attributes/{attributeId} | Delete attribute from project&#39;s test plans
+*ProjectTestPlanAttributesApi* | [**get_custom_attribute_test_plan_project_relations**](docs/ProjectTestPlanAttributesApi.md#get_custom_attribute_test_plan_project_relations) | **GET** /api/v2/projects/{projectId}/testPlans/attributes | Get project&#39;s test plan attributes
+*ProjectTestPlanAttributesApi* | [**search_test_plan_attributes_in_project**](docs/ProjectTestPlanAttributesApi.md#search_test_plan_attributes_in_project) | **POST** /api/v2/projects/{projectId}/testPlans/attributes/search | Search for attributes used in the project test plans
+*ProjectTestPlanAttributesApi* | [**update_custom_attribute_test_plan_project_relations**](docs/ProjectTestPlanAttributesApi.md#update_custom_attribute_test_plan_project_relations) | **PUT** /api/v2/projects/{projectId}/testPlans/attributes | Update attribute of project&#39;s test plans
+*ProjectTestPlansApi* | [**api_v2_projects_project_id_test_plans_analytics_get**](docs/ProjectTestPlansApi.md#api_v2_projects_project_id_test_plans_analytics_get) | **GET** /api/v2/projects/{projectId}/testPlans/analytics | Get TestPlans analytics
+*ProjectTestPlansApi* | [**api_v2_projects_project_id_test_plans_delete_bulk_post**](docs/ProjectTestPlansApi.md#api_v2_projects_project_id_test_plans_delete_bulk_post) | **POST** /api/v2/projects/{projectId}/testPlans/delete/bulk | Delete multiple test plans
+*ProjectTestPlansApi* | [**api_v2_projects_project_id_test_plans_name_exists_get**](docs/ProjectTestPlansApi.md#api_v2_projects_project_id_test_plans_name_exists_get) | **GET** /api/v2/projects/{projectId}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project
+*ProjectTestPlansApi* | [**api_v2_projects_project_id_test_plans_purge_bulk_post**](docs/ProjectTestPlansApi.md#api_v2_projects_project_id_test_plans_purge_bulk_post) | **POST** /api/v2/projects/{projectId}/testPlans/purge/bulk | Permanently delete multiple archived test plans
+*ProjectTestPlansApi* | [**api_v2_projects_project_id_test_plans_restore_bulk_post**](docs/ProjectTestPlansApi.md#api_v2_projects_project_id_test_plans_restore_bulk_post) | **POST** /api/v2/projects/{projectId}/testPlans/restore/bulk | Restore multiple test plans
+*ProjectTestPlansApi* | [**api_v2_projects_project_id_test_plans_search_post**](docs/ProjectTestPlansApi.md#api_v2_projects_project_id_test_plans_search_post) | **POST** /api/v2/projects/{projectId}/testPlans/search | Get Project TestPlans with analytics
+*ProjectWorkItemsApi* | [**api_v2_projects_project_id_work_items_search_grouped_post**](docs/ProjectWorkItemsApi.md#api_v2_projects_project_id_work_items_search_grouped_post) | **POST** /api/v2/projects/{projectId}/workItems/search/grouped | Search for work items and group results by attribute
+*ProjectWorkItemsApi* | [**api_v2_projects_project_id_work_items_search_id_post**](docs/ProjectWorkItemsApi.md#api_v2_projects_project_id_work_items_search_id_post) | **POST** /api/v2/projects/{projectId}/workItems/search/id | Search for work items and extract IDs only
+*ProjectWorkItemsApi* | [**api_v2_projects_project_id_work_items_search_post**](docs/ProjectWorkItemsApi.md#api_v2_projects_project_id_work_items_search_post) | **POST** /api/v2/projects/{projectId}/workItems/search | Search for work items
+*ProjectWorkItemsApi* | [**api_v2_projects_project_id_work_items_tags_get**](docs/ProjectWorkItemsApi.md#api_v2_projects_project_id_work_items_tags_get) | **GET** /api/v2/projects/{projectId}/workItems/tags | Get WorkItems Tags
+*ProjectWorkItemsApi* | [**get_work_items_by_project_id**](docs/ProjectWorkItemsApi.md#get_work_items_by_project_id) | **GET** /api/v2/projects/{projectId}/workItems | Get project work items
 *ProjectsApi* | [**add_globa_attributes_to_project**](docs/ProjectsApi.md#add_globa_attributes_to_project) | **POST** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
-*ProjectsApi* | [**api_v2_projects_id_attributes_templates_search_post**](docs/ProjectsApi.md#api_v2_projects_id_attributes_templates_search_post) | **POST** /api/v2/projects/{id}/attributes/templates/search | Search for custom attributes templates
-*ProjectsApi* | [**api_v2_projects_id_attributes_templates_template_id_delete**](docs/ProjectsApi.md#api_v2_projects_id_attributes_templates_template_id_delete) | **DELETE** /api/v2/projects/{id}/attributes/templates/{templateId} | Delete CustomAttributeTemplate from Project
-*ProjectsApi* | [**api_v2_projects_id_attributes_templates_template_id_post**](docs/ProjectsApi.md#api_v2_projects_id_attributes_templates_template_id_post) | **POST** /api/v2/projects/{id}/attributes/templates/{templateId} | Add CustomAttributeTemplate to Project
-*ProjectsApi* | [**api_v2_projects_id_failure_classes_get**](docs/ProjectsApi.md#api_v2_projects_id_failure_classes_get) | **GET** /api/v2/projects/{id}/failureClasses | Get Project FailureClasses
+*ProjectsApi* | [**api_v2_projects_demo_post**](docs/ProjectsApi.md#api_v2_projects_demo_post) | **POST** /api/v2/projects/demo | 
+*ProjectsApi* | [**api_v2_projects_id_delete**](docs/ProjectsApi.md#api_v2_projects_id_delete) | **DELETE** /api/v2/projects/{id} | Archive project
+*ProjectsApi* | [**api_v2_projects_id_failure_classes_get**](docs/ProjectsApi.md#api_v2_projects_id_failure_classes_get) | **GET** /api/v2/projects/{id}/failureClasses | Get failure classes
 *ProjectsApi* | [**api_v2_projects_id_favorite_put**](docs/ProjectsApi.md#api_v2_projects_id_favorite_put) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite
 *ProjectsApi* | [**api_v2_projects_id_filters_get**](docs/ProjectsApi.md#api_v2_projects_id_filters_get) | **GET** /api/v2/projects/{id}/filters | Get Project filters
 *ProjectsApi* | [**api_v2_projects_id_patch**](docs/ProjectsApi.md#api_v2_projects_id_patch) | **PATCH** /api/v2/projects/{id} | Patch project
-*ProjectsApi* | [**api_v2_projects_id_test_plans_analytics_get**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_analytics_get) | **GET** /api/v2/projects/{id}/testPlans/analytics | Get TestPlans analytics
-*ProjectsApi* | [**api_v2_projects_id_test_plans_delete_bulk_post**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_delete_bulk_post) | **POST** /api/v2/projects/{id}/testPlans/delete/bulk | Delete multiple test plans
-*ProjectsApi* | [**api_v2_projects_id_test_plans_name_exists_get**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_name_exists_get) | **GET** /api/v2/projects/{id}/testPlans/{name}/exists | Checks if TestPlan exists with the specified name exists for the project
-*ProjectsApi* | [**api_v2_projects_id_test_plans_restore_bulk_post**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_restore_bulk_post) | **POST** /api/v2/projects/{id}/testPlans/restore/bulk | Restore multiple test plans
-*ProjectsApi* | [**api_v2_projects_id_test_plans_search_post**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_search_post) | **POST** /api/v2/projects/{id}/testPlans/search | Get Project TestPlans with analytics
+*ProjectsApi* | [**api_v2_projects_id_purge_post**](docs/ProjectsApi.md#api_v2_projects_id_purge_post) | **POST** /api/v2/projects/{id}/purge | Purge archived project
+*ProjectsApi* | [**api_v2_projects_id_restore_post**](docs/ProjectsApi.md#api_v2_projects_id_restore_post) | **POST** /api/v2/projects/{id}/restore | Restore archived project
+*ProjectsApi* | [**api_v2_projects_id_test_plans_attribute_attribute_id_delete**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_attribute_attribute_id_delete) | **DELETE** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans
+*ProjectsApi* | [**api_v2_projects_id_test_plans_attribute_put**](docs/ProjectsApi.md#api_v2_projects_id_test_plans_attribute_put) | **PUT** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans
 *ProjectsApi* | [**api_v2_projects_id_test_runs_active_get**](docs/ProjectsApi.md#api_v2_projects_id_test_runs_active_get) | **GET** /api/v2/projects/{id}/testRuns/active | Get active Project TestRuns
 *ProjectsApi* | [**api_v2_projects_id_test_runs_full_get**](docs/ProjectsApi.md#api_v2_projects_id_test_runs_full_get) | **GET** /api/v2/projects/{id}/testRuns/full | Get Project TestRuns full models
-*ProjectsApi* | [**api_v2_projects_id_work_items_search_id_post**](docs/ProjectsApi.md#api_v2_projects_id_work_items_search_id_post) | **POST** /api/v2/projects/{id}/workItems/search/id | Search for work items and extract IDs only
-*ProjectsApi* | [**api_v2_projects_id_work_items_search_post**](docs/ProjectsApi.md#api_v2_projects_id_work_items_search_post) | **POST** /api/v2/projects/{id}/workItems/search | Search for work items
-*ProjectsApi* | [**api_v2_projects_id_work_items_tags_get**](docs/ProjectsApi.md#api_v2_projects_id_work_items_tags_get) | **GET** /api/v2/projects/{id}/workItems/tags | Get WorkItems Tags
 *ProjectsApi* | [**api_v2_projects_name_name_exists_get**](docs/ProjectsApi.md#api_v2_projects_name_name_exists_get) | **GET** /api/v2/projects/name/{name}/exists | 
+*ProjectsApi* | [**api_v2_projects_purge_bulk_post**](docs/ProjectsApi.md#api_v2_projects_purge_bulk_post) | **POST** /api/v2/projects/purge/bulk | Purge multiple projects
+*ProjectsApi* | [**api_v2_projects_restore_bulk_post**](docs/ProjectsApi.md#api_v2_projects_restore_bulk_post) | **POST** /api/v2/projects/restore/bulk | Restore multiple projects
 *ProjectsApi* | [**api_v2_projects_search_post**](docs/ProjectsApi.md#api_v2_projects_search_post) | **POST** /api/v2/projects/search | Search for projects
 *ProjectsApi* | [**background_import_project**](docs/ProjectsApi.md#background_import_project) | **POST** /api/v2/projects/import/json | Import project from JSON file in background job
-*ProjectsApi* | [**background_import_to_existing_project**](docs/ProjectsApi.md#background_import_to_existing_project) | **POST** /api/v2/projects/{id}/import/json | Import project from JSON file into existing project in background job
 *ProjectsApi* | [**background_import_zip_project**](docs/ProjectsApi.md#background_import_zip_project) | **POST** /api/v2/projects/import/zip | Import project from Zip file in background job
-*ProjectsApi* | [**background_import_zip_to_existing_project**](docs/ProjectsApi.md#background_import_zip_to_existing_project) | **POST** /api/v2/projects/{id}/import/zip | Import project from Zip file into existing project in background job
 *ProjectsApi* | [**call_import**](docs/ProjectsApi.md#call_import) | **POST** /api/v2/projects/import | Import project from JSON file
-*ProjectsApi* | [**create_custom_attribute_test_plan_project_relations**](docs/ProjectsApi.md#create_custom_attribute_test_plan_project_relations) | **POST** /api/v2/projects/{id}/testPlans/attributes | Add attributes to project&#39;s test plans
 *ProjectsApi* | [**create_project**](docs/ProjectsApi.md#create_project) | **POST** /api/v2/projects | Create project
-*ProjectsApi* | [**create_projects_attribute**](docs/ProjectsApi.md#create_projects_attribute) | **POST** /api/v2/projects/{id}/attributes | Create project attribute
-*ProjectsApi* | [**delete_custom_attribute_test_plan_project_relations**](docs/ProjectsApi.md#delete_custom_attribute_test_plan_project_relations) | **DELETE** /api/v2/projects/{id}/testPlans/attribute/{attributeId} | Delete attribute from project&#39;s test plans
-*ProjectsApi* | [**delete_project**](docs/ProjectsApi.md#delete_project) | **DELETE** /api/v2/projects/{id} | Delete project
-*ProjectsApi* | [**delete_project_auto_tests**](docs/ProjectsApi.md#delete_project_auto_tests) | **DELETE** /api/v2/projects/{id}/autoTests | Delete project
-*ProjectsApi* | [**delete_projects_attribute**](docs/ProjectsApi.md#delete_projects_attribute) | **DELETE** /api/v2/projects/{id}/attributes/{attributeId} | Delete project attribute
-*ProjectsApi* | [**export**](docs/ProjectsApi.md#export) | **POST** /api/v2/projects/{id}/export | Export project as JSON file
-*ProjectsApi* | [**export_project_json**](docs/ProjectsApi.md#export_project_json) | **POST** /api/v2/projects/{id}/export/json | Export project as JSON file in background job
-*ProjectsApi* | [**export_project_with_test_plans_json**](docs/ProjectsApi.md#export_project_with_test_plans_json) | **POST** /api/v2/projects/{id}/export/testPlans/json | Export project as JSON file with test plans in background job
-*ProjectsApi* | [**export_project_with_test_plans_zip**](docs/ProjectsApi.md#export_project_with_test_plans_zip) | **POST** /api/v2/projects/{id}/export/testPlans/zip | Export project as Zip file with test plans in background job
-*ProjectsApi* | [**export_project_zip**](docs/ProjectsApi.md#export_project_zip) | **POST** /api/v2/projects/{id}/export/zip | Export project as Zip file in background job
+*ProjectsApi* | [**delete_project_auto_tests**](docs/ProjectsApi.md#delete_project_auto_tests) | **DELETE** /api/v2/projects/{id}/autoTests | Delete all autotests from project
 *ProjectsApi* | [**export_with_test_plans_and_configurations**](docs/ProjectsApi.md#export_with_test_plans_and_configurations) | **POST** /api/v2/projects/{id}/export-by-testPlans | Export project with test plans, test suites and test points as JSON file
 *ProjectsApi* | [**get_all_projects**](docs/ProjectsApi.md#get_all_projects) | **GET** /api/v2/projects | Get all projects
-*ProjectsApi* | [**get_attribute_by_project_id**](docs/ProjectsApi.md#get_attribute_by_project_id) | **GET** /api/v2/projects/{id}/attributes/{attributeId} | Get project attribute
-*ProjectsApi* | [**get_attributes_by_project_id**](docs/ProjectsApi.md#get_attributes_by_project_id) | **GET** /api/v2/projects/{id}/attributes | Get project attributes
 *ProjectsApi* | [**get_auto_tests_namespaces**](docs/ProjectsApi.md#get_auto_tests_namespaces) | **GET** /api/v2/projects/{id}/autoTestsNamespaces | Get namespaces of autotests in project
-*ProjectsApi* | [**get_configurations_by_project_id**](docs/ProjectsApi.md#get_configurations_by_project_id) | **GET** /api/v2/projects/{id}/configurations | Get project configurations
-*ProjectsApi* | [**get_custom_attribute_test_plan_project_relations**](docs/ProjectsApi.md#get_custom_attribute_test_plan_project_relations) | **GET** /api/v2/projects/{id}/testPlans/attributes | Get project&#39;s test plan attributes
 *ProjectsApi* | [**get_project_by_id**](docs/ProjectsApi.md#get_project_by_id) | **GET** /api/v2/projects/{id} | Get project by ID
-*ProjectsApi* | [**get_sections_by_project_id**](docs/ProjectsApi.md#get_sections_by_project_id) | **GET** /api/v2/projects/{id}/sections | Get project sections
 *ProjectsApi* | [**get_test_plans_by_project_id**](docs/ProjectsApi.md#get_test_plans_by_project_id) | **GET** /api/v2/projects/{id}/testPlans | Get project test plans
 *ProjectsApi* | [**get_test_runs_by_project_id**](docs/ProjectsApi.md#get_test_runs_by_project_id) | **GET** /api/v2/projects/{id}/testRuns | Get project test runs
-*ProjectsApi* | [**get_work_items_by_project_id**](docs/ProjectsApi.md#get_work_items_by_project_id) | **GET** /api/v2/projects/{id}/workItems | Get project work items
-*ProjectsApi* | [**import_to_existing_project**](docs/ProjectsApi.md#import_to_existing_project) | **POST** /api/v2/projects/{id}/import | Import project from JSON file into existing project
-*ProjectsApi* | [**restore_project**](docs/ProjectsApi.md#restore_project) | **POST** /api/v2/projects/{id}/restore | Restore project
-*ProjectsApi* | [**search_attributes_in_project**](docs/ProjectsApi.md#search_attributes_in_project) | **POST** /api/v2/projects/{id}/attributes/search | Search for attributes used in the project
-*ProjectsApi* | [**search_test_plan_attributes_in_project**](docs/ProjectsApi.md#search_test_plan_attributes_in_project) | **POST** /api/v2/projects/{id}/testPlans/attributes/search | Search for attributes used in the project test plans
-*ProjectsApi* | [**update_custom_attribute_test_plan_project_relations**](docs/ProjectsApi.md#update_custom_attribute_test_plan_project_relations) | **PUT** /api/v2/projects/{id}/testPlans/attribute | Update attribute of project&#39;s test plans
 *ProjectsApi* | [**update_project**](docs/ProjectsApi.md#update_project) | **PUT** /api/v2/projects | Update project
-*ProjectsApi* | [**update_projects_attribute**](docs/ProjectsApi.md#update_projects_attribute) | **PUT** /api/v2/projects/{id}/attributes | Edit attribute of the project
+*SearchApi* | [**api_v2_search_global_search_post**](docs/SearchApi.md#api_v2_search_global_search_post) | **POST** /api/v2/search/globalSearch | 
 *SectionsApi* | [**api_v2_sections_id_patch**](docs/SectionsApi.md#api_v2_sections_id_patch) | **PATCH** /api/v2/sections/{id} | Patch section
 *SectionsApi* | [**create_section**](docs/SectionsApi.md#create_section) | **POST** /api/v2/sections | Create section
 *SectionsApi* | [**delete_section**](docs/SectionsApi.md#delete_section) | **DELETE** /api/v2/sections/{id} | Delete section
@@ -215,6 +235,7 @@ Class | Method | HTTP request | Description
 *TestPlansApi* | [**get_test_plan_by_id**](docs/TestPlansApi.md#get_test_plan_by_id) | **GET** /api/v2/testPlans/{id} | Get TestPlan by Id
 *TestPlansApi* | [**get_test_suites_by_id**](docs/TestPlansApi.md#get_test_suites_by_id) | **GET** /api/v2/testPlans/{id}/testSuites | Get TestSuites Tree By Id
 *TestPlansApi* | [**pause**](docs/TestPlansApi.md#pause) | **POST** /api/v2/testPlans/{id}/pause | Pause TestPlan
+*TestPlansApi* | [**purge_test_plan**](docs/TestPlansApi.md#purge_test_plan) | **POST** /api/v2/testPlans/{id}/purge | Permanently delete test plan from archive
 *TestPlansApi* | [**restore_test_plan**](docs/TestPlansApi.md#restore_test_plan) | **POST** /api/v2/testPlans/{id}/restore | Restore TestPlan
 *TestPlansApi* | [**start**](docs/TestPlansApi.md#start) | **POST** /api/v2/testPlans/{id}/start | Start TestPlan
 *TestPlansApi* | [**update_test_plan**](docs/TestPlansApi.md#update_test_plan) | **PUT** /api/v2/testPlans | Update TestPlan
@@ -239,6 +260,7 @@ Class | Method | HTTP request | Description
 *TestRunsApi* | [**api_v2_test_runs_id_test_results_bulk_put**](docs/TestRunsApi.md#api_v2_test_runs_id_test_results_bulk_put) | **PUT** /api/v2/testRuns/{id}/testResults/bulk | Partial edit of multiple test results in the test run
 *TestRunsApi* | [**api_v2_test_runs_id_test_results_last_modified_modification_date_get**](docs/TestRunsApi.md#api_v2_test_runs_id_test_results_last_modified_modification_date_get) | **GET** /api/v2/testRuns/{id}/testResults/lastModified/modificationDate | Get modification date of last test result of the test run
 *TestRunsApi* | [**api_v2_test_runs_search_post**](docs/TestRunsApi.md#api_v2_test_runs_search_post) | **POST** /api/v2/testRuns/search | Search for test runs
+*TestRunsApi* | [**api_v2_test_runs_update_multiple_post**](docs/TestRunsApi.md#api_v2_test_runs_update_multiple_post) | **POST** /api/v2/testRuns/updateMultiple | Update multiple test runs
 *TestRunsApi* | [**complete_test_run**](docs/TestRunsApi.md#complete_test_run) | **POST** /api/v2/testRuns/{id}/complete | Complete TestRun
 *TestRunsApi* | [**create_and_fill_by_auto_tests**](docs/TestRunsApi.md#create_and_fill_by_auto_tests) | **POST** /api/v2/testRuns/byAutoTests | Create test runs based on autotests and configurations
 *TestRunsApi* | [**create_and_fill_by_configurations**](docs/TestRunsApi.md#create_and_fill_by_configurations) | **POST** /api/v2/testRuns/byConfigurations | Create test runs picking the needed test points
@@ -252,17 +274,16 @@ Class | Method | HTTP request | Description
 *TestSuitesApi* | [**add_test_points_to_test_suite**](docs/TestSuitesApi.md#add_test_points_to_test_suite) | **POST** /api/v2/testSuites/{id}/test-points | Add test-points to test suite
 *TestSuitesApi* | [**api_v2_test_suites_id_patch**](docs/TestSuitesApi.md#api_v2_test_suites_id_patch) | **PATCH** /api/v2/testSuites/{id} | Patch test suite
 *TestSuitesApi* | [**api_v2_test_suites_id_refresh_post**](docs/TestSuitesApi.md#api_v2_test_suites_id_refresh_post) | **POST** /api/v2/testSuites/{id}/refresh | Refresh test suite. Only dynamic test suites are supported by this method
-*TestSuitesApi* | [**create_test_suite**](docs/TestSuitesApi.md#create_test_suite) | **POST** /api/v2/testSuites | Create TestSuite
+*TestSuitesApi* | [**api_v2_test_suites_id_work_items_post**](docs/TestSuitesApi.md#api_v2_test_suites_id_work_items_post) | **POST** /api/v2/testSuites/{id}/workItems | Set work items for test suite
+*TestSuitesApi* | [**api_v2_test_suites_post**](docs/TestSuitesApi.md#api_v2_test_suites_post) | **POST** /api/v2/testSuites | Create test suite
+*TestSuitesApi* | [**api_v2_test_suites_put**](docs/TestSuitesApi.md#api_v2_test_suites_put) | **PUT** /api/v2/testSuites | Edit test suite
 *TestSuitesApi* | [**delete_test_suite**](docs/TestSuitesApi.md#delete_test_suite) | **DELETE** /api/v2/testSuites/{id} | Delete TestSuite
 *TestSuitesApi* | [**get_configurations_by_test_suite_id**](docs/TestSuitesApi.md#get_configurations_by_test_suite_id) | **GET** /api/v2/testSuites/{id}/configurations | Get Configurations By Id
 *TestSuitesApi* | [**get_test_points_by_id**](docs/TestSuitesApi.md#get_test_points_by_id) | **GET** /api/v2/testSuites/{id}/testPoints | Get TestPoints By Id
 *TestSuitesApi* | [**get_test_results_by_id**](docs/TestSuitesApi.md#get_test_results_by_id) | **GET** /api/v2/testSuites/{id}/testResults | Get TestResults By Id
 *TestSuitesApi* | [**get_test_suite_by_id**](docs/TestSuitesApi.md#get_test_suite_by_id) | **GET** /api/v2/testSuites/{id} | Get TestSuite by Id
-*TestSuitesApi* | [**get_work_items_by_id**](docs/TestSuitesApi.md#get_work_items_by_id) | **GET** /api/v2/testSuites/{id}/workItems | 
 *TestSuitesApi* | [**search_work_items**](docs/TestSuitesApi.md#search_work_items) | **POST** /api/v2/testSuites/{id}/workItems/search | Search WorkItems
 *TestSuitesApi* | [**set_configurations_by_test_suite_id**](docs/TestSuitesApi.md#set_configurations_by_test_suite_id) | **POST** /api/v2/testSuites/{id}/configurations | Set Configurations By TestSuite Id
-*TestSuitesApi* | [**set_work_items_by_test_suite_id**](docs/TestSuitesApi.md#set_work_items_by_test_suite_id) | **POST** /api/v2/testSuites/{id}/workItems | Set WorkItems By TestSuite Id
-*TestSuitesApi* | [**update_test_suite**](docs/TestSuitesApi.md#update_test_suite) | **PUT** /api/v2/testSuites | Update TestSuite
 *WebhooksApi* | [**api_v2_webhooks_get**](docs/WebhooksApi.md#api_v2_webhooks_get) | **GET** /api/v2/webhooks | Get all webhooks
 *WebhooksApi* | [**api_v2_webhooks_id_delete**](docs/WebhooksApi.md#api_v2_webhooks_id_delete) | **DELETE** /api/v2/webhooks/{id} | Delete webhook by ID
 *WebhooksApi* | [**api_v2_webhooks_id_get**](docs/WebhooksApi.md#api_v2_webhooks_id_get) | **GET** /api/v2/webhooks/{id} | Get webhook by ID
@@ -270,6 +291,7 @@ Class | Method | HTTP request | Description
 *WebhooksApi* | [**api_v2_webhooks_post**](docs/WebhooksApi.md#api_v2_webhooks_post) | **POST** /api/v2/webhooks | Create webhook
 *WebhooksApi* | [**api_v2_webhooks_search_post**](docs/WebhooksApi.md#api_v2_webhooks_search_post) | **POST** /api/v2/webhooks/search | Search for webhooks
 *WebhooksApi* | [**api_v2_webhooks_special_variables_get**](docs/WebhooksApi.md#api_v2_webhooks_special_variables_get) | **GET** /api/v2/webhooks/specialVariables | Get special variables for webhook event type
+*WebhooksApi* | [**api_v2_webhooks_test_post**](docs/WebhooksApi.md#api_v2_webhooks_test_post) | **POST** /api/v2/webhooks/test | Test webhook&#39;s url
 *WebhooksLogsApi* | [**api_v2_webhooks_logs_get**](docs/WebhooksLogsApi.md#api_v2_webhooks_logs_get) | **GET** /api/v2/webhooks/logs | Get all webhook logs
 *WebhooksLogsApi* | [**api_v2_webhooks_logs_id_delete**](docs/WebhooksLogsApi.md#api_v2_webhooks_logs_id_delete) | **DELETE** /api/v2/webhooks/logs/{id} | Delete webhook log by ID
 *WebhooksLogsApi* | [**api_v2_webhooks_logs_id_get**](docs/WebhooksLogsApi.md#api_v2_webhooks_logs_id_get) | **GET** /api/v2/webhooks/logs/{id} | Get webhook log by ID
@@ -285,13 +307,13 @@ Class | Method | HTTP request | Description
 *WorkItemsApi* | [**api_v2_work_items_move_post**](docs/WorkItemsApi.md#api_v2_work_items_move_post) | **POST** /api/v2/workItems/move | Move WorkItem to another section
 *WorkItemsApi* | [**api_v2_work_items_search_post**](docs/WorkItemsApi.md#api_v2_work_items_search_post) | **POST** /api/v2/workItems/search | Search for work items
 *WorkItemsApi* | [**api_v2_work_items_shared_step_id_references_sections_post**](docs/WorkItemsApi.md#api_v2_work_items_shared_step_id_references_sections_post) | **POST** /api/v2/workItems/{sharedStepId}/references/sections | Get SharedStep references in sections
-*WorkItemsApi* | [**api_v2_work_items_shared_step_id_references_work_items_post**](docs/WorkItemsApi.md#api_v2_work_items_shared_step_id_references_work_items_post) | **POST** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in workitems
+*WorkItemsApi* | [**api_v2_work_items_shared_step_id_references_work_items_post**](docs/WorkItemsApi.md#api_v2_work_items_shared_step_id_references_work_items_post) | **POST** /api/v2/workItems/{sharedStepId}/references/workItems | Get SharedStep references in work items
 *WorkItemsApi* | [**api_v2_work_items_shared_steps_shared_step_id_references_get**](docs/WorkItemsApi.md#api_v2_work_items_shared_steps_shared_step_id_references_get) | **GET** /api/v2/workItems/sharedSteps/{sharedStepId}/references | Get SharedStep references
 *WorkItemsApi* | [**create_work_item**](docs/WorkItemsApi.md#create_work_item) | **POST** /api/v2/workItems | Create Test Case, Checklist or Shared Step
 *WorkItemsApi* | [**delete_all_work_items_from_auto_test**](docs/WorkItemsApi.md#delete_all_work_items_from_auto_test) | **DELETE** /api/v2/workItems/{id}/autoTests | Delete all links AutoTests from WorkItem by Id or GlobalId
 *WorkItemsApi* | [**delete_work_item**](docs/WorkItemsApi.md#delete_work_item) | **DELETE** /api/v2/workItems/{id} | Delete Test Case, Checklist or Shared Step by Id or GlobalId
 *WorkItemsApi* | [**get_auto_tests_for_work_item**](docs/WorkItemsApi.md#get_auto_tests_for_work_item) | **GET** /api/v2/workItems/{id}/autoTests | Get all AutoTests linked to WorkItem by Id or GlobalId
-*WorkItemsApi* | [**get_iterations**](docs/WorkItemsApi.md#get_iterations) | **GET** /api/v2/workItems/{id}/iterations | Get iterations by workitem Id or GlobalId
+*WorkItemsApi* | [**get_iterations**](docs/WorkItemsApi.md#get_iterations) | **GET** /api/v2/workItems/{id}/iterations | Get iterations by work item Id or GlobalId
 *WorkItemsApi* | [**get_work_item_by_id**](docs/WorkItemsApi.md#get_work_item_by_id) | **GET** /api/v2/workItems/{id} | Get Test Case, Checklist or Shared Step by Id or GlobalId
 *WorkItemsApi* | [**get_work_item_chronology**](docs/WorkItemsApi.md#get_work_item_chronology) | **GET** /api/v2/workItems/{id}/chronology | Get WorkItem chronology by Id or GlobalId
 *WorkItemsApi* | [**get_work_item_versions**](docs/WorkItemsApi.md#get_work_item_versions) | **GET** /api/v2/workItems/{id}/versions | Get WorkItem versions

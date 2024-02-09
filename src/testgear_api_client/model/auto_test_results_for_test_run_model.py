@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,15 +26,15 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.attachment_put_model import AttachmentPutModel
-    from testgear_api_client.model.attachment_put_model_auto_test_step_results_model import AttachmentPutModelAutoTestStepResultsModel
-    from testgear_api_client.model.available_test_result_outcome import AvailableTestResultOutcome
-    from testgear_api_client.model.failure_category_model import FailureCategoryModel
-    from testgear_api_client.model.link_post_model import LinkPostModel
+    from testit_api_client.model.attachment_put_model import AttachmentPutModel
+    from testit_api_client.model.attachment_put_model_auto_test_step_results_model import AttachmentPutModelAutoTestStepResultsModel
+    from testit_api_client.model.available_test_result_outcome import AvailableTestResultOutcome
+    from testit_api_client.model.failure_category_model import FailureCategoryModel
+    from testit_api_client.model.link_post_model import LinkPostModel
     globals()['AttachmentPutModel'] = AttachmentPutModel
     globals()['AttachmentPutModelAutoTestStepResultsModel'] = AttachmentPutModelAutoTestStepResultsModel
     globals()['AvailableTestResultOutcome'] = AvailableTestResultOutcome
@@ -74,6 +74,7 @@ class AutoTestResultsForTestRunModel(ModelNormal):
             'min_length': 1,
         },
         ('duration',): {
+            'inclusive_maximum': 43200000000,
             'inclusive_minimum': 0,
         },
     }

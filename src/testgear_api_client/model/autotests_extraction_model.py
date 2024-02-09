@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,12 +26,12 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.guid_extraction_model import GuidExtractionModel
-    globals()['GuidExtractionModel'] = GuidExtractionModel
+    from testit_api_client.model.autotests_extraction_model_ids import AutotestsExtractionModelIds
+    globals()['AutotestsExtractionModelIds'] = AutotestsExtractionModelIds
 
 
 class AutotestsExtractionModel(ModelNormal):
@@ -80,7 +80,7 @@ class AutotestsExtractionModel(ModelNormal):
         """
         lazy_import()
         return {
-            'ids': (GuidExtractionModel,),  # noqa: E501
+            'ids': (AutotestsExtractionModelIds,),  # noqa: E501
         }
 
     @cached_property
@@ -133,7 +133,7 @@ class AutotestsExtractionModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ids (GuidExtractionModel): [optional]  # noqa: E501
+            ids (AutotestsExtractionModelIds): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -219,7 +219,7 @@ class AutotestsExtractionModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            ids (GuidExtractionModel): [optional]  # noqa: E501
+            ids (AutotestsExtractionModelIds): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

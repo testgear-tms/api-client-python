@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,7 +26,7 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 
@@ -75,7 +75,7 @@ class TestRunGroupByFailureClassModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'failure_category': (str, none_type,),  # noqa: E501
+            'failure_category': (str,),  # noqa: E501
             'value': (int,),  # noqa: E501
         }
 
@@ -96,8 +96,12 @@ class TestRunGroupByFailureClassModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, failure_category, value, *args, **kwargs):  # noqa: E501
         """TestRunGroupByFailureClassModel - a model defined in OpenAPI
+
+        Args:
+            failure_category (str):
+            value (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -130,8 +134,6 @@ class TestRunGroupByFailureClassModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            failure_category (str, none_type): [optional]  # noqa: E501
-            value (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -163,6 +165,8 @@ class TestRunGroupByFailureClassModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.failure_category = failure_category
+        self.value = value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -183,8 +187,12 @@ class TestRunGroupByFailureClassModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, failure_category, value, *args, **kwargs):  # noqa: E501
         """TestRunGroupByFailureClassModel - a model defined in OpenAPI
+
+        Args:
+            failure_category (str):
+            value (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -217,8 +225,6 @@ class TestRunGroupByFailureClassModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            failure_category (str, none_type): [optional]  # noqa: E501
-            value (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -248,6 +254,8 @@ class TestRunGroupByFailureClassModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.failure_category = failure_category
+        self.value = value
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

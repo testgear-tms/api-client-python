@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,11 +26,11 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.step_model import StepModel
+    from testit_api_client.model.step_model import StepModel
     globals()['StepModel'] = StepModel
 
 
@@ -82,8 +82,8 @@ class SharedStepModel(ModelNormal):
         return {
             'version_id': (str,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
-            'steps': ([StepModel], none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'steps': ([StepModel],),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
         }
 
@@ -107,8 +107,15 @@ class SharedStepModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, version_id, global_id, name, steps, is_deleted, *args, **kwargs):  # noqa: E501
         """SharedStepModel - a model defined in OpenAPI
+
+        Args:
+            version_id (str):
+            global_id (int):
+            name (str):
+            steps ([StepModel]):
+            is_deleted (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -141,11 +148,6 @@ class SharedStepModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            version_id (str): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            steps ([StepModel], none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -177,6 +179,11 @@ class SharedStepModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.version_id = version_id
+        self.global_id = global_id
+        self.name = name
+        self.steps = steps
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -197,8 +204,15 @@ class SharedStepModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, version_id, global_id, name, steps, is_deleted, *args, **kwargs):  # noqa: E501
         """SharedStepModel - a model defined in OpenAPI
+
+        Args:
+            version_id (str):
+            global_id (int):
+            name (str):
+            steps ([StepModel]):
+            is_deleted (bool):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -231,11 +245,6 @@ class SharedStepModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            version_id (str): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            steps ([StepModel], none_type): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -265,6 +274,11 @@ class SharedStepModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.version_id = version_id
+        self.global_id = global_id
+        self.name = name
+        self.steps = steps
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

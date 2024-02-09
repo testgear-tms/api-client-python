@@ -1,4 +1,4 @@
-# testgear_api_client.WorkItemsCommentsApi
+# testit_api_client.WorkItemsCommentsApi
 
 All URIs are relative to *http://localhost*
 
@@ -23,14 +23,14 @@ Delete WorkItem comment
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import work_items_comments_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import work_items_comments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -46,16 +46,16 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_comments_api.WorkItemsCommentsApi(api_client)
-    comment_id = "commentId_example" # str | 
+    comment_id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Comment internal (guid format) identifier
 
     # example passing only required values which don't have defaults set
     try:
         # Delete WorkItem comment
         api_instance.api_v2_work_items_comments_comment_id_delete(comment_id)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsCommentsApi->api_v2_work_items_comments_comment_id_delete: %s\n" % e)
 ```
 
@@ -64,7 +64,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **comment_id** | **str**|  |
+ **comment_id** | **str**| Comment internal (guid format) identifier |
 
 ### Return type
 
@@ -105,16 +105,16 @@ Create WorkItem comment
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import work_items_comments_api
-from testgear_api_client.model.work_item_comment_model import WorkItemCommentModel
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.work_item_comment_post_model import WorkItemCommentPostModel
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import work_items_comments_api
+from testit_api_client.model.api_v2_work_items_comments_post_request import ApiV2WorkItemsCommentsPostRequest
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.work_item_comment_model import WorkItemCommentModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -130,21 +130,18 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_comments_api.WorkItemsCommentsApi(api_client)
-    work_item_comment_post_model = WorkItemCommentPostModel(
-        text="text_example",
-        work_item_id="work_item_id_example",
-    ) # WorkItemCommentPostModel |  (optional)
+    api_v2_work_items_comments_post_request = ApiV2WorkItemsCommentsPostRequest(None) # ApiV2WorkItemsCommentsPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Create WorkItem comment
-        api_response = api_instance.api_v2_work_items_comments_post(work_item_comment_post_model=work_item_comment_post_model)
+        api_response = api_instance.api_v2_work_items_comments_post(api_v2_work_items_comments_post_request=api_v2_work_items_comments_post_request)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsCommentsApi->api_v2_work_items_comments_post: %s\n" % e)
 ```
 
@@ -153,7 +150,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **work_item_comment_post_model** | [**WorkItemCommentPostModel**](WorkItemCommentPostModel.md)|  | [optional]
+ **api_v2_work_items_comments_post_request** | [**ApiV2WorkItemsCommentsPostRequest**](ApiV2WorkItemsCommentsPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -192,14 +189,14 @@ Update work item comment
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import work_items_comments_api
-from testgear_api_client.model.work_item_comment_put_model import WorkItemCommentPutModel
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import work_items_comments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_work_items_comments_put_request import ApiV2WorkItemsCommentsPutRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -215,20 +212,17 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_comments_api.WorkItemsCommentsApi(api_client)
-    work_item_comment_put_model = WorkItemCommentPutModel(
-        text="text_example",
-        id="id_example",
-    ) # WorkItemCommentPutModel |  (optional)
+    api_v2_work_items_comments_put_request = ApiV2WorkItemsCommentsPutRequest(None) # ApiV2WorkItemsCommentsPutRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Update work item comment
-        api_instance.api_v2_work_items_comments_put(work_item_comment_put_model=work_item_comment_put_model)
-    except testgear_api_client.ApiException as e:
+        api_instance.api_v2_work_items_comments_put(api_v2_work_items_comments_put_request=api_v2_work_items_comments_put_request)
+    except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsCommentsApi->api_v2_work_items_comments_put: %s\n" % e)
 ```
 
@@ -237,7 +231,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **work_item_comment_put_model** | [**WorkItemCommentPutModel**](WorkItemCommentPutModel.md)|  | [optional]
+ **api_v2_work_items_comments_put_request** | [**ApiV2WorkItemsCommentsPutRequest**](ApiV2WorkItemsCommentsPutRequest.md)|  | [optional]
 
 ### Return type
 
@@ -273,14 +267,14 @@ Get work item comments
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import work_items_comments_api
-from testgear_api_client.model.work_item_comment_model import WorkItemCommentModel
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import work_items_comments_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.work_item_comment_model import WorkItemCommentModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -296,7 +290,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_comments_api.WorkItemsCommentsApi(api_client)
     id = "id_example" # str | Unique or global ID of the work item
@@ -306,7 +300,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get work item comments
         api_response = api_instance.api_v2_work_items_id_comments_get(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling WorkItemsCommentsApi->api_v2_work_items_id_comments_get: %s\n" % e)
 ```
 

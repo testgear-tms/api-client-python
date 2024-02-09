@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,11 +26,11 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.short_configuration import ShortConfiguration
+    from testit_api_client.model.short_configuration import ShortConfiguration
     globals()['ShortConfiguration'] = ShortConfiguration
 
 
@@ -81,9 +81,9 @@ class TestSuiteChangeViewModel(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
-            'configurations': ([ShortConfiguration], none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'work_item_count': (int,),  # noqa: E501
+            'configurations': ([ShortConfiguration], none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -94,8 +94,8 @@ class TestSuiteChangeViewModel(ModelNormal):
     attribute_map = {
         'id': 'id',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'configurations': 'configurations',  # noqa: E501
         'work_item_count': 'workItemCount',  # noqa: E501
+        'configurations': 'configurations',  # noqa: E501
     }
 
     read_only_vars = {
@@ -105,8 +105,13 @@ class TestSuiteChangeViewModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, name, work_item_count, *args, **kwargs):  # noqa: E501
         """TestSuiteChangeViewModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            name (str):
+            work_item_count (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -139,10 +144,7 @@ class TestSuiteChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
             configurations ([ShortConfiguration], none_type): [optional]  # noqa: E501
-            work_item_count (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -174,6 +176,9 @@ class TestSuiteChangeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.name = name
+        self.work_item_count = work_item_count
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -194,8 +199,13 @@ class TestSuiteChangeViewModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, name, work_item_count, *args, **kwargs):  # noqa: E501
         """TestSuiteChangeViewModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            name (str):
+            work_item_count (int):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -228,10 +238,7 @@ class TestSuiteChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
             configurations ([ShortConfiguration], none_type): [optional]  # noqa: E501
-            work_item_count (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -261,6 +268,9 @@ class TestSuiteChangeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.name = name
+        self.work_item_count = work_item_count
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

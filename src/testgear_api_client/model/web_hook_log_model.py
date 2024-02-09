@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,12 +26,12 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.request_type_model import RequestTypeModel
-    from testgear_api_client.model.web_hook_event_type_model import WebHookEventTypeModel
+    from testit_api_client.model.request_type_model import RequestTypeModel
+    from testit_api_client.model.web_hook_event_type_model import WebHookEventTypeModel
     globals()['RequestTypeModel'] = RequestTypeModel
     globals()['WebHookEventTypeModel'] = WebHookEventTypeModel
 
@@ -82,23 +82,23 @@ class WebHookLogModel(ModelNormal):
         """
         lazy_import()
         return {
+            'web_hook_name': (str,),  # noqa: E501
             'event_type': (WebHookEventTypeModel,),  # noqa: E501
-            'request_type': (RequestTypeModel,),  # noqa: E501
-            'web_hook_name': (str, none_type,),  # noqa: E501
             'web_hook_id': (str,),  # noqa: E501
-            'request_body': (str, none_type,),  # noqa: E501
-            'request_meta': (str, none_type,),  # noqa: E501
             'response_status_code': (int,),  # noqa: E501
-            'response_body': (str, none_type,),  # noqa: E501
-            'response_meta': (str, none_type,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
-            'url': (str, none_type,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
-            'modified_date': (datetime, none_type,),  # noqa: E501
+            'url': (str,),  # noqa: E501
+            'request_type': (RequestTypeModel,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
-            'modified_by_id': (str, none_type,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
+            'request_body': (str, none_type,),  # noqa: E501
+            'request_meta': (str, none_type,),  # noqa: E501
+            'response_body': (str, none_type,),  # noqa: E501
+            'response_meta': (str, none_type,),  # noqa: E501
+            'created_date': (datetime, none_type,),  # noqa: E501
+            'modified_date': (datetime, none_type,),  # noqa: E501
+            'modified_by_id': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -107,23 +107,23 @@ class WebHookLogModel(ModelNormal):
 
 
     attribute_map = {
-        'event_type': 'eventType',  # noqa: E501
-        'request_type': 'requestType',  # noqa: E501
         'web_hook_name': 'webHookName',  # noqa: E501
+        'event_type': 'eventType',  # noqa: E501
         'web_hook_id': 'webHookId',  # noqa: E501
-        'request_body': 'requestBody',  # noqa: E501
-        'request_meta': 'requestMeta',  # noqa: E501
         'response_status_code': 'responseStatusCode',  # noqa: E501
-        'response_body': 'responseBody',  # noqa: E501
-        'response_meta': 'responseMeta',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
         'url': 'url',  # noqa: E501
-        'created_date': 'createdDate',  # noqa: E501
-        'modified_date': 'modifiedDate',  # noqa: E501
+        'request_type': 'requestType',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
-        'modified_by_id': 'modifiedById',  # noqa: E501
         'id': 'id',  # noqa: E501
         'is_deleted': 'isDeleted',  # noqa: E501
+        'request_body': 'requestBody',  # noqa: E501
+        'request_meta': 'requestMeta',  # noqa: E501
+        'response_body': 'responseBody',  # noqa: E501
+        'response_meta': 'responseMeta',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
+        'modified_date': 'modifiedDate',  # noqa: E501
+        'modified_by_id': 'modifiedById',  # noqa: E501
     }
 
     read_only_vars = {
@@ -133,12 +133,20 @@ class WebHookLogModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, event_type, request_type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, web_hook_name, event_type, web_hook_id, response_status_code, project_id, url, request_type, created_by_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """WebHookLogModel - a model defined in OpenAPI
 
         Args:
+            web_hook_name (str):
             event_type (WebHookEventTypeModel):
+            web_hook_id (str):
+            response_status_code (int):
+            project_id (str):
+            url (str):
             request_type (RequestTypeModel):
+            created_by_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -171,21 +179,13 @@ class WebHookLogModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            web_hook_name (str, none_type): [optional]  # noqa: E501
-            web_hook_id (str): [optional]  # noqa: E501
             request_body (str, none_type): [optional]  # noqa: E501
             request_meta (str, none_type): [optional]  # noqa: E501
-            response_status_code (int): [optional]  # noqa: E501
             response_body (str, none_type): [optional]  # noqa: E501
             response_meta (str, none_type): [optional]  # noqa: E501
-            project_id (str): [optional]  # noqa: E501
-            url (str, none_type): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -217,8 +217,16 @@ class WebHookLogModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.web_hook_name = web_hook_name
         self.event_type = event_type
+        self.web_hook_id = web_hook_id
+        self.response_status_code = response_status_code
+        self.project_id = project_id
+        self.url = url
         self.request_type = request_type
+        self.created_by_id = created_by_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -239,12 +247,20 @@ class WebHookLogModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, event_type, request_type, *args, **kwargs):  # noqa: E501
+    def __init__(self, web_hook_name, event_type, web_hook_id, response_status_code, project_id, url, request_type, created_by_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """WebHookLogModel - a model defined in OpenAPI
 
         Args:
+            web_hook_name (str):
             event_type (WebHookEventTypeModel):
+            web_hook_id (str):
+            response_status_code (int):
+            project_id (str):
+            url (str):
             request_type (RequestTypeModel):
+            created_by_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -277,21 +293,13 @@ class WebHookLogModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            web_hook_name (str, none_type): [optional]  # noqa: E501
-            web_hook_id (str): [optional]  # noqa: E501
             request_body (str, none_type): [optional]  # noqa: E501
             request_meta (str, none_type): [optional]  # noqa: E501
-            response_status_code (int): [optional]  # noqa: E501
             response_body (str, none_type): [optional]  # noqa: E501
             response_meta (str, none_type): [optional]  # noqa: E501
-            project_id (str): [optional]  # noqa: E501
-            url (str, none_type): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -321,8 +329,16 @@ class WebHookLogModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.web_hook_name = web_hook_name
         self.event_type = event_type
+        self.web_hook_id = web_hook_id
+        self.response_status_code = response_status_code
+        self.project_id = project_id
+        self.url = url
         self.request_type = request_type
+        self.created_by_id = created_by_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

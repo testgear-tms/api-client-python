@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testit_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,15 +21,15 @@ from testgear_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testgear_api_client.model.custom_attribute_template_model import CustomAttributeTemplateModel
-from testgear_api_client.model.custom_attribute_template_post_model import CustomAttributeTemplatePostModel
-from testgear_api_client.model.custom_attribute_template_put_model import CustomAttributeTemplatePutModel
-from testgear_api_client.model.custom_attribute_template_search_query_model import CustomAttributeTemplateSearchQueryModel
-from testgear_api_client.model.no_content_result import NoContentResult
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.search_custom_attribute_template_get_model import SearchCustomAttributeTemplateGetModel
-from testgear_api_client.model.validate_anti_forgery_token_attribute import ValidateAntiForgeryTokenAttribute
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.api_v2_custom_attributes_templates_post_request import ApiV2CustomAttributesTemplatesPostRequest
+from testit_api_client.model.api_v2_custom_attributes_templates_put_request import ApiV2CustomAttributesTemplatesPutRequest
+from testit_api_client.model.api_v2_custom_attributes_templates_search_post_request import ApiV2CustomAttributesTemplatesSearchPostRequest
+from testit_api_client.model.custom_attribute_template_model import CustomAttributeTemplateModel
+from testit_api_client.model.no_content_result import NoContentResult
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.search_custom_attribute_template_get_model import SearchCustomAttributeTemplateGetModel
+from testit_api_client.model.validate_anti_forgery_token_attribute import ValidateAntiForgeryTokenAttribute
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
 class CustomAttributeTemplatesApi(object):
@@ -331,7 +331,7 @@ class CustomAttributeTemplatesApi(object):
             },
             params_map={
                 'all': [
-                    'custom_attribute_template_post_model',
+                    'api_v2_custom_attributes_templates_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -347,13 +347,13 @@ class CustomAttributeTemplatesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'custom_attribute_template_post_model':
-                        (CustomAttributeTemplatePostModel,),
+                    'api_v2_custom_attributes_templates_post_request':
+                        (ApiV2CustomAttributesTemplatesPostRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'custom_attribute_template_post_model': 'body',
+                    'api_v2_custom_attributes_templates_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -381,7 +381,7 @@ class CustomAttributeTemplatesApi(object):
             },
             params_map={
                 'all': [
-                    'custom_attribute_template_put_model',
+                    'api_v2_custom_attributes_templates_put_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -397,13 +397,13 @@ class CustomAttributeTemplatesApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'custom_attribute_template_put_model':
-                        (CustomAttributeTemplatePutModel,),
+                    'api_v2_custom_attributes_templates_put_request':
+                        (ApiV2CustomAttributesTemplatesPutRequest,),
                 },
                 'attribute_map': {
                 },
                 'location_map': {
-                    'custom_attribute_template_put_model': 'body',
+                    'api_v2_custom_attributes_templates_put_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -436,7 +436,7 @@ class CustomAttributeTemplatesApi(object):
                     'order_by',
                     'search_field',
                     'search_value',
-                    'custom_attribute_template_search_query_model',
+                    'api_v2_custom_attributes_templates_search_post_request',
                 ],
                 'required': [],
                 'nullable': [
@@ -462,8 +462,8 @@ class CustomAttributeTemplatesApi(object):
                         (str,),
                     'search_value':
                         (str,),
-                    'custom_attribute_template_search_query_model':
-                        (CustomAttributeTemplateSearchQueryModel,),
+                    'api_v2_custom_attributes_templates_search_post_request':
+                        (ApiV2CustomAttributesTemplatesSearchPostRequest,),
                 },
                 'attribute_map': {
                     'skip': 'Skip',
@@ -478,7 +478,7 @@ class CustomAttributeTemplatesApi(object):
                     'order_by': 'query',
                     'search_field': 'query',
                     'search_value': 'query',
-                    'custom_attribute_template_search_query_model': 'body',
+                    'api_v2_custom_attributes_templates_search_post_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -926,7 +926,7 @@ class CustomAttributeTemplatesApi(object):
 
 
         Keyword Args:
-            custom_attribute_template_post_model (CustomAttributeTemplatePostModel): [optional]
+            api_v2_custom_attributes_templates_post_request (ApiV2CustomAttributesTemplatesPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1004,7 +1004,7 @@ class CustomAttributeTemplatesApi(object):
 
 
         Keyword Args:
-            custom_attribute_template_put_model (CustomAttributeTemplatePutModel): [optional]
+            api_v2_custom_attributes_templates_put_request (ApiV2CustomAttributesTemplatesPutRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1088,7 +1088,7 @@ class CustomAttributeTemplatesApi(object):
             order_by (str): SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC). [optional]
             search_field (str): Property name for searching. [optional]
             search_value (str): Value for searching. [optional]
-            custom_attribute_template_search_query_model (CustomAttributeTemplateSearchQueryModel): [optional]
+            api_v2_custom_attributes_templates_search_post_request (ApiV2CustomAttributesTemplatesSearchPostRequest): [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

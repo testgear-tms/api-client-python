@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,12 +26,12 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.shared_step_model import SharedStepModel
-    globals()['SharedStepModel'] = SharedStepModel
+    from testit_api_client.model.section_shared_step import SectionSharedStep
+    globals()['SectionSharedStep'] = SectionSharedStep
 
 
 class StepModel(ModelNormal):
@@ -80,8 +80,8 @@ class StepModel(ModelNormal):
         """
         lazy_import()
         return {
-            'work_item': (SharedStepModel,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'work_item': (SectionSharedStep,),  # noqa: E501
             'action': (str, none_type,),  # noqa: E501
             'expected': (str, none_type,),  # noqa: E501
             'test_data': (str, none_type,),  # noqa: E501
@@ -95,8 +95,8 @@ class StepModel(ModelNormal):
 
 
     attribute_map = {
-        'work_item': 'workItem',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'work_item': 'workItem',  # noqa: E501
         'action': 'action',  # noqa: E501
         'expected': 'expected',  # noqa: E501
         'test_data': 'testData',  # noqa: E501
@@ -111,8 +111,11 @@ class StepModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, *args, **kwargs):  # noqa: E501
         """StepModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -145,8 +148,7 @@ class StepModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            work_item (SharedStepModel): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
+            work_item (SectionSharedStep): [optional]  # noqa: E501
             action (str, none_type): [optional]  # noqa: E501
             expected (str, none_type): [optional]  # noqa: E501
             test_data (str, none_type): [optional]  # noqa: E501
@@ -183,6 +185,7 @@ class StepModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -203,8 +206,11 @@ class StepModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, *args, **kwargs):  # noqa: E501
         """StepModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -237,8 +243,7 @@ class StepModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            work_item (SharedStepModel): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
+            work_item (SectionSharedStep): [optional]  # noqa: E501
             action (str, none_type): [optional]  # noqa: E501
             expected (str, none_type): [optional]  # noqa: E501
             test_data (str, none_type): [optional]  # noqa: E501
@@ -273,6 +278,7 @@ class StepModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

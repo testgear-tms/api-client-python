@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,14 +26,14 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.autotest_filter_model import AutotestFilterModel
-    from testgear_api_client.model.search_auto_tests_query_includes_model import SearchAutoTestsQueryIncludesModel
-    globals()['AutotestFilterModel'] = AutotestFilterModel
-    globals()['SearchAutoTestsQueryIncludesModel'] = SearchAutoTestsQueryIncludesModel
+    from testit_api_client.model.autotests_select_model_filter import AutotestsSelectModelFilter
+    from testit_api_client.model.autotests_select_model_includes import AutotestsSelectModelIncludes
+    globals()['AutotestsSelectModelFilter'] = AutotestsSelectModelFilter
+    globals()['AutotestsSelectModelIncludes'] = AutotestsSelectModelIncludes
 
 
 class AutotestsSelectModel(ModelNormal):
@@ -82,8 +82,8 @@ class AutotestsSelectModel(ModelNormal):
         """
         lazy_import()
         return {
-            'filter': (AutotestFilterModel,),  # noqa: E501
-            'includes': (SearchAutoTestsQueryIncludesModel,),  # noqa: E501
+            'filter': (AutotestsSelectModelFilter,),  # noqa: E501
+            'includes': (AutotestsSelectModelIncludes,),  # noqa: E501
         }
 
     @cached_property
@@ -103,8 +103,12 @@ class AutotestsSelectModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, filter, includes, *args, **kwargs):  # noqa: E501
         """AutotestsSelectModel - a model defined in OpenAPI
+
+        Args:
+            filter (AutotestsSelectModelFilter):
+            includes (AutotestsSelectModelIncludes):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -137,8 +141,6 @@ class AutotestsSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (AutotestFilterModel): [optional]  # noqa: E501
-            includes (SearchAutoTestsQueryIncludesModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -170,6 +172,8 @@ class AutotestsSelectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.filter = filter
+        self.includes = includes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -190,8 +194,12 @@ class AutotestsSelectModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, filter, includes, *args, **kwargs):  # noqa: E501
         """AutotestsSelectModel - a model defined in OpenAPI
+
+        Args:
+            filter (AutotestsSelectModelFilter):
+            includes (AutotestsSelectModelIncludes):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -224,8 +232,6 @@ class AutotestsSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (AutotestFilterModel): [optional]  # noqa: E501
-            includes (SearchAutoTestsQueryIncludesModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -255,6 +261,8 @@ class AutotestsSelectModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.filter = filter
+        self.includes = includes
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

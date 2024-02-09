@@ -1,4 +1,4 @@
-# testgear_api_client.NotificationsApi
+# testit_api_client.NotificationsApi
 
 All URIs are relative to *http://localhost*
 
@@ -24,13 +24,13 @@ Get unread Notifications total in last 7 days
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import notifications_api
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import notifications_api
+from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -46,7 +46,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notifications_api.NotificationsApi(api_client)
     is_read = True # bool |  (optional)
@@ -57,7 +57,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get unread Notifications total in last 7 days
         api_response = api_instance.api_v2_notifications_count_get(is_read=is_read)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling NotificationsApi->api_v2_notifications_count_get: %s\n" % e)
 ```
 
@@ -104,16 +104,16 @@ Get all Notifications for current User
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import notifications_api
-from testgear_api_client.model.notification_type_model import NotificationTypeModel
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.notification_model import NotificationModel
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import notifications_api
+from testit_api_client.model.notification_model import NotificationModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testit_api_client.model.notification_type_model import NotificationTypeModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -129,10 +129,10 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notifications_api.NotificationsApi(api_client)
-    notification_type = NotificationTypeModel("MentionInComment") # NotificationTypeModel |  (optional)
+    notification_type = None # NotificationTypeModel |  (optional)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
     take = 1 # int | Amount of items to be taken (limit) (optional)
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
@@ -145,7 +145,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get all Notifications for current User
         api_response = api_instance.api_v2_notifications_get(notification_type=notification_type, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling NotificationsApi->api_v2_notifications_get: %s\n" % e)
 ```
 
@@ -198,13 +198,13 @@ Set Notification as read
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import notifications_api
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import notifications_api
+from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -220,7 +220,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notifications_api.NotificationsApi(api_client)
     id = "id_example" # str | 
@@ -229,7 +229,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     try:
         # Set Notification as read
         api_instance.api_v2_notifications_id_read_post(id)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling NotificationsApi->api_v2_notifications_id_read_post: %s\n" % e)
 ```
 
@@ -277,13 +277,13 @@ Set all Notifications as read
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import notifications_api
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import notifications_api
+from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -299,7 +299,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notifications_api.NotificationsApi(api_client)
 
@@ -307,7 +307,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     try:
         # Set all Notifications as read
         api_instance.api_v2_notifications_read_post()
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling NotificationsApi->api_v2_notifications_read_post: %s\n" % e)
 ```
 
@@ -351,16 +351,16 @@ Search Notifications for current User
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import notifications_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.notification_model import NotificationModel
-from testgear_api_client.model.notification_query_filter_model import NotificationQueryFilterModel
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import notifications_api
+from testit_api_client.model.notification_model import NotificationModel
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_notifications_search_post_request import ApiV2NotificationsSearchPostRequest
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -376,7 +376,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = notifications_api.NotificationsApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -384,24 +384,15 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    notification_query_filter_model = NotificationQueryFilterModel(
-        types=[
-            NotificationTypeModel("MentionInComment"),
-        ],
-        is_read=True,
-        created_date=DateTimeRangeSelectorModel(
-            _from=dateutil_parser('1970-01-01T00:00:00.00Z'),
-            to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-        ),
-    ) # NotificationQueryFilterModel |  (optional)
+    api_v2_notifications_search_post_request = ApiV2NotificationsSearchPostRequest(None) # ApiV2NotificationsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search Notifications for current User
-        api_response = api_instance.api_v2_notifications_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, notification_query_filter_model=notification_query_filter_model)
+        api_response = api_instance.api_v2_notifications_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_notifications_search_post_request=api_v2_notifications_search_post_request)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling NotificationsApi->api_v2_notifications_search_post: %s\n" % e)
 ```
 
@@ -415,7 +406,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **notification_query_filter_model** | [**NotificationQueryFilterModel**](NotificationQueryFilterModel.md)|  | [optional]
+ **api_v2_notifications_search_post_request** | [**ApiV2NotificationsSearchPostRequest**](ApiV2NotificationsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 

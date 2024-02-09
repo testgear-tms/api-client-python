@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,11 +26,11 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.test_run_state import TestRunState
+    from testit_api_client.model.test_run_state import TestRunState
     globals()['TestRunState'] = TestRunState
 
 
@@ -82,11 +82,11 @@ class TestRunShortModel(ModelNormal):
         return {
             'state_name': (TestRunState,),  # noqa: E501
             'project_id': (str,),  # noqa: E501
+            'id': (str,),  # noqa: E501
+            'is_deleted': (bool,),  # noqa: E501
             'test_plan_id': (str, none_type,),  # noqa: E501
             'name': (str, none_type,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'id': (str,),  # noqa: E501
-            'is_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -97,11 +97,11 @@ class TestRunShortModel(ModelNormal):
     attribute_map = {
         'state_name': 'stateName',  # noqa: E501
         'project_id': 'projectId',  # noqa: E501
+        'id': 'id',  # noqa: E501
+        'is_deleted': 'isDeleted',  # noqa: E501
         'test_plan_id': 'testPlanId',  # noqa: E501
         'name': 'name',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'id': 'id',  # noqa: E501
-        'is_deleted': 'isDeleted',  # noqa: E501
     }
 
     read_only_vars = {
@@ -111,11 +111,14 @@ class TestRunShortModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, state_name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, state_name, project_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """TestRunShortModel - a model defined in OpenAPI
 
         Args:
             state_name (TestRunState):
+            project_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -148,12 +151,9 @@ class TestRunShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            project_id (str): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -186,6 +186,9 @@ class TestRunShortModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.state_name = state_name
+        self.project_id = project_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -206,11 +209,14 @@ class TestRunShortModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, state_name, *args, **kwargs):  # noqa: E501
+    def __init__(self, state_name, project_id, id, is_deleted, *args, **kwargs):  # noqa: E501
         """TestRunShortModel - a model defined in OpenAPI
 
         Args:
             state_name (TestRunState):
+            project_id (str):
+            id (str): Unique ID of the entity
+            is_deleted (bool): Indicates if the entity is deleted
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -243,12 +249,9 @@ class TestRunShortModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            project_id (str): [optional]  # noqa: E501
             test_plan_id (str, none_type): [optional]  # noqa: E501
             name (str, none_type): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            id (str): Unique ID of the entity. [optional]  # noqa: E501
-            is_deleted (bool): Indicates if the entity is deleted. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -279,6 +282,9 @@ class TestRunShortModel(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.state_name = state_name
+        self.project_id = project_id
+        self.id = id
+        self.is_deleted = is_deleted
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

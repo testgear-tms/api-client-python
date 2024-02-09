@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,13 +26,13 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.iteration_model import IterationModel
-    from testgear_api_client.model.last_test_result_model import LastTestResultModel
-    from testgear_api_client.model.work_item_priority_model import WorkItemPriorityModel
+    from testit_api_client.model.iteration_model import IterationModel
+    from testit_api_client.model.last_test_result_model import LastTestResultModel
+    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
     globals()['IterationModel'] = IterationModel
     globals()['LastTestResultModel'] = LastTestResultModel
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel
@@ -84,27 +84,27 @@ class TestPointWithLastResultModel(ModelNormal):
         """
         lazy_import()
         return {
-            'priority': (WorkItemPriorityModel,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'work_item_name': (str, none_type,),  # noqa: E501
             'is_automated': (bool,),  # noqa: E501
-            'tester_id': (str, none_type,),  # noqa: E501
             'work_item_id': (str,),  # noqa: E501
-            'configuration_id': (str, none_type,),  # noqa: E501
             'test_suite_id': (str,),  # noqa: E501
+            'section_id': (str,),  # noqa: E501
+            'created_by_id': (str,),  # noqa: E501
+            'duration': (int,),  # noqa: E501
+            'priority': (WorkItemPriorityModel,),  # noqa: E501
+            'work_item_name': (str, none_type,),  # noqa: E501
+            'tester_id': (str, none_type,),  # noqa: E501
+            'configuration_id': (str, none_type,),  # noqa: E501
             'last_test_result': (LastTestResultModel,),  # noqa: E501
             'status': (str, none_type,),  # noqa: E501
             'work_item_global_id': (int, none_type,),  # noqa: E501
             'work_item_entity_type_name': (str, none_type,),  # noqa: E501
-            'section_id': (str,),  # noqa: E501
             'section_name': (str, none_type,),  # noqa: E501
             'created_date': (datetime, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
-            'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type,),  # noqa: E501
             'tag_names': ([str], none_type,),  # noqa: E501
-            'duration': (int,),  # noqa: E501
             'test_suite_name_bread_crumbs': ([str], none_type,),  # noqa: E501
             'group_count': (int, none_type,),  # noqa: E501
             'iteration': (IterationModel,),  # noqa: E501
@@ -116,27 +116,27 @@ class TestPointWithLastResultModel(ModelNormal):
 
 
     attribute_map = {
-        'priority': 'priority',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'work_item_name': 'workItemName',  # noqa: E501
         'is_automated': 'isAutomated',  # noqa: E501
-        'tester_id': 'testerId',  # noqa: E501
         'work_item_id': 'workItemId',  # noqa: E501
-        'configuration_id': 'configurationId',  # noqa: E501
         'test_suite_id': 'testSuiteId',  # noqa: E501
+        'section_id': 'sectionId',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
+        'duration': 'duration',  # noqa: E501
+        'priority': 'priority',  # noqa: E501
+        'work_item_name': 'workItemName',  # noqa: E501
+        'tester_id': 'testerId',  # noqa: E501
+        'configuration_id': 'configurationId',  # noqa: E501
         'last_test_result': 'lastTestResult',  # noqa: E501
         'status': 'status',  # noqa: E501
         'work_item_global_id': 'workItemGlobalId',  # noqa: E501
         'work_item_entity_type_name': 'workItemEntityTypeName',  # noqa: E501
-        'section_id': 'sectionId',  # noqa: E501
         'section_name': 'sectionName',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
-        'created_by_id': 'createdById',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
         'tag_names': 'tagNames',  # noqa: E501
-        'duration': 'duration',  # noqa: E501
         'test_suite_name_bread_crumbs': 'testSuiteNameBreadCrumbs',  # noqa: E501
         'group_count': 'groupCount',  # noqa: E501
         'iteration': 'iteration',  # noqa: E501
@@ -149,10 +149,17 @@ class TestPointWithLastResultModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, priority, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_automated, work_item_id, test_suite_id, section_id, created_by_id, duration, priority, *args, **kwargs):  # noqa: E501
         """TestPointWithLastResultModel - a model defined in OpenAPI
 
         Args:
+            id (str):
+            is_automated (bool):
+            work_item_id (str):
+            test_suite_id (str):
+            section_id (str):
+            created_by_id (str):
+            duration (int):
             priority (WorkItemPriorityModel):
 
         Keyword Args:
@@ -186,26 +193,19 @@ class TestPointWithLastResultModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             work_item_name (str, none_type): [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
             tester_id (str, none_type): [optional]  # noqa: E501
-            work_item_id (str): [optional]  # noqa: E501
             configuration_id (str, none_type): [optional]  # noqa: E501
-            test_suite_id (str): [optional]  # noqa: E501
             last_test_result (LastTestResultModel): [optional]  # noqa: E501
             status (str, none_type): [optional]  # noqa: E501
             work_item_global_id (int, none_type): [optional]  # noqa: E501
             work_item_entity_type_name (str, none_type): [optional]  # noqa: E501
-            section_id (str): [optional]  # noqa: E501
             section_name (str, none_type): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             tag_names ([str], none_type): [optional]  # noqa: E501
-            duration (int): [optional]  # noqa: E501
             test_suite_name_bread_crumbs ([str], none_type): [optional]  # noqa: E501
             group_count (int, none_type): [optional]  # noqa: E501
             iteration (IterationModel): [optional]  # noqa: E501
@@ -240,6 +240,13 @@ class TestPointWithLastResultModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_automated = is_automated
+        self.work_item_id = work_item_id
+        self.test_suite_id = test_suite_id
+        self.section_id = section_id
+        self.created_by_id = created_by_id
+        self.duration = duration
         self.priority = priority
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -261,10 +268,17 @@ class TestPointWithLastResultModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, priority, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, is_automated, work_item_id, test_suite_id, section_id, created_by_id, duration, priority, *args, **kwargs):  # noqa: E501
         """TestPointWithLastResultModel - a model defined in OpenAPI
 
         Args:
+            id (str):
+            is_automated (bool):
+            work_item_id (str):
+            test_suite_id (str):
+            section_id (str):
+            created_by_id (str):
+            duration (int):
             priority (WorkItemPriorityModel):
 
         Keyword Args:
@@ -298,26 +312,19 @@ class TestPointWithLastResultModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             work_item_name (str, none_type): [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
             tester_id (str, none_type): [optional]  # noqa: E501
-            work_item_id (str): [optional]  # noqa: E501
             configuration_id (str, none_type): [optional]  # noqa: E501
-            test_suite_id (str): [optional]  # noqa: E501
             last_test_result (LastTestResultModel): [optional]  # noqa: E501
             status (str, none_type): [optional]  # noqa: E501
             work_item_global_id (int, none_type): [optional]  # noqa: E501
             work_item_entity_type_name (str, none_type): [optional]  # noqa: E501
-            section_id (str): [optional]  # noqa: E501
             section_name (str, none_type): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}, none_type): [optional]  # noqa: E501
             tag_names ([str], none_type): [optional]  # noqa: E501
-            duration (int): [optional]  # noqa: E501
             test_suite_name_bread_crumbs ([str], none_type): [optional]  # noqa: E501
             group_count (int, none_type): [optional]  # noqa: E501
             iteration (IterationModel): [optional]  # noqa: E501
@@ -350,6 +357,13 @@ class TestPointWithLastResultModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_automated = is_automated
+        self.work_item_id = work_item_id
+        self.test_suite_id = test_suite_id
+        self.section_id = section_id
+        self.created_by_id = created_by_id
+        self.duration = duration
         self.priority = priority
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

@@ -20,7 +20,7 @@ import uuid
 
 from dateutil.parser import parse
 
-from testgear_api_client.exceptions import (
+from testit_api_client.exceptions import (
     ApiKeyError,
     ApiAttributeError,
     ApiTypeError,

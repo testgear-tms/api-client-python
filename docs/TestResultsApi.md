@@ -1,4 +1,4 @@
-# testgear_api_client.TestResultsApi
+# testit_api_client.TestResultsApi
 
 All URIs are relative to *http://localhost*
 
@@ -29,14 +29,14 @@ Get test result by ID aggregated with previous results
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_results_api
-from testgear_api_client.model.test_result_model import TestResultModel
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import test_results_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.test_result_model import TestResultModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -52,7 +52,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
     id = "id_example" # str | Test result unique ID
@@ -62,7 +62,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get test result by ID aggregated with previous results
         api_response = api_instance.api_v2_test_results_id_aggregated_get(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_aggregated_get: %s\n" % e)
 ```
 
@@ -107,13 +107,13 @@ Attach file to the test result
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_results_api
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import test_results_api
+from testit_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -129,7 +129,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
     id = "id_example" # str | Test result unique ID
@@ -139,7 +139,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     try:
         # Attach file to the test result
         api_instance.api_v2_test_results_id_attachments_attachment_id_put(id, attachment_id)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_attachments_attachment_id_put: %s\n" % e)
 ```
 
@@ -185,14 +185,14 @@ Get test result attachments meta-information
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_results_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.attachment_model import AttachmentModel
+import testit_api_client
+from testit_api_client.api import test_results_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.attachment_model import AttachmentModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -208,7 +208,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
     id = "id_example" # str | Test result unique ID
@@ -218,7 +218,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get test result attachments meta-information
         api_response = api_instance.api_v2_test_results_id_attachments_info_get(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_attachments_info_get: %s\n" % e)
 ```
 
@@ -263,14 +263,14 @@ Get test result by ID
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_results_api
-from testgear_api_client.model.test_result_model import TestResultModel
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import test_results_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.test_result_model import TestResultModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -286,7 +286,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
     id = "id_example" # str | Test result unique ID
@@ -296,7 +296,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get test result by ID
         api_response = api_instance.api_v2_test_results_id_get(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_get: %s\n" % e)
 ```
 
@@ -341,14 +341,14 @@ Edit test result by ID
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_results_api
-from testgear_api_client.model.test_result_update_model import TestResultUpdateModel
-from testgear_api_client.model.problem_details import ProblemDetails
+import testit_api_client
+from testit_api_client.api import test_results_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_test_results_id_put_request import ApiV2TestResultsIdPutRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -364,141 +364,25 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
     id = "id_example" # str | Test result unique ID
-    test_result_update_model = TestResultUpdateModel(
-        setup_results=[
-            AttachmentPutModelAutoTestStepResultsModel(
-                title="title_example",
-                description="description_example",
-                info="info_example",
-                started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                completed_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                duration=0,
-                outcome=AvailableTestResultOutcome("Passed"),
-                step_results=[
-                    AttachmentPutModelAutoTestStepResultsModel(),
-                ],
-                attachments=[
-                    AttachmentPutModel(
-                        id="id_example",
-                    ),
-                ],
-                parameters={
-                    "key": "key_example",
-                },
-            ),
-        ],
-        teardown_results=[
-            AttachmentPutModelAutoTestStepResultsModel(
-                title="title_example",
-                description="description_example",
-                info="info_example",
-                started_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                completed_on=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                duration=0,
-                outcome=AvailableTestResultOutcome("Passed"),
-                step_results=[
-                    AttachmentPutModelAutoTestStepResultsModel(),
-                ],
-                attachments=[
-                    AttachmentPutModel(
-                        id="id_example",
-                    ),
-                ],
-                parameters={
-                    "key": "key_example",
-                },
-            ),
-        ],
-        duration_in_ms=0,
-        step_comments=[
-            TestResultStepCommentPutModel(
-                id="a8b10924-5055-46a9-87ac-f54e8e4946ab",
-                text="text_example",
-                step_id="step_id_example",
-                parent_step_id="parent_step_id_example",
-                attachments=[
-                    AttachmentPutModel(
-                        id="id_example",
-                    ),
-                ],
-            ),
-        ],
-        failure_class_ids=[
-            "failure_class_ids_example",
-        ],
-        outcome="outcome_example",
-        comment="comment_example",
-        links=[
-            LinkModel(
-                id="a8b10924-5055-46a9-87ac-f54e8e4946ab",
-                title="title_example",
-                url="url_example",
-                description="description_example",
-                type=LinkType("Related"),
-                has_info=True,
-            ),
-        ],
-        step_results=[
-            StepResultModel(
-                step_id="step_id_example",
-                outcome="outcome_example",
-                shared_step_version_id="shared_step_version_id_example",
-                shared_step_results=[
-                    SharedStepResultModel(
-                        step_id="step_id_example",
-                        outcome="outcome_example",
-                    ),
-                ],
-                comment=StepCommentModel(
-                    id="a8b10924-5055-46a9-87ac-f54e8e4946ab",
-                    text="text_example",
-                    step_id="step_id_example",
-                    parent_step_id="parent_step_id_example",
-                    attachments=[
-                        AttachmentModel(
-                            file_id="a8b10924-5055-46a9-87ac-f54e8e4946ab",
-                            type="image/jpeg",
-                            size=5.555,
-                            created_date=dateutil_parser('2023-05-05T09:24:32.4594352Z'),
-                            modified_date=dateutil_parser('2023-05-05T09:24:32.4594352Z'),
-                            created_by_id="a8b10924-5055-46a9-87ac-f54e8e4946ab",
-                            modified_by_id="a8b10924-5055-46a9-87ac-f54e8e4946ab",
-                            name="example",
-                            id="id_example",
-                        ),
-                    ],
-                    test_result_id="test_result_id_example",
-                    created_by_id="created_by_id_example",
-                    modified_by_id="modified_by_id_example",
-                    created_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                    modified_date=dateutil_parser('1970-01-01T00:00:00.00Z'),
-                ),
-            ),
-        ],
-        attachments=[
-            AttachmentPutModel(
-                id="id_example",
-            ),
-        ],
-    ) # TestResultUpdateModel |  (optional)
+    api_v2_test_results_id_put_request = ApiV2TestResultsIdPutRequest(None) # ApiV2TestResultsIdPutRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Edit test result by ID
         api_instance.api_v2_test_results_id_put(id)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_put: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Edit test result by ID
-        api_instance.api_v2_test_results_id_put(id, test_result_update_model=test_result_update_model)
-    except testgear_api_client.ApiException as e:
+        api_instance.api_v2_test_results_id_put(id, api_v2_test_results_id_put_request=api_v2_test_results_id_put_request)
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_id_put: %s\n" % e)
 ```
 
@@ -508,7 +392,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **str**| Test result unique ID |
- **test_result_update_model** | [**TestResultUpdateModel**](TestResultUpdateModel.md)|  | [optional]
+ **api_v2_test_results_id_put_request** | [**ApiV2TestResultsIdPutRequest**](ApiV2TestResultsIdPutRequest.md)|  | [optional]
 
 ### Return type
 
@@ -544,15 +428,15 @@ Search for test results
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_results_api
-from testgear_api_client.model.test_result_short_get_model import TestResultShortGetModel
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.test_results_filter_model import TestResultsFilterModel
+import testit_api_client
+from testit_api_client.api import test_results_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_test_results_search_post_request import ApiV2TestResultsSearchPostRequest
+from testit_api_client.model.test_result_short_get_model import TestResultShortGetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -568,7 +452,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -576,30 +460,15 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     order_by = "OrderBy_example" # str | SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) (optional)
     search_field = "SearchField_example" # str | Property name for searching (optional)
     search_value = "SearchValue_example" # str | Value for searching (optional)
-    test_results_filter_model = TestResultsFilterModel(
-        test_run_ids=[
-            "test_run_ids_example",
-        ],
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        outcomes=[
-            TestResultOutcome("InProgress"),
-        ],
-        failure_categories=[
-            FailureCategoryModel("InfrastructureDefect"),
-        ],
-        namespace="namespace_example",
-        class_name="class_name_example",
-    ) # TestResultsFilterModel |  (optional)
+    api_v2_test_results_search_post_request = ApiV2TestResultsSearchPostRequest(None) # ApiV2TestResultsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for test results
-        api_response = api_instance.api_v2_test_results_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, test_results_filter_model=test_results_filter_model)
+        api_response = api_instance.api_v2_test_results_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_test_results_search_post_request=api_v2_test_results_search_post_request)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_search_post: %s\n" % e)
 ```
 
@@ -613,7 +482,7 @@ Name | Type | Description  | Notes
  **order_by** | **str**| SQL-like  ORDER BY statement (column1 ASC|DESC , column2 ASC|DESC) | [optional]
  **search_field** | **str**| Property name for searching | [optional]
  **search_value** | **str**| Value for searching | [optional]
- **test_results_filter_model** | [**TestResultsFilterModel**](TestResultsFilterModel.md)|  | [optional]
+ **api_v2_test_results_search_post_request** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -649,15 +518,15 @@ Search for test results and extract statistics
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_results_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.test_results_statistics_get_model import TestResultsStatisticsGetModel
-from testgear_api_client.model.test_results_filter_model import TestResultsFilterModel
+import testit_api_client
+from testit_api_client.api import test_results_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.api_v2_test_results_search_post_request import ApiV2TestResultsSearchPostRequest
+from testit_api_client.model.test_results_statistics_get_model import TestResultsStatisticsGetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -673,33 +542,18 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
-    test_results_filter_model = TestResultsFilterModel(
-        test_run_ids=[
-            "test_run_ids_example",
-        ],
-        configuration_ids=[
-            "configuration_ids_example",
-        ],
-        outcomes=[
-            TestResultOutcome("InProgress"),
-        ],
-        failure_categories=[
-            FailureCategoryModel("InfrastructureDefect"),
-        ],
-        namespace="namespace_example",
-        class_name="class_name_example",
-    ) # TestResultsFilterModel |  (optional)
+    api_v2_test_results_search_post_request = ApiV2TestResultsSearchPostRequest(None) # ApiV2TestResultsSearchPostRequest |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for test results and extract statistics
-        api_response = api_instance.api_v2_test_results_statistics_filter_post(test_results_filter_model=test_results_filter_model)
+        api_response = api_instance.api_v2_test_results_statistics_filter_post(api_v2_test_results_search_post_request=api_v2_test_results_search_post_request)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->api_v2_test_results_statistics_filter_post: %s\n" % e)
 ```
 
@@ -708,7 +562,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **test_results_filter_model** | [**TestResultsFilterModel**](TestResultsFilterModel.md)|  | [optional]
+ **api_v2_test_results_search_post_request** | [**ApiV2TestResultsSearchPostRequest**](ApiV2TestResultsSearchPostRequest.md)|  | [optional]
 
 ### Return type
 
@@ -746,14 +600,14 @@ Upload and link attachment to TestResult
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_results_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_results_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -769,7 +623,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test result internal identifier (guid format)
@@ -780,7 +634,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Upload and link attachment to TestResult
         api_response = api_instance.create_attachment(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->create_attachment: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -789,7 +643,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Upload and link attachment to TestResult
         api_response = api_instance.create_attachment(id, file=file)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->create_attachment: %s\n" % e)
 ```
 
@@ -841,14 +695,14 @@ Remove attachment and unlink from TestResult
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_results_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_results_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -864,7 +718,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test result internal identifier (guid format)
@@ -874,7 +728,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     try:
         # Remove attachment and unlink from TestResult
         api_instance.delete_attachment(id, attachment_id)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->delete_attachment: %s\n" % e)
 ```
 
@@ -924,15 +778,15 @@ Get attachment of TestResult
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_results_api
-from testgear_api_client.model.image_resize_type import ImageResizeType
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_results_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.image_resize_type import ImageResizeType
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -948,14 +802,14 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
     attachment_id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Attachment internal identifier (guid format)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test result internal identifier (guid format)
     width = 1 # int | Width of the result image (optional)
     height = 1 # int | Height of the result image (optional)
-    resize_type = ImageResizeType("Crop") # ImageResizeType | Type of resizing to apply to the result image (optional)
+    resize_type = None # ImageResizeType | Type of resizing to apply to the result image (optional)
     background_color = "#62ECB0" # str | Color of the background if the `resizeType` is `AddBackgroundStripes` (optional)
     preview = True # bool | If image must be converted to a preview (lower quality, no animation) (optional)
 
@@ -963,7 +817,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     try:
         # Get attachment of TestResult
         api_instance.download_attachment(attachment_id, id)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->download_attachment: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -971,7 +825,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
     try:
         # Get attachment of TestResult
         api_instance.download_attachment(attachment_id, id, width=width, height=height, resize_type=resize_type, background_color=background_color, preview=preview)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->download_attachment: %s\n" % e)
 ```
 
@@ -1027,15 +881,15 @@ Get Metadata of TestResult's attachment
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_results_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.attachment_model import AttachmentModel
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_results_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.attachment_model import AttachmentModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1051,7 +905,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test result internal identifier (guid format)
@@ -1062,7 +916,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get Metadata of TestResult's attachment
         api_response = api_instance.get_attachment(id, attachment_id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->get_attachment: %s\n" % e)
 ```
 
@@ -1113,15 +967,15 @@ Get all attachments of TestResult
 
 ```python
 import time
-import testgear_api_client
-from testgear_api_client.api import test_results_api
-from testgear_api_client.model.problem_details import ProblemDetails
-from testgear_api_client.model.attachment_model import AttachmentModel
-from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+import testit_api_client
+from testit_api_client.api import test_results_api
+from testit_api_client.model.problem_details import ProblemDetails
+from testit_api_client.model.attachment_model import AttachmentModel
+from testit_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testgear_api_client.Configuration(
+configuration = testit_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1137,7 +991,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testgear_api_client.ApiClient(configuration) as api_client:
+with testit_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_results_api.TestResultsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test result internal identifier (guid format)
@@ -1147,7 +1001,7 @@ with testgear_api_client.ApiClient(configuration) as api_client:
         # Get all attachments of TestResult
         api_response = api_instance.get_attachments(id)
         pprint(api_response)
-    except testgear_api_client.ApiException as e:
+    except testit_api_client.ApiException as e:
         print("Exception when calling TestResultsApi->get_attachments: %s\n" % e)
 ```
 

@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,11 +26,11 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.test_suite_type import TestSuiteType
+    from testit_api_client.model.test_suite_type import TestSuiteType
     globals()['TestSuiteType'] = TestSuiteType
 
 
@@ -89,6 +89,7 @@ class TestSuiteV2PostModel(ModelNormal):
             'parent_id': (str, none_type,),  # noqa: E501
             'type': (TestSuiteType,),  # noqa: E501
             'save_structure': (bool, none_type,),  # noqa: E501
+            'auto_refresh': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -102,6 +103,7 @@ class TestSuiteV2PostModel(ModelNormal):
         'parent_id': 'parentId',  # noqa: E501
         'type': 'type',  # noqa: E501
         'save_structure': 'saveStructure',  # noqa: E501
+        'auto_refresh': 'autoRefresh',  # noqa: E501
     }
 
     read_only_vars = {
@@ -115,8 +117,8 @@ class TestSuiteV2PostModel(ModelNormal):
         """TestSuiteV2PostModel - a model defined in OpenAPI
 
         Args:
-            test_plan_id (str):
-            name (str):
+            test_plan_id (str): Unique ID of test plan to which the test suite belongs
+            name (str): Name of the test suite
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -149,9 +151,10 @@ class TestSuiteV2PostModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            parent_id (str, none_type): [optional]  # noqa: E501
+            parent_id (str, none_type): Unique ID of the parent test suite in hierarchy. [optional]  # noqa: E501
             type (TestSuiteType): [optional]  # noqa: E501
-            save_structure (bool, none_type): [optional]  # noqa: E501
+            save_structure (bool, none_type): Indicates if the test suite retains section tree structure. [optional]  # noqa: E501
+            auto_refresh (bool, none_type): Indicates if scheduled auto refresh is enabled for the test suite. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -209,8 +212,8 @@ class TestSuiteV2PostModel(ModelNormal):
         """TestSuiteV2PostModel - a model defined in OpenAPI
 
         Args:
-            test_plan_id (str):
-            name (str):
+            test_plan_id (str): Unique ID of test plan to which the test suite belongs
+            name (str): Name of the test suite
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -243,9 +246,10 @@ class TestSuiteV2PostModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            parent_id (str, none_type): [optional]  # noqa: E501
+            parent_id (str, none_type): Unique ID of the parent test suite in hierarchy. [optional]  # noqa: E501
             type (TestSuiteType): [optional]  # noqa: E501
-            save_structure (bool, none_type): [optional]  # noqa: E501
+            save_structure (bool, none_type): Indicates if the test suite retains section tree structure. [optional]  # noqa: E501
+            auto_refresh (bool, none_type): Indicates if scheduled auto refresh is enabled for the test suite. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

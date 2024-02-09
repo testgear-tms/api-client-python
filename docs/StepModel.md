@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**work_item** | [**SharedStepModel**](SharedStepModel.md) |  | [optional] 
-**id** | **str** |  | [optional] 
+**id** | **str** |  | 
+**work_item** | [**SectionSharedStep**](SectionSharedStep.md) |  | [optional] 
 **action** | **str, none_type** |  | [optional] 
 **expected** | **str, none_type** |  | [optional] 
 **test_data** | **str, none_type** |  | [optional] 

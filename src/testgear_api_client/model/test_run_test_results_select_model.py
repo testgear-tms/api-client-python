@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,14 +26,14 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.guid_extraction_model import GuidExtractionModel
-    from testgear_api_client.model.test_results_local_filter_model import TestResultsLocalFilterModel
-    globals()['GuidExtractionModel'] = GuidExtractionModel
-    globals()['TestResultsLocalFilterModel'] = TestResultsLocalFilterModel
+    from testit_api_client.model.test_run_test_results_select_model_filter import TestRunTestResultsSelectModelFilter
+    from testit_api_client.model.test_run_test_results_select_model_test_result_ids_extraction_model import TestRunTestResultsSelectModelTestResultIdsExtractionModel
+    globals()['TestRunTestResultsSelectModelFilter'] = TestRunTestResultsSelectModelFilter
+    globals()['TestRunTestResultsSelectModelTestResultIdsExtractionModel'] = TestRunTestResultsSelectModelTestResultIdsExtractionModel
 
 
 class TestRunTestResultsSelectModel(ModelNormal):
@@ -82,8 +82,8 @@ class TestRunTestResultsSelectModel(ModelNormal):
         """
         lazy_import()
         return {
-            'filter': (TestResultsLocalFilterModel,),  # noqa: E501
-            'test_result_ids_extraction_model': (GuidExtractionModel,),  # noqa: E501
+            'filter': (TestRunTestResultsSelectModelFilter,),  # noqa: E501
+            'test_result_ids_extraction_model': (TestRunTestResultsSelectModelTestResultIdsExtractionModel,),  # noqa: E501
         }
 
     @cached_property
@@ -137,8 +137,8 @@ class TestRunTestResultsSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestResultsLocalFilterModel): [optional]  # noqa: E501
-            test_result_ids_extraction_model (GuidExtractionModel): [optional]  # noqa: E501
+            filter (TestRunTestResultsSelectModelFilter): [optional]  # noqa: E501
+            test_result_ids_extraction_model (TestRunTestResultsSelectModelTestResultIdsExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -224,8 +224,8 @@ class TestRunTestResultsSelectModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            filter (TestResultsLocalFilterModel): [optional]  # noqa: E501
-            test_result_ids_extraction_model (GuidExtractionModel): [optional]  # noqa: E501
+            filter (TestRunTestResultsSelectModelFilter): [optional]  # noqa: E501
+            test_result_ids_extraction_model (TestRunTestResultsSelectModelTestResultIdsExtractionModel): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

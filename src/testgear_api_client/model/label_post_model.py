@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,7 +26,7 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 
@@ -101,7 +101,7 @@ class LabelPostModel(ModelNormal):
         """LabelPostModel - a model defined in OpenAPI
 
         Args:
-            name (str): Label name.
+            name (str): Name of the label
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -190,7 +190,7 @@ class LabelPostModel(ModelNormal):
         """LabelPostModel - a model defined in OpenAPI
 
         Args:
-            name (str): Label name.
+            name (str): Name of the label
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

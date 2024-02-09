@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,11 +26,11 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.autotest_result_outcome import AutotestResultOutcome
+    from testit_api_client.model.autotest_result_outcome import AutotestResultOutcome
     globals()['AutotestResultOutcome'] = AutotestResultOutcome
 
 
@@ -80,13 +80,15 @@ class AutotestResultHistoricalGetModel(ModelNormal):
         """
         lazy_import()
         return {
-            'outcome': (AutotestResultOutcome,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'created_date': (datetime,),  # noqa: E501
             'created_by_id': (str,),  # noqa: E501
+            'created_by_name': (str,),  # noqa: E501
             'test_run_id': (str,),  # noqa: E501
-            'test_run_name': (str, none_type,),  # noqa: E501
             'configuration_id': (str,),  # noqa: E501
+            'configuration_name': (str,),  # noqa: E501
+            'outcome': (AutotestResultOutcome,),  # noqa: E501
+            'test_run_name': (str, none_type,),  # noqa: E501
             'launch_source': (str, none_type,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
@@ -102,13 +104,15 @@ class AutotestResultHistoricalGetModel(ModelNormal):
 
 
     attribute_map = {
-        'outcome': 'outcome',  # noqa: E501
         'id': 'id',  # noqa: E501
         'created_date': 'createdDate',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
+        'created_by_name': 'createdByName',  # noqa: E501
         'test_run_id': 'testRunId',  # noqa: E501
-        'test_run_name': 'testRunName',  # noqa: E501
         'configuration_id': 'configurationId',  # noqa: E501
+        'configuration_name': 'configurationName',  # noqa: E501
+        'outcome': 'outcome',  # noqa: E501
+        'test_run_name': 'testRunName',  # noqa: E501
         'launch_source': 'launchSource',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
@@ -119,18 +123,23 @@ class AutotestResultHistoricalGetModel(ModelNormal):
     }
 
     read_only_vars = {
-        'modified_date',  # noqa: E501
-        'modified_by_id',  # noqa: E501
     }
 
     _composed_schemas = {}
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, outcome, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, created_date, created_by_id, created_by_name, test_run_id, configuration_id, configuration_name, outcome, *args, **kwargs):  # noqa: E501
         """AutotestResultHistoricalGetModel - a model defined in OpenAPI
 
         Args:
+            id (str):
+            created_date (datetime):
+            created_by_id (str):
+            created_by_name (str):
+            test_run_id (str):
+            configuration_id (str):
+            configuration_name (str):
             outcome (AutotestResultOutcome):
 
         Keyword Args:
@@ -164,12 +173,7 @@ class AutotestResultHistoricalGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            test_run_id (str): [optional]  # noqa: E501
             test_run_name (str, none_type): [optional]  # noqa: E501
-            configuration_id (str): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
@@ -208,6 +212,13 @@ class AutotestResultHistoricalGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.created_by_name = created_by_name
+        self.test_run_id = test_run_id
+        self.configuration_id = configuration_id
+        self.configuration_name = configuration_name
         self.outcome = outcome
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -229,10 +240,17 @@ class AutotestResultHistoricalGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, outcome, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, created_date, created_by_id, created_by_name, test_run_id, configuration_id, configuration_name, outcome, *args, **kwargs):  # noqa: E501
         """AutotestResultHistoricalGetModel - a model defined in OpenAPI
 
         Args:
+            id (str):
+            created_date (datetime):
+            created_by_id (str):
+            created_by_name (str):
+            test_run_id (str):
+            configuration_id (str):
+            configuration_name (str):
             outcome (AutotestResultOutcome):
 
         Keyword Args:
@@ -266,12 +284,7 @@ class AutotestResultHistoricalGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
-            test_run_id (str): [optional]  # noqa: E501
             test_run_name (str, none_type): [optional]  # noqa: E501
-            configuration_id (str): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
@@ -308,6 +321,13 @@ class AutotestResultHistoricalGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.created_by_name = created_by_name
+        self.test_run_id = test_run_id
+        self.configuration_id = configuration_id
+        self.configuration_name = configuration_name
         self.outcome = outcome
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

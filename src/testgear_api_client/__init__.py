@@ -10,18 +10,18 @@
 """
 
 
-__version__ = "3.1.0"
+__version__ = "3.2.0"
 
 # import ApiClient
-from testgear_api_client.api_client import ApiClient
+from testit_api_client.api_client import ApiClient
 
 # import Configuration
-from testgear_api_client.configuration import Configuration
+from testit_api_client.configuration import Configuration
 
 # import exceptions
-from testgear_api_client.exceptions import OpenApiException
-from testgear_api_client.exceptions import ApiAttributeError
-from testgear_api_client.exceptions import ApiTypeError
-from testgear_api_client.exceptions import ApiValueError
-from testgear_api_client.exceptions import ApiKeyError
-from testgear_api_client.exceptions import ApiException
+from testit_api_client.exceptions import OpenApiException
+from testit_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiTypeError
+from testit_api_client.exceptions import ApiValueError
+from testit_api_client.exceptions import ApiKeyError
+from testit_api_client.exceptions import ApiException

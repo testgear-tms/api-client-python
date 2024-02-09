@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,19 +26,19 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.attachment_model import AttachmentModel
-    from testgear_api_client.model.auto_test_model import AutoTestModel
-    from testgear_api_client.model.iteration_model import IterationModel
-    from testgear_api_client.model.link_model import LinkModel
-    from testgear_api_client.model.step_model import StepModel
-    from testgear_api_client.model.tag_short_model import TagShortModel
-    from testgear_api_client.model.work_item_entity_types import WorkItemEntityTypes
-    from testgear_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testgear_api_client.model.work_item_states import WorkItemStates
+    from testit_api_client.model.attachment_model import AttachmentModel
+    from testit_api_client.model.auto_test_model import AutoTestModel
+    from testit_api_client.model.iteration_model import IterationModel
+    from testit_api_client.model.link_model import LinkModel
+    from testit_api_client.model.step_model import StepModel
+    from testit_api_client.model.tag_short_model import TagShortModel
+    from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
+    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
+    from testit_api_client.model.work_item_states import WorkItemStates
     globals()['AttachmentModel'] = AttachmentModel
     globals()['AutoTestModel'] = AutoTestModel
     globals()['IterationModel'] = IterationModel
@@ -78,12 +78,12 @@ class WorkItemModel(ModelNormal):
     }
 
     validations = {
+        ('duration',): {
+            'inclusive_maximum': 86400000,
+            'inclusive_minimum': 0,
+        },
         ('name',): {
             'min_length': 1,
-        },
-        ('duration',): {
-            'inclusive_maximum': 86400,
-            'inclusive_minimum': 0,
         },
     }
 
@@ -103,36 +103,36 @@ class WorkItemModel(ModelNormal):
         """
         lazy_import()
         return {
+            'version_id': (str,),  # noqa: E501
+            'median_duration': (int,),  # noqa: E501
+            'is_deleted': (bool,),  # noqa: E501
+            'project_id': (str,),  # noqa: E501
             'entity_type_name': (WorkItemEntityTypes,),  # noqa: E501
+            'is_automated': (bool,),  # noqa: E501
+            'version_number': (int,),  # noqa: E501
+            'created_date': (datetime,),  # noqa: E501
+            'created_by_id': (str,),  # noqa: E501
+            'global_id': (int,),  # noqa: E501
             'id': (str,),  # noqa: E501
+            'section_id': (str,),  # noqa: E501
             'state': (WorkItemStates,),  # noqa: E501
             'priority': (WorkItemPriorityModel,),  # noqa: E501
             'steps': ([StepModel],),  # noqa: E501
             'precondition_steps': ([StepModel],),  # noqa: E501
             'postcondition_steps': ([StepModel],),  # noqa: E501
+            'duration': (int,),  # noqa: E501
             'attributes': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'tags': ([TagShortModel],),  # noqa: E501
             'links': ([LinkModel],),  # noqa: E501
             'name': (str,),  # noqa: E501
-            'version_id': (str,),  # noqa: E501
-            'median_duration': (int,),  # noqa: E501
-            'is_deleted': (bool,),  # noqa: E501
-            'project_id': (str,),  # noqa: E501
-            'is_automated': (bool,),  # noqa: E501
             'auto_tests': ([AutoTestModel], none_type,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
             'section_precondition_steps': ([StepModel], none_type,),  # noqa: E501
             'section_postcondition_steps': ([StepModel], none_type,),  # noqa: E501
-            'version_number': (int,),  # noqa: E501
             'iterations': ([IterationModel], none_type,),  # noqa: E501
-            'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime, none_type,),  # noqa: E501
-            'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
-            'global_id': (int,),  # noqa: E501
-            'section_id': (str,),  # noqa: E501
             'description': (str, none_type,),  # noqa: E501
-            'duration': (int,),  # noqa: E501
         }
 
     @cached_property
@@ -141,36 +141,36 @@ class WorkItemModel(ModelNormal):
 
 
     attribute_map = {
+        'version_id': 'versionId',  # noqa: E501
+        'median_duration': 'medianDuration',  # noqa: E501
+        'is_deleted': 'isDeleted',  # noqa: E501
+        'project_id': 'projectId',  # noqa: E501
         'entity_type_name': 'entityTypeName',  # noqa: E501
+        'is_automated': 'isAutomated',  # noqa: E501
+        'version_number': 'versionNumber',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
+        'global_id': 'globalId',  # noqa: E501
         'id': 'id',  # noqa: E501
+        'section_id': 'sectionId',  # noqa: E501
         'state': 'state',  # noqa: E501
         'priority': 'priority',  # noqa: E501
         'steps': 'steps',  # noqa: E501
         'precondition_steps': 'preconditionSteps',  # noqa: E501
         'postcondition_steps': 'postconditionSteps',  # noqa: E501
+        'duration': 'duration',  # noqa: E501
         'attributes': 'attributes',  # noqa: E501
         'tags': 'tags',  # noqa: E501
         'links': 'links',  # noqa: E501
         'name': 'name',  # noqa: E501
-        'version_id': 'versionId',  # noqa: E501
-        'median_duration': 'medianDuration',  # noqa: E501
-        'is_deleted': 'isDeleted',  # noqa: E501
-        'project_id': 'projectId',  # noqa: E501
-        'is_automated': 'isAutomated',  # noqa: E501
         'auto_tests': 'autoTests',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'section_precondition_steps': 'sectionPreconditionSteps',  # noqa: E501
         'section_postcondition_steps': 'sectionPostconditionSteps',  # noqa: E501
-        'version_number': 'versionNumber',  # noqa: E501
         'iterations': 'iterations',  # noqa: E501
-        'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
-        'created_by_id': 'createdById',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
-        'global_id': 'globalId',  # noqa: E501
-        'section_id': 'sectionId',  # noqa: E501
         'description': 'description',  # noqa: E501
-        'duration': 'duration',  # noqa: E501
     }
 
     read_only_vars = {
@@ -180,17 +180,28 @@ class WorkItemModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, entity_type_name, id, state, priority, steps, precondition_steps, postcondition_steps, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, created_date, created_by_id, global_id, id, section_id, state, priority, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
         """WorkItemModel - a model defined in OpenAPI
 
         Args:
+            version_id (str): used for versioning changes in workitem
+            median_duration (int): used for getting a median duration of all autotests related to this workitem
+            is_deleted (bool):
+            project_id (str):
             entity_type_name (WorkItemEntityTypes):
+            is_automated (bool):
+            version_number (int): used for define chronology of workitem state in each version
+            created_date (datetime):
+            created_by_id (str):
+            global_id (int):
             id (str):
+            section_id (str):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
             steps ([StepModel]):
             precondition_steps ([StepModel]):
             postcondition_steps ([StepModel]):
+            duration (int):
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             tags ([TagShortModel]):
             links ([LinkModel]):
@@ -227,25 +238,14 @@ class WorkItemModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            version_id (str): used for versioning changes in workitem. [optional]  # noqa: E501
-            median_duration (int): used for getting a median duration of all autotests related to this workitem. [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            project_id (str): [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
             auto_tests ([AutoTestModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
             section_precondition_steps ([StepModel], none_type): [optional]  # noqa: E501
             section_postcondition_steps ([StepModel], none_type): [optional]  # noqa: E501
-            version_number (int): used for define chronology of workitem state in each version. [optional]  # noqa: E501
             iterations ([IterationModel], none_type): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            section_id (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            duration (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -277,13 +277,24 @@ class WorkItemModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.version_id = version_id
+        self.median_duration = median_duration
+        self.is_deleted = is_deleted
+        self.project_id = project_id
         self.entity_type_name = entity_type_name
+        self.is_automated = is_automated
+        self.version_number = version_number
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.global_id = global_id
         self.id = id
+        self.section_id = section_id
         self.state = state
         self.priority = priority
         self.steps = steps
         self.precondition_steps = precondition_steps
         self.postcondition_steps = postcondition_steps
+        self.duration = duration
         self.attributes = attributes
         self.tags = tags
         self.links = links
@@ -308,17 +319,28 @@ class WorkItemModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, entity_type_name, id, state, priority, steps, precondition_steps, postcondition_steps, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, version_id, median_duration, is_deleted, project_id, entity_type_name, is_automated, version_number, created_date, created_by_id, global_id, id, section_id, state, priority, steps, precondition_steps, postcondition_steps, duration, attributes, tags, links, name, *args, **kwargs):  # noqa: E501
         """WorkItemModel - a model defined in OpenAPI
 
         Args:
+            version_id (str): used for versioning changes in workitem
+            median_duration (int): used for getting a median duration of all autotests related to this workitem
+            is_deleted (bool):
+            project_id (str):
             entity_type_name (WorkItemEntityTypes):
+            is_automated (bool):
+            version_number (int): used for define chronology of workitem state in each version
+            created_date (datetime):
+            created_by_id (str):
+            global_id (int):
             id (str):
+            section_id (str):
             state (WorkItemStates):
             priority (WorkItemPriorityModel):
             steps ([StepModel]):
             precondition_steps ([StepModel]):
             postcondition_steps ([StepModel]):
+            duration (int):
             attributes ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}):
             tags ([TagShortModel]):
             links ([LinkModel]):
@@ -355,25 +377,14 @@ class WorkItemModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            version_id (str): used for versioning changes in workitem. [optional]  # noqa: E501
-            median_duration (int): used for getting a median duration of all autotests related to this workitem. [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            project_id (str): [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
             auto_tests ([AutoTestModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): [optional]  # noqa: E501
             section_precondition_steps ([StepModel], none_type): [optional]  # noqa: E501
             section_postcondition_steps ([StepModel], none_type): [optional]  # noqa: E501
-            version_number (int): used for define chronology of workitem state in each version. [optional]  # noqa: E501
             iterations ([IterationModel], none_type): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
-            global_id (int): [optional]  # noqa: E501
-            section_id (str): [optional]  # noqa: E501
             description (str, none_type): [optional]  # noqa: E501
-            duration (int): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -403,13 +414,24 @@ class WorkItemModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.version_id = version_id
+        self.median_duration = median_duration
+        self.is_deleted = is_deleted
+        self.project_id = project_id
         self.entity_type_name = entity_type_name
+        self.is_automated = is_automated
+        self.version_number = version_number
+        self.created_date = created_date
+        self.created_by_id = created_by_id
+        self.global_id = global_id
         self.id = id
+        self.section_id = section_id
         self.state = state
         self.priority = priority
         self.steps = steps
         self.precondition_steps = precondition_steps
         self.postcondition_steps = postcondition_steps
+        self.duration = duration
         self.attributes = attributes
         self.tags = tags
         self.links = links

@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,12 +26,12 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.attachment_model import AttachmentModel
-    from testgear_api_client.model.link_model import LinkModel
+    from testit_api_client.model.attachment_model import AttachmentModel
+    from testit_api_client.model.link_model import LinkModel
     globals()['AttachmentModel'] = AttachmentModel
     globals()['LinkModel'] = LinkModel
 
@@ -86,6 +86,9 @@ class TestResultHistoryReportModel(ModelNormal):
             'created_date': (datetime,),  # noqa: E501
             'modified_date': (datetime,),  # noqa: E501
             'user_id': (str,),  # noqa: E501
+            'is_automated': (bool,),  # noqa: E501
+            'created_by_id': (str,),  # noqa: E501
+            'failure_class_ids': ([str],),  # noqa: E501
             'test_run_id': (str, none_type,),  # noqa: E501
             'test_run_name': (str, none_type,),  # noqa: E501
             'created_by_user_name': (str, none_type,),  # noqa: E501
@@ -93,20 +96,17 @@ class TestResultHistoryReportModel(ModelNormal):
             'test_plan_global_id': (int, none_type,),  # noqa: E501
             'test_plan_name': (str, none_type,),  # noqa: E501
             'configuration_name': (str, none_type,),  # noqa: E501
-            'is_automated': (bool,),  # noqa: E501
             'outcome': (str, none_type,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
             'started_on': (datetime, none_type,),  # noqa: E501
             'completed_on': (datetime, none_type,),  # noqa: E501
             'duration': (int, none_type,),  # noqa: E501
-            'created_by_id': (str,),  # noqa: E501
             'modified_by_id': (str, none_type,),  # noqa: E501
             'attachments': ([AttachmentModel], none_type,),  # noqa: E501
             'work_item_version_id': (str, none_type,),  # noqa: E501
             'work_item_version_number': (int, none_type,),  # noqa: E501
             'launch_source': (str, none_type,),  # noqa: E501
-            'failure_class_ids': ([str], none_type,),  # noqa: E501
             'parameters': ({str: (str,)}, none_type,),  # noqa: E501
         }
 
@@ -120,6 +120,9 @@ class TestResultHistoryReportModel(ModelNormal):
         'created_date': 'createdDate',  # noqa: E501
         'modified_date': 'modifiedDate',  # noqa: E501
         'user_id': 'userId',  # noqa: E501
+        'is_automated': 'isAutomated',  # noqa: E501
+        'created_by_id': 'createdById',  # noqa: E501
+        'failure_class_ids': 'failureClassIds',  # noqa: E501
         'test_run_id': 'testRunId',  # noqa: E501
         'test_run_name': 'testRunName',  # noqa: E501
         'created_by_user_name': 'createdByUserName',  # noqa: E501
@@ -127,20 +130,17 @@ class TestResultHistoryReportModel(ModelNormal):
         'test_plan_global_id': 'testPlanGlobalId',  # noqa: E501
         'test_plan_name': 'testPlanName',  # noqa: E501
         'configuration_name': 'configurationName',  # noqa: E501
-        'is_automated': 'isAutomated',  # noqa: E501
         'outcome': 'outcome',  # noqa: E501
         'comment': 'comment',  # noqa: E501
         'links': 'links',  # noqa: E501
         'started_on': 'startedOn',  # noqa: E501
         'completed_on': 'completedOn',  # noqa: E501
         'duration': 'duration',  # noqa: E501
-        'created_by_id': 'createdById',  # noqa: E501
         'modified_by_id': 'modifiedById',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
         'work_item_version_id': 'workItemVersionId',  # noqa: E501
         'work_item_version_number': 'workItemVersionNumber',  # noqa: E501
         'launch_source': 'launchSource',  # noqa: E501
-        'failure_class_ids': 'failureClassIds',  # noqa: E501
         'parameters': 'parameters',  # noqa: E501
     }
 
@@ -151,8 +151,17 @@ class TestResultHistoryReportModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, created_date, modified_date, user_id, is_automated, created_by_id, failure_class_ids, *args, **kwargs):  # noqa: E501
         """TestResultHistoryReportModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            created_date (datetime):
+            modified_date (datetime):
+            user_id (str): If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result
+            is_automated (bool):
+            created_by_id (str):
+            failure_class_ids ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -185,10 +194,6 @@ class TestResultHistoryReportModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
-            modified_date (datetime): [optional]  # noqa: E501
-            user_id (str): If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result. [optional]  # noqa: E501
             test_run_id (str, none_type): [optional]  # noqa: E501
             test_run_name (str, none_type): [optional]  # noqa: E501
             created_by_user_name (str, none_type): [optional]  # noqa: E501
@@ -196,20 +201,17 @@ class TestResultHistoryReportModel(ModelNormal):
             test_plan_global_id (int, none_type): [optional]  # noqa: E501
             test_plan_name (str, none_type): [optional]  # noqa: E501
             configuration_name (str, none_type): If test point related to the test result has configuration, this property will be equal to the test point configuration name. Otherwise, this property will be equal to the test result configuration name. [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
             outcome (str, none_type): If any test result related to the test run is linked with autotest and the run has an outcome, the outcome value equalsto the worst outcome of the last modified test result.Otherwise, the outcome equals to the outcome of first created test result in the test run. [optional]  # noqa: E501
             comment (str, none_type): If any test result related to the test run is linked with autotest, comment will have default valueOtherwise, the comment equals to the comment of first created test result in the test run. [optional]  # noqa: E501
             links ([LinkModel], none_type): If any test result related to the test run is linked with autotest, link will be equal to the links of last modified test result.Otherwise, the links equals to the links of first created test result in the test run. [optional]  # noqa: E501
             started_on (datetime, none_type): [optional]  # noqa: E501
             completed_on (datetime, none_type): [optional]  # noqa: E501
             duration (int, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): If any test result related to the test run is linked with autotest, attachments will be equal to the attachments of last modified test result.Otherwise, the attachments equals to the attachments of first created test result in the test run. [optional]  # noqa: E501
             work_item_version_id (str, none_type): [optional]  # noqa: E501
             work_item_version_number (int, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
-            failure_class_ids ([str], none_type): [optional]  # noqa: E501
             parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
         """
 
@@ -242,6 +244,13 @@ class TestResultHistoryReportModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.created_date = created_date
+        self.modified_date = modified_date
+        self.user_id = user_id
+        self.is_automated = is_automated
+        self.created_by_id = created_by_id
+        self.failure_class_ids = failure_class_ids
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -262,8 +271,17 @@ class TestResultHistoryReportModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, created_date, modified_date, user_id, is_automated, created_by_id, failure_class_ids, *args, **kwargs):  # noqa: E501
         """TestResultHistoryReportModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            created_date (datetime):
+            modified_date (datetime):
+            user_id (str): If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result
+            is_automated (bool):
+            created_by_id (str):
+            failure_class_ids ([str]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -296,10 +314,6 @@ class TestResultHistoryReportModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            created_date (datetime): [optional]  # noqa: E501
-            modified_date (datetime): [optional]  # noqa: E501
-            user_id (str): If test run was stopped, this property equals identifier of user who stopped it.Otherwise, the property equals identifier of user who created the test result. [optional]  # noqa: E501
             test_run_id (str, none_type): [optional]  # noqa: E501
             test_run_name (str, none_type): [optional]  # noqa: E501
             created_by_user_name (str, none_type): [optional]  # noqa: E501
@@ -307,20 +321,17 @@ class TestResultHistoryReportModel(ModelNormal):
             test_plan_global_id (int, none_type): [optional]  # noqa: E501
             test_plan_name (str, none_type): [optional]  # noqa: E501
             configuration_name (str, none_type): If test point related to the test result has configuration, this property will be equal to the test point configuration name. Otherwise, this property will be equal to the test result configuration name. [optional]  # noqa: E501
-            is_automated (bool): [optional]  # noqa: E501
             outcome (str, none_type): If any test result related to the test run is linked with autotest and the run has an outcome, the outcome value equalsto the worst outcome of the last modified test result.Otherwise, the outcome equals to the outcome of first created test result in the test run. [optional]  # noqa: E501
             comment (str, none_type): If any test result related to the test run is linked with autotest, comment will have default valueOtherwise, the comment equals to the comment of first created test result in the test run. [optional]  # noqa: E501
             links ([LinkModel], none_type): If any test result related to the test run is linked with autotest, link will be equal to the links of last modified test result.Otherwise, the links equals to the links of first created test result in the test run. [optional]  # noqa: E501
             started_on (datetime, none_type): [optional]  # noqa: E501
             completed_on (datetime, none_type): [optional]  # noqa: E501
             duration (int, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
             attachments ([AttachmentModel], none_type): If any test result related to the test run is linked with autotest, attachments will be equal to the attachments of last modified test result.Otherwise, the attachments equals to the attachments of first created test result in the test run. [optional]  # noqa: E501
             work_item_version_id (str, none_type): [optional]  # noqa: E501
             work_item_version_number (int, none_type): [optional]  # noqa: E501
             launch_source (str, none_type): [optional]  # noqa: E501
-            failure_class_ids ([str], none_type): [optional]  # noqa: E501
             parameters ({str: (str,)}, none_type): [optional]  # noqa: E501
         """
 
@@ -351,6 +362,13 @@ class TestResultHistoryReportModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.created_date = created_date
+        self.modified_date = modified_date
+        self.user_id = user_id
+        self.is_automated = is_automated
+        self.created_by_id = created_by_id
+        self.failure_class_ids = failure_class_ids
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

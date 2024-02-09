@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,19 +26,21 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.attachment_put_model import AttachmentPutModel
-    from testgear_api_client.model.attachment_put_model_auto_test_step_results_model import AttachmentPutModelAutoTestStepResultsModel
-    from testgear_api_client.model.link_model import LinkModel
-    from testgear_api_client.model.step_result_model import StepResultModel
-    from testgear_api_client.model.test_result_step_comment_put_model import TestResultStepCommentPutModel
+    from testit_api_client.model.attachment_put_model import AttachmentPutModel
+    from testit_api_client.model.attachment_put_model_auto_test_step_results_model import AttachmentPutModelAutoTestStepResultsModel
+    from testit_api_client.model.link_model import LinkModel
+    from testit_api_client.model.step_result_model import StepResultModel
+    from testit_api_client.model.test_result_outcome import TestResultOutcome
+    from testit_api_client.model.test_result_step_comment_put_model import TestResultStepCommentPutModel
     globals()['AttachmentPutModel'] = AttachmentPutModel
     globals()['AttachmentPutModelAutoTestStepResultsModel'] = AttachmentPutModelAutoTestStepResultsModel
     globals()['LinkModel'] = LinkModel
     globals()['StepResultModel'] = StepResultModel
+    globals()['TestResultOutcome'] = TestResultOutcome
     globals()['TestResultStepCommentPutModel'] = TestResultStepCommentPutModel
 
 
@@ -73,6 +75,9 @@ class TestResultUpdateModel(ModelNormal):
         ('duration_in_ms',): {
             'inclusive_minimum': 0,
         },
+        ('duration',): {
+            'inclusive_minimum': 0,
+        },
     }
 
     additional_properties_type = None
@@ -91,16 +96,19 @@ class TestResultUpdateModel(ModelNormal):
         """
         lazy_import()
         return {
-            'setup_results': ([AttachmentPutModelAutoTestStepResultsModel], none_type,),  # noqa: E501
-            'teardown_results': ([AttachmentPutModelAutoTestStepResultsModel], none_type,),  # noqa: E501
-            'duration_in_ms': (int, none_type,),  # noqa: E501
-            'step_comments': ([TestResultStepCommentPutModel], none_type,),  # noqa: E501
             'failure_class_ids': ([str], none_type,),  # noqa: E501
-            'outcome': (str, none_type,),  # noqa: E501
+            'outcome': (TestResultOutcome,),  # noqa: E501
             'comment': (str, none_type,),  # noqa: E501
             'links': ([LinkModel], none_type,),  # noqa: E501
             'step_results': ([StepResultModel], none_type,),  # noqa: E501
             'attachments': ([AttachmentPutModel], none_type,),  # noqa: E501
+            'duration_in_ms': (int, none_type,),  # noqa: E501
+            'duration': (int, none_type,),  # noqa: E501
+            'step_comments': ([TestResultStepCommentPutModel], none_type,),  # noqa: E501
+            'setup_results': ([AttachmentPutModelAutoTestStepResultsModel], none_type,),  # noqa: E501
+            'teardown_results': ([AttachmentPutModelAutoTestStepResultsModel], none_type,),  # noqa: E501
+            'message': (str, none_type,),  # noqa: E501
+            'trace': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -109,16 +117,19 @@ class TestResultUpdateModel(ModelNormal):
 
 
     attribute_map = {
-        'setup_results': 'setupResults',  # noqa: E501
-        'teardown_results': 'teardownResults',  # noqa: E501
-        'duration_in_ms': 'durationInMs',  # noqa: E501
-        'step_comments': 'stepComments',  # noqa: E501
         'failure_class_ids': 'failureClassIds',  # noqa: E501
         'outcome': 'outcome',  # noqa: E501
         'comment': 'comment',  # noqa: E501
         'links': 'links',  # noqa: E501
         'step_results': 'stepResults',  # noqa: E501
         'attachments': 'attachments',  # noqa: E501
+        'duration_in_ms': 'durationInMs',  # noqa: E501
+        'duration': 'duration',  # noqa: E501
+        'step_comments': 'stepComments',  # noqa: E501
+        'setup_results': 'setupResults',  # noqa: E501
+        'teardown_results': 'teardownResults',  # noqa: E501
+        'message': 'message',  # noqa: E501
+        'trace': 'trace',  # noqa: E501
     }
 
     read_only_vars = {
@@ -162,16 +173,19 @@ class TestResultUpdateModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            setup_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
-            teardown_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
-            duration_in_ms (int, none_type): [optional]  # noqa: E501
-            step_comments ([TestResultStepCommentPutModel], none_type): [optional]  # noqa: E501
             failure_class_ids ([str], none_type): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            outcome (TestResultOutcome): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             step_results ([StepResultModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
+            duration_in_ms (int, none_type): [optional]  # noqa: E501
+            duration (int, none_type): [optional]  # noqa: E501
+            step_comments ([TestResultStepCommentPutModel], none_type): [optional]  # noqa: E501
+            setup_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
+            teardown_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
+            message (str, none_type): [optional]  # noqa: E501
+            trace (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -257,16 +271,19 @@ class TestResultUpdateModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            setup_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
-            teardown_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
-            duration_in_ms (int, none_type): [optional]  # noqa: E501
-            step_comments ([TestResultStepCommentPutModel], none_type): [optional]  # noqa: E501
             failure_class_ids ([str], none_type): [optional]  # noqa: E501
-            outcome (str, none_type): [optional]  # noqa: E501
+            outcome (TestResultOutcome): [optional]  # noqa: E501
             comment (str, none_type): [optional]  # noqa: E501
             links ([LinkModel], none_type): [optional]  # noqa: E501
             step_results ([StepResultModel], none_type): [optional]  # noqa: E501
             attachments ([AttachmentPutModel], none_type): [optional]  # noqa: E501
+            duration_in_ms (int, none_type): [optional]  # noqa: E501
+            duration (int, none_type): [optional]  # noqa: E501
+            step_comments ([TestResultStepCommentPutModel], none_type): [optional]  # noqa: E501
+            setup_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
+            teardown_results ([AttachmentPutModelAutoTestStepResultsModel], none_type): [optional]  # noqa: E501
+            message (str, none_type): [optional]  # noqa: E501
+            trace (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

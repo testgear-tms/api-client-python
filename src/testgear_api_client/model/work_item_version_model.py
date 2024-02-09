@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,7 +26,7 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 
@@ -100,8 +100,12 @@ class WorkItemVersionModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, version_id, version_number, *args, **kwargs):  # noqa: E501
         """WorkItemVersionModel - a model defined in OpenAPI
+
+        Args:
+            version_id (str): used for versioning changes in workitem
+            version_number (int): used for define chronology of workitem state in each version
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -134,8 +138,6 @@ class WorkItemVersionModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            version_id (str): used for versioning changes in workitem. [optional]  # noqa: E501
-            version_number (int): used for define chronology of workitem state in each version. [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
         """
@@ -169,6 +171,8 @@ class WorkItemVersionModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.version_id = version_id
+        self.version_number = version_number
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -189,8 +193,12 @@ class WorkItemVersionModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, version_id, version_number, *args, **kwargs):  # noqa: E501
         """WorkItemVersionModel - a model defined in OpenAPI
+
+        Args:
+            version_id (str): used for versioning changes in workitem
+            version_number (int): used for define chronology of workitem state in each version
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -223,8 +231,6 @@ class WorkItemVersionModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            version_id (str): used for versioning changes in workitem. [optional]  # noqa: E501
-            version_number (int): used for define chronology of workitem state in each version. [optional]  # noqa: E501
             modified_date (datetime, none_type): [optional]  # noqa: E501
             modified_by_id (str, none_type): [optional]  # noqa: E501
         """
@@ -256,6 +262,8 @@ class WorkItemVersionModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.version_id = version_id
+        self.version_number = version_number
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

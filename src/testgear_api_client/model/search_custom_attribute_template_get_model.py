@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,12 +26,12 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.custom_attribute_model import CustomAttributeModel
-    from testgear_api_client.model.project_shortest_model import ProjectShortestModel
+    from testit_api_client.model.custom_attribute_model import CustomAttributeModel
+    from testit_api_client.model.project_shortest_model import ProjectShortestModel
     globals()['CustomAttributeModel'] = CustomAttributeModel
     globals()['ProjectShortestModel'] = ProjectShortestModel
 
@@ -84,9 +84,9 @@ class SearchCustomAttributeTemplateGetModel(ModelNormal):
         return {
             'id': (str,),  # noqa: E501
             'is_deleted': (bool,),  # noqa: E501
-            'name': (str, none_type,),  # noqa: E501
-            'project_shortest_models': ([ProjectShortestModel], none_type,),  # noqa: E501
-            'custom_attribute_models': ([CustomAttributeModel], none_type,),  # noqa: E501
+            'name': (str,),  # noqa: E501
+            'project_shortest_models': ([ProjectShortestModel],),  # noqa: E501
+            'custom_attribute_models': ([CustomAttributeModel],),  # noqa: E501
         }
 
     @cached_property
@@ -109,8 +109,15 @@ class SearchCustomAttributeTemplateGetModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_deleted, name, project_shortest_models, custom_attribute_models, *args, **kwargs):  # noqa: E501
         """SearchCustomAttributeTemplateGetModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            is_deleted (bool):
+            name (str):
+            project_shortest_models ([ProjectShortestModel]):
+            custom_attribute_models ([CustomAttributeModel]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -143,11 +150,6 @@ class SearchCustomAttributeTemplateGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            project_shortest_models ([ProjectShortestModel], none_type): [optional]  # noqa: E501
-            custom_attribute_models ([CustomAttributeModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -179,6 +181,11 @@ class SearchCustomAttributeTemplateGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
+        self.name = name
+        self.project_shortest_models = project_shortest_models
+        self.custom_attribute_models = custom_attribute_models
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -199,8 +206,15 @@ class SearchCustomAttributeTemplateGetModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, is_deleted, name, project_shortest_models, custom_attribute_models, *args, **kwargs):  # noqa: E501
         """SearchCustomAttributeTemplateGetModel - a model defined in OpenAPI
+
+        Args:
+            id (str):
+            is_deleted (bool):
+            name (str):
+            project_shortest_models ([ProjectShortestModel]):
+            custom_attribute_models ([CustomAttributeModel]):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -233,11 +247,6 @@ class SearchCustomAttributeTemplateGetModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            is_deleted (bool): [optional]  # noqa: E501
-            name (str, none_type): [optional]  # noqa: E501
-            project_shortest_models ([ProjectShortestModel], none_type): [optional]  # noqa: E501
-            custom_attribute_models ([CustomAttributeModel], none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -267,6 +276,11 @@ class SearchCustomAttributeTemplateGetModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_deleted = is_deleted
+        self.name = name
+        self.project_shortest_models = project_shortest_models
+        self.custom_attribute_models = custom_attribute_models
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

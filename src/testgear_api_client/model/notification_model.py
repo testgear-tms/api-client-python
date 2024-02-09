@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,11 +26,11 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testgear_api_client.model.notification_type_model import NotificationTypeModel
+    from testit_api_client.model.notification_type_model import NotificationTypeModel
     globals()['NotificationTypeModel'] = NotificationTypeModel
 
 
@@ -80,20 +80,20 @@ class NotificationModel(ModelNormal):
         """
         lazy_import()
         return {
-            'notification_type': (NotificationTypeModel,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'created_date': (datetime, none_type,),  # noqa: E501
             'is_read': (bool,),  # noqa: E501
             'entity_id': (str,),  # noqa: E501
+            'notification_type': (NotificationTypeModel,),  # noqa: E501
+            'test_plan_global_id': (int,),  # noqa: E501
+            'test_plan_name': (str,),  # noqa: E501
+            'comment': (str,),  # noqa: E501
+            'work_item_name': (str,),  # noqa: E501
+            'created_by_id': (str,),  # noqa: E501
+            'created_date': (datetime, none_type,),  # noqa: E501
             'project_global_id': (int, none_type,),  # noqa: E501
             'project_name': (str, none_type,),  # noqa: E501
-            'test_plan_global_id': (int,),  # noqa: E501
-            'test_plan_name': (str, none_type,),  # noqa: E501
             'workitem_global_id': (int, none_type,),  # noqa: E501
-            'comment': (str, none_type,),  # noqa: E501
-            'work_item_name': (str, none_type,),  # noqa: E501
             'attribute_name': (str, none_type,),  # noqa: E501
-            'created_by_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -102,20 +102,20 @@ class NotificationModel(ModelNormal):
 
 
     attribute_map = {
-        'notification_type': 'notificationType',  # noqa: E501
         'id': 'id',  # noqa: E501
-        'created_date': 'createdDate',  # noqa: E501
         'is_read': 'isRead',  # noqa: E501
         'entity_id': 'entityId',  # noqa: E501
-        'project_global_id': 'projectGlobalId',  # noqa: E501
-        'project_name': 'projectName',  # noqa: E501
+        'notification_type': 'notificationType',  # noqa: E501
         'test_plan_global_id': 'testPlanGlobalId',  # noqa: E501
         'test_plan_name': 'testPlanName',  # noqa: E501
-        'workitem_global_id': 'workitemGlobalId',  # noqa: E501
         'comment': 'comment',  # noqa: E501
         'work_item_name': 'workItemName',  # noqa: E501
-        'attribute_name': 'attributeName',  # noqa: E501
         'created_by_id': 'createdById',  # noqa: E501
+        'created_date': 'createdDate',  # noqa: E501
+        'project_global_id': 'projectGlobalId',  # noqa: E501
+        'project_name': 'projectName',  # noqa: E501
+        'workitem_global_id': 'workitemGlobalId',  # noqa: E501
+        'attribute_name': 'attributeName',  # noqa: E501
     }
 
     read_only_vars = {
@@ -125,11 +125,19 @@ class NotificationModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, notification_type, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, id, is_read, entity_id, notification_type, test_plan_global_id, test_plan_name, comment, work_item_name, created_by_id, *args, **kwargs):  # noqa: E501
         """NotificationModel - a model defined in OpenAPI
 
         Args:
+            id (str):
+            is_read (bool):
+            entity_id (str):
             notification_type (NotificationTypeModel):
+            test_plan_global_id (int):
+            test_plan_name (str):
+            comment (str):
+            work_item_name (str):
+            created_by_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -162,19 +170,11 @@ class NotificationModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
-            is_read (bool): [optional]  # noqa: E501
-            entity_id (str): [optional]  # noqa: E501
             project_global_id (int, none_type): [optional]  # noqa: E501
             project_name (str, none_type): [optional]  # noqa: E501
-            test_plan_global_id (int): [optional]  # noqa: E501
-            test_plan_name (str, none_type): [optional]  # noqa: E501
             workitem_global_id (int, none_type): [optional]  # noqa: E501
-            comment (str, none_type): [optional]  # noqa: E501
-            work_item_name (str, none_type): [optional]  # noqa: E501
             attribute_name (str, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -206,7 +206,15 @@ class NotificationModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_read = is_read
+        self.entity_id = entity_id
         self.notification_type = notification_type
+        self.test_plan_global_id = test_plan_global_id
+        self.test_plan_name = test_plan_name
+        self.comment = comment
+        self.work_item_name = work_item_name
+        self.created_by_id = created_by_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -227,11 +235,19 @@ class NotificationModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, notification_type, *args, **kwargs):  # noqa: E501
+    def __init__(self, id, is_read, entity_id, notification_type, test_plan_global_id, test_plan_name, comment, work_item_name, created_by_id, *args, **kwargs):  # noqa: E501
         """NotificationModel - a model defined in OpenAPI
 
         Args:
+            id (str):
+            is_read (bool):
+            entity_id (str):
             notification_type (NotificationTypeModel):
+            test_plan_global_id (int):
+            test_plan_name (str):
+            comment (str):
+            work_item_name (str):
+            created_by_id (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -264,19 +280,11 @@ class NotificationModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
             created_date (datetime, none_type): [optional]  # noqa: E501
-            is_read (bool): [optional]  # noqa: E501
-            entity_id (str): [optional]  # noqa: E501
             project_global_id (int, none_type): [optional]  # noqa: E501
             project_name (str, none_type): [optional]  # noqa: E501
-            test_plan_global_id (int): [optional]  # noqa: E501
-            test_plan_name (str, none_type): [optional]  # noqa: E501
             workitem_global_id (int, none_type): [optional]  # noqa: E501
-            comment (str, none_type): [optional]  # noqa: E501
-            work_item_name (str, none_type): [optional]  # noqa: E501
             attribute_name (str, none_type): [optional]  # noqa: E501
-            created_by_id (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -306,7 +314,15 @@ class NotificationModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.id = id
+        self.is_read = is_read
+        self.entity_id = entity_id
         self.notification_type = notification_type
+        self.test_plan_global_id = test_plan_global_id
+        self.test_plan_name = test_plan_name
+        self.comment = comment
+        self.work_item_name = work_item_name
+        self.created_by_id = created_by_id
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

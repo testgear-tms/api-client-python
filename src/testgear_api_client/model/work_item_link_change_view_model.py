@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testgear_api_client.model_utils import (  # noqa: F401
+from testit_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,7 +26,7 @@ from testgear_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testgear_api_client.exceptions import ApiAttributeError
+from testit_api_client.exceptions import ApiAttributeError
 
 
 
@@ -75,12 +75,12 @@ class WorkItemLinkChangeViewModel(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'description': (str, none_type,),  # noqa: E501
-            'url': (str, none_type,),  # noqa: E501
-            'title': (str, none_type,),  # noqa: E501
+            'description': (str,),  # noqa: E501
+            'url': (str,),  # noqa: E501
+            'title': (str,),  # noqa: E501
             'has_info': (bool,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'type': (str, none_type,),  # noqa: E501
+            'type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -104,8 +104,16 @@ class WorkItemLinkChangeViewModel(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, description, url, title, has_info, id, type, *args, **kwargs):  # noqa: E501
         """WorkItemLinkChangeViewModel - a model defined in OpenAPI
+
+        Args:
+            description (str):
+            url (str):
+            title (str):
+            has_info (bool):
+            id (str):
+            type (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -138,12 +146,6 @@ class WorkItemLinkChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str, none_type): [optional]  # noqa: E501
-            url (str, none_type): [optional]  # noqa: E501
-            title (str, none_type): [optional]  # noqa: E501
-            has_info (bool): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            type (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -175,6 +177,12 @@ class WorkItemLinkChangeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.description = description
+        self.url = url
+        self.title = title
+        self.has_info = has_info
+        self.id = id
+        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -195,8 +203,16 @@ class WorkItemLinkChangeViewModel(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, *args, **kwargs):  # noqa: E501
+    def __init__(self, description, url, title, has_info, id, type, *args, **kwargs):  # noqa: E501
         """WorkItemLinkChangeViewModel - a model defined in OpenAPI
+
+        Args:
+            description (str):
+            url (str):
+            title (str):
+            has_info (bool):
+            id (str):
+            type (str):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -229,12 +245,6 @@ class WorkItemLinkChangeViewModel(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            description (str, none_type): [optional]  # noqa: E501
-            url (str, none_type): [optional]  # noqa: E501
-            title (str, none_type): [optional]  # noqa: E501
-            has_info (bool): [optional]  # noqa: E501
-            id (str): [optional]  # noqa: E501
-            type (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -264,6 +274,12 @@ class WorkItemLinkChangeViewModel(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.description = description
+        self.url = url
+        self.title = title
+        self.has_info = has_info
+        self.id = id
+        self.type = type
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
