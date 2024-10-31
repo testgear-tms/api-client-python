@@ -13,18 +13,7 @@
 | 4.5       | 3.2        |
 
 ## Installation & Usage
-## Getting Started
 
-### Compatibility
-
-| Test Gear | API Client |
-|-----------|------------|
-| 3.5       | 2.0        |
-| 4.0       | 3.0        |
-| 4.2       | 3.1        |
-| 4.5       | 3.2        |
-
-## Installation & Usage
 ### pip install
 
 ```sh
