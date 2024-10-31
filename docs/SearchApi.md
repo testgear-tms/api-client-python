@@ -1,4 +1,4 @@
-# testit_api_client.SearchApi
+# testgear_api_client.SearchApi
 
 All URIs are relative to *http://localhost*
 
@@ -18,14 +18,14 @@ Method | HTTP request | Description
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import search_api
-from testit_api_client.model.global_search_response import GlobalSearchResponse
-from testit_api_client.model.api_v2_search_global_search_post_request import ApiV2SearchGlobalSearchPostRequest
+import testgear_api_client
+from testgear_api_client.api import search_api
+from testgear_api_client.model.global_search_response import GlobalSearchResponse
+from testgear_api_client.model.api_v2_search_global_search_post_request import ApiV2SearchGlobalSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -41,7 +41,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = search_api.SearchApi(api_client)
     api_v2_search_global_search_post_request = ApiV2SearchGlobalSearchPostRequest(None) # ApiV2SearchGlobalSearchPostRequest |  (optional)
@@ -51,7 +51,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         api_response = api_instance.api_v2_search_global_search_post(api_v2_search_global_search_post_request=api_v2_search_global_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling SearchApi->api_v2_search_global_search_post: %s\n" % e)
 ```
 

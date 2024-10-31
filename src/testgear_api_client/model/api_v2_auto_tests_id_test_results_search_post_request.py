@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,13 +26,13 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.autotest_historical_result_select_model import AutotestHistoricalResultSelectModel
-    from testit_api_client.model.autotest_result_outcome import AutotestResultOutcome
-    from testit_api_client.model.int64_range_selector_model import Int64RangeSelectorModel
+    from testgear_api_client.model.autotest_historical_result_select_model import AutotestHistoricalResultSelectModel
+    from testgear_api_client.model.autotest_result_outcome import AutotestResultOutcome
+    from testgear_api_client.model.int64_range_selector_model import Int64RangeSelectorModel
     globals()['AutotestHistoricalResultSelectModel'] = AutotestHistoricalResultSelectModel
     globals()['AutotestResultOutcome'] = AutotestResultOutcome
     globals()['Int64RangeSelectorModel'] = Int64RangeSelectorModel

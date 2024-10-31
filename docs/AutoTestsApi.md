@@ -1,4 +1,4 @@
-# testit_api_client.AutoTestsApi
+# testgear_api_client.AutoTestsApi
 
 All URIs are relative to *http://localhost*
 
@@ -39,14 +39,14 @@ User permissions for project:  - Read only  - Execute  - Write  - Full control
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_auto_tests_flaky_bulk_post_request import ApiV2AutoTestsFlakyBulkPostRequest
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.api_v2_auto_tests_flaky_bulk_post_request import ApiV2AutoTestsFlakyBulkPostRequest
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -62,7 +62,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -77,7 +77,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Set \"Flaky\" status for multiple autotests
         api_instance.api_v2_auto_tests_flaky_bulk_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_auto_tests_flaky_bulk_post_request=api_v2_auto_tests_flaky_bulk_post_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_flaky_bulk_post: %s\n" % e)
 ```
 
@@ -130,14 +130,14 @@ See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 690
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.operation import Operation
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.operation import Operation
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -153,7 +153,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | Global Id of auto test
@@ -170,7 +170,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Patch auto test
         api_instance.api_v2_auto_tests_id_patch(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_id_patch: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -178,7 +178,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Patch auto test
         api_instance.api_v2_auto_tests_id_patch(id, operation=operation)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_id_patch: %s\n" % e)
 ```
 
@@ -226,16 +226,16 @@ Get test results history for autotest
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_auto_tests_id_test_results_search_post_request import ApiV2AutoTestsIdTestResultsSearchPostRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.autotest_result_historical_get_model import AutotestResultHistoricalGetModel
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.autotest_result_historical_get_model import AutotestResultHistoricalGetModel
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.api_v2_auto_tests_id_test_results_search_post_request import ApiV2AutoTestsIdTestResultsSearchPostRequest
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -251,7 +251,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | Autotest identifier
@@ -267,7 +267,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get test results history for autotest
         api_response = api_instance.api_v2_auto_tests_id_test_results_search_post(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_id_test_results_search_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -276,7 +276,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get test results history for autotest
         api_response = api_instance.api_v2_auto_tests_id_test_results_search_post(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_auto_tests_id_test_results_search_post_request=api_v2_auto_tests_id_test_results_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_id_test_results_search_post: %s\n" % e)
 ```
 
@@ -332,13 +332,13 @@ User permissions for project:  - Read only  - Execute  - Write  - Full control
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -354,7 +354,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | 
@@ -364,7 +364,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get identifiers of changed linked work items
         api_response = api_instance.api_v2_auto_tests_id_work_items_changed_id_get(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_id_work_items_changed_id_get: %s\n" % e)
 ```
 
@@ -412,13 +412,13 @@ User permissions for project:  - Read only  - Execute  - Write  - Full control
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -434,7 +434,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | 
@@ -444,7 +444,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Approve changes to work items linked to autotest
         api_instance.api_v2_auto_tests_id_work_items_changed_work_item_id_approve_post(id, work_item_id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_id_work_items_changed_work_item_id_approve_post: %s\n" % e)
 ```
 
@@ -491,15 +491,15 @@ Search for autotests
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.auto_test_model import AutoTestModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_auto_tests_search_post_request import ApiV2AutoTestsSearchPostRequest
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.api_v2_auto_tests_search_post_request import ApiV2AutoTestsSearchPostRequest
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.auto_test_model import AutoTestModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -515,7 +515,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -531,7 +531,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for autotests
         api_response = api_instance.api_v2_auto_tests_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_auto_tests_search_post_request=api_v2_auto_tests_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->api_v2_auto_tests_search_post: %s\n" % e)
 ```
 
@@ -583,16 +583,16 @@ Create autotest
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.create_auto_test_request import CreateAutoTestRequest
-from testit_api_client.model.auto_test_model import AutoTestModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.create_auto_test_request import CreateAutoTestRequest
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.auto_test_model import AutoTestModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -608,7 +608,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     create_auto_test_request = CreateAutoTestRequest(None) # CreateAutoTestRequest |  (optional)
@@ -619,7 +619,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Create autotest
         api_response = api_instance.create_auto_test(create_auto_test_request=create_auto_test_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->create_auto_test: %s\n" % e)
 ```
 
@@ -671,16 +671,16 @@ Create multiple autotests
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.auto_test_model import AutoTestModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.auto_test_post_model import AutoTestPostModel
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.auto_test_post_model import AutoTestPostModel
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.auto_test_model import AutoTestModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -696,7 +696,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     auto_test_post_model = [
@@ -764,7 +764,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Create multiple autotests
         api_response = api_instance.create_multiple(auto_test_post_model=auto_test_post_model)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->create_multiple: %s\n" % e)
 ```
 
@@ -816,13 +816,13 @@ Delete autotest
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -838,7 +838,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
@@ -847,7 +847,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete autotest
         api_instance.delete_auto_test(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->delete_auto_test: %s\n" % e)
 ```
 
@@ -896,14 +896,14 @@ Unlink autotest from work item
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -919,7 +919,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
@@ -929,7 +929,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Unlink autotest from work item
         api_instance.delete_auto_test_link_from_work_item(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->delete_auto_test_link_from_work_item: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -937,7 +937,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Unlink autotest from work item
         api_instance.delete_auto_test_link_from_work_item(id, work_item_id=work_item_id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->delete_auto_test_link_from_work_item: %s\n" % e)
 ```
 
@@ -986,14 +986,14 @@ void (empty response body)
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.auto_test_model import AutoTestModel
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.auto_test_model import AutoTestModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1009,7 +1009,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     project_id = "projectId_example" # str | Project internal ID (optional)
@@ -1046,7 +1046,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         api_response = api_instance.get_all_auto_tests(project_id=project_id, external_id=external_id, global_id=global_id, namespace=namespace, is_namespace_null=is_namespace_null, include_empty_namespaces=include_empty_namespaces, class_name=class_name, is_classname_null=is_classname_null, include_empty_class_names=include_empty_class_names, is_deleted=is_deleted, deleted=deleted, labels=labels, stability_minimal=stability_minimal, min_stability=min_stability, stability_maximal=stability_maximal, max_stability=max_stability, is_flaky=is_flaky, flaky=flaky, include_steps=include_steps, include_labels=include_labels, external_key=external_key, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->get_all_auto_tests: %s\n" % e)
 ```
 
@@ -1120,14 +1120,14 @@ Get average autotest duration
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.auto_test_average_duration_model import AutoTestAverageDurationModel
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.auto_test_average_duration_model import AutoTestAverageDurationModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1143,7 +1143,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
@@ -1153,7 +1153,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get average autotest duration
         api_response = api_instance.get_auto_test_average_duration(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->get_auto_test_average_duration: %s\n" % e)
 ```
 
@@ -1202,15 +1202,15 @@ Get autotest by internal or global ID
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.auto_test_model import AutoTestModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.auto_test_model import AutoTestModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1226,7 +1226,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
@@ -1236,7 +1236,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get autotest by internal or global ID
         api_response = api_instance.get_auto_test_by_id(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->get_auto_test_by_id: %s\n" % e)
 ```
 
@@ -1286,14 +1286,14 @@ Get autotest chronology
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_result_chronology_model import TestResultChronologyModel
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.test_result_chronology_model import TestResultChronologyModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1309,7 +1309,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
@@ -1319,7 +1319,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get autotest chronology
         api_response = api_instance.get_auto_test_chronology(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->get_auto_test_chronology: %s\n" % e)
 ```
 
@@ -1368,14 +1368,14 @@ Get completed tests runs for autotests
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_run_short_model import TestRunShortModel
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.test_run_short_model import TestRunShortModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1391,7 +1391,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
@@ -1401,7 +1401,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get completed tests runs for autotests
         api_response = api_instance.get_test_runs(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->get_test_runs: %s\n" % e)
 ```
 
@@ -1448,14 +1448,14 @@ Name | Type | Description  | Notes
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1471,7 +1471,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | 
@@ -1504,7 +1504,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         api_response = api_instance.get_work_item_results(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->get_work_item_results: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1512,7 +1512,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         api_response = api_instance.get_work_item_results(id, _from=_from, to=to, configuration_ids=configuration_ids, test_plan_ids=test_plan_ids, user_ids=user_ids, outcomes=outcomes, is_automated=is_automated, automated=automated, test_run_ids=test_run_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->get_work_item_results: %s\n" % e)
 ```
 
@@ -1575,14 +1575,14 @@ Get work items linked to autotest
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_identifier_model import WorkItemIdentifierModel
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.work_item_identifier_model import WorkItemIdentifierModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1598,7 +1598,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | Specifies the autotest entity ID.<br />  You can copy it from the address bar in your web browser or use autotest GUID.
@@ -1610,7 +1610,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get work items linked to autotest
         api_response = api_instance.get_work_items_linked_to_auto_test(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->get_work_items_linked_to_auto_test: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1619,7 +1619,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get work items linked to autotest
         api_response = api_instance.get_work_items_linked_to_auto_test(id, is_deleted=is_deleted, is_work_item_deleted=is_work_item_deleted)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->get_work_items_linked_to_auto_test: %s\n" % e)
 ```
 
@@ -1670,15 +1670,15 @@ Link autotest with work items
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.link_auto_test_to_work_item_request import LinkAutoTestToWorkItemRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.link_auto_test_to_work_item_request import LinkAutoTestToWorkItemRequest
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1694,7 +1694,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     id = "id_example" # str | Autotest internal (UUID) or global (integer) identifier
@@ -1704,7 +1704,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Link autotest with work items
         api_instance.link_auto_test_to_work_item(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->link_auto_test_to_work_item: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1712,7 +1712,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Link autotest with work items
         api_instance.link_auto_test_to_work_item(id, link_auto_test_to_work_item_request=link_auto_test_to_work_item_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->link_auto_test_to_work_item: %s\n" % e)
 ```
 
@@ -1763,15 +1763,15 @@ Update autotest
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.update_auto_test_request import UpdateAutoTestRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.update_auto_test_request import UpdateAutoTestRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1787,7 +1787,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     update_auto_test_request = UpdateAutoTestRequest(None) # UpdateAutoTestRequest |  (optional)
@@ -1797,7 +1797,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Update autotest
         api_instance.update_auto_test(update_auto_test_request=update_auto_test_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->update_auto_test: %s\n" % e)
 ```
 
@@ -1849,15 +1849,15 @@ Update multiple autotests
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import auto_tests_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.auto_test_put_model import AutoTestPutModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import auto_tests_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.auto_test_put_model import AutoTestPutModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1873,19 +1873,19 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = auto_tests_api.AutoTestsApi(api_client)
     auto_test_put_model = [
         AutoTestPutModel(
-            id="21d0e008-6b7f-492d-98d8-3f4d3c45d2df",
+            id="4dc68ea9-8ed5-4d52-99ff-a7c9653fa433",
             work_item_ids_for_link_with_auto_test=[
                 "work_item_ids_for_link_with_auto_test_example",
             ],
             external_id="external_id_example",
             links=[
                 LinkPutModel(
-                    id="21d0e008-6b7f-492d-98d8-3f4d3c45d2df",
+                    id="4dc68ea9-8ed5-4d52-99ff-a7c9653fa433",
                     title="title_example",
                     url="url_example",
                     description="description_example",
@@ -1941,7 +1941,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Update multiple autotests
         api_instance.update_multiple(auto_test_put_model=auto_test_put_model)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling AutoTestsApi->update_multiple: %s\n" % e)
 ```
 

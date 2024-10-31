@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,13 +26,13 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.request_type_model import RequestTypeModel
-    from testit_api_client.model.search_webhooks_query_model import SearchWebhooksQueryModel
-    from testit_api_client.model.web_hook_event_type_model import WebHookEventTypeModel
+    from testgear_api_client.model.request_type_model import RequestTypeModel
+    from testgear_api_client.model.search_webhooks_query_model import SearchWebhooksQueryModel
+    from testgear_api_client.model.web_hook_event_type_model import WebHookEventTypeModel
     globals()['RequestTypeModel'] = RequestTypeModel
     globals()['SearchWebhooksQueryModel'] = SearchWebhooksQueryModel
     globals()['WebHookEventTypeModel'] = WebHookEventTypeModel

@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,13 +26,13 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.background_job_state import BackgroundJobState
-    from testit_api_client.model.background_job_type import BackgroundJobType
-    from testit_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
+    from testgear_api_client.model.background_job_state import BackgroundJobState
+    from testgear_api_client.model.background_job_type import BackgroundJobType
+    from testgear_api_client.model.date_time_range_selector_model import DateTimeRangeSelectorModel
     globals()['BackgroundJobState'] = BackgroundJobState
     globals()['BackgroundJobType'] = BackgroundJobType
     globals()['DateTimeRangeSelectorModel'] = DateTimeRangeSelectorModel

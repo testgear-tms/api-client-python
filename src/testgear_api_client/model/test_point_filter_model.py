@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,18 +26,18 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_point_filter_model_created_date import TestPointFilterModelCreatedDate
-    from testit_api_client.model.test_point_filter_model_duration import TestPointFilterModelDuration
-    from testit_api_client.model.test_point_filter_model_modified_date import TestPointFilterModelModifiedDate
-    from testit_api_client.model.test_point_filter_model_work_item_created_date import TestPointFilterModelWorkItemCreatedDate
-    from testit_api_client.model.test_point_filter_model_work_item_median_duration import TestPointFilterModelWorkItemMedianDuration
-    from testit_api_client.model.test_point_filter_model_work_item_modified_date import TestPointFilterModelWorkItemModifiedDate
-    from testit_api_client.model.test_point_status import TestPointStatus
-    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
+    from testgear_api_client.model.test_point_filter_model_created_date import TestPointFilterModelCreatedDate
+    from testgear_api_client.model.test_point_filter_model_duration import TestPointFilterModelDuration
+    from testgear_api_client.model.test_point_filter_model_modified_date import TestPointFilterModelModifiedDate
+    from testgear_api_client.model.test_point_filter_model_work_item_created_date import TestPointFilterModelWorkItemCreatedDate
+    from testgear_api_client.model.test_point_filter_model_work_item_median_duration import TestPointFilterModelWorkItemMedianDuration
+    from testgear_api_client.model.test_point_filter_model_work_item_modified_date import TestPointFilterModelWorkItemModifiedDate
+    from testgear_api_client.model.test_point_status import TestPointStatus
+    from testgear_api_client.model.work_item_priority_model import WorkItemPriorityModel
     globals()['TestPointFilterModelCreatedDate'] = TestPointFilterModelCreatedDate
     globals()['TestPointFilterModelDuration'] = TestPointFilterModelDuration
     globals()['TestPointFilterModelModifiedDate'] = TestPointFilterModelModifiedDate

@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,20 +26,20 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.attachment_put_model import AttachmentPutModel
-    from testit_api_client.model.auto_test_id_model import AutoTestIdModel
-    from testit_api_client.model.iteration_put_model import IterationPutModel
-    from testit_api_client.model.link_post_model import LinkPostModel
-    from testit_api_client.model.step_put_model import StepPutModel
-    from testit_api_client.model.tag_short_model import TagShortModel
-    from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
-    from testit_api_client.model.work_item_post_model import WorkItemPostModel
-    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testit_api_client.model.work_item_states import WorkItemStates
+    from testgear_api_client.model.attachment_put_model import AttachmentPutModel
+    from testgear_api_client.model.auto_test_id_model import AutoTestIdModel
+    from testgear_api_client.model.iteration_put_model import IterationPutModel
+    from testgear_api_client.model.link_post_model import LinkPostModel
+    from testgear_api_client.model.step_put_model import StepPutModel
+    from testgear_api_client.model.tag_short_model import TagShortModel
+    from testgear_api_client.model.work_item_entity_types import WorkItemEntityTypes
+    from testgear_api_client.model.work_item_post_model import WorkItemPostModel
+    from testgear_api_client.model.work_item_priority_model import WorkItemPriorityModel
+    from testgear_api_client.model.work_item_states import WorkItemStates
     globals()['AttachmentPutModel'] = AttachmentPutModel
     globals()['AutoTestIdModel'] = AutoTestIdModel
     globals()['IterationPutModel'] = IterationPutModel

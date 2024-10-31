@@ -1,4 +1,4 @@
-# testit_api_client.ParametersApi
+# testgear_api_client.ParametersApi
 
 All URIs are relative to *http://localhost*
 
@@ -34,15 +34,15 @@ Create multiple parameters
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.parameter_post_model import ParameterPostModel
-from testit_api_client.model.parameter_model import ParameterModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import parameters_api
+from testgear_api_client.model.parameter_model import ParameterModel
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.parameter_post_model import ParameterPostModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -58,7 +58,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     parameter_post_model = [
@@ -74,7 +74,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Create multiple parameters
         api_response = api_instance.api_v2_parameters_bulk_post(parameter_post_model=parameter_post_model)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_bulk_post: %s\n" % e)
 ```
 
@@ -121,15 +121,15 @@ Update multiple parameters
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.parameter_put_model import ParameterPutModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import parameters_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.parameter_put_model import ParameterPutModel
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -145,12 +145,12 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     parameter_put_model = [
         ParameterPutModel(
-            id="21d0e008-6b7f-492d-98d8-3f4d3c45d2df",
+            id="4dc68ea9-8ed5-4d52-99ff-a7c9653fa433",
             value="value_example",
             name="name_example",
         ),
@@ -161,7 +161,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Update multiple parameters
         api_instance.api_v2_parameters_bulk_put(parameter_put_model=parameter_put_model)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_bulk_put: %s\n" % e)
 ```
 
@@ -210,14 +210,14 @@ Get parameters as group
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.parameter_group_model import ParameterGroupModel
+import testgear_api_client
+from testgear_api_client.api import parameters_api
+from testgear_api_client.model.parameter_group_model import ParameterGroupModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -233,7 +233,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     is_deleted = True # bool |  (optional)
@@ -252,7 +252,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get parameters as group
         api_response = api_instance.api_v2_parameters_groups_get(is_deleted=is_deleted, parameter_key_ids=parameter_key_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_groups_get: %s\n" % e)
 ```
 
@@ -305,13 +305,13 @@ Check existence parameter key in system
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import parameters_api
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -327,7 +327,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     name = "name_example" # str | 
@@ -337,7 +337,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Check existence parameter key in system
         api_response = api_instance.api_v2_parameters_key_name_name_exists_get(name)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_key_name_name_exists_get: %s\n" % e)
 ```
 
@@ -384,12 +384,12 @@ Get all parameter key values
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
+import testgear_api_client
+from testgear_api_client.api import parameters_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -405,7 +405,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     key = "SomeKey" # str | Parameter key (string format)
@@ -415,7 +415,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get all parameter key values
         api_response = api_instance.api_v2_parameters_key_values_get(key)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_key_values_get: %s\n" % e)
 ```
 
@@ -461,12 +461,12 @@ Get all parameter keys
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
+import testgear_api_client
+from testgear_api_client.api import parameters_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -482,7 +482,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
 
@@ -491,7 +491,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get all parameter keys
         api_response = api_instance.api_v2_parameters_keys_get()
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_keys_get: %s\n" % e)
 ```
 
@@ -532,14 +532,14 @@ Search for parameters as group
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.api_v2_parameters_search_post_request import ApiV2ParametersSearchPostRequest
-from testit_api_client.model.parameter_group_model import ParameterGroupModel
+import testgear_api_client
+from testgear_api_client.api import parameters_api
+from testgear_api_client.model.api_v2_parameters_search_post_request import ApiV2ParametersSearchPostRequest
+from testgear_api_client.model.parameter_group_model import ParameterGroupModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -555,7 +555,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -571,7 +571,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for parameters as group
         api_response = api_instance.api_v2_parameters_search_groups_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_parameters_search_post_request=api_v2_parameters_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_search_groups_post: %s\n" % e)
 ```
 
@@ -620,14 +620,14 @@ Search for parameters
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.api_v2_parameters_search_post_request import ApiV2ParametersSearchPostRequest
-from testit_api_client.model.parameter_model import ParameterModel
+import testgear_api_client
+from testgear_api_client.api import parameters_api
+from testgear_api_client.model.parameter_model import ParameterModel
+from testgear_api_client.model.api_v2_parameters_search_post_request import ApiV2ParametersSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -643,7 +643,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -659,7 +659,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for parameters
         api_response = api_instance.api_v2_parameters_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_parameters_search_post_request=api_v2_parameters_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->api_v2_parameters_search_post: %s\n" % e)
 ```
 
@@ -710,15 +710,15 @@ Create parameter
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.parameter_model import ParameterModel
-from testit_api_client.model.create_parameter_request import CreateParameterRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import parameters_api
+from testgear_api_client.model.parameter_model import ParameterModel
+from testgear_api_client.model.create_parameter_request import CreateParameterRequest
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -734,7 +734,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     create_parameter_request = CreateParameterRequest(None) # CreateParameterRequest |  (optional)
@@ -745,7 +745,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Create parameter
         api_response = api_instance.create_parameter(create_parameter_request=create_parameter_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->create_parameter: %s\n" % e)
 ```
 
@@ -792,14 +792,14 @@ Deletes parameter and all it's values
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import parameters_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -815,7 +815,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     name = "name_example" # str | Name of the parameter
@@ -824,7 +824,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete parameter by name
         api_instance.delete_by_name(name)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->delete_by_name: %s\n" % e)
 ```
 
@@ -872,13 +872,13 @@ Deletes parameter and all it's values by parameter key identifier
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import parameters_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -894,7 +894,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     key_id = "keyId_example" # str | 
@@ -903,7 +903,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete parameters by parameter key identifier
         api_instance.delete_by_parameter_key_id(key_id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->delete_by_parameter_key_id: %s\n" % e)
 ```
 
@@ -951,14 +951,14 @@ Delete parameter
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import parameters_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -974,7 +974,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     id = "id_example" # str | Parameter internal (UUID) identifier
@@ -983,7 +983,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete parameter
         api_instance.delete_parameter(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->delete_parameter: %s\n" % e)
 ```
 
@@ -1031,14 +1031,14 @@ Get all parameters
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.parameter_model import ParameterModel
+import testgear_api_client
+from testgear_api_client.api import parameters_api
+from testgear_api_client.model.parameter_model import ParameterModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1054,7 +1054,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     is_deleted = True # bool | If result must consist of only actual/deleted parameters (optional)
@@ -1070,7 +1070,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get all parameters
         api_response = api_instance.get_all_parameters(is_deleted=is_deleted, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->get_all_parameters: %s\n" % e)
 ```
 
@@ -1122,14 +1122,14 @@ Get parameter by ID
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.parameter_model import ParameterModel
+import testgear_api_client
+from testgear_api_client.api import parameters_api
+from testgear_api_client.model.parameter_model import ParameterModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1145,7 +1145,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     id = "id_example" # str | Parameter internal (UUID) identifier
@@ -1155,7 +1155,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get parameter by ID
         api_response = api_instance.get_parameter_by_id(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->get_parameter_by_id: %s\n" % e)
 ```
 
@@ -1202,15 +1202,15 @@ Update parameter
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import parameters_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.update_parameter_request import UpdateParameterRequest
+import testgear_api_client
+from testgear_api_client.api import parameters_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.update_parameter_request import UpdateParameterRequest
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1226,7 +1226,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = parameters_api.ParametersApi(api_client)
     update_parameter_request = UpdateParameterRequest(None) # UpdateParameterRequest |  (optional)
@@ -1236,7 +1236,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Update parameter
         api_instance.update_parameter(update_parameter_request=update_parameter_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ParametersApi->update_parameter: %s\n" % e)
 ```
 

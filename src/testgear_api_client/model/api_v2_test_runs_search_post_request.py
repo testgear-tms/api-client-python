@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,17 +26,17 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.failure_category_model import FailureCategoryModel
-    from testit_api_client.model.test_result_outcome import TestResultOutcome
-    from testit_api_client.model.test_run_filter_model import TestRunFilterModel
-    from testit_api_client.model.test_run_filter_model_auto_tests_count import TestRunFilterModelAutoTestsCount
-    from testit_api_client.model.test_run_filter_model_completed_date import TestRunFilterModelCompletedDate
-    from testit_api_client.model.test_run_filter_model_started_date import TestRunFilterModelStartedDate
-    from testit_api_client.model.test_run_state import TestRunState
+    from testgear_api_client.model.failure_category_model import FailureCategoryModel
+    from testgear_api_client.model.test_result_outcome import TestResultOutcome
+    from testgear_api_client.model.test_run_filter_model import TestRunFilterModel
+    from testgear_api_client.model.test_run_filter_model_auto_tests_count import TestRunFilterModelAutoTestsCount
+    from testgear_api_client.model.test_run_filter_model_completed_date import TestRunFilterModelCompletedDate
+    from testgear_api_client.model.test_run_filter_model_started_date import TestRunFilterModelStartedDate
+    from testgear_api_client.model.test_run_state import TestRunState
     globals()['FailureCategoryModel'] = FailureCategoryModel
     globals()['TestResultOutcome'] = TestResultOutcome
     globals()['TestRunFilterModel'] = TestRunFilterModel

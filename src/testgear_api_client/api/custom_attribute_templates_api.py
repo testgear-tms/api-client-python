@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testgear_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,15 +21,15 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_custom_attributes_templates_post_request import ApiV2CustomAttributesTemplatesPostRequest
-from testit_api_client.model.api_v2_custom_attributes_templates_put_request import ApiV2CustomAttributesTemplatesPutRequest
-from testit_api_client.model.api_v2_custom_attributes_templates_search_post_request import ApiV2CustomAttributesTemplatesSearchPostRequest
-from testit_api_client.model.custom_attribute_template_model import CustomAttributeTemplateModel
-from testit_api_client.model.no_content_result import NoContentResult
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.search_custom_attribute_template_get_model import SearchCustomAttributeTemplateGetModel
-from testit_api_client.model.validate_anti_forgery_token_attribute import ValidateAntiForgeryTokenAttribute
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.api_v2_custom_attributes_templates_post_request import ApiV2CustomAttributesTemplatesPostRequest
+from testgear_api_client.model.api_v2_custom_attributes_templates_put_request import ApiV2CustomAttributesTemplatesPutRequest
+from testgear_api_client.model.api_v2_custom_attributes_templates_search_post_request import ApiV2CustomAttributesTemplatesSearchPostRequest
+from testgear_api_client.model.custom_attribute_template_model import CustomAttributeTemplateModel
+from testgear_api_client.model.no_content_result import NoContentResult
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.search_custom_attribute_template_get_model import SearchCustomAttributeTemplateGetModel
+from testgear_api_client.model.validate_anti_forgery_token_attribute import ValidateAntiForgeryTokenAttribute
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
 class CustomAttributeTemplatesApi(object):

@@ -19,7 +19,7 @@ from urllib.request import proxy_bypass_environment
 import urllib3
 import ipaddress
 
-from testit_api_client.exceptions import ApiException, UnauthorizedException, ForbiddenException, NotFoundException, ServiceException, ApiValueError
+from testgear_api_client.exceptions import ApiException, UnauthorizedException, ForbiddenException, NotFoundException, ServiceException, ApiValueError
 
 
 logger = logging.getLogger(__name__)
@@ -63,6 +63,10 @@ class RESTClientObject(object):
 
         if configuration.retries is not None:
             addition_pool_args['retries'] = configuration.retries
+
+        if configuration.tls_server_name:
+            addition_pool_args['server_hostname'] = configuration.tls_server_name
+
 
         if configuration.socket_options is not None:
             addition_pool_args['socket_options'] = configuration.socket_options

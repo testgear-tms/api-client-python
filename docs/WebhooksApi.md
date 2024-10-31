@@ -1,4 +1,4 @@
-# testit_api_client.WebhooksApi
+# testgear_api_client.WebhooksApi
 
 All URIs are relative to *http://localhost*
 
@@ -25,14 +25,14 @@ Get all webhooks
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.web_hook_model import WebHookModel
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import webhooks_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.web_hook_model import WebHookModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -48,7 +48,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhooks_api.WebhooksApi(api_client)
     project_id = "projectId_example" # str | Project unique ID (optional)
@@ -59,7 +59,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get all webhooks
         api_response = api_instance.api_v2_webhooks_get(project_id=project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_get: %s\n" % e)
 ```
 
@@ -104,13 +104,13 @@ Delete webhook by ID
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import webhooks_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -126,7 +126,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhooks_api.WebhooksApi(api_client)
     id = "id_example" # str | Webhook unique ID
@@ -135,7 +135,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete webhook by ID
         api_instance.api_v2_webhooks_id_delete(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_id_delete: %s\n" % e)
 ```
 
@@ -180,13 +180,13 @@ Get webhook by ID
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.web_hook_model import WebHookModel
+import testgear_api_client
+from testgear_api_client.api import webhooks_api
+from testgear_api_client.model.web_hook_model import WebHookModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -202,7 +202,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhooks_api.WebhooksApi(api_client)
     id = "id_example" # str | Webhook unique ID
@@ -212,7 +212,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get webhook by ID
         api_response = api_instance.api_v2_webhooks_id_get(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_id_get: %s\n" % e)
 ```
 
@@ -257,15 +257,15 @@ Edit webhook by ID
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.web_hook_model import WebHookModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_webhooks_post_request import ApiV2WebhooksPostRequest
+import testgear_api_client
+from testgear_api_client.api import webhooks_api
+from testgear_api_client.model.api_v2_webhooks_post_request import ApiV2WebhooksPostRequest
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.web_hook_model import WebHookModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -281,7 +281,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhooks_api.WebhooksApi(api_client)
     id = "id_example" # str | Webhook unique ID
@@ -292,7 +292,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Edit webhook by ID
         api_response = api_instance.api_v2_webhooks_id_put(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_id_put: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -301,7 +301,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Edit webhook by ID
         api_response = api_instance.api_v2_webhooks_id_put(id, api_v2_webhooks_post_request=api_v2_webhooks_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_id_put: %s\n" % e)
 ```
 
@@ -347,15 +347,15 @@ Create webhook
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.web_hook_model import WebHookModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_webhooks_post_request import ApiV2WebhooksPostRequest
+import testgear_api_client
+from testgear_api_client.api import webhooks_api
+from testgear_api_client.model.api_v2_webhooks_post_request import ApiV2WebhooksPostRequest
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.web_hook_model import WebHookModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -371,7 +371,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhooks_api.WebhooksApi(api_client)
     api_v2_webhooks_post_request = ApiV2WebhooksPostRequest(None) # ApiV2WebhooksPostRequest |  (optional)
@@ -382,7 +382,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Create webhook
         api_response = api_instance.api_v2_webhooks_post(api_v2_webhooks_post_request=api_v2_webhooks_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_post: %s\n" % e)
 ```
 
@@ -427,15 +427,15 @@ Search for webhooks
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.web_hook_model import WebHookModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_webhooks_search_post_request import ApiV2WebhooksSearchPostRequest
+import testgear_api_client
+from testgear_api_client.api import webhooks_api
+from testgear_api_client.model.api_v2_webhooks_search_post_request import ApiV2WebhooksSearchPostRequest
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.web_hook_model import WebHookModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -451,7 +451,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhooks_api.WebhooksApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -467,7 +467,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for webhooks
         api_response = api_instance.api_v2_webhooks_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_webhooks_search_post_request=api_v2_webhooks_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_search_post: %s\n" % e)
 ```
 
@@ -517,14 +517,14 @@ Get special variables for webhook event type
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.webhook_variables_type import WebhookVariablesType
-from testit_api_client.model.web_hook_event_type import WebHookEventType
+import testgear_api_client
+from testgear_api_client.api import webhooks_api
+from testgear_api_client.model.webhook_variables_type import WebhookVariablesType
+from testgear_api_client.model.web_hook_event_type import WebHookEventType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -540,7 +540,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhooks_api.WebhooksApi(api_client)
     event_type = None # WebHookEventType | Webhook event type (optional)
@@ -552,7 +552,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get special variables for webhook event type
         api_response = api_instance.api_v2_webhooks_special_variables_get(event_type=event_type, variables_type=variables_type)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_special_variables_get: %s\n" % e)
 ```
 
@@ -597,15 +597,15 @@ Test webhook's url
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import webhooks_api
-from testit_api_client.model.request_data import RequestData
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_webhooks_test_post_request import ApiV2WebhooksTestPostRequest
+import testgear_api_client
+from testgear_api_client.api import webhooks_api
+from testgear_api_client.model.api_v2_webhooks_test_post_request import ApiV2WebhooksTestPostRequest
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.request_data import RequestData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -621,7 +621,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = webhooks_api.WebhooksApi(api_client)
     api_v2_webhooks_test_post_request = ApiV2WebhooksTestPostRequest(None) # ApiV2WebhooksTestPostRequest |  (optional)
@@ -632,7 +632,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Test webhook's url
         api_response = api_instance.api_v2_webhooks_test_post(api_v2_webhooks_test_post_request=api_v2_webhooks_test_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WebhooksApi->api_v2_webhooks_test_post: %s\n" % e)
 ```
 

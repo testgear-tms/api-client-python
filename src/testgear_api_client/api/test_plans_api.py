@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testgear_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,25 +21,25 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
-from testit_api_client.model.api_v2_test_plans_id_export_test_points_xlsx_post_request import ApiV2TestPlansIdExportTestPointsXlsxPostRequest
-from testit_api_client.model.api_v2_test_plans_id_test_points_tester_user_id_post_request import ApiV2TestPlansIdTestPointsTesterUserIdPostRequest
-from testit_api_client.model.api_v2_test_plans_id_test_runs_search_post_request import ApiV2TestPlansIdTestRunsSearchPostRequest
-from testit_api_client.model.configuration_model import ConfigurationModel
-from testit_api_client.model.create_test_plan_request import CreateTestPlanRequest
-from testit_api_client.model.operation import Operation
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_plan_change_model import TestPlanChangeModel
-from testit_api_client.model.test_plan_link import TestPlanLink
-from testit_api_client.model.test_plan_model import TestPlanModel
-from testit_api_client.model.test_plan_short_model import TestPlanShortModel
-from testit_api_client.model.test_plan_with_test_suite_tree_model import TestPlanWithTestSuiteTreeModel
-from testit_api_client.model.test_point_analytic_result import TestPointAnalyticResult
-from testit_api_client.model.test_point_with_last_result_model import TestPointWithLastResultModel
-from testit_api_client.model.test_run_model import TestRunModel
-from testit_api_client.model.test_suite_v2_tree_model import TestSuiteV2TreeModel
-from testit_api_client.model.update_test_plan_request import UpdateTestPlanRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+from testgear_api_client.model.api_v2_test_plans_id_export_test_points_xlsx_post_request import ApiV2TestPlansIdExportTestPointsXlsxPostRequest
+from testgear_api_client.model.api_v2_test_plans_id_test_points_tester_user_id_post_request import ApiV2TestPlansIdTestPointsTesterUserIdPostRequest
+from testgear_api_client.model.api_v2_test_plans_id_test_runs_search_post_request import ApiV2TestPlansIdTestRunsSearchPostRequest
+from testgear_api_client.model.configuration_model import ConfigurationModel
+from testgear_api_client.model.create_test_plan_request import CreateTestPlanRequest
+from testgear_api_client.model.operation import Operation
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.test_plan_change_model import TestPlanChangeModel
+from testgear_api_client.model.test_plan_link import TestPlanLink
+from testgear_api_client.model.test_plan_model import TestPlanModel
+from testgear_api_client.model.test_plan_short_model import TestPlanShortModel
+from testgear_api_client.model.test_plan_with_test_suite_tree_model import TestPlanWithTestSuiteTreeModel
+from testgear_api_client.model.test_point_analytic_result import TestPointAnalyticResult
+from testgear_api_client.model.test_point_with_last_result_model import TestPointWithLastResultModel
+from testgear_api_client.model.test_run_model import TestRunModel
+from testgear_api_client.model.test_suite_v2_tree_model import TestSuiteV2TreeModel
+from testgear_api_client.model.update_test_plan_request import UpdateTestPlanRequest
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
 class TestPlansApi(object):

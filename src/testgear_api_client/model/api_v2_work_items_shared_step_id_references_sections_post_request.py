@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,13 +26,13 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.shared_step_reference_sections_query_filter_model import SharedStepReferenceSectionsQueryFilterModel
-    from testit_api_client.model.shared_step_reference_sections_query_filter_model_created_date import SharedStepReferenceSectionsQueryFilterModelCreatedDate
-    from testit_api_client.model.shared_step_reference_sections_query_filter_model_modified_date import SharedStepReferenceSectionsQueryFilterModelModifiedDate
+    from testgear_api_client.model.shared_step_reference_sections_query_filter_model import SharedStepReferenceSectionsQueryFilterModel
+    from testgear_api_client.model.shared_step_reference_sections_query_filter_model_created_date import SharedStepReferenceSectionsQueryFilterModelCreatedDate
+    from testgear_api_client.model.shared_step_reference_sections_query_filter_model_modified_date import SharedStepReferenceSectionsQueryFilterModelModifiedDate
     globals()['SharedStepReferenceSectionsQueryFilterModel'] = SharedStepReferenceSectionsQueryFilterModel
     globals()['SharedStepReferenceSectionsQueryFilterModelCreatedDate'] = SharedStepReferenceSectionsQueryFilterModelCreatedDate
     globals()['SharedStepReferenceSectionsQueryFilterModelModifiedDate'] = SharedStepReferenceSectionsQueryFilterModelModifiedDate

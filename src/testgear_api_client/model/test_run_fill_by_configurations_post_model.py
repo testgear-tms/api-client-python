@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,13 +26,13 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.attachment_put_model import AttachmentPutModel
-    from testit_api_client.model.link_post_model import LinkPostModel
-    from testit_api_client.model.test_point_selector import TestPointSelector
+    from testgear_api_client.model.attachment_put_model import AttachmentPutModel
+    from testgear_api_client.model.link_post_model import LinkPostModel
+    from testgear_api_client.model.test_point_selector import TestPointSelector
     globals()['AttachmentPutModel'] = AttachmentPutModel
     globals()['LinkPostModel'] = LinkPostModel
     globals()['TestPointSelector'] = TestPointSelector

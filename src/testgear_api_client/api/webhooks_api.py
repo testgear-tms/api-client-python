@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testgear_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,14 +21,14 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_webhooks_post_request import ApiV2WebhooksPostRequest
-from testit_api_client.model.api_v2_webhooks_search_post_request import ApiV2WebhooksSearchPostRequest
-from testit_api_client.model.api_v2_webhooks_test_post_request import ApiV2WebhooksTestPostRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.request_data import RequestData
-from testit_api_client.model.web_hook_event_type import WebHookEventType
-from testit_api_client.model.web_hook_model import WebHookModel
-from testit_api_client.model.webhook_variables_type import WebhookVariablesType
+from testgear_api_client.model.api_v2_webhooks_post_request import ApiV2WebhooksPostRequest
+from testgear_api_client.model.api_v2_webhooks_search_post_request import ApiV2WebhooksSearchPostRequest
+from testgear_api_client.model.api_v2_webhooks_test_post_request import ApiV2WebhooksTestPostRequest
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.request_data import RequestData
+from testgear_api_client.model.web_hook_event_type import WebHookEventType
+from testgear_api_client.model.web_hook_model import WebHookModel
+from testgear_api_client.model.webhook_variables_type import WebhookVariablesType
 
 
 class WebhooksApi(object):

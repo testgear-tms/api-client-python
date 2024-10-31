@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testgear_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,12 +21,12 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_grouped_post_request import ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.tag_short_model import TagShortModel
-from testit_api_client.model.work_item_group_model import WorkItemGroupModel
-from testit_api_client.model.work_item_short_model import WorkItemShortModel
+from testgear_api_client.model.api_v2_projects_project_id_work_items_search_grouped_post_request import ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest
+from testgear_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.tag_short_model import TagShortModel
+from testgear_api_client.model.work_item_group_model import WorkItemGroupModel
+from testgear_api_client.model.work_item_short_model import WorkItemShortModel
 
 
 class ProjectWorkItemsApi(object):

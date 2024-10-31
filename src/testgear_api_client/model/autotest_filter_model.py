@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,14 +26,14 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.autotest_filter_model_created_date import AutotestFilterModelCreatedDate
-    from testit_api_client.model.autotest_filter_model_modified_date import AutotestFilterModelModifiedDate
-    from testit_api_client.model.autotest_filter_model_stability_percentage import AutotestFilterModelStabilityPercentage
-    from testit_api_client.model.autotest_result_outcome import AutotestResultOutcome
+    from testgear_api_client.model.autotest_filter_model_created_date import AutotestFilterModelCreatedDate
+    from testgear_api_client.model.autotest_filter_model_modified_date import AutotestFilterModelModifiedDate
+    from testgear_api_client.model.autotest_filter_model_stability_percentage import AutotestFilterModelStabilityPercentage
+    from testgear_api_client.model.autotest_result_outcome import AutotestResultOutcome
     globals()['AutotestFilterModelCreatedDate'] = AutotestFilterModelCreatedDate
     globals()['AutotestFilterModelModifiedDate'] = AutotestFilterModelModifiedDate
     globals()['AutotestFilterModelStabilityPercentage'] = AutotestFilterModelStabilityPercentage

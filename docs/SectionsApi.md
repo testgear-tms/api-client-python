@@ -1,4 +1,4 @@
-# testit_api_client.SectionsApi
+# testgear_api_client.SectionsApi
 
 All URIs are relative to *http://localhost*
 
@@ -27,14 +27,14 @@ See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 690
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.operation import Operation
+import testgear_api_client
+from testgear_api_client.api import sections_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.operation import Operation
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -50,7 +50,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
     id = "id_example" # str | Section internal (UUID) identifier
@@ -67,7 +67,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Patch section
         api_instance.api_v2_sections_id_patch(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling SectionsApi->api_v2_sections_id_patch: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -75,7 +75,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Patch section
         api_instance.api_v2_sections_id_patch(id, operation=operation)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling SectionsApi->api_v2_sections_id_patch: %s\n" % e)
 ```
 
@@ -123,16 +123,16 @@ Create section
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.section_with_steps_model import SectionWithStepsModel
-from testit_api_client.model.create_section_request import CreateSectionRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import sections_api
+from testgear_api_client.model.section_with_steps_model import SectionWithStepsModel
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.create_section_request import CreateSectionRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -148,7 +148,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
     create_section_request = CreateSectionRequest(None) # CreateSectionRequest |  (optional)
@@ -159,7 +159,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Create section
         api_response = api_instance.create_section(create_section_request=create_section_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling SectionsApi->create_section: %s\n" % e)
 ```
 
@@ -210,14 +210,14 @@ Delete section
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import sections_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -233,7 +233,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
     id = "id_example" # str | Section internal (UUID) identifier
@@ -242,7 +242,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete section
         api_instance.delete_section(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling SectionsApi->delete_section: %s\n" % e)
 ```
 
@@ -294,16 +294,16 @@ Get section
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.section_with_steps_model import SectionWithStepsModel
-from testit_api_client.model.deletion_state import DeletionState
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import sections_api
+from testgear_api_client.model.section_with_steps_model import SectionWithStepsModel
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.deletion_state import DeletionState
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -319,7 +319,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
     id = "id_example" # str | Section internal (UUID) identifier
@@ -330,7 +330,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get section
         api_response = api_instance.get_section_by_id(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling SectionsApi->get_section_by_id: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -339,7 +339,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get section
         api_response = api_instance.get_section_by_id(id, is_deleted=is_deleted)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling SectionsApi->get_section_by_id: %s\n" % e)
 ```
 
@@ -390,15 +390,15 @@ Get section work items
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_short_model import WorkItemShortModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import sections_api
+from testgear_api_client.model.work_item_short_model import WorkItemShortModel
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -414,7 +414,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
     id = "id_example" # str | Section internal (UUID) identifier
@@ -434,7 +434,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get section work items
         api_response = api_instance.get_work_items_by_section_id(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling SectionsApi->get_work_items_by_section_id: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -443,7 +443,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get section work items
         api_response = api_instance.get_work_items_by_section_id(id, is_deleted=is_deleted, tag_names=tag_names, include_iterations=include_iterations, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling SectionsApi->get_work_items_by_section_id: %s\n" % e)
 ```
 
@@ -499,14 +499,14 @@ Move section with all work items into another section
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.move_request import MoveRequest
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import sections_api
+from testgear_api_client.model.move_request import MoveRequest
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -522,7 +522,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
     move_request = MoveRequest(None) # MoveRequest |  (optional)
@@ -532,7 +532,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Move section with all work items into another section
         api_instance.move(move_request=move_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling SectionsApi->move: %s\n" % e)
 ```
 
@@ -579,14 +579,14 @@ Rename section
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.rename_request import RenameRequest
+import testgear_api_client
+from testgear_api_client.api import sections_api
+from testgear_api_client.model.rename_request import RenameRequest
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -602,7 +602,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
     rename_request = RenameRequest(None) # RenameRequest |  (optional)
@@ -612,7 +612,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Rename section
         api_instance.rename(rename_request=rename_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling SectionsApi->rename: %s\n" % e)
 ```
 
@@ -663,15 +663,15 @@ Update section
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.update_section_request import UpdateSectionRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import sections_api
+from testgear_api_client.model.update_section_request import UpdateSectionRequest
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -687,7 +687,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sections_api.SectionsApi(api_client)
     update_section_request = UpdateSectionRequest(None) # UpdateSectionRequest |  (optional)
@@ -697,7 +697,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Update section
         api_instance.update_section(update_section_request=update_section_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling SectionsApi->update_section: %s\n" % e)
 ```
 

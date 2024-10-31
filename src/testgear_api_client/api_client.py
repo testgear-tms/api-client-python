@@ -20,10 +20,10 @@ from urllib.parse import quote
 from urllib3.fields import RequestField
 
 
-from testit_api_client import rest
-from testit_api_client.configuration import Configuration
-from testit_api_client.exceptions import ApiTypeError, ApiValueError, ApiException
-from testit_api_client.model_utils import (
+from testgear_api_client import rest
+from testgear_api_client.configuration import Configuration
+from testgear_api_client.exceptions import ApiTypeError, ApiValueError, ApiException
+from testgear_api_client.model_utils import (
     ModelNormal,
     ModelSimple,
     ModelComposed,
@@ -76,7 +76,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/3.2.0/python'
+        self.user_agent = 'OpenAPI-Generator/3.2.1/python'
 
     def __enter__(self):
         return self

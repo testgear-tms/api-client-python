@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testgear_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,16 +21,16 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.create_section_request import CreateSectionRequest
-from testit_api_client.model.deletion_state import DeletionState
-from testit_api_client.model.move_request import MoveRequest
-from testit_api_client.model.operation import Operation
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.rename_request import RenameRequest
-from testit_api_client.model.section_with_steps_model import SectionWithStepsModel
-from testit_api_client.model.update_section_request import UpdateSectionRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.work_item_short_model import WorkItemShortModel
+from testgear_api_client.model.create_section_request import CreateSectionRequest
+from testgear_api_client.model.deletion_state import DeletionState
+from testgear_api_client.model.move_request import MoveRequest
+from testgear_api_client.model.operation import Operation
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.rename_request import RenameRequest
+from testgear_api_client.model.section_with_steps_model import SectionWithStepsModel
+from testgear_api_client.model.update_section_request import UpdateSectionRequest
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.work_item_short_model import WorkItemShortModel
 
 
 class SectionsApi(object):

@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,21 +26,21 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.boolean_changed_field_view_model import BooleanChangedFieldViewModel
-    from testit_api_client.model.boolean_nullable_changed_field_view_model import BooleanNullableChangedFieldViewModel
-    from testit_api_client.model.custom_attribute_change_model import CustomAttributeChangeModel
-    from testit_api_client.model.period_view_model_changed_field_view_model import PeriodViewModelChangedFieldViewModel
-    from testit_api_client.model.string_array_changed_field_view_model import StringArrayChangedFieldViewModel
-    from testit_api_client.model.string_changed_field_view_model import StringChangedFieldViewModel
-    from testit_api_client.model.string_changed_field_with_diffs_view_model import StringChangedFieldWithDiffsViewModel
-    from testit_api_client.model.test_plan_changed_fields_view_model import TestPlanChangedFieldsViewModel
-    from testit_api_client.model.test_point_change_view_model_changed_field_view_model import TestPointChangeViewModelChangedFieldViewModel
-    from testit_api_client.model.test_result_change_view_model_changed_field_view_model import TestResultChangeViewModelChangedFieldViewModel
-    from testit_api_client.model.test_suite_change_view_model_changed_field_view_model import TestSuiteChangeViewModelChangedFieldViewModel
+    from testgear_api_client.model.boolean_changed_field_view_model import BooleanChangedFieldViewModel
+    from testgear_api_client.model.boolean_nullable_changed_field_view_model import BooleanNullableChangedFieldViewModel
+    from testgear_api_client.model.custom_attribute_change_model import CustomAttributeChangeModel
+    from testgear_api_client.model.period_view_model_changed_field_view_model import PeriodViewModelChangedFieldViewModel
+    from testgear_api_client.model.string_array_changed_field_view_model import StringArrayChangedFieldViewModel
+    from testgear_api_client.model.string_changed_field_view_model import StringChangedFieldViewModel
+    from testgear_api_client.model.string_changed_field_with_diffs_view_model import StringChangedFieldWithDiffsViewModel
+    from testgear_api_client.model.test_plan_changed_fields_view_model import TestPlanChangedFieldsViewModel
+    from testgear_api_client.model.test_point_change_view_model_changed_field_view_model import TestPointChangeViewModelChangedFieldViewModel
+    from testgear_api_client.model.test_result_change_view_model_changed_field_view_model import TestResultChangeViewModelChangedFieldViewModel
+    from testgear_api_client.model.test_suite_change_view_model_changed_field_view_model import TestSuiteChangeViewModelChangedFieldViewModel
     globals()['BooleanChangedFieldViewModel'] = BooleanChangedFieldViewModel
     globals()['BooleanNullableChangedFieldViewModel'] = BooleanNullableChangedFieldViewModel
     globals()['CustomAttributeChangeModel'] = CustomAttributeChangeModel

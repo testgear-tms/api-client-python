@@ -1,11 +1,10 @@
-# testit_api_client.ProjectsApi
+# testgear_api_client.ProjectsApi
 
 All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_globa_attributes_to_project**](ProjectsApi.md#add_globa_attributes_to_project) | **POST** /api/v2/projects/{id}/globalAttributes | Add global attributes to project
-[**api_v2_projects_demo_post**](ProjectsApi.md#api_v2_projects_demo_post) | **POST** /api/v2/projects/demo | 
 [**api_v2_projects_id_delete**](ProjectsApi.md#api_v2_projects_id_delete) | **DELETE** /api/v2/projects/{id} | Archive project
 [**api_v2_projects_id_failure_classes_get**](ProjectsApi.md#api_v2_projects_id_failure_classes_get) | **GET** /api/v2/projects/{id}/failureClasses | Get failure classes
 [**api_v2_projects_id_favorite_put**](ProjectsApi.md#api_v2_projects_id_favorite_put) | **PUT** /api/v2/projects/{id}/favorite | Mark Project as favorite
@@ -48,14 +47,14 @@ Add global attributes to project
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -71,7 +70,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
@@ -83,7 +82,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Add global attributes to project
         api_instance.add_globa_attributes_to_project(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->add_globa_attributes_to_project: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -91,7 +90,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Add global attributes to project
         api_instance.add_globa_attributes_to_project(id, request_body=request_body)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->add_globa_attributes_to_project: %s\n" % e)
 ```
 
@@ -130,88 +129,6 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **api_v2_projects_demo_post**
-> ProjectModel api_v2_projects_demo_post()
-
-
-
-### Example
-
-* Api Key Authentication (Bearer or PrivateToken):
-
-```python
-import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.project_model import ProjectModel
-from testit_api_client.model.create_project_request import CreateProjectRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: Bearer or PrivateToken
-configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = projects_api.ProjectsApi(api_client)
-    create_project_request = CreateProjectRequest(None) # CreateProjectRequest |  (optional)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        api_response = api_instance.api_v2_projects_demo_post(create_project_request=create_project_request)
-        pprint(api_response)
-    except testit_api_client.ApiException as e:
-        print("Exception when calling ProjectsApi->api_v2_projects_demo_post: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_project_request** | [**CreateProjectRequest**](CreateProjectRequest.md)|  | [optional]
-
-### Return type
-
-[**ProjectModel**](ProjectModel.md)
-
-### Authorization
-
-[Bearer or PrivateToken](../README.md#Bearer or PrivateToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** | Created |  -  |
-**400** | Bad Request |  -  |
-**403** | Forbidden |  -  |
-**409** | Conflict |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **api_v2_projects_id_delete**
 > api_v2_projects_id_delete(id)
 
@@ -223,13 +140,13 @@ Archive project
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -245,7 +162,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Unique or global ID of the project
@@ -254,7 +171,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Archive project
         api_instance.api_v2_projects_id_delete(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_delete: %s\n" % e)
 ```
 
@@ -299,14 +216,14 @@ Get failure classes
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.failure_class_model import FailureClassModel
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.failure_class_model import FailureClassModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -322,7 +239,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Unique or global ID of the project
@@ -333,7 +250,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get failure classes
         api_response = api_instance.api_v2_projects_id_failure_classes_get(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_failure_classes_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -342,7 +259,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get failure classes
         api_response = api_instance.api_v2_projects_id_failure_classes_get(id, is_deleted=is_deleted)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_failure_classes_get: %s\n" % e)
 ```
 
@@ -388,14 +305,14 @@ Mark Project as favorite
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -411,7 +328,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
@@ -420,7 +337,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Mark Project as favorite
         api_instance.api_v2_projects_id_favorite_put(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_favorite_put: %s\n" % e)
 ```
 
@@ -469,13 +386,13 @@ Get Project filters
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.filter_model import FilterModel
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.filter_model import FilterModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -491,7 +408,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
@@ -501,7 +418,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get Project filters
         api_response = api_instance.api_v2_projects_id_filters_get(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_filters_get: %s\n" % e)
 ```
 
@@ -548,14 +465,14 @@ See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 690
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.operation import Operation
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.operation import Operation
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -571,7 +488,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Unique or global Id of project
@@ -588,7 +505,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Patch project
         api_instance.api_v2_projects_id_patch(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_patch: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -596,7 +513,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Patch project
         api_instance.api_v2_projects_id_patch(id, operation=operation)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_patch: %s\n" % e)
 ```
 
@@ -642,13 +559,13 @@ Purge archived project
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -664,7 +581,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Unique or global ID of the project
@@ -673,7 +590,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Purge archived project
         api_instance.api_v2_projects_id_purge_post(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_purge_post: %s\n" % e)
 ```
 
@@ -718,13 +635,13 @@ Restore archived project
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -740,7 +657,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Unique or global ID of the project
@@ -749,7 +666,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Restore archived project
         api_instance.api_v2_projects_id_restore_post(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_restore_post: %s\n" % e)
 ```
 
@@ -796,13 +713,13 @@ Delete attribute from project's test plans
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -818,7 +735,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
@@ -828,7 +745,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete attribute from project's test plans
         api_instance.api_v2_projects_id_test_plans_attribute_attribute_id_delete(id, attribute_id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_test_plans_attribute_attribute_id_delete: %s\n" % e)
 ```
 
@@ -876,14 +793,14 @@ Update attribute of project's test plans
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.update_custom_attribute_test_plan_project_relations_request import UpdateCustomAttributeTestPlanProjectRelationsRequest
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.update_custom_attribute_test_plan_project_relations_request import UpdateCustomAttributeTestPlanProjectRelationsRequest
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -899,7 +816,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
@@ -909,7 +826,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Update attribute of project's test plans
         api_instance.api_v2_projects_id_test_plans_attribute_put(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_test_plans_attribute_put: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -917,7 +834,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Update attribute of project's test plans
         api_instance.api_v2_projects_id_test_plans_attribute_put(id, update_custom_attribute_test_plan_project_relations_request=update_custom_attribute_test_plan_project_relations_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_test_plans_attribute_put: %s\n" % e)
 ```
 
@@ -965,15 +882,15 @@ Get active Project TestRuns
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.public_test_run_model import PublicTestRunModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.public_test_run_model import PublicTestRunModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -989,7 +906,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
@@ -999,7 +916,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get active Project TestRuns
         api_response = api_instance.api_v2_projects_id_test_runs_active_get(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_test_runs_active_get: %s\n" % e)
 ```
 
@@ -1048,13 +965,13 @@ Get Project TestRuns full models
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.test_run_model import TestRunModel
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.test_run_model import TestRunModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1070,7 +987,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
@@ -1094,7 +1011,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get Project TestRuns full models
         api_response = api_instance.api_v2_projects_id_test_runs_full_get(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_test_runs_full_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1103,7 +1020,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get Project TestRuns full models
         api_response = api_instance.api_v2_projects_id_test_runs_full_get(id, include_test_results=include_test_results, must_aggregate_test_results=must_aggregate_test_results, not_started=not_started, in_progress=in_progress, stopped=stopped, completed=completed, created_date_from=created_date_from, created_date_to=created_date_to, test_plan_id=test_plan_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_id_test_runs_full_get: %s\n" % e)
 ```
 
@@ -1161,12 +1078,12 @@ Name | Type | Description  | Notes
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
+import testgear_api_client
+from testgear_api_client.api import projects_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1182,7 +1099,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     name = "name_example" # str | 
@@ -1191,7 +1108,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         api_response = api_instance.api_v2_projects_name_name_exists_get(name)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_name_name_exists_get: %s\n" % e)
 ```
 
@@ -1235,14 +1152,14 @@ Purge multiple projects
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.api_v2_projects_restore_bulk_post_request import ApiV2ProjectsRestoreBulkPostRequest
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.api_v2_projects_restore_bulk_post_request import ApiV2ProjectsRestoreBulkPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1258,7 +1175,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     api_v2_projects_restore_bulk_post_request = ApiV2ProjectsRestoreBulkPostRequest(None) # ApiV2ProjectsRestoreBulkPostRequest |  (optional)
@@ -1269,7 +1186,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Purge multiple projects
         api_response = api_instance.api_v2_projects_purge_bulk_post(api_v2_projects_restore_bulk_post_request=api_v2_projects_restore_bulk_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_purge_bulk_post: %s\n" % e)
 ```
 
@@ -1314,14 +1231,14 @@ Restore multiple projects
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.api_v2_projects_restore_bulk_post_request import ApiV2ProjectsRestoreBulkPostRequest
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.api_v2_projects_restore_bulk_post_request import ApiV2ProjectsRestoreBulkPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1337,7 +1254,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     api_v2_projects_restore_bulk_post_request = ApiV2ProjectsRestoreBulkPostRequest(None) # ApiV2ProjectsRestoreBulkPostRequest |  (optional)
@@ -1348,7 +1265,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Restore multiple projects
         api_response = api_instance.api_v2_projects_restore_bulk_post(api_v2_projects_restore_bulk_post_request=api_v2_projects_restore_bulk_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_restore_bulk_post: %s\n" % e)
 ```
 
@@ -1393,14 +1310,14 @@ Search for projects
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.project_model import ProjectModel
-from testit_api_client.model.api_v2_projects_search_post_request import ApiV2ProjectsSearchPostRequest
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.project_model import ProjectModel
+from testgear_api_client.model.api_v2_projects_search_post_request import ApiV2ProjectsSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1416,7 +1333,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -1432,7 +1349,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for projects
         api_response = api_instance.api_v2_projects_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_search_post_request=api_v2_projects_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->api_v2_projects_search_post: %s\n" % e)
 ```
 
@@ -1481,12 +1398,12 @@ Import project from JSON file in background job
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
+import testgear_api_client
+from testgear_api_client.api import projects_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1502,7 +1419,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     file = open('/path/to/file', 'rb') # file_type |  (optional)
@@ -1513,7 +1430,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Import project from JSON file in background job
         api_response = api_instance.background_import_project(file=file)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->background_import_project: %s\n" % e)
 ```
 
@@ -1558,12 +1475,12 @@ Import project from Zip file in background job
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
+import testgear_api_client
+from testgear_api_client.api import projects_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1579,7 +1496,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     file = open('/path/to/file', 'rb') # file_type |  (optional)
@@ -1590,7 +1507,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Import project from Zip file in background job
         api_response = api_instance.background_import_zip_project(file=file)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->background_import_zip_project: %s\n" % e)
 ```
 
@@ -1637,14 +1554,14 @@ Import project from JSON file
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1660,7 +1577,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     include_attachments = False # bool | Enables attachment import. (optional) if omitted the server will use the default value of False
@@ -1671,7 +1588,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Import project from JSON file
         api_instance.call_import(include_attachments=include_attachments, file=file)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->call_import: %s\n" % e)
 ```
 
@@ -1722,16 +1639,16 @@ Create project
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.project_model import ProjectModel
-from testit_api_client.model.create_project_request import CreateProjectRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.project_model import ProjectModel
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.create_project_request import CreateProjectRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1747,7 +1664,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     create_project_request = CreateProjectRequest(None) # CreateProjectRequest |  (optional)
@@ -1758,7 +1675,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Create project
         api_response = api_instance.create_project(create_project_request=create_project_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->create_project: %s\n" % e)
 ```
 
@@ -1805,13 +1722,13 @@ Delete all autotests from project
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1827,7 +1744,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Unique or global ID of the project
@@ -1836,7 +1753,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete all autotests from project
         api_instance.delete_project_auto_tests(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->delete_project_auto_tests: %s\n" % e)
 ```
 
@@ -1884,15 +1801,15 @@ Export project with test plans, test suites and test points as JSON file
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.export_project_with_test_plans_json_request import ExportProjectWithTestPlansJsonRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.export_project_with_test_plans_json_request import ExportProjectWithTestPlansJsonRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1908,7 +1825,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Specifies the ID of the project you want to export.
@@ -1920,7 +1837,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Export project with test plans, test suites and test points as JSON file
         api_response = api_instance.export_with_test_plans_and_configurations(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->export_with_test_plans_and_configurations: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1929,7 +1846,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Export project with test plans, test suites and test points as JSON file
         api_response = api_instance.export_with_test_plans_and_configurations(id, include_attachments=include_attachments, export_project_with_test_plans_json_request=export_project_with_test_plans_json_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->export_with_test_plans_and_configurations: %s\n" % e)
 ```
 
@@ -1980,14 +1897,14 @@ Get all projects
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.project_model import ProjectModel
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.project_model import ProjectModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -2003,7 +1920,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     is_deleted = True # bool | If result must consist of only actual/deleted parameters (optional)
@@ -2020,7 +1937,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get all projects
         api_response = api_instance.get_all_projects(is_deleted=is_deleted, project_name=project_name, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->get_all_projects: %s\n" % e)
 ```
 
@@ -2073,14 +1990,14 @@ Get namespaces of autotests in project
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.auto_test_namespace_model import AutoTestNamespaceModel
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.auto_test_namespace_model import AutoTestNamespaceModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -2096,7 +2013,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
@@ -2106,7 +2023,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get namespaces of autotests in project
         api_response = api_instance.get_auto_tests_namespaces(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->get_auto_tests_namespaces: %s\n" % e)
 ```
 
@@ -2154,15 +2071,15 @@ Get project by ID
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.project_model import ProjectModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.project_model import ProjectModel
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -2178,7 +2095,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
@@ -2188,7 +2105,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get project by ID
         api_response = api_instance.get_project_by_id(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->get_project_by_id: %s\n" % e)
 ```
 
@@ -2237,14 +2154,14 @@ Get project test plans
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_plan_model import TestPlanModel
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.test_plan_model import TestPlanModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -2260,7 +2177,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
@@ -2271,7 +2188,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get project test plans
         api_response = api_instance.get_test_plans_by_project_id(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->get_test_plans_by_project_id: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -2280,7 +2197,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get project test plans
         api_response = api_instance.get_test_plans_by_project_id(id, is_deleted=is_deleted)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->get_test_plans_by_project_id: %s\n" % e)
 ```
 
@@ -2329,14 +2246,14 @@ Get project test runs
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.test_run_v2_get_model import TestRunV2GetModel
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.test_run_v2_get_model import TestRunV2GetModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -2352,7 +2269,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     id = "id_example" # str | Project internal (UUID) or global (integer) identifier
@@ -2374,7 +2291,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get project test runs
         api_response = api_instance.get_test_runs_by_project_id(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->get_test_runs_by_project_id: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -2383,7 +2300,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get project test runs
         api_response = api_instance.get_test_runs_by_project_id(id, not_started=not_started, in_progress=in_progress, stopped=stopped, completed=completed, created_date_from=created_date_from, created_date_to=created_date_to, test_plan_id=test_plan_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->get_test_runs_by_project_id: %s\n" % e)
 ```
 
@@ -2443,15 +2360,15 @@ Update project
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import projects_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.update_project_request import UpdateProjectRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import projects_api
+from testgear_api_client.model.update_project_request import UpdateProjectRequest
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -2467,7 +2384,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = projects_api.ProjectsApi(api_client)
     update_project_request = UpdateProjectRequest(None) # UpdateProjectRequest |  (optional)
@@ -2477,7 +2394,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Update project
         api_instance.update_project(update_project_request=update_project_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectsApi->update_project: %s\n" % e)
 ```
 
