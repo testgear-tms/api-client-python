@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testgear_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,15 +21,15 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_test_results_id_put_request import ApiV2TestResultsIdPutRequest
-from testit_api_client.model.api_v2_test_results_search_post_request import ApiV2TestResultsSearchPostRequest
-from testit_api_client.model.attachment_model import AttachmentModel
-from testit_api_client.model.image_resize_type import ImageResizeType
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_result_model import TestResultModel
-from testit_api_client.model.test_result_short_get_model import TestResultShortGetModel
-from testit_api_client.model.test_results_statistics_get_model import TestResultsStatisticsGetModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.api_v2_test_results_id_put_request import ApiV2TestResultsIdPutRequest
+from testgear_api_client.model.api_v2_test_results_search_post_request import ApiV2TestResultsSearchPostRequest
+from testgear_api_client.model.attachment_model import AttachmentModel
+from testgear_api_client.model.image_resize_type import ImageResizeType
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.test_result_model import TestResultModel
+from testgear_api_client.model.test_result_short_get_model import TestResultShortGetModel
+from testgear_api_client.model.test_results_statistics_get_model import TestResultsStatisticsGetModel
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
 class TestResultsApi(object):

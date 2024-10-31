@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,12 +26,12 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.failure_category_model import FailureCategoryModel
-    from testit_api_client.model.failure_class_regex_model import FailureClassRegexModel
+    from testgear_api_client.model.failure_category_model import FailureCategoryModel
+    from testgear_api_client.model.failure_class_regex_model import FailureClassRegexModel
     globals()['FailureCategoryModel'] = FailureCategoryModel
     globals()['FailureClassRegexModel'] = FailureClassRegexModel
 

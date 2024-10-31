@@ -1,4 +1,4 @@
-# testit_api_client.ProjectConfigurationsApi
+# testgear_api_client.ProjectConfigurationsApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,15 +20,15 @@ Get project configurations
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_configurations_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.configuration_model import ConfigurationModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import project_configurations_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.configuration_model import ConfigurationModel
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -44,7 +44,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_configurations_api.ProjectConfigurationsApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -54,7 +54,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get project configurations
         api_response = api_instance.get_configurations_by_project_id(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectConfigurationsApi->get_configurations_by_project_id: %s\n" % e)
 ```
 

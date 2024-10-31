@@ -1,4 +1,4 @@
-# testit_api_client.ProjectImportApi
+# testgear_api_client.ProjectImportApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,12 +20,12 @@ Import project from JSON file into existing project in background job
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_import_api
+import testgear_api_client
+from testgear_api_client.api import project_import_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -41,7 +41,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_import_api.ProjectImportApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -52,7 +52,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Import project from JSON file into existing project in background job
         api_response = api_instance.background_import_to_existing_project(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectImportApi->background_import_to_existing_project: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -61,7 +61,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Import project from JSON file into existing project in background job
         api_response = api_instance.background_import_to_existing_project(project_id, file=file)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectImportApi->background_import_to_existing_project: %s\n" % e)
 ```
 
@@ -107,12 +107,12 @@ Import project from Zip file into existing project in background job
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_import_api
+import testgear_api_client
+from testgear_api_client.api import project_import_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -128,7 +128,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_import_api.ProjectImportApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -139,7 +139,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Import project from Zip file into existing project in background job
         api_response = api_instance.background_import_zip_to_existing_project(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectImportApi->background_import_zip_to_existing_project: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -148,7 +148,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Import project from Zip file into existing project in background job
         api_response = api_instance.background_import_zip_to_existing_project(project_id, file=file)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectImportApi->background_import_zip_to_existing_project: %s\n" % e)
 ```
 
@@ -196,13 +196,13 @@ Import project from JSON file into existing project
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_import_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import project_import_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -218,7 +218,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_import_api.ProjectImportApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -229,7 +229,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Import project from JSON file into existing project
         api_instance.import_to_existing_project(project_id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectImportApi->import_to_existing_project: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -237,7 +237,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Import project from JSON file into existing project
         api_instance.import_to_existing_project(project_id, include_attachments=include_attachments, file=file)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectImportApi->import_to_existing_project: %s\n" % e)
 ```
 

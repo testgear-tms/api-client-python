@@ -1,4 +1,4 @@
-# testit_api_client.WorkItemsApi
+# testgear_api_client.WorkItemsApi
 
 All URIs are relative to *http://localhost*
 
@@ -44,14 +44,14 @@ Upload and link attachment to WorkItem
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -67,7 +67,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Work item internal identifier (guid format)
@@ -78,7 +78,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Upload and link attachment to WorkItem
         api_response = api_instance.api_v2_work_items_id_attachments_post(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_attachments_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -87,7 +87,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Upload and link attachment to WorkItem
         api_response = api_instance.api_v2_work_items_id_attachments_post(id, file=file)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_attachments_post: %s\n" % e)
 ```
 
@@ -139,15 +139,15 @@ Transform CheckList to TestCase
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_model import WorkItemModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.work_item_model import WorkItemModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -163,7 +163,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "id_example" # str | 
@@ -173,7 +173,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Transform CheckList to TestCase
         api_response = api_instance.api_v2_work_items_id_check_list_transform_to_test_case_post(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_check_list_transform_to_test_case_post: %s\n" % e)
 ```
 
@@ -224,14 +224,14 @@ Get change history of WorkItem
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.work_item_change_model import WorkItemChangeModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.work_item_change_model import WorkItemChangeModel
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -247,7 +247,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "id_example" # str | 
@@ -262,7 +262,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get change history of WorkItem
         api_response = api_instance.api_v2_work_items_id_history_get(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_history_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -271,7 +271,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get change history of WorkItem
         api_response = api_instance.api_v2_work_items_id_history_get(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_history_get: %s\n" % e)
 ```
 
@@ -326,13 +326,13 @@ Delete like from WorkItem
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -348,7 +348,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "id_example" # str | 
@@ -357,7 +357,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete like from WorkItem
         api_instance.api_v2_work_items_id_like_delete(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_like_delete: %s\n" % e)
 ```
 
@@ -405,13 +405,13 @@ Set like to WorkItem
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -427,7 +427,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "id_example" # str | 
@@ -436,7 +436,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Set like to WorkItem
         api_instance.api_v2_work_items_id_like_post(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_like_post: %s\n" % e)
 ```
 
@@ -484,13 +484,13 @@ Get likes count of WorkItem
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -506,7 +506,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "id_example" # str | 
@@ -516,7 +516,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get likes count of WorkItem
         api_response = api_instance.api_v2_work_items_id_likes_count_get(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_likes_count_get: %s\n" % e)
 ```
 
@@ -565,14 +565,14 @@ Get likes of WorkItem
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.work_item_like_model import WorkItemLikeModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.work_item_like_model import WorkItemLikeModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -588,7 +588,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "id_example" # str | 
@@ -598,7 +598,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get likes of WorkItem
         api_response = api_instance.api_v2_work_items_id_likes_get(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_likes_get: %s\n" % e)
 ```
 
@@ -647,14 +647,14 @@ Get test results history of WorkItem
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -670,7 +670,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "id_example" # str | 
@@ -704,7 +704,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get test results history of WorkItem
         api_response = api_instance.api_v2_work_items_id_test_results_history_get(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_test_results_history_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -713,7 +713,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get test results history of WorkItem
         api_response = api_instance.api_v2_work_items_id_test_results_history_get(id, _from=_from, to=to, configuration_ids=configuration_ids, test_plan_ids=test_plan_ids, user_ids=user_ids, outcomes=outcomes, is_automated=is_automated, automated=automated, test_run_ids=test_run_ids, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_test_results_history_get: %s\n" % e)
 ```
 
@@ -776,14 +776,14 @@ Set WorkItem as actual
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.work_item_model import WorkItemModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.work_item_model import WorkItemModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -799,7 +799,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "id_example" # str | 
@@ -810,7 +810,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Set WorkItem as actual
         api_response = api_instance.api_v2_work_items_id_version_version_id_actual_post(id, version_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_id_version_version_id_actual_post: %s\n" % e)
 ```
 
@@ -861,15 +861,15 @@ Move WorkItem to another section
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.api_v2_work_items_move_post_request import ApiV2WorkItemsMovePostRequest
-from testit_api_client.model.work_item_short_model import WorkItemShortModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.work_item_short_model import WorkItemShortModel
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.api_v2_work_items_move_post_request import ApiV2WorkItemsMovePostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -885,7 +885,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     api_v2_work_items_move_post_request = ApiV2WorkItemsMovePostRequest(None) # ApiV2WorkItemsMovePostRequest |  (optional)
@@ -896,7 +896,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Move WorkItem to another section
         api_response = api_instance.api_v2_work_items_move_post(api_v2_work_items_move_post_request=api_v2_work_items_move_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_move_post: %s\n" % e)
 ```
 
@@ -943,15 +943,15 @@ Search for work items
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_short_model import WorkItemShortModel
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.work_item_short_model import WorkItemShortModel
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -967,7 +967,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -983,7 +983,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for work items
         api_response = api_instance.api_v2_work_items_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_project_id_work_items_search_post_request=api_v2_projects_project_id_work_items_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_search_post: %s\n" % e)
 ```
 
@@ -1035,14 +1035,14 @@ Get SharedStep references in sections
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.shared_step_reference_section_model import SharedStepReferenceSectionModel
-from testit_api_client.model.api_v2_work_items_shared_step_id_references_sections_post_request import ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.api_v2_work_items_shared_step_id_references_sections_post_request import ApiV2WorkItemsSharedStepIdReferencesSectionsPostRequest
+from testgear_api_client.model.shared_step_reference_section_model import SharedStepReferenceSectionModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1058,7 +1058,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     shared_step_id = "sharedStepId_example" # str | 
@@ -1074,7 +1074,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get SharedStep references in sections
         api_response = api_instance.api_v2_work_items_shared_step_id_references_sections_post(shared_step_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_shared_step_id_references_sections_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1083,7 +1083,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get SharedStep references in sections
         api_response = api_instance.api_v2_work_items_shared_step_id_references_sections_post(shared_step_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_work_items_shared_step_id_references_sections_post_request=api_v2_work_items_shared_step_id_references_sections_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_shared_step_id_references_sections_post: %s\n" % e)
 ```
 
@@ -1137,14 +1137,14 @@ Get SharedStep references in work items
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.shared_step_reference_model import SharedStepReferenceModel
-from testit_api_client.model.api_v2_work_items_shared_step_id_references_work_items_post_request import ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.shared_step_reference_model import SharedStepReferenceModel
+from testgear_api_client.model.api_v2_work_items_shared_step_id_references_work_items_post_request import ApiV2WorkItemsSharedStepIdReferencesWorkItemsPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1160,7 +1160,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     shared_step_id = "sharedStepId_example" # str | 
@@ -1176,7 +1176,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get SharedStep references in work items
         api_response = api_instance.api_v2_work_items_shared_step_id_references_work_items_post(shared_step_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_shared_step_id_references_work_items_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1185,7 +1185,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get SharedStep references in work items
         api_response = api_instance.api_v2_work_items_shared_step_id_references_work_items_post(shared_step_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_work_items_shared_step_id_references_work_items_post_request=api_v2_work_items_shared_step_id_references_work_items_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_shared_step_id_references_work_items_post: %s\n" % e)
 ```
 
@@ -1239,14 +1239,14 @@ Get SharedStep references
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.shared_step_reference_model import SharedStepReferenceModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.shared_step_reference_model import SharedStepReferenceModel
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1262,7 +1262,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     shared_step_id = "sharedStepId_example" # str | 
@@ -1272,7 +1272,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get SharedStep references
         api_response = api_instance.api_v2_work_items_shared_steps_shared_step_id_references_get(shared_step_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->api_v2_work_items_shared_steps_shared_step_id_references_get: %s\n" % e)
 ```
 
@@ -1321,14 +1321,14 @@ Create Test Case, Checklist or Shared Step
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.work_item_model import WorkItemModel
-from testit_api_client.model.create_work_item_request import CreateWorkItemRequest
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.create_work_item_request import CreateWorkItemRequest
+from testgear_api_client.model.work_item_model import WorkItemModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1344,7 +1344,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     create_work_item_request = CreateWorkItemRequest(None) # CreateWorkItemRequest |  (optional)
@@ -1355,7 +1355,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Create Test Case, Checklist or Shared Step
         api_response = api_instance.create_work_item(create_work_item_request=create_work_item_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->create_work_item: %s\n" % e)
 ```
 
@@ -1405,12 +1405,12 @@ Delete all links AutoTests from WorkItem by Id or GlobalId
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
+import testgear_api_client
+from testgear_api_client.api import work_items_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1426,7 +1426,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | WorkItem internal (guid format) or  global(integer format) identifier\"
@@ -1435,7 +1435,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete all links AutoTests from WorkItem by Id or GlobalId
         api_instance.delete_all_work_items_from_auto_test(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->delete_all_work_items_from_auto_test: %s\n" % e)
 ```
 
@@ -1486,12 +1486,12 @@ Delete Test Case, Checklist or Shared Step by Id or GlobalId
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
+import testgear_api_client
+from testgear_api_client.api import work_items_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1507,7 +1507,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | WorkItem internal (guid format) or  global(integer format) identifier\"
@@ -1516,7 +1516,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete Test Case, Checklist or Shared Step by Id or GlobalId
         api_instance.delete_work_item(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->delete_work_item: %s\n" % e)
 ```
 
@@ -1567,13 +1567,13 @@ Get all AutoTests linked to WorkItem by Id or GlobalId
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.auto_test_model import AutoTestModel
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.auto_test_model import AutoTestModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1589,7 +1589,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | WorkItem internal (guid format) or  global(integer format) identifier\"
@@ -1599,7 +1599,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get all AutoTests linked to WorkItem by Id or GlobalId
         api_response = api_instance.get_auto_tests_for_work_item(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->get_auto_tests_for_work_item: %s\n" % e)
 ```
 
@@ -1647,14 +1647,14 @@ Get iterations by work item Id or GlobalId
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.iteration_model import IterationModel
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.iteration_model import IterationModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1670,7 +1670,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | WorkItem internal (guid format) or  global(integer format) identifier\"
@@ -1682,7 +1682,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get iterations by work item Id or GlobalId
         api_response = api_instance.get_iterations(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->get_iterations: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1691,7 +1691,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get iterations by work item Id or GlobalId
         api_response = api_instance.get_iterations(id, version_id=version_id, version_number=version_number)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->get_iterations: %s\n" % e)
 ```
 
@@ -1743,13 +1743,13 @@ Get Test Case, Checklist or Shared Step by Id or GlobalId
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.work_item_model import WorkItemModel
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.work_item_model import WorkItemModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1765,7 +1765,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | WorkItem internal (guid format) or  global(integer format) identifier\"
@@ -1777,7 +1777,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get Test Case, Checklist or Shared Step by Id or GlobalId
         api_response = api_instance.get_work_item_by_id(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->get_work_item_by_id: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1786,7 +1786,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get Test Case, Checklist or Shared Step by Id or GlobalId
         api_response = api_instance.get_work_item_by_id(id, version_id=version_id, version_number=version_number)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->get_work_item_by_id: %s\n" % e)
 ```
 
@@ -1838,13 +1838,13 @@ Get WorkItem chronology by Id or GlobalId
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.test_result_chronology_model import TestResultChronologyModel
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.test_result_chronology_model import TestResultChronologyModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1860,7 +1860,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "id_example" # str | 
@@ -1870,7 +1870,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get WorkItem chronology by Id or GlobalId
         api_response = api_instance.get_work_item_chronology(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->get_work_item_chronology: %s\n" % e)
 ```
 
@@ -1920,13 +1920,13 @@ Get WorkItem versions
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.work_item_version_model import WorkItemVersionModel
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.work_item_version_model import WorkItemVersionModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1942,7 +1942,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | WorkItem internal (guid format) or  global(integer format) identifier\"
@@ -1954,7 +1954,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get WorkItem versions
         api_response = api_instance.get_work_item_versions(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->get_work_item_versions: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1963,7 +1963,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get WorkItem versions
         api_response = api_instance.get_work_item_versions(id, work_item_version_id=work_item_version_id, version_number=version_number)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->get_work_item_versions: %s\n" % e)
 ```
 
@@ -2013,14 +2013,14 @@ Permanently delete test case, checklist or shared steps from archive
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -2036,7 +2036,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "id_example" # str | Unique or global ID of the work item
@@ -2045,7 +2045,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Permanently delete test case, checklist or shared steps from archive
         api_instance.purge_work_item(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->purge_work_item: %s\n" % e)
 ```
 
@@ -2094,14 +2094,14 @@ Restore test case, checklist or shared steps from archive
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -2117,7 +2117,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     id = "id_example" # str | Unique or global ID of the work item
@@ -2126,7 +2126,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Restore test case, checklist or shared steps from archive
         api_instance.restore_work_item(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->restore_work_item: %s\n" % e)
 ```
 
@@ -2176,13 +2176,13 @@ Update Test Case, Checklist or Shared Step
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import work_items_api
-from testit_api_client.model.update_work_item_request import UpdateWorkItemRequest
+import testgear_api_client
+from testgear_api_client.api import work_items_api
+from testgear_api_client.model.update_work_item_request import UpdateWorkItemRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -2198,7 +2198,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = work_items_api.WorkItemsApi(api_client)
     update_work_item_request = UpdateWorkItemRequest(None) # UpdateWorkItemRequest |  (optional)
@@ -2208,7 +2208,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Update Test Case, Checklist or Shared Step
         api_instance.update_work_item(update_work_item_request=update_work_item_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling WorkItemsApi->update_work_item: %s\n" % e)
 ```
 

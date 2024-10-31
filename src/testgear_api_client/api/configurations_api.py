@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testgear_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,15 +21,15 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_configurations_create_by_parameters_post_request import ApiV2ConfigurationsCreateByParametersPostRequest
-from testit_api_client.model.api_v2_configurations_purge_bulk_post_request import ApiV2ConfigurationsPurgeBulkPostRequest
-from testit_api_client.model.api_v2_configurations_put_request import ApiV2ConfigurationsPutRequest
-from testit_api_client.model.api_v2_configurations_search_post_request import ApiV2ConfigurationsSearchPostRequest
-from testit_api_client.model.configuration_model import ConfigurationModel
-from testit_api_client.model.create_configuration_request import CreateConfigurationRequest
-from testit_api_client.model.operation import Operation
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.api_v2_configurations_create_by_parameters_post_request import ApiV2ConfigurationsCreateByParametersPostRequest
+from testgear_api_client.model.api_v2_configurations_purge_bulk_post_request import ApiV2ConfigurationsPurgeBulkPostRequest
+from testgear_api_client.model.api_v2_configurations_put_request import ApiV2ConfigurationsPutRequest
+from testgear_api_client.model.api_v2_configurations_search_post_request import ApiV2ConfigurationsSearchPostRequest
+from testgear_api_client.model.configuration_model import ConfigurationModel
+from testgear_api_client.model.create_configuration_request import CreateConfigurationRequest
+from testgear_api_client.model.operation import Operation
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 
 
 class ConfigurationsApi(object):

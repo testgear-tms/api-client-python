@@ -1,4 +1,4 @@
-# testit_api_client.ProjectTestPlansApi
+# testgear_api_client.ProjectTestPlansApi
 
 All URIs are relative to *http://localhost*
 
@@ -25,13 +25,13 @@ Get TestPlans analytics
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_test_plans_api
-from testit_api_client.model.test_plan_with_analytic_model import TestPlanWithAnalyticModel
+import testgear_api_client
+from testgear_api_client.api import project_test_plans_api
+from testgear_api_client.model.test_plan_with_analytic_model import TestPlanWithAnalyticModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -47,7 +47,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_test_plans_api.ProjectTestPlansApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) identifier
@@ -64,7 +64,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get TestPlans analytics
         api_response = api_instance.api_v2_projects_project_id_test_plans_analytics_get(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_analytics_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -73,7 +73,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get TestPlans analytics
         api_response = api_instance.api_v2_projects_project_id_test_plans_analytics_get(project_id, is_deleted=is_deleted, must_update_cache=must_update_cache, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_analytics_get: %s\n" % e)
 ```
 
@@ -124,14 +124,14 @@ Delete multiple test plans
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_test_plans_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_projects_project_id_test_plans_delete_bulk_post_request import ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
+import testgear_api_client
+from testgear_api_client.api import project_test_plans_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.api_v2_projects_project_id_test_plans_delete_bulk_post_request import ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -147,7 +147,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_test_plans_api.ProjectTestPlansApi(api_client)
     project_id = "projectId_example" # str | Unique or global ID of the project
@@ -158,7 +158,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Delete multiple test plans
         api_response = api_instance.api_v2_projects_project_id_test_plans_delete_bulk_post(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_delete_bulk_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -167,7 +167,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Delete multiple test plans
         api_response = api_instance.api_v2_projects_project_id_test_plans_delete_bulk_post(project_id, api_v2_projects_project_id_test_plans_delete_bulk_post_request=api_v2_projects_project_id_test_plans_delete_bulk_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_delete_bulk_post: %s\n" % e)
 ```
 
@@ -215,12 +215,12 @@ Checks if TestPlan exists with the specified name exists for the project
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_test_plans_api
+import testgear_api_client
+from testgear_api_client.api import project_test_plans_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -236,7 +236,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_test_plans_api.ProjectTestPlansApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -247,7 +247,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Checks if TestPlan exists with the specified name exists for the project
         api_response = api_instance.api_v2_projects_project_id_test_plans_name_exists_get(project_id, name)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_name_exists_get: %s\n" % e)
 ```
 
@@ -292,14 +292,14 @@ Permanently delete multiple archived test plans
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_test_plans_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_projects_project_id_test_plans_delete_bulk_post_request import ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
+import testgear_api_client
+from testgear_api_client.api import project_test_plans_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.api_v2_projects_project_id_test_plans_delete_bulk_post_request import ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -315,7 +315,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_test_plans_api.ProjectTestPlansApi(api_client)
     project_id = "projectId_example" # str | Unique or global ID of the project
@@ -325,7 +325,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Permanently delete multiple archived test plans
         api_instance.api_v2_projects_project_id_test_plans_purge_bulk_post(project_id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_purge_bulk_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -333,7 +333,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Permanently delete multiple archived test plans
         api_instance.api_v2_projects_project_id_test_plans_purge_bulk_post(project_id, api_v2_projects_project_id_test_plans_delete_bulk_post_request=api_v2_projects_project_id_test_plans_delete_bulk_post_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_purge_bulk_post: %s\n" % e)
 ```
 
@@ -379,14 +379,14 @@ Restore multiple test plans
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_test_plans_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_projects_project_id_test_plans_delete_bulk_post_request import ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
+import testgear_api_client
+from testgear_api_client.api import project_test_plans_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.api_v2_projects_project_id_test_plans_delete_bulk_post_request import ApiV2ProjectsProjectIdTestPlansDeleteBulkPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -402,7 +402,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_test_plans_api.ProjectTestPlansApi(api_client)
     project_id = "projectId_example" # str | Unique or global ID of the project
@@ -412,7 +412,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Restore multiple test plans
         api_instance.api_v2_projects_project_id_test_plans_restore_bulk_post(project_id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_restore_bulk_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -420,7 +420,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Restore multiple test plans
         api_instance.api_v2_projects_project_id_test_plans_restore_bulk_post(project_id, api_v2_projects_project_id_test_plans_delete_bulk_post_request=api_v2_projects_project_id_test_plans_delete_bulk_post_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_restore_bulk_post: %s\n" % e)
 ```
 
@@ -468,14 +468,14 @@ Get Project TestPlans with analytics
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_test_plans_api
-from testit_api_client.model.test_plan_with_analytic_model import TestPlanWithAnalyticModel
-from testit_api_client.model.api_v2_projects_project_id_test_plans_search_post_request import ApiV2ProjectsProjectIdTestPlansSearchPostRequest
+import testgear_api_client
+from testgear_api_client.api import project_test_plans_api
+from testgear_api_client.model.test_plan_with_analytic_model import TestPlanWithAnalyticModel
+from testgear_api_client.model.api_v2_projects_project_id_test_plans_search_post_request import ApiV2ProjectsProjectIdTestPlansSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -491,7 +491,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_test_plans_api.ProjectTestPlansApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -508,7 +508,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get Project TestPlans with analytics
         api_response = api_instance.api_v2_projects_project_id_test_plans_search_post(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_search_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -517,7 +517,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get Project TestPlans with analytics
         api_response = api_instance.api_v2_projects_project_id_test_plans_search_post(project_id, must_update_cache=must_update_cache, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_project_id_test_plans_search_post_request=api_v2_projects_project_id_test_plans_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlansApi->api_v2_projects_project_id_test_plans_search_post: %s\n" % e)
 ```
 

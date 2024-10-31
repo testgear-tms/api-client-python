@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,18 +26,18 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.attachment_model import AttachmentModel
-    from testit_api_client.model.attachment_model_auto_test_step_results_model import AttachmentModelAutoTestStepResultsModel
-    from testit_api_client.model.auto_test_model import AutoTestModel
-    from testit_api_client.model.link_model import LinkModel
-    from testit_api_client.model.step_comment_model import StepCommentModel
-    from testit_api_client.model.step_result_model import StepResultModel
-    from testit_api_client.model.test_point_put_model import TestPointPutModel
-    from testit_api_client.model.test_result_outcome import TestResultOutcome
+    from testgear_api_client.model.attachment_model import AttachmentModel
+    from testgear_api_client.model.attachment_model_auto_test_step_results_model import AttachmentModelAutoTestStepResultsModel
+    from testgear_api_client.model.auto_test_model import AutoTestModel
+    from testgear_api_client.model.link_model import LinkModel
+    from testgear_api_client.model.step_comment_model import StepCommentModel
+    from testgear_api_client.model.step_result_model import StepResultModel
+    from testgear_api_client.model.test_point_put_model import TestPointPutModel
+    from testgear_api_client.model.test_result_outcome import TestResultOutcome
     globals()['AttachmentModel'] = AttachmentModel
     globals()['AttachmentModelAutoTestStepResultsModel'] = AttachmentModelAutoTestStepResultsModel
     globals()['AutoTestModel'] = AutoTestModel

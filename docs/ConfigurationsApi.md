@@ -1,4 +1,4 @@
-# testit_api_client.ConfigurationsApi
+# testgear_api_client.ConfigurationsApi
 
 All URIs are relative to *http://localhost*
 
@@ -29,14 +29,14 @@ Create configurations by parameters
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import configurations_api
-from testit_api_client.model.api_v2_configurations_create_by_parameters_post_request import ApiV2ConfigurationsCreateByParametersPostRequest
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import configurations_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.api_v2_configurations_create_by_parameters_post_request import ApiV2ConfigurationsCreateByParametersPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -52,7 +52,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     api_v2_configurations_create_by_parameters_post_request = ApiV2ConfigurationsCreateByParametersPostRequest(None) # ApiV2ConfigurationsCreateByParametersPostRequest |  (optional)
@@ -63,7 +63,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Create configurations by parameters
         api_response = api_instance.api_v2_configurations_create_by_parameters_post(api_v2_configurations_create_by_parameters_post_request=api_v2_configurations_create_by_parameters_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_create_by_parameters_post: %s\n" % e)
 ```
 
@@ -108,13 +108,13 @@ Delete multiple configurations
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import configurations_api
-from testit_api_client.model.api_v2_configurations_purge_bulk_post_request import ApiV2ConfigurationsPurgeBulkPostRequest
+import testgear_api_client
+from testgear_api_client.api import configurations_api
+from testgear_api_client.model.api_v2_configurations_purge_bulk_post_request import ApiV2ConfigurationsPurgeBulkPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -130,7 +130,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     api_v2_configurations_purge_bulk_post_request = ApiV2ConfigurationsPurgeBulkPostRequest(None) # ApiV2ConfigurationsPurgeBulkPostRequest |  (optional)
@@ -141,7 +141,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Delete multiple configurations
         api_response = api_instance.api_v2_configurations_delete_bulk_post(api_v2_configurations_purge_bulk_post_request=api_v2_configurations_purge_bulk_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_delete_bulk_post: %s\n" % e)
 ```
 
@@ -185,13 +185,13 @@ Delete configuration
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import configurations_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import configurations_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -207,7 +207,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     id = "id_example" # str | Unique or global ID of the configuration
@@ -216,7 +216,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete configuration
         api_instance.api_v2_configurations_id_delete(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_id_delete: %s\n" % e)
 ```
 
@@ -263,14 +263,14 @@ See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 690
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import configurations_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.operation import Operation
+import testgear_api_client
+from testgear_api_client.api import configurations_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.operation import Operation
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -286,7 +286,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     id = "id_example" # str | Unique ID of the configuration
@@ -303,7 +303,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Patch configuration
         api_instance.api_v2_configurations_id_patch(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_id_patch: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -311,7 +311,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Patch configuration
         api_instance.api_v2_configurations_id_patch(id, operation=operation)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_id_patch: %s\n" % e)
 ```
 
@@ -357,13 +357,13 @@ Permanently delete configuration from archive
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import configurations_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import configurations_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -379,7 +379,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     id = "id_example" # str | Unique or global ID of the configuration
@@ -388,7 +388,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Permanently delete configuration from archive
         api_instance.api_v2_configurations_id_purge_post(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_id_purge_post: %s\n" % e)
 ```
 
@@ -433,13 +433,13 @@ Restore configuration from the archive
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import configurations_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import configurations_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -455,7 +455,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     id = "id_example" # str | Unique or global ID of the configuration
@@ -464,7 +464,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Restore configuration from the archive
         api_instance.api_v2_configurations_id_restore_post(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_id_restore_post: %s\n" % e)
 ```
 
@@ -509,14 +509,14 @@ Permanently delete multiple archived configurations
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import configurations_api
-from testit_api_client.model.api_v2_configurations_purge_bulk_post_request import ApiV2ConfigurationsPurgeBulkPostRequest
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import configurations_api
+from testgear_api_client.model.api_v2_configurations_purge_bulk_post_request import ApiV2ConfigurationsPurgeBulkPostRequest
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -532,7 +532,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     api_v2_configurations_purge_bulk_post_request = ApiV2ConfigurationsPurgeBulkPostRequest(None) # ApiV2ConfigurationsPurgeBulkPostRequest |  (optional)
@@ -542,7 +542,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Permanently delete multiple archived configurations
         api_instance.api_v2_configurations_purge_bulk_post(api_v2_configurations_purge_bulk_post_request=api_v2_configurations_purge_bulk_post_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_purge_bulk_post: %s\n" % e)
 ```
 
@@ -587,14 +587,14 @@ Edit configuration
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import configurations_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_configurations_put_request import ApiV2ConfigurationsPutRequest
+import testgear_api_client
+from testgear_api_client.api import configurations_api
+from testgear_api_client.model.api_v2_configurations_put_request import ApiV2ConfigurationsPutRequest
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -610,7 +610,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     api_v2_configurations_put_request = ApiV2ConfigurationsPutRequest(None) # ApiV2ConfigurationsPutRequest |  (optional)
@@ -620,7 +620,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Edit configuration
         api_instance.api_v2_configurations_put(api_v2_configurations_put_request=api_v2_configurations_put_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_put: %s\n" % e)
 ```
 
@@ -665,13 +665,13 @@ Restore multiple configurations from the archive
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import configurations_api
-from testit_api_client.model.api_v2_configurations_purge_bulk_post_request import ApiV2ConfigurationsPurgeBulkPostRequest
+import testgear_api_client
+from testgear_api_client.api import configurations_api
+from testgear_api_client.model.api_v2_configurations_purge_bulk_post_request import ApiV2ConfigurationsPurgeBulkPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -687,7 +687,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     api_v2_configurations_purge_bulk_post_request = ApiV2ConfigurationsPurgeBulkPostRequest(None) # ApiV2ConfigurationsPurgeBulkPostRequest |  (optional)
@@ -698,7 +698,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Restore multiple configurations from the archive
         api_response = api_instance.api_v2_configurations_restore_bulk_post(api_v2_configurations_purge_bulk_post_request=api_v2_configurations_purge_bulk_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_restore_bulk_post: %s\n" % e)
 ```
 
@@ -742,14 +742,14 @@ Search for configurations
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import configurations_api
-from testit_api_client.model.configuration_model import ConfigurationModel
-from testit_api_client.model.api_v2_configurations_search_post_request import ApiV2ConfigurationsSearchPostRequest
+import testgear_api_client
+from testgear_api_client.api import configurations_api
+from testgear_api_client.model.configuration_model import ConfigurationModel
+from testgear_api_client.model.api_v2_configurations_search_post_request import ApiV2ConfigurationsSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -765,7 +765,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -781,7 +781,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for configurations
         api_response = api_instance.api_v2_configurations_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_configurations_search_post_request=api_v2_configurations_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->api_v2_configurations_search_post: %s\n" % e)
 ```
 
@@ -832,16 +832,16 @@ Create Configuration
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import configurations_api
-from testit_api_client.model.create_configuration_request import CreateConfigurationRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.configuration_model import ConfigurationModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import configurations_api
+from testgear_api_client.model.create_configuration_request import CreateConfigurationRequest
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.configuration_model import ConfigurationModel
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -857,7 +857,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     create_configuration_request = CreateConfigurationRequest(None) # CreateConfigurationRequest |  (optional)
@@ -868,7 +868,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Create Configuration
         api_response = api_instance.create_configuration(create_configuration_request=create_configuration_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->create_configuration: %s\n" % e)
 ```
 
@@ -919,14 +919,14 @@ Get configuration by internal or global ID
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import configurations_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.configuration_model import ConfigurationModel
+import testgear_api_client
+from testgear_api_client.api import configurations_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.configuration_model import ConfigurationModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -942,7 +942,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = configurations_api.ConfigurationsApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Configuration internal (guid format) or global (integer format) identifier
@@ -952,7 +952,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get configuration by internal or global ID
         api_response = api_instance.get_configuration_by_id(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ConfigurationsApi->get_configuration_by_id: %s\n" % e)
 ```
 

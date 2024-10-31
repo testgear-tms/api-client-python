@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testgear_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,24 +21,24 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_auto_tests_flaky_bulk_post_request import ApiV2AutoTestsFlakyBulkPostRequest
-from testit_api_client.model.api_v2_auto_tests_id_test_results_search_post_request import ApiV2AutoTestsIdTestResultsSearchPostRequest
-from testit_api_client.model.api_v2_auto_tests_search_post_request import ApiV2AutoTestsSearchPostRequest
-from testit_api_client.model.auto_test_average_duration_model import AutoTestAverageDurationModel
-from testit_api_client.model.auto_test_model import AutoTestModel
-from testit_api_client.model.auto_test_post_model import AutoTestPostModel
-from testit_api_client.model.auto_test_put_model import AutoTestPutModel
-from testit_api_client.model.autotest_result_historical_get_model import AutotestResultHistoricalGetModel
-from testit_api_client.model.create_auto_test_request import CreateAutoTestRequest
-from testit_api_client.model.link_auto_test_to_work_item_request import LinkAutoTestToWorkItemRequest
-from testit_api_client.model.operation import Operation
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_result_chronology_model import TestResultChronologyModel
-from testit_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
-from testit_api_client.model.test_run_short_model import TestRunShortModel
-from testit_api_client.model.update_auto_test_request import UpdateAutoTestRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.work_item_identifier_model import WorkItemIdentifierModel
+from testgear_api_client.model.api_v2_auto_tests_flaky_bulk_post_request import ApiV2AutoTestsFlakyBulkPostRequest
+from testgear_api_client.model.api_v2_auto_tests_id_test_results_search_post_request import ApiV2AutoTestsIdTestResultsSearchPostRequest
+from testgear_api_client.model.api_v2_auto_tests_search_post_request import ApiV2AutoTestsSearchPostRequest
+from testgear_api_client.model.auto_test_average_duration_model import AutoTestAverageDurationModel
+from testgear_api_client.model.auto_test_model import AutoTestModel
+from testgear_api_client.model.auto_test_post_model import AutoTestPostModel
+from testgear_api_client.model.auto_test_put_model import AutoTestPutModel
+from testgear_api_client.model.autotest_result_historical_get_model import AutotestResultHistoricalGetModel
+from testgear_api_client.model.create_auto_test_request import CreateAutoTestRequest
+from testgear_api_client.model.link_auto_test_to_work_item_request import LinkAutoTestToWorkItemRequest
+from testgear_api_client.model.operation import Operation
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.test_result_chronology_model import TestResultChronologyModel
+from testgear_api_client.model.test_result_history_report_model import TestResultHistoryReportModel
+from testgear_api_client.model.test_run_short_model import TestRunShortModel
+from testgear_api_client.model.update_auto_test_request import UpdateAutoTestRequest
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.work_item_identifier_model import WorkItemIdentifierModel
 
 
 class AutoTestsApi(object):

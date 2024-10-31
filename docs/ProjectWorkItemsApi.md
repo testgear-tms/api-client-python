@@ -1,4 +1,4 @@
-# testit_api_client.ProjectWorkItemsApi
+# testgear_api_client.ProjectWorkItemsApi
 
 All URIs are relative to *http://localhost*
 
@@ -22,15 +22,15 @@ Search for work items and group results by attribute
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_work_items_api
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_grouped_post_request import ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_group_model import WorkItemGroupModel
+import testgear_api_client
+from testgear_api_client.api import project_work_items_api
+from testgear_api_client.model.work_item_group_model import WorkItemGroupModel
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.api_v2_projects_project_id_work_items_search_grouped_post_request import ApiV2ProjectsProjectIdWorkItemsSearchGroupedPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -46,7 +46,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_work_items_api.ProjectWorkItemsApi(api_client)
     project_id = "projectId_example" # str | Unique or global ID of the project
@@ -62,7 +62,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for work items and group results by attribute
         api_response = api_instance.api_v2_projects_project_id_work_items_search_grouped_post(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectWorkItemsApi->api_v2_projects_project_id_work_items_search_grouped_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -71,7 +71,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for work items and group results by attribute
         api_response = api_instance.api_v2_projects_project_id_work_items_search_grouped_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_project_id_work_items_search_grouped_post_request=api_v2_projects_project_id_work_items_search_grouped_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectWorkItemsApi->api_v2_projects_project_id_work_items_search_grouped_post: %s\n" % e)
 ```
 
@@ -122,14 +122,14 @@ Search for work items and extract IDs only
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_work_items_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+import testgear_api_client
+from testgear_api_client.api import project_work_items_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -145,7 +145,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_work_items_api.ProjectWorkItemsApi(api_client)
     project_id = "projectId_example" # str | Unique or global ID of the project
@@ -161,7 +161,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for work items and extract IDs only
         api_response = api_instance.api_v2_projects_project_id_work_items_search_id_post(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectWorkItemsApi->api_v2_projects_project_id_work_items_search_id_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -170,7 +170,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for work items and extract IDs only
         api_response = api_instance.api_v2_projects_project_id_work_items_search_id_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_project_id_work_items_search_post_request=api_v2_projects_project_id_work_items_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectWorkItemsApi->api_v2_projects_project_id_work_items_search_id_post: %s\n" % e)
 ```
 
@@ -221,15 +221,15 @@ Search for work items
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_work_items_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_short_model import WorkItemShortModel
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+import testgear_api_client
+from testgear_api_client.api import project_work_items_api
+from testgear_api_client.model.work_item_short_model import WorkItemShortModel
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -245,7 +245,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_work_items_api.ProjectWorkItemsApi(api_client)
     project_id = "projectId_example" # str | Unique or global ID of the project
@@ -261,7 +261,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for work items
         api_response = api_instance.api_v2_projects_project_id_work_items_search_post(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectWorkItemsApi->api_v2_projects_project_id_work_items_search_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -270,7 +270,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for work items
         api_response = api_instance.api_v2_projects_project_id_work_items_search_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_project_id_work_items_search_post_request=api_v2_projects_project_id_work_items_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectWorkItemsApi->api_v2_projects_project_id_work_items_search_post: %s\n" % e)
 ```
 
@@ -323,13 +323,13 @@ Get WorkItems Tags
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_work_items_api
-from testit_api_client.model.tag_short_model import TagShortModel
+import testgear_api_client
+from testgear_api_client.api import project_work_items_api
+from testgear_api_client.model.tag_short_model import TagShortModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -345,7 +345,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_work_items_api.ProjectWorkItemsApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) identifier
@@ -356,7 +356,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get WorkItems Tags
         api_response = api_instance.api_v2_projects_project_id_work_items_tags_get(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectWorkItemsApi->api_v2_projects_project_id_work_items_tags_get: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -365,7 +365,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get WorkItems Tags
         api_response = api_instance.api_v2_projects_project_id_work_items_tags_get(project_id, is_deleted=is_deleted)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectWorkItemsApi->api_v2_projects_project_id_work_items_tags_get: %s\n" % e)
 ```
 
@@ -412,14 +412,14 @@ Get project work items
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_work_items_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.work_item_short_model import WorkItemShortModel
+import testgear_api_client
+from testgear_api_client.api import project_work_items_api
+from testgear_api_client.model.work_item_short_model import WorkItemShortModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -435,7 +435,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_work_items_api.ProjectWorkItemsApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -455,7 +455,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get project work items
         api_response = api_instance.get_work_items_by_project_id(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectWorkItemsApi->get_work_items_by_project_id: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -464,7 +464,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get project work items
         api_response = api_instance.get_work_items_by_project_id(project_id, is_deleted=is_deleted, tag_names=tag_names, include_iterations=include_iterations, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectWorkItemsApi->get_work_items_by_project_id: %s\n" % e)
 ```
 

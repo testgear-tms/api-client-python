@@ -1,4 +1,4 @@
-# testit_api_client.ProjectTestPlanAttributesApi
+# testgear_api_client.ProjectTestPlanAttributesApi
 
 All URIs are relative to *http://localhost*
 
@@ -24,13 +24,13 @@ Add attributes to project's test plans
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_test_plan_attributes_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import project_test_plan_attributes_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -46,7 +46,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_test_plan_attributes_api.ProjectTestPlanAttributesApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -58,7 +58,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Add attributes to project's test plans
         api_instance.create_custom_attribute_test_plan_project_relations(project_id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlanAttributesApi->create_custom_attribute_test_plan_project_relations: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -66,7 +66,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Add attributes to project's test plans
         api_instance.create_custom_attribute_test_plan_project_relations(project_id, request_body=request_body)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlanAttributesApi->create_custom_attribute_test_plan_project_relations: %s\n" % e)
 ```
 
@@ -115,13 +115,13 @@ Delete attribute from project's test plans
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_test_plan_attributes_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import project_test_plan_attributes_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -137,7 +137,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_test_plan_attributes_api.ProjectTestPlanAttributesApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -147,7 +147,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete attribute from project's test plans
         api_instance.delete_custom_attribute_test_plan_project_relations(project_id, attribute_id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlanAttributesApi->delete_custom_attribute_test_plan_project_relations: %s\n" % e)
 ```
 
@@ -195,14 +195,14 @@ Get project's test plan attributes
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_test_plan_attributes_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.custom_attribute_model import CustomAttributeModel
+import testgear_api_client
+from testgear_api_client.api import project_test_plan_attributes_api
+from testgear_api_client.model.custom_attribute_model import CustomAttributeModel
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -218,7 +218,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_test_plan_attributes_api.ProjectTestPlanAttributesApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -228,7 +228,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get project's test plan attributes
         api_response = api_instance.get_custom_attribute_test_plan_project_relations(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlanAttributesApi->get_custom_attribute_test_plan_project_relations: %s\n" % e)
 ```
 
@@ -273,15 +273,15 @@ Search for attributes used in the project test plans
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_test_plan_attributes_api
-from testit_api_client.model.custom_attribute_get_model import CustomAttributeGetModel
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.search_attributes_in_project_request import SearchAttributesInProjectRequest
+import testgear_api_client
+from testgear_api_client.api import project_test_plan_attributes_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.search_attributes_in_project_request import SearchAttributesInProjectRequest
+from testgear_api_client.model.custom_attribute_get_model import CustomAttributeGetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -297,7 +297,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_test_plan_attributes_api.ProjectTestPlanAttributesApi(api_client)
     project_id = "projectId_example" # str | Unique or global project ID
@@ -313,7 +313,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for attributes used in the project test plans
         api_response = api_instance.search_test_plan_attributes_in_project(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlanAttributesApi->search_test_plan_attributes_in_project: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -322,7 +322,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for attributes used in the project test plans
         api_response = api_instance.search_test_plan_attributes_in_project(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, search_attributes_in_project_request=search_attributes_in_project_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlanAttributesApi->search_test_plan_attributes_in_project: %s\n" % e)
 ```
 
@@ -375,14 +375,14 @@ Update attribute of project's test plans
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_test_plan_attributes_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.update_custom_attribute_test_plan_project_relations_request import UpdateCustomAttributeTestPlanProjectRelationsRequest
+import testgear_api_client
+from testgear_api_client.api import project_test_plan_attributes_api
+from testgear_api_client.model.update_custom_attribute_test_plan_project_relations_request import UpdateCustomAttributeTestPlanProjectRelationsRequest
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -398,7 +398,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_test_plan_attributes_api.ProjectTestPlanAttributesApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -408,7 +408,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Update attribute of project's test plans
         api_instance.update_custom_attribute_test_plan_project_relations(project_id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlanAttributesApi->update_custom_attribute_test_plan_project_relations: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -416,7 +416,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Update attribute of project's test plans
         api_instance.update_custom_attribute_test_plan_project_relations(project_id, update_custom_attribute_test_plan_project_relations_request=update_custom_attribute_test_plan_project_relations_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectTestPlanAttributesApi->update_custom_attribute_test_plan_project_relations: %s\n" % e)
 ```
 

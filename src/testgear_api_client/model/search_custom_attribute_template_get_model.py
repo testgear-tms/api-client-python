@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,12 +26,12 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.custom_attribute_model import CustomAttributeModel
-    from testit_api_client.model.project_shortest_model import ProjectShortestModel
+    from testgear_api_client.model.custom_attribute_model import CustomAttributeModel
+    from testgear_api_client.model.project_shortest_model import ProjectShortestModel
     globals()['CustomAttributeModel'] = CustomAttributeModel
     globals()['ProjectShortestModel'] = ProjectShortestModel
 

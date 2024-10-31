@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,14 +26,14 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_point_short_get_model_last_test_result import TestPointShortGetModelLastTestResult
-    from testit_api_client.model.test_point_status import TestPointStatus
-    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testit_api_client.model.work_item_state import WorkItemState
+    from testgear_api_client.model.test_point_short_get_model_last_test_result import TestPointShortGetModelLastTestResult
+    from testgear_api_client.model.test_point_status import TestPointStatus
+    from testgear_api_client.model.work_item_priority_model import WorkItemPriorityModel
+    from testgear_api_client.model.work_item_state import WorkItemState
     globals()['TestPointShortGetModelLastTestResult'] = TestPointShortGetModelLastTestResult
     globals()['TestPointStatus'] = TestPointStatus
     globals()['WorkItemPriorityModel'] = WorkItemPriorityModel

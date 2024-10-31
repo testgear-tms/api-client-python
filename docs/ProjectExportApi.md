@@ -1,4 +1,4 @@
-# testit_api_client.ProjectExportApi
+# testgear_api_client.ProjectExportApi
 
 All URIs are relative to *http://localhost*
 
@@ -24,14 +24,14 @@ Export project as JSON file
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_export_api
-from testit_api_client.model.export_project_json_request import ExportProjectJsonRequest
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import project_export_api
+from testgear_api_client.model.export_project_json_request import ExportProjectJsonRequest
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -47,7 +47,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_export_api.ProjectExportApi(api_client)
     project_id = "projectId_example" # str | Specifies the ID of the project you want to export.
@@ -59,7 +59,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Export project as JSON file
         api_response = api_instance.export(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectExportApi->export: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -68,7 +68,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Export project as JSON file
         api_response = api_instance.export(project_id, include_attachments=include_attachments, export_project_json_request=export_project_json_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectExportApi->export: %s\n" % e)
 ```
 
@@ -116,14 +116,14 @@ Export project as JSON file in background job
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_export_api
-from testit_api_client.model.export_project_json_request import ExportProjectJsonRequest
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import project_export_api
+from testgear_api_client.model.export_project_json_request import ExportProjectJsonRequest
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -139,7 +139,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_export_api.ProjectExportApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -151,7 +151,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Export project as JSON file in background job
         api_response = api_instance.export_project_json(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectExportApi->export_project_json: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -160,7 +160,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Export project as JSON file in background job
         api_response = api_instance.export_project_json(project_id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, export_project_json_request=export_project_json_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectExportApi->export_project_json: %s\n" % e)
 ```
 
@@ -207,14 +207,14 @@ Export project as JSON file with test plans in background job
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_export_api
-from testit_api_client.model.export_project_with_test_plans_json_request import ExportProjectWithTestPlansJsonRequest
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import project_export_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.export_project_with_test_plans_json_request import ExportProjectWithTestPlansJsonRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -230,7 +230,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_export_api.ProjectExportApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -242,7 +242,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Export project as JSON file with test plans in background job
         api_response = api_instance.export_project_with_test_plans_json(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectExportApi->export_project_with_test_plans_json: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -251,7 +251,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Export project as JSON file with test plans in background job
         api_response = api_instance.export_project_with_test_plans_json(project_id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, export_project_with_test_plans_json_request=export_project_with_test_plans_json_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectExportApi->export_project_with_test_plans_json: %s\n" % e)
 ```
 
@@ -298,14 +298,14 @@ Export project as Zip file with test plans in background job
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_export_api
-from testit_api_client.model.export_project_with_test_plans_json_request import ExportProjectWithTestPlansJsonRequest
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import project_export_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.export_project_with_test_plans_json_request import ExportProjectWithTestPlansJsonRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -321,7 +321,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_export_api.ProjectExportApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -333,7 +333,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Export project as Zip file with test plans in background job
         api_response = api_instance.export_project_with_test_plans_zip(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectExportApi->export_project_with_test_plans_zip: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -342,7 +342,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Export project as Zip file with test plans in background job
         api_response = api_instance.export_project_with_test_plans_zip(project_id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, export_project_with_test_plans_json_request=export_project_with_test_plans_json_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectExportApi->export_project_with_test_plans_zip: %s\n" % e)
 ```
 
@@ -389,14 +389,14 @@ Export project as Zip file in background job
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_export_api
-from testit_api_client.model.export_project_json_request import ExportProjectJsonRequest
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import project_export_api
+from testgear_api_client.model.export_project_json_request import ExportProjectJsonRequest
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -412,7 +412,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_export_api.ProjectExportApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -424,7 +424,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Export project as Zip file in background job
         api_response = api_instance.export_project_zip(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectExportApi->export_project_zip: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -433,7 +433,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Export project as Zip file in background job
         api_response = api_instance.export_project_zip(project_id, time_zone_offset_in_minutes=time_zone_offset_in_minutes, export_project_json_request=export_project_json_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectExportApi->export_project_zip: %s\n" % e)
 ```
 

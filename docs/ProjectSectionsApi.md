@@ -1,4 +1,4 @@
-# testit_api_client.ProjectSectionsApi
+# testgear_api_client.ProjectSectionsApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,14 +20,14 @@ Get project sections
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_sections_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.section_model import SectionModel
+import testgear_api_client
+from testgear_api_client.api import project_sections_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.section_model import SectionModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -43,7 +43,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_sections_api.ProjectSectionsApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -58,7 +58,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get project sections
         api_response = api_instance.get_sections_by_project_id(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectSectionsApi->get_sections_by_project_id: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -67,7 +67,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get project sections
         api_response = api_instance.get_sections_by_project_id(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectSectionsApi->get_sections_by_project_id: %s\n" % e)
 ```
 

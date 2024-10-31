@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,23 +26,23 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.string_changed_field_with_diffs_view_model import StringChangedFieldWithDiffsViewModel
-    from testit_api_client.model.work_item_changed_attribute_view_model import WorkItemChangedAttributeViewModel
-    from testit_api_client.model.work_item_changed_fields_view_model import WorkItemChangedFieldsViewModel
-    from testit_api_client.model.work_item_changed_fields_view_model_attachments import WorkItemChangedFieldsViewModelAttachments
-    from testit_api_client.model.work_item_changed_fields_view_model_auto_tests import WorkItemChangedFieldsViewModelAutoTests
-    from testit_api_client.model.work_item_changed_fields_view_model_duration import WorkItemChangedFieldsViewModelDuration
-    from testit_api_client.model.work_item_changed_fields_view_model_global_id import WorkItemChangedFieldsViewModelGlobalId
-    from testit_api_client.model.work_item_changed_fields_view_model_is_deleted import WorkItemChangedFieldsViewModelIsDeleted
-    from testit_api_client.model.work_item_changed_fields_view_model_links import WorkItemChangedFieldsViewModelLinks
-    from testit_api_client.model.work_item_changed_fields_view_model_project_id import WorkItemChangedFieldsViewModelProjectId
-    from testit_api_client.model.work_item_changed_fields_view_model_state import WorkItemChangedFieldsViewModelState
-    from testit_api_client.model.work_item_changed_fields_view_model_steps import WorkItemChangedFieldsViewModelSteps
-    from testit_api_client.model.work_item_changed_fields_view_model_tags import WorkItemChangedFieldsViewModelTags
+    from testgear_api_client.model.string_changed_field_with_diffs_view_model import StringChangedFieldWithDiffsViewModel
+    from testgear_api_client.model.work_item_changed_attribute_view_model import WorkItemChangedAttributeViewModel
+    from testgear_api_client.model.work_item_changed_fields_view_model import WorkItemChangedFieldsViewModel
+    from testgear_api_client.model.work_item_changed_fields_view_model_attachments import WorkItemChangedFieldsViewModelAttachments
+    from testgear_api_client.model.work_item_changed_fields_view_model_auto_tests import WorkItemChangedFieldsViewModelAutoTests
+    from testgear_api_client.model.work_item_changed_fields_view_model_duration import WorkItemChangedFieldsViewModelDuration
+    from testgear_api_client.model.work_item_changed_fields_view_model_global_id import WorkItemChangedFieldsViewModelGlobalId
+    from testgear_api_client.model.work_item_changed_fields_view_model_is_deleted import WorkItemChangedFieldsViewModelIsDeleted
+    from testgear_api_client.model.work_item_changed_fields_view_model_links import WorkItemChangedFieldsViewModelLinks
+    from testgear_api_client.model.work_item_changed_fields_view_model_project_id import WorkItemChangedFieldsViewModelProjectId
+    from testgear_api_client.model.work_item_changed_fields_view_model_state import WorkItemChangedFieldsViewModelState
+    from testgear_api_client.model.work_item_changed_fields_view_model_steps import WorkItemChangedFieldsViewModelSteps
+    from testgear_api_client.model.work_item_changed_fields_view_model_tags import WorkItemChangedFieldsViewModelTags
     globals()['StringChangedFieldWithDiffsViewModel'] = StringChangedFieldWithDiffsViewModel
     globals()['WorkItemChangedAttributeViewModel'] = WorkItemChangedAttributeViewModel
     globals()['WorkItemChangedFieldsViewModel'] = WorkItemChangedFieldsViewModel

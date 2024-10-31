@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,16 +26,16 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.projects_filter_model import ProjectsFilterModel
-    from testit_api_client.model.projects_filter_model_autotests_count import ProjectsFilterModelAutotestsCount
-    from testit_api_client.model.projects_filter_model_checklists_count import ProjectsFilterModelChecklistsCount
-    from testit_api_client.model.projects_filter_model_created_date import ProjectsFilterModelCreatedDate
-    from testit_api_client.model.projects_filter_model_shared_steps_count import ProjectsFilterModelSharedStepsCount
-    from testit_api_client.model.projects_filter_model_test_cases_count import ProjectsFilterModelTestCasesCount
+    from testgear_api_client.model.projects_filter_model import ProjectsFilterModel
+    from testgear_api_client.model.projects_filter_model_autotests_count import ProjectsFilterModelAutotestsCount
+    from testgear_api_client.model.projects_filter_model_checklists_count import ProjectsFilterModelChecklistsCount
+    from testgear_api_client.model.projects_filter_model_created_date import ProjectsFilterModelCreatedDate
+    from testgear_api_client.model.projects_filter_model_shared_steps_count import ProjectsFilterModelSharedStepsCount
+    from testgear_api_client.model.projects_filter_model_test_cases_count import ProjectsFilterModelTestCasesCount
     globals()['ProjectsFilterModel'] = ProjectsFilterModel
     globals()['ProjectsFilterModelAutotestsCount'] = ProjectsFilterModelAutotestsCount
     globals()['ProjectsFilterModelChecklistsCount'] = ProjectsFilterModelChecklistsCount

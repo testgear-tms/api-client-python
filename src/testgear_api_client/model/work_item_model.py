@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,19 +26,19 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.attachment_model import AttachmentModel
-    from testit_api_client.model.auto_test_model import AutoTestModel
-    from testit_api_client.model.iteration_model import IterationModel
-    from testit_api_client.model.link_model import LinkModel
-    from testit_api_client.model.step_model import StepModel
-    from testit_api_client.model.tag_short_model import TagShortModel
-    from testit_api_client.model.work_item_entity_types import WorkItemEntityTypes
-    from testit_api_client.model.work_item_priority_model import WorkItemPriorityModel
-    from testit_api_client.model.work_item_states import WorkItemStates
+    from testgear_api_client.model.attachment_model import AttachmentModel
+    from testgear_api_client.model.auto_test_model import AutoTestModel
+    from testgear_api_client.model.iteration_model import IterationModel
+    from testgear_api_client.model.link_model import LinkModel
+    from testgear_api_client.model.step_model import StepModel
+    from testgear_api_client.model.tag_short_model import TagShortModel
+    from testgear_api_client.model.work_item_entity_types import WorkItemEntityTypes
+    from testgear_api_client.model.work_item_priority_model import WorkItemPriorityModel
+    from testgear_api_client.model.work_item_states import WorkItemStates
     globals()['AttachmentModel'] = AttachmentModel
     globals()['AutoTestModel'] = AutoTestModel
     globals()['IterationModel'] = IterationModel

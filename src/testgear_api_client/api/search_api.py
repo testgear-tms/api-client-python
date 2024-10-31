@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testgear_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,8 +21,8 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_search_global_search_post_request import ApiV2SearchGlobalSearchPostRequest
-from testit_api_client.model.global_search_response import GlobalSearchResponse
+from testgear_api_client.model.api_v2_search_global_search_post_request import ApiV2SearchGlobalSearchPostRequest
+from testgear_api_client.model.global_search_response import GlobalSearchResponse
 
 
 class SearchApi(object):

@@ -1,4 +1,4 @@
-# testit_api_client.ProjectAttributeTemplatesApi
+# testgear_api_client.ProjectAttributeTemplatesApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,15 +20,15 @@ Search for custom attributes templates
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_attribute_templates_api
-from testit_api_client.model.api_v2_projects_project_id_attributes_templates_search_post_request import ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.project_custom_attribute_template_get_model import ProjectCustomAttributeTemplateGetModel
+import testgear_api_client
+from testgear_api_client.api import project_attribute_templates_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.api_v2_projects_project_id_attributes_templates_search_post_request import ApiV2ProjectsProjectIdAttributesTemplatesSearchPostRequest
+from testgear_api_client.model.project_custom_attribute_template_get_model import ProjectCustomAttributeTemplateGetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -44,7 +44,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_attribute_templates_api.ProjectAttributeTemplatesApi(api_client)
     project_id = "projectId_example" # str | 
@@ -60,7 +60,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for custom attributes templates
         api_response = api_instance.api_v2_projects_project_id_attributes_templates_search_post(project_id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectAttributeTemplatesApi->api_v2_projects_project_id_attributes_templates_search_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -69,7 +69,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for custom attributes templates
         api_response = api_instance.api_v2_projects_project_id_attributes_templates_search_post(project_id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_projects_project_id_attributes_templates_search_post_request=api_v2_projects_project_id_attributes_templates_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectAttributeTemplatesApi->api_v2_projects_project_id_attributes_templates_search_post: %s\n" % e)
 ```
 
@@ -122,12 +122,12 @@ Delete CustomAttributeTemplate from Project
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_attribute_templates_api
+import testgear_api_client
+from testgear_api_client.api import project_attribute_templates_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -143,7 +143,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_attribute_templates_api.ProjectAttributeTemplatesApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -153,7 +153,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete CustomAttributeTemplate from Project
         api_instance.api_v2_projects_project_id_attributes_templates_template_id_delete(project_id, template_id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectAttributeTemplatesApi->api_v2_projects_project_id_attributes_templates_template_id_delete: %s\n" % e)
 ```
 
@@ -202,12 +202,12 @@ Add CustomAttributeTemplate to Project
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import project_attribute_templates_api
+import testgear_api_client
+from testgear_api_client.api import project_attribute_templates_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -223,7 +223,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = project_attribute_templates_api.ProjectAttributeTemplatesApi(api_client)
     project_id = "projectId_example" # str | Project internal (UUID) or global (integer) identifier
@@ -233,7 +233,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Add CustomAttributeTemplate to Project
         api_instance.api_v2_projects_project_id_attributes_templates_template_id_post(project_id, template_id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling ProjectAttributeTemplatesApi->api_v2_projects_project_id_attributes_templates_template_id_post: %s\n" % e)
 ```
 

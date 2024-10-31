@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,13 +26,13 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.configuration_extraction_model_project_ids import ConfigurationExtractionModelProjectIds
-    from testit_api_client.model.work_item_extraction_model_ids import WorkItemExtractionModelIds
-    from testit_api_client.model.work_item_extraction_model_section_ids import WorkItemExtractionModelSectionIds
+    from testgear_api_client.model.configuration_extraction_model_project_ids import ConfigurationExtractionModelProjectIds
+    from testgear_api_client.model.work_item_extraction_model_ids import WorkItemExtractionModelIds
+    from testgear_api_client.model.work_item_extraction_model_section_ids import WorkItemExtractionModelSectionIds
     globals()['ConfigurationExtractionModelProjectIds'] = ConfigurationExtractionModelProjectIds
     globals()['WorkItemExtractionModelIds'] = WorkItemExtractionModelIds
     globals()['WorkItemExtractionModelSectionIds'] = WorkItemExtractionModelSectionIds

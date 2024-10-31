@@ -1,4 +1,4 @@
-# testit_api_client.TestSuitesApi
+# testgear_api_client.TestSuitesApi
 
 All URIs are relative to *http://localhost*
 
@@ -30,15 +30,15 @@ Add test-points to test suite
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import test_suites_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import test_suites_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -54,7 +54,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     id = "1ed608bf-8ac9-4ffd-b91e-ebdbbdce6132" # str | Test suite internal identifier
@@ -64,7 +64,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Add test-points to test suite
         api_instance.add_test_points_to_test_suite(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->add_test_points_to_test_suite: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -72,7 +72,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Add test-points to test suite
         api_instance.add_test_points_to_test_suite(id, api_v2_projects_project_id_work_items_search_post_request=api_v2_projects_project_id_work_items_search_post_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->add_test_points_to_test_suite: %s\n" % e)
 ```
 
@@ -124,14 +124,14 @@ See <a href=\"https://www.rfc-editor.org/rfc/rfc6902\" target=\"_blank\">RFC 690
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import test_suites_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.operation import Operation
+import testgear_api_client
+from testgear_api_client.api import test_suites_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.operation import Operation
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -147,7 +147,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     id = "id_example" # str | Test Suite internal (UUID) identifier
@@ -164,7 +164,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Patch test suite
         api_instance.api_v2_test_suites_id_patch(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->api_v2_test_suites_id_patch: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -172,7 +172,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Patch test suite
         api_instance.api_v2_test_suites_id_patch(id, operation=operation)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->api_v2_test_suites_id_patch: %s\n" % e)
 ```
 
@@ -218,13 +218,13 @@ Refresh test suite. Only dynamic test suites are supported by this method
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import test_suites_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import test_suites_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -240,7 +240,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     id = "id_example" # str | Test Suite internal (UUID) identifier
@@ -249,7 +249,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Refresh test suite. Only dynamic test suites are supported by this method
         api_instance.api_v2_test_suites_id_refresh_post(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->api_v2_test_suites_id_refresh_post: %s\n" % e)
 ```
 
@@ -294,13 +294,13 @@ Set work items for test suite
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import test_suites_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import test_suites_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -316,7 +316,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     id = "id_example" # str | Unique ID of the test suite
@@ -328,7 +328,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Set work items for test suite
         api_instance.api_v2_test_suites_id_work_items_post(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->api_v2_test_suites_id_work_items_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -336,7 +336,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Set work items for test suite
         api_instance.api_v2_test_suites_id_work_items_post(id, request_body=request_body)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->api_v2_test_suites_id_work_items_post: %s\n" % e)
 ```
 
@@ -382,15 +382,15 @@ Create test suite
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import test_suites_api
-from testit_api_client.model.api_v2_test_suites_post_request import ApiV2TestSuitesPostRequest
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_suite_v2_get_model import TestSuiteV2GetModel
+import testgear_api_client
+from testgear_api_client.api import test_suites_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.test_suite_v2_get_model import TestSuiteV2GetModel
+from testgear_api_client.model.api_v2_test_suites_post_request import ApiV2TestSuitesPostRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -406,7 +406,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     api_v2_test_suites_post_request = ApiV2TestSuitesPostRequest(None) # ApiV2TestSuitesPostRequest |  (optional)
@@ -417,7 +417,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Create test suite
         api_response = api_instance.api_v2_test_suites_post(api_v2_test_suites_post_request=api_v2_test_suites_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->api_v2_test_suites_post: %s\n" % e)
 ```
 
@@ -462,14 +462,14 @@ Edit test suite
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import test_suites_api
-from testit_api_client.model.api_v2_test_suites_put_request import ApiV2TestSuitesPutRequest
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import test_suites_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.api_v2_test_suites_put_request import ApiV2TestSuitesPutRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -485,7 +485,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     api_v2_test_suites_put_request = ApiV2TestSuitesPutRequest(None) # ApiV2TestSuitesPutRequest |  (optional)
@@ -495,7 +495,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Edit test suite
         api_instance.api_v2_test_suites_put(api_v2_test_suites_put_request=api_v2_test_suites_put_request)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->api_v2_test_suites_put: %s\n" % e)
 ```
 
@@ -542,13 +542,13 @@ Delete TestSuite
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import test_suites_api
-from testit_api_client.model.problem_details import ProblemDetails
+import testgear_api_client
+from testgear_api_client.api import test_suites_api
+from testgear_api_client.model.problem_details import ProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -564,7 +564,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test suite internal (guid format) identifier\"
@@ -573,7 +573,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Delete TestSuite
         api_instance.delete_test_suite(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->delete_test_suite: %s\n" % e)
 ```
 
@@ -622,14 +622,14 @@ Get Configurations By Id
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import test_suites_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.configuration_model import ConfigurationModel
+import testgear_api_client
+from testgear_api_client.api import test_suites_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.configuration_model import ConfigurationModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -645,7 +645,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test suite internal (guid format) identifier\"
@@ -655,7 +655,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get Configurations By Id
         api_response = api_instance.get_configurations_by_test_suite_id(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->get_configurations_by_test_suite_id: %s\n" % e)
 ```
 
@@ -704,14 +704,14 @@ Get TestPoints By Id
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import test_suites_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_point_by_test_suite_model import TestPointByTestSuiteModel
+import testgear_api_client
+from testgear_api_client.api import test_suites_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.test_point_by_test_suite_model import TestPointByTestSuiteModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -727,7 +727,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test suite internal (guid format) identifier\"
@@ -737,7 +737,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get TestPoints By Id
         api_response = api_instance.get_test_points_by_id(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->get_test_points_by_id: %s\n" % e)
 ```
 
@@ -786,14 +786,14 @@ Get TestResults By Id
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import test_suites_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_result_v2_short_model import TestResultV2ShortModel
+import testgear_api_client
+from testgear_api_client.api import test_suites_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.test_result_v2_short_model import TestResultV2ShortModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -809,7 +809,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test suite internal (guid format) identifier\"
@@ -819,7 +819,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get TestResults By Id
         api_response = api_instance.get_test_results_by_id(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->get_test_results_by_id: %s\n" % e)
 ```
 
@@ -868,14 +868,14 @@ Get TestSuite by Id
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import test_suites_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.test_suite_v2_get_model import TestSuiteV2GetModel
+import testgear_api_client
+from testgear_api_client.api import test_suites_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.test_suite_v2_get_model import TestSuiteV2GetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -891,7 +891,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test suite internal (guid format) identifier\"
@@ -901,7 +901,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get TestSuite by Id
         api_response = api_instance.get_test_suite_by_id(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->get_test_suite_by_id: %s\n" % e)
 ```
 
@@ -950,16 +950,16 @@ Search WorkItems
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import test_suites_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.search_work_items_request import SearchWorkItemsRequest
-from testit_api_client.model.work_item_short_model import WorkItemShortModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import test_suites_api
+from testgear_api_client.model.work_item_short_model import WorkItemShortModel
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.search_work_items_request import SearchWorkItemsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -975,7 +975,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test suite internal (guid format) identifier\"
@@ -991,7 +991,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search WorkItems
         api_response = api_instance.search_work_items(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->search_work_items: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1000,7 +1000,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search WorkItems
         api_response = api_instance.search_work_items(id, skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, search_work_items_request=search_work_items_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->search_work_items: %s\n" % e)
 ```
 
@@ -1056,14 +1056,14 @@ Set Configurations By TestSuite Id
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import test_suites_api
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
+import testgear_api_client
+from testgear_api_client.api import test_suites_api
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -1079,7 +1079,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = test_suites_api.TestSuitesApi(api_client)
     id = "3fa85f64-5717-4562-b3fc-2c963f66afa6" # str | Test suite internal (guid format) identifier\"
@@ -1091,7 +1091,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Set Configurations By TestSuite Id
         api_instance.set_configurations_by_test_suite_id(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->set_configurations_by_test_suite_id: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1099,7 +1099,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Set Configurations By TestSuite Id
         api_instance.set_configurations_by_test_suite_id(id, request_body=request_body)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling TestSuitesApi->set_configurations_by_test_suite_id: %s\n" % e)
 ```
 

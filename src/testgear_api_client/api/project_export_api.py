@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testgear_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,9 +21,9 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.export_project_json_request import ExportProjectJsonRequest
-from testit_api_client.model.export_project_with_test_plans_json_request import ExportProjectWithTestPlansJsonRequest
-from testit_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.export_project_json_request import ExportProjectJsonRequest
+from testgear_api_client.model.export_project_with_test_plans_json_request import ExportProjectWithTestPlansJsonRequest
+from testgear_api_client.model.problem_details import ProblemDetails
 
 
 class ProjectExportApi(object):

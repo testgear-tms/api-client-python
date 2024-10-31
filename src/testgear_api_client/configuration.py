@@ -15,7 +15,7 @@ import sys
 import urllib3
 
 from http import client as http_client
-from testit_api_client.exceptions import ApiValueError
+from testgear_api_client.exceptions import ApiValueError
 
 
 JSON_SCHEMA_VALIDATION_KEYWORDS = {
@@ -89,7 +89,7 @@ class Configuration(object):
 
     You can programmatically set the cookie:
 
-conf = testit_api_client.Configuration(
+conf = testgear_api_client.Configuration(
     api_key={'cookieAuth': 'abc123'}
     api_key_prefix={'cookieAuth': 'JSESSIONID'}
 )
@@ -152,7 +152,7 @@ conf = testit_api_client.Configuration(
         self.logger = {}
         """Logging Settings
         """
-        self.logger["package_logger"] = logging.getLogger("testit_api_client")
+        self.logger["package_logger"] = logging.getLogger("testgear_api_client")
         self.logger["urllib3_logger"] = logging.getLogger("urllib3")
         self.logger_format = '%(asctime)s %(levelname)s %(message)s'
         """Log format
@@ -186,6 +186,10 @@ conf = testit_api_client.Configuration(
         """
         self.assert_hostname = None
         """Set this to True/False to enable/disable SSL hostname verification.
+        """
+        self.tls_server_name = None
+        """SSL/TLS Server Name Indication (SNI)
+           Set this to the SNI value expected by the server.
         """
 
         self.connection_pool_maxsize = multiprocessing.cpu_count() * 5
@@ -409,7 +413,7 @@ conf = testit_api_client.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: v2.0\n"\
-               "SDK Package Version: 3.2.0".\
+               "SDK Package Version: 3.2.1".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):

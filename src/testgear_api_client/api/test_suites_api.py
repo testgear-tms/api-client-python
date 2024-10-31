@@ -11,8 +11,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.api_client import ApiClient, Endpoint as _Endpoint
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.api_client import ApiClient, Endpoint as _Endpoint
+from testgear_api_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -21,18 +21,18 @@ from testit_api_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from testit_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
-from testit_api_client.model.api_v2_test_suites_post_request import ApiV2TestSuitesPostRequest
-from testit_api_client.model.api_v2_test_suites_put_request import ApiV2TestSuitesPutRequest
-from testit_api_client.model.configuration_model import ConfigurationModel
-from testit_api_client.model.operation import Operation
-from testit_api_client.model.problem_details import ProblemDetails
-from testit_api_client.model.search_work_items_request import SearchWorkItemsRequest
-from testit_api_client.model.test_point_by_test_suite_model import TestPointByTestSuiteModel
-from testit_api_client.model.test_result_v2_short_model import TestResultV2ShortModel
-from testit_api_client.model.test_suite_v2_get_model import TestSuiteV2GetModel
-from testit_api_client.model.validation_problem_details import ValidationProblemDetails
-from testit_api_client.model.work_item_short_model import WorkItemShortModel
+from testgear_api_client.model.api_v2_projects_project_id_work_items_search_post_request import ApiV2ProjectsProjectIdWorkItemsSearchPostRequest
+from testgear_api_client.model.api_v2_test_suites_post_request import ApiV2TestSuitesPostRequest
+from testgear_api_client.model.api_v2_test_suites_put_request import ApiV2TestSuitesPutRequest
+from testgear_api_client.model.configuration_model import ConfigurationModel
+from testgear_api_client.model.operation import Operation
+from testgear_api_client.model.problem_details import ProblemDetails
+from testgear_api_client.model.search_work_items_request import SearchWorkItemsRequest
+from testgear_api_client.model.test_point_by_test_suite_model import TestPointByTestSuiteModel
+from testgear_api_client.model.test_result_v2_short_model import TestResultV2ShortModel
+from testgear_api_client.model.test_suite_v2_get_model import TestSuiteV2GetModel
+from testgear_api_client.model.validation_problem_details import ValidationProblemDetails
+from testgear_api_client.model.work_item_short_model import WorkItemShortModel
 
 
 class TestSuitesApi(object):

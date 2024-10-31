@@ -1,4 +1,4 @@
-# testit_api_client.BackgroundJobsApi
+# testgear_api_client.BackgroundJobsApi
 
 All URIs are relative to *http://localhost*
 
@@ -22,13 +22,13 @@ Method | HTTP request | Description
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import background_jobs_api
-from testit_api_client.model.background_job_get_model import BackgroundJobGetModel
+import testgear_api_client
+from testgear_api_client.api import background_jobs_api
+from testgear_api_client.model.background_job_get_model import BackgroundJobGetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -44,7 +44,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = background_jobs_api.BackgroundJobsApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -58,7 +58,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         api_response = api_instance.api_v2_background_jobs_get(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling BackgroundJobsApi->api_v2_background_jobs_get: %s\n" % e)
 ```
 
@@ -106,12 +106,12 @@ Cancel current user background job
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import background_jobs_api
+import testgear_api_client
+from testgear_api_client.api import background_jobs_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -127,7 +127,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = background_jobs_api.BackgroundJobsApi(api_client)
     id = "id_example" # str | 
@@ -136,7 +136,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
     try:
         # Cancel current user background job
         api_instance.api_v2_background_jobs_id_cancel_post(id)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling BackgroundJobsApi->api_v2_background_jobs_id_cancel_post: %s\n" % e)
 ```
 
@@ -180,13 +180,13 @@ Get background job by ID
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import background_jobs_api
-from testit_api_client.model.background_job_get_model import BackgroundJobGetModel
+import testgear_api_client
+from testgear_api_client.api import background_jobs_api
+from testgear_api_client.model.background_job_get_model import BackgroundJobGetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -202,7 +202,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = background_jobs_api.BackgroundJobsApi(api_client)
     id = "id_example" # str | Unique ID of the background job
@@ -212,7 +212,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get background job by ID
         api_response = api_instance.api_v2_background_jobs_id_get(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling BackgroundJobsApi->api_v2_background_jobs_id_get: %s\n" % e)
 ```
 
@@ -256,13 +256,13 @@ Get background job status by job ID
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import background_jobs_api
-from testit_api_client.model.background_job_state import BackgroundJobState
+import testgear_api_client
+from testgear_api_client.api import background_jobs_api
+from testgear_api_client.model.background_job_state import BackgroundJobState
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -278,7 +278,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = background_jobs_api.BackgroundJobsApi(api_client)
     id = "id_example" # str | Unique ID of the background job
@@ -288,7 +288,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Get background job status by job ID
         api_response = api_instance.api_v2_background_jobs_id_status_get(id)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling BackgroundJobsApi->api_v2_background_jobs_id_status_get: %s\n" % e)
 ```
 
@@ -332,14 +332,14 @@ Search for user background jobs
 
 ```python
 import time
-import testit_api_client
-from testit_api_client.api import background_jobs_api
-from testit_api_client.model.background_job_get_model import BackgroundJobGetModel
-from testit_api_client.model.api_v2_background_jobs_search_post_request import ApiV2BackgroundJobsSearchPostRequest
+import testgear_api_client
+from testgear_api_client.api import background_jobs_api
+from testgear_api_client.model.api_v2_background_jobs_search_post_request import ApiV2BackgroundJobsSearchPostRequest
+from testgear_api_client.model.background_job_get_model import BackgroundJobGetModel
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = testit_api_client.Configuration(
+configuration = testgear_api_client.Configuration(
     host = "http://localhost"
 )
 
@@ -355,7 +355,7 @@ configuration.api_key['Bearer or PrivateToken'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['Bearer or PrivateToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with testit_api_client.ApiClient(configuration) as api_client:
+with testgear_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = background_jobs_api.BackgroundJobsApi(api_client)
     skip = 1 # int | Amount of items to be skipped (offset) (optional)
@@ -371,7 +371,7 @@ with testit_api_client.ApiClient(configuration) as api_client:
         # Search for user background jobs
         api_response = api_instance.api_v2_background_jobs_search_post(skip=skip, take=take, order_by=order_by, search_field=search_field, search_value=search_value, api_v2_background_jobs_search_post_request=api_v2_background_jobs_search_post_request)
         pprint(api_response)
-    except testit_api_client.ApiException as e:
+    except testgear_api_client.ApiException as e:
         print("Exception when calling BackgroundJobsApi->api_v2_background_jobs_search_post: %s\n" % e)
 ```
 

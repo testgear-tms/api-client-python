@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "testgear-api-client"
-VERSION = "3.2.0"
+VERSION = "3.2.1"
 REQUIRES = [
   "urllib3 >= 1.25.3",
   "python-dateutil",

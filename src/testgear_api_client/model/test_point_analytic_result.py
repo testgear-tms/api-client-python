@@ -11,7 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from testit_api_client.model_utils import (  # noqa: F401
+from testgear_api_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -26,14 +26,14 @@ from testit_api_client.model_utils import (  # noqa: F401
     validate_get_composed_info,
     OpenApiModel
 )
-from testit_api_client.exceptions import ApiAttributeError
+from testgear_api_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from testit_api_client.model.test_plan_group_by_status import TestPlanGroupByStatus
-    from testit_api_client.model.test_plan_group_by_test_suite import TestPlanGroupByTestSuite
-    from testit_api_client.model.test_plan_group_by_tester import TestPlanGroupByTester
-    from testit_api_client.model.test_plan_group_by_tester_and_status import TestPlanGroupByTesterAndStatus
+    from testgear_api_client.model.test_plan_group_by_status import TestPlanGroupByStatus
+    from testgear_api_client.model.test_plan_group_by_test_suite import TestPlanGroupByTestSuite
+    from testgear_api_client.model.test_plan_group_by_tester import TestPlanGroupByTester
+    from testgear_api_client.model.test_plan_group_by_tester_and_status import TestPlanGroupByTesterAndStatus
     globals()['TestPlanGroupByStatus'] = TestPlanGroupByStatus
     globals()['TestPlanGroupByTestSuite'] = TestPlanGroupByTestSuite
     globals()['TestPlanGroupByTester'] = TestPlanGroupByTester
